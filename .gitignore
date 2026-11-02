@@ -1,0 +1,28 @@
+# 舊官網 sitemap（domain migration 工作參考用，不要部署到網站根目錄
+# 免得 Google 爬到一份全是舊網址的 sitemap）
+sitemap/
+
+# ── 內部文件與素材：一律不放這個資料夾 ──
+# 這個資料夾的內容會整包部署成公開網站，任何放進來的檔案都能被外部直接下載。
+# 2026-07-28 實測發現 進度.md／BRAND.md／品牌形象企劃書.md／14.LOGO/ 都已公開可讀，
+# 已改放到同層的 ../hunglun2026-內部資料/（仍受 ClaudeOnly repo 備份與跨電腦同步）。
+# 以下規則是防呆，避免日後又被誤放回來。
+進度.md
+學習筆記.md
+BRAND.md
+品牌形象企劃書.md
+14.LOGO/
+wix-import/
+design-demos/
+
+# wrangler 本機開發快取（跑 wrangler pages dev 產生，不要部署）
+.wrangler/
+
+# gemini-auto 問答紀錄（跑 gemini 指令時自動寫入 <日期>/<階段>/gemini-log.md），
+# 內部工作筆記不是網站內容，別讓它被整包部署成公開網站的一部分。
+[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
+
+# 2026-08 重新生成的服務示意圖，待 Steve 與老闆確認後才替換上線。
+# 不進官網 repo（未被引用、白佔部署空間），但 ClaudeOnly 備份會 git add -f 強制帶走。
+assets/images/_new-2026-08/
+assets/images/_old/

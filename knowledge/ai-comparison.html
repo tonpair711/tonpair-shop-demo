@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較｜鴻綸科技</title>
+<meta name="description" content="Claude、ChatGPT、Gemini 三個 AI 助手在校園情境該怎麼選：各自的強項、跟 Google Workspace 整合深淺、資安條款差異，以及 Google AI Pro for Education 加贈 Gemini Notebook 的實際教學用途。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/ai-comparison">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較｜鴻綸科技">
+<meta property="og:description" content="三個 AI 助手校園情境比較：各自強項、Google Workspace 整合深淺、資安條款差異。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/ai-comparison">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-ai-comparison.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較｜鴻綸科技">
+<meta name="twitter:description" content="三個 AI 助手校園情境比較：各自強項、Google Workspace 整合深淺、資安條款差異。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-ai-comparison.png?v=5">
+<meta name="twitter:image:alt" content="學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google 與 AI 導入", "item": "https://www.hunglun.com/knowledge/topic/google-ai" },
+    { "@type": "ListItem", "position": 4, "name": "AI 助手怎麼選", "item": "https://www.hunglun.com/knowledge/ai-comparison" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-12",
+  "mainEntity": [
+    { "@type": "Question", "name": "學校已經有免費的 Google Workspace for Education，Gemini 是不是就能直接用？", "acceptedAnswer": { "@type": "Answer", "text": "免費的 Education Fundamentals 帳號已內含基本版 Gemini，日常問答夠用。但要用到最新進階模型、在 Docs／Gmail 等應用裡直接叫出 AI 寫作、更高的每日額度，以及 Gemini Notebook 的完整配額，就需要升級 Google AI Pro for Education 授權。" } },
+    { "@type": "Question", "name": "老師和學生在 Gemini 輸入的教案、段考題目會不會被拿去訓練 AI？", "acceptedAnswer": { "@type": "Answer", "text": "使用學校配發的教育網域帳號時不會。這受 Google Workspace for Education 服務條款保障，教育版等級提交的內容明確不會用於訓練 Google 的底層模型；換成個人 Gmail 或消費者版帳號則不受此保障，需另外確認資料使用政策。" } },
+    { "@type": "Question", "name": "老師可以先用個人付費帳號試用，跟學校統一採購的教育版體驗一樣嗎？", "acceptedAnswer": { "@type": "Answer", "text": "模型能力接近，但整合體驗不同：個人帳號無法讀取學校網域的共用雲端硬碟與 Classroom 課程，也不受管理主控台的統一控管。要評估全校導入效果，建議直接申請學校測試帳號。" } },
+    { "@type": "Question", "name": "採購 Google AI Pro for Education 之後，Gemini Notebook 要另外開通或付費嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不用。Gemini Notebook（原 NotebookLM，2026 年 7 月更名）已包含在 Google AI Pro for Education 授權內，管理員在管理主控台指派授權後，老師直接用學校帳號登入即可拿到較高的來源上傳與語音摘要額度，實際數字以官方當下公告為準。" } },
+    { "@type": "Question", "name": "Claude 或 ChatGPT 是不是比較不適合學校用？", "acceptedAnswer": { "@type": "Answer", "text": "不是能力問題，是整合與管理問題。Claude 在長文潤飾、論述邏輯上表現細膩，ChatGPT 有豐富的外掛與客製化生態，兩者對個人研究、寫作、程式協作都很好用；差別在於學校要導入全校協作、帳號統一管理、資安合規時，沒有現成的教育版管理後台與跟 Workspace 的深度整合，行政成本會比較高。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較",
+  "description": "Claude、ChatGPT、Gemini 三個 AI 助手在校園情境該怎麼選：各自的強項、跟 Google Workspace 整合深淺、資安條款差異，以及 Google AI Pro for Education 加贈 Gemini Notebook 的實際教學用途。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-09-10",
+  "dateModified": "2026-09-12",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/ai-comparison"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ AI 助手怎麼選</nav>
+    <h1>學校 AI 助手怎麼選？Claude、ChatGPT、Gemini 比較</h1>
+    <p>不比誰的模型跑分高，比誰真的能省下學校的行政與備課時間。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-12">2026 年 9 月 12 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/gemini">下一篇：Gemini 方案懶人包 →</a>
+  </nav>
+</div>
+
+<section class="section" style="padding-top:24px;">
+  <div class="wrap prose" style="max-width:920px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學校 AI 助手怎麼選？</strong>老師個人寫作可選 Claude，愛客製可選 ChatGPT；要全校在既有 Google 帳號下導入並由管理員統一管理，Gemini 與 Workspace 整合，是較省事的選擇。</li>
+        <li><strong>教育版輸入的內容會被拿去訓練 AI 嗎？</strong>使用學校配發的教育網域帳號不會，受 Workspace for Education 服務條款保障；個人 Gmail 或消費者版帳號則不受此保障。</li>
+        <li><strong>學校有免費 Workspace，就能用 Gemini 嗎？</strong>Education Fundamentals 已內含基本版 Gemini。要用最新進階模型、更高額度與完整 Gemini Notebook 配額，需升級 Google AI Pro for Education。</li>
+        <li><strong>Gemini Notebook 要另外付費嗎？</strong>不用，已包含在 Google AI Pro for Education 授權內，管理員指派授權後，老師用學校帳號登入即可。</li>
+      </ul>
+    </div>
+
+    <p>老師在 ChatGPT 生完一份文案，複製到 Word 排版，再存成 PDF 上傳到 Google Drive，最後貼到 Classroom 發布，這中間光是複製貼上就耗掉不少時間。個人想試玩新工具，選哪個都可以；但學校要導入到全校教職員，牽涉的是帳號管理、資安合規與長期維護成本，評估標準就不再是「哪個模型比較聰明」。</p>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">三個 AI 助手，三種定位</h2>
+    <p>與其比基準測試分數，不如看校園裡三種常見的實際情境，各自哪個做得比較順手。</p>
+    <ul class="feature-list">
+      <li><strong>Claude：長文寫作與細緻語感</strong>。在句意邏輯、長文脈絡掌握與文字自然度上表現細膩，適合校長致詞稿、研究計畫書潤飾、複雜公文的邏輯梳理，這類需要「文筆」而不只是「產出」的工作。</li>
+      <li><strong>ChatGPT：個人化探索與外掛生態</strong>。Custom GPTs 社群資源豐富，圖像生成與程式協作的彈性也大，適合喜歡自己摸索、客製化 Prompt 或串接外部工具的老師。</li>
+      <li><strong>Gemini：跟既有工作流程直接整合</strong>。多數學校本來就用 Google Workspace，Gemini 直接內建在 Docs、Drive、Gmail、Classroom 裡，不必切換分頁貼上貼下，加上教育版有統一的帳號管理與資安條款，是全校導入時行政成本最低的選項。</li>
+    </ul>
+    <p>簡單說：老師個人想寫一篇動人的文章，Claude 很好用；喜歡自己兜工具、玩客製化，ChatGPT 選擇多；但要讓全校教職員在既有的 Google 帳號底下就能用、資訊組長管得動、資料進出符合校園資安要求，Gemini 目前是比較務實的答案。</p>
+
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">評估項目</th><th scope="col">Claude</th><th scope="col">ChatGPT</th><th scope="col">Gemini／Google AI Pro for Education</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">核心強項</th><td>長文邏輯與文字語感</td><td>外掛生態與客製彈性</td><td>深度整合 Google Workspace</td></tr>
+          <tr><th scope="row">校園行政整合</th><td>需手動複製貼上</td><td>需手動複製貼上或另接 API</td><td>原生內建於 Docs、Drive、Gmail、Classroom</td></tr>
+          <tr><th scope="row">資料訓練政策（教育網域）</th><td>需另外確認方案條款</td><td>需另外確認方案條款</td><td>教育版明確不用於模型訓練</td></tr>
+          <tr><th scope="row">帳號與權限管理</th><td>需個別採購企業方案</td><td>需個別採購 Team／企業方案</td><td>學校既有管理主控台統一派發</td></tr>
+          <tr><th scope="row">研究與知識庫工具</th><td>需自行上傳長文本</td><td>依賴外部工具或 Custom GPTs</td><td>內含 Gemini Notebook，可指定文件回答並標出處</td></tr>
+          <tr><th scope="row">答案依據與查證</th><td>不會主動附連結查證</td><td>可開啟即時瀏覽查證，但預設關閉</td><td>可搭配 Google 搜尋即時查證，Notebook 模式只依上傳文件回答並標出處</td></tr>
+          <tr><th scope="row">較適合的情境</th><td>致詞稿、論文潤飾、深度論述</td><td>個人靈感發想、程式教學、多媒體生成</td><td>全校行政自動化、課堂備課、自主學習</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.92rem;color:var(--muted-faint);">各家產品功能與方案內容會持續調整，實際規格請以官方當下公告為準。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">Google AI Pro for Education 多送的那個東西：Gemini Notebook</h2>
+    <p>Google AI Pro for Education 除了 Gemini 應用程式本身升級到進階模型，還內含 <a href="/knowledge/gemini">Gemini Notebook</a>（原 NotebookLM，2026 年 7 月 16 日更名，功能相同）。它的特性是<strong>只根據你上傳的指定文件回答，並附出處標示</strong>，這跟一般聊天型 AI「憑訓練資料回答、偶爾瞎編」的模式不同，剛好補上校園情境最在意的「答案要有依據」。實際能用在：</p>
+    <ul class="feature-list">
+      <li><strong>校本題庫與課綱知識庫</strong>：教務處或領域召集人把歷年段考題與課綱指引上傳，請 AI 依指定文件生成新題目並標明出處，避免 AI 憑空編造題目或答案。</li>
+      <li><strong>專題與論文文獻整理</strong>：高中自主學習或大學專題生把數十篇 PDF 文獻丟進去，可以整理成文獻比較表，或生成附出處引註的語音摘要，加快閱讀效率。</li>
+      <li><strong>會議與研習紀錄收斂</strong>：上傳會議錄音檔、簡報與簽到表，整理出待辦事項與負責處室，省下行政人員手動彙整的時間。</li>
+    </ul>
+    <p>教育版方案的來源數量、每日問答與語音摘要次數，都比免費版高出好幾倍，實際上限請以管理主控台當下顯示為準，Google 會隨模型更新調整。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">另一個容易被忽略的優勢：答案有依據，不會憑空編</h2>
+    <p>校園場合最怕的不是 AI 答錯，而是<strong>答錯了還講得很有把握</strong>，這在教學現場叫「幻覺」：AI 編出一個聽起來合理、實際不存在的答案。三個工具都會發生這個問題，差別在有沒有機制讓答案「有出處可查」。</p>
+    <ul class="feature-list">
+      <li><strong>一般問答時</strong>：Gemini 可以直接搭配 Google 搜尋做即時查證，回答會附上參考連結，讓老師能自己點進去核對，不是全靠模型自己記得的內容硬答。</li>
+      <li><strong>指定文件回答時</strong>：上面提到的 Gemini Notebook 更進一步，直接把回答範圍鎖在你上傳的文件內，不會拿文件以外的內容湊答案，每句話也標出處於原文哪一段，這對段考題庫、課綱依據這類「答案一定要有根據」的用途<span class="nowrap">特別重要。</span></li>
+    </ul>
+    <p>這不代表 Gemini 完全不會出錯，而是它比較容易被「抓包」，老師與學生都能自己查證，而不是要全盤信任 AI 給的答案。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">給資訊組長的判斷原則</h2>
+    <ul class="feature-list">
+      <li><strong>個人用 vs. 全校導入是兩件事</strong>。老師個人想試玩，三個工具都值得用；但涉及全校協作、學生帳號管理、預算核銷與資安合規時，比較的重點就變成整體維護成本與跟現有系統的接軌程度。</li>
+      <li><strong>學校本來就在用 Google，就別讓 AI 變成第四套系統</strong>。多一套獨立的 AI 平台，代表多一組帳號、多一次複製貼上、多一個個資外流的管道。選擇跟既有帳號體系整合的工具，能省下的是長期、每天重複發生的行政時間。</li>
+      <li><strong>資安合規不是老師該自己判斷的事</strong>。個人免費或消費者付費帳號的資料使用政策，跟教育網域的條款不一定相同，這件事應該由學校統一確認，而不是讓每位老師各自猜測。</li>
+    </ul>
+    <p>想了解 Google AI Pro for Education 的方案內容與授權流程，可以看 <a href="/services/google-ai-pro">Google AI Pro for Education 授權導入</a>，或直接 <a href="/services/ai-pro-quote">索取校園授權報價</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>學校已經有免費的 Google Workspace for Education，Gemini 是不是就能直接用？</summary>
+      <div class="faq-a">免費的 Education Fundamentals 帳號已內含基本版 Gemini，日常問答夠用。但要用到最新進階模型、在 Docs／Gmail 等應用裡直接叫出 AI 寫作、更高的每日額度，以及 Gemini Notebook 的完整配額，就需要升級 Google AI Pro for Education 授權。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>老師和學生在 Gemini 輸入的教案、段考題目會不會被拿去訓練 AI？</summary>
+      <div class="faq-a">使用學校配發的教育網域帳號時不會。這受 Google Workspace for Education 服務條款保障，教育版等級提交的內容明確不會用於訓練 Google 的底層模型；換成個人 Gmail 或消費者版帳號則不受此保障，需另外確認資料使用政策。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>老師可以先用個人付費帳號試用，跟學校統一採購的教育版體驗一樣嗎？</summary>
+      <div class="faq-a">模型能力接近，但整合體驗不同：個人帳號無法讀取學校網域的共用雲端硬碟與 Classroom 課程，也不受管理主控台的統一控管。要評估全校導入效果，建議直接申請學校測試帳號。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>採購 Google AI Pro for Education 之後，Gemini Notebook 要另外開通或付費嗎？</summary>
+      <div class="faq-a">不用。Gemini Notebook（原 NotebookLM，2026 年 7 月更名）已包含在 Google AI Pro for Education 授權內，管理員在管理主控台指派授權後，老師直接用學校帳號登入即可拿到較高的來源上傳與語音摘要額度，實際數字以官方當下公告為準。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Claude 或 ChatGPT 是不是比較不適合學校用？</summary>
+      <div class="faq-a">不是能力問題，是整合與管理問題。Claude 在長文潤飾、論述邏輯上表現細膩，ChatGPT 有豐富的外掛與客製化生態，兩者對個人研究、寫作、程式協作都很好用；差別在於學校要導入全校協作、帳號統一管理、資安合規時，沒有現成的教育版管理後台與跟 Workspace 的深度整合，行政成本會比較高。</div>
+    </details>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/gemini">下一篇：Gemini 方案懶人包 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">更多 AI 與教育科技相關知識。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/gemini">
+        <div class="card-body"><h3>Gemini 方案懶人包</h3><p>Gemini AI 是什麼、教育版與企業版差異、方案價格。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/ai">
+        <div class="card-body"><h3>AI 入門百科</h3><p>什麼是 AI、生成式 AI、大型語言模型、AI 幻覺。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/ai-teaching">
+        <div class="card-body"><h3>AI 融入教學實務指南</h3><p>備課與評量怎麼用、學生使用規範怎麼分級、檢核清單。</p></div>
+      </a>
+      <a class="card reveal" href="/services/google-ai-pro">
+        <div class="card-body"><h3>Google AI Pro for Education 授權導入</h3><p>教育版怎麼申請、跟免費版差在哪、導入前該確認什麼。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">學校想評估導入哪個 AI 方案？</h2>
+    <p class="section-sub reveal">可以先聊聊目前的使用情境與卡點，再決定怎麼選最省事。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E5%AD%B8%E6%A0%A1%20AI%20%E5%8A%A9%E6%89%8B%E6%80%8E%E9%BA%BC%E9%81%B8%EF%BC%9FClaude%E3%80%81ChatGPT%E3%80%81Gemini%20%E6%AF%94%E8%BC%83%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速諮詢">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

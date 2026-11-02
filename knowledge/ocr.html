@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>OCR 是什麼？AI 文件辨識準確率與校園表單應用｜鴻綸科技</title>
+<meta name="description" content="OCR 是把圖片裡的文字認出來、變成可搜尋可編輯資料的技術。這篇說明 AI OCR 與傳統 OCR 差在哪、辨識準確率受什麼影響、表單怎麼設計才辨識得準、校園回條與表單的實際應用，以及導入前該確認的資料保存政策。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/ocr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCR 是什麼？AI 文件辨識準確率與校園應用｜鴻綸科技">
+<meta property="og:description" content="OCR 是什麼、AI OCR 與傳統 OCR 差在哪、辨識準確率受什麼影響，以及校園回條與表單的實際應用。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/ocr">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-ocr.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OCR 是什麼？AI 文件辨識完整說明｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OCR 是什麼？AI 文件辨識準確率與校園應用｜鴻綸科技">
+<meta name="twitter:description" content="OCR 是什麼、AI OCR 與傳統 OCR 差在哪、辨識準確率受什麼影響，以及校園回條與表單的實際應用。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-ocr.png?v=5">
+<meta name="twitter:image:alt" content="OCR 是什麼？AI 文件辨識完整說明｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "數位學習軟體與網站", "item": "https://www.hunglun.com/knowledge/topic/web" },
+    { "@type": "ListItem", "position": 4, "name": "AI OCR 辨識解析", "item": "https://www.hunglun.com/knowledge/ocr" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-18",
+  "mainEntity": [
+    { "@type": "Question", "name": "OCR 是什麼？跟一般掃描有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "OCR（Optical Character Recognition，光學文字辨識）是把圖片或掃描檔裡的文字轉換成電腦可讀取、可編輯文字的技術。傳統掃描只是把紙本變成一張圖片檔案，文字內容仍是「圖像」；OCR則進一步把圖片中的文字「認出來」，變成可以搜尋、複製、匯出成 Excel 等結構化資料的內容。" } },
+    { "@type": "Question", "name": "AI OCR 跟傳統 OCR 差在哪？", "acceptedAnswer": { "@type": "Answer", "text": "傳統 OCR 引擎多半依賴固定的字型比對規則，遇到手寫字、歪斜表格、複雜版面容易辨識錯誤；AI OCR（結合生成式 AI 視覺模型，如 Gemini 的多模態能力）能理解「版面情境」，即使是手寫勾選、不規則排版的表單，也能較準確判讀出對應欄位的內容，大幅降低人工校對的工作量。鴻綸科技的學生回條辨識系統即是採用 AI OCR，能一次辨識整班多份回條的班級、座號、姓名與勾選結果。" } },
+    { "@type": "Question", "name": "OCR 辨識準確率大概是多少？會不會辨識錯誤？", "acceptedAnswer": { "@type": "Answer", "text": "準確率會因原始文件品質（拍照角度、光線、紙張皺褶）、字跡工整度（印刷體 vs 潦草手寫）與欄位設計複雜度而有差異，市面上沒有廠商能保證100%準確。實務上建議系統要有「人工複核」機制。AI先辨識出結果，再由使用者快速檢視、修正明顯錯誤的欄位，而不是完全信任機器全自動處理，尤其是涉及成績、個資等重要資料時更要複核。" } },
+    { "@type": "Question", "name": "校園哪些情況適合用 OCR 自動化？", "acceptedAnswer": { "@type": "Answer", "text": "常見場景包括：家長同意書/回條批次辨識與統計、學生名單比對、成果報告照片自動排版、紙本問卷數位化、舊有紙本檔案電子化建檔等。這類工作原本靠人工一份份輸入 Excel，耗時又容易看錯，改用 OCR 自動化後可以把數小時的登打工作縮短到幾分鐘，是校園行政最容易看到效益的 AI 應用之一。" } },
+    { "@type": "Question", "name": "用 OCR 處理學生資料，隱私安全嗎？", "acceptedAnswer": { "@type": "Answer", "text": "這要看系統的資料處理架構：如果照片上傳到廠商自己的伺服器長期保存，就有資料外洩或濫用的風險；比較安全的作法是「處理完即丟」，辨識完成後不留存原始影像。鴻綸科技的學生回條辨識系統即是以瀏覽器前端處理為主，辨識結果匯出成使用者自己的 Excel 檔案，網站本身不建立學生資料庫、不留存回條影像，這在導入校園工具時是值得優先確認的資安條件。" } },
+    { "@type": "Question", "name": "學校/機構想導入 OCR 自動化工具，該怎麼評估廠商？", "acceptedAnswer": { "@type": "Answer", "text": "建議確認：1）辨識準確率與是否支援人工複核修正；2）資料保存政策（是否留存原始影像、多久刪除）；3）是否支援貴單位實際的表單版面（每校回條格式常常不同，需要客製欄位辨識）；4）匯出格式是否符合現有作業流程（如 Excel、與校務系統整合）。鴻綸科技可依實際表單樣式客製開發 OCR 辨識邏輯，不是套用固定模板，能貼合各校既有的回條格式。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OCR 是什麼？AI 文件辨識準確率與校園表單應用",
+  "description": "AI OCR文件辨識知識：OCR是什麼、跟傳統掃描差在哪、辨識準確率怎麼提升、校園回條/表單辨識常見應用與注意事項。鴻綸科技整理的AI文件辨識知識。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-07-27",
+  "dateModified": "2026-08-18",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/ocr"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/web">數位學習軟體與網站</a> ／ AI OCR 辨識解析</nav>
+    <h1>OCR 是什麼？AI 文件辨識完整說明</h1>
+    <p>原理、準確率、資料安全與校園導入評估重點。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-08-18">2026 年 8 月 18 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/ai">下一篇：AI 入門百科 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>OCR 是什麼？</strong>全名是光學文字辨識，把圖片裡的文字認出來，變成電腦可以搜尋與編輯的資料。掃描只是把紙變成一張圖，圖上的字對電腦來說仍然只是像素。</li>
+        <li><strong>AI OCR 和傳統 OCR 差在哪？</strong>AI OCR 不只認字，還看得懂版面，例如哪一格是班級、哪個框被打勾。這類位置與意義的對應，是傳統 OCR 最容易錯的地方。</li>
+        <li><strong>辨識準確率有保證嗎？</strong>沒有廠商能保證 100%。影像品質、字跡型態、版面複雜度都會影響結果，所以該問的是錯了怎麼被發現，系統有沒有讓人快速複核與修正的畫面。</li>
+        <li><strong>用 OCR 處理學生資料，導入前要先問什麼？</strong>影像存在哪裡、留多久。處理完就丟、不建立資料庫，與上傳到廠商伺服器長期保存，是兩種完全不同的風險。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal">OCR 是什麼</h2>
+    <p><strong>OCR（Optical Character Recognition，光學文字辨識）是把圖片裡的文字認出來、變成電腦可以搜尋與編輯的資料</strong>。掃描只是把紙變成一張圖，圖上的字對電腦來說仍然只是像素；OCR 多做的那一步，是判讀出那些像素代表哪些字，讓內容可以複製、搜尋、匯進 Excel。</p>
+    <p>近幾年的 AI OCR 又多了一層：不只認字，還看得懂版面。哪一格是班級、哪一個框被打勾、簽名欄有沒有簽，這些「位置與意義的對應」是傳統 OCR 最容易錯、也最花人工校對的地方。</p>
+
+    <h2 class="section-title reveal">辨識準確率被什麼影響</h2>
+    <p>準確率不是單一數字，是四個變因的乘積，其中三個掌握在送件的人手上：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>影像品質</strong>：拍歪、反光、紙張皺摺、解析度太低，比字跡潦草更常造成錯誤。用掃描器或讓紙張平放正拍，準確率立刻不一樣。</li>
+      <li><strong>字跡型態</strong>：印刷體最穩，工整手寫次之，連筆草寫最難。純勾選的表單通常比要辨識姓名的表單準得多。</li>
+      <li><strong>版面複雜度</strong>：欄位有框線、間距夠、不同欄位不要黏在一起，辨識結果就穩定。</li>
+      <li><strong>模型與後處理</strong>：例如班級只能是既有班級、座號只能是 1–40，用這種規則去校驗辨識結果，可以攔掉大部分明顯錯誤。</li>
+    </ul>
+    <p>沒有廠商能保證 100%，所以真正該問的不是準確率幾趴，而是<strong>錯了怎麼被發現</strong>，系統有沒有讓人快速複核與修正的畫面。</p>
+
+    <h2 class="section-title reveal">表單這樣設計，辨識會準很多</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li>勾選格畫成獨立方框，不要用「請圈選」，圈的範圍每個人都不一樣。</li>
+      <li>班級、座號、姓名分開成三個獨立欄位，不要合成一行讓人自由填寫。</li>
+      <li>需要統計的欄位放在固定位置，不要因年級不同而換位置。</li>
+      <li>底色不要用深色或網點，字與底的對比越高越好。</li>
+      <li>回收後不要對摺再壓平，摺痕正好穿過欄位是最常見的辨識失敗原因。</li>
+    </ul>
+    <p>這幾件事不花錢，卻比換更貴的辨識服務有效。大部分辨識錯誤是在紙本階段就決定的。</p>
+
+    <h2 class="section-title reveal">校園最常見的四種用法</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>回條與同意書統計</strong>：整班一次拍，直接產出誰交了、勾了什麼的統計表。</li>
+      <li><strong>紙本問卷數位化</strong>：把問卷結果匯成試算表再做分析，省掉一份份登打。</li>
+      <li><strong>名單比對</strong>：紙本名單與校務系統名單對照，找出漏報與重複。</li>
+      <li><strong>舊檔案建檔</strong>：把歷年紙本資料轉成可搜尋的檔案，之後找資料不必翻櫃子。</li>
+    </ul>
+    <p>可以先拿一項業務試跑，確認在貴校真的省得下時間再擴大。這類工具的成效差異多半來自流程搭不搭，不是技術強弱。</p>
+
+    <h2 class="section-title reveal">導入前一定要問的一件事</h2>
+    <p><strong>影像存在哪裡、留多久</strong>。回條上有學生姓名、班級與家長簽名，屬於個人資料。處理完就丟、不建立資料庫，跟上傳到廠商伺服器長期保存，是兩種完全不同的風險。相關法規責任見<a href="/knowledge/privacy">個資法與校安須知</a>。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>OCR 是什麼？跟一般掃描有什麼不同？</summary>
+      <div class="faq-a">OCR（Optical Character Recognition，光學文字辨識）是把圖片或掃描檔裡的文字轉換成電腦可讀取、可編輯文字的技術。傳統掃描只是把紙本變成一張圖片檔案，文字內容仍是「圖像」；OCR則進一步把圖片中的文字「認出來」，變成可以搜尋、複製、匯出成 Excel 等結構化資料的內容。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>AI OCR 跟傳統 OCR 差在哪？</summary>
+      <div class="faq-a">傳統 OCR 引擎多半依賴固定的字型比對規則，遇到手寫字、歪斜表格、複雜版面容易辨識錯誤；AI OCR（結合生成式 AI 視覺模型，如 Gemini 的多模態能力）能理解「版面情境」，即使是手寫勾選、不規則排版的表單，也能較準確判讀出對應欄位的內容，大幅降低人工校對的工作量。鴻綸科技的學生回條辨識系統即是採用 AI OCR，能一次辨識整班多份回條的班級、座號、姓名與勾選結果。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>OCR 辨識準確率大概是多少？會不會辨識錯誤？</summary>
+      <div class="faq-a">準確率會因原始文件品質（拍照角度、光線、紙張皺褶）、字跡工整度（印刷體 vs 潦草手寫）與欄位設計複雜度而有差異，市面上沒有廠商能保證100%準確。實務上建議系統要有「人工複核」機制。AI先辨識出結果，再由使用者快速檢視、修正明顯錯誤的欄位，而不是完全信任機器全自動處理，尤其是涉及成績、個資等重要資料時更要複核。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>校園哪些情況適合用 OCR 自動化？</summary>
+      <div class="faq-a">常見場景包括：家長同意書/回條批次辨識與統計、學生名單比對、成果報告照片自動排版、紙本問卷數位化、舊有紙本檔案電子化建檔等。這類工作原本靠人工一份份輸入 Excel，耗時又容易看錯，改用 OCR 自動化後可以把數小時的登打工作縮短到幾分鐘，是校園行政最容易看到效益的 AI 應用之一。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>用 OCR 處理學生資料，隱私安全嗎？</summary>
+      <div class="faq-a">這要看系統的資料處理架構：如果照片上傳到廠商自己的伺服器長期保存，就有資料外洩或濫用的風險；比較安全的作法是「處理完即丟」，辨識完成後不留存原始影像。鴻綸科技的學生回條辨識系統即是以瀏覽器前端處理為主，辨識結果匯出成使用者自己的 Excel 檔案，網站本身不建立學生資料庫、不留存回條影像，這在導入校園工具時是值得優先確認的資安條件。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校/機構想導入 OCR 自動化工具，該怎麼評估廠商？</summary>
+      <div class="faq-a">建議確認：1）辨識準確率與是否支援人工複核修正；2）資料保存政策（是否留存原始影像、多久刪除）；3）是否支援貴單位實際的表單版面（每校回條格式常常不同，需要客製欄位辨識）；4）匯出格式是否符合現有作業流程（如 Excel、與校務系統整合）。鴻綸科技可依實際表單樣式客製開發 OCR 辨識邏輯，不是套用固定模板，能貼合各校既有的回條格式。</div>
+    </details>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/ai">下一篇：AI 入門百科 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">更多 AI 應用與校園自動化知識。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/ai">
+        <div class="card-body"><h3>AI 入門百科</h3><p>什麼是 AI、生成式 AI、大型語言模型基礎入門。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/privacy">
+        <div class="card-body"><h3>個資法與校安須知</h3><p>校園導入AI工具前該知道的個資保護觀念。</p></div>
+      </a>
+      <a class="card reveal" href="https://lunslip.pages.dev/" target="_blank" rel="noopener">
+        <div class="card-body"><h3>學生回條 AI 辨識系統</h3><p>免費線上體驗鴻綸科技開發的 OCR 工具。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">想客製自己的 OCR 自動化工具？</h2>
+    <p class="section-sub reveal">把表單樣式給我們看，就能判斷這種辨識做不做得起來。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AOCR%20%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9FAI%20%E6%96%87%E4%BB%B6%E8%BE%A8%E8%AD%98%E5%AE%8C%E6%95%B4%E8%AA%AA%E6%98%8E%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

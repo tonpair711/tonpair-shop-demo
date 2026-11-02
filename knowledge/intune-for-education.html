@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Intune 是什麼？學校 MDM 跟 Google 管理主控台比較｜鴻綸科技</title>
+<meta name="description" content="Intune 是微軟的雲端裝置管理服務，學校用來集中管理 Windows 電腦與 iPad。整理 Intune 與 Intune for Education 的差別、能管哪些裝置、授權怎麼來、導入前要確認的事，以及 Chromebook 為什麼要用 Google 管理主控台。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/intune-for-education">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intune 是什麼？學校 MDM 跟 Google 管理主控台比較｜鴻綸科技">
+<meta property="og:description" content="Intune 是什麼、能管哪些學校裝置、跟 Google 管理主控台怎麼分工，依微軟官方文件整理。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/intune-for-education">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-intune-for-education.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Intune 是什麼？跟 Google 管理主控台差在哪｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Intune 是什麼？學校 MDM 跟 Google 管理主控台比較｜鴻綸科技">
+<meta name="twitter:description" content="Intune 是什麼、能管哪些學校裝置、跟 Google 管理主控台怎麼分工，依微軟官方文件整理。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-intune-for-education.png?v=5">
+<meta name="twitter:image:alt" content="Intune 是什麼？跟 Google 管理主控台差在哪｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://www.hunglun.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "教學專區",
+      "item": "https://www.hunglun.com/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "設備選型與採購",
+      "item": "https://www.hunglun.com/knowledge/topic/hardware"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Intune 是什麼",
+      "item": "https://www.hunglun.com/knowledge/intune-for-education"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-10-21",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Intune 是什麼？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Intune 是微軟的雲端裝置管理服務（MDM）。學校可以用它集中管理師生的電腦與平板、控制 App 與資料的存取方式，並檢查裝置是否符合資安要求。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Intune for Education 和 Intune 有什麼不同？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "兩者設定的是同一個 Intune 服務。Intune for Education 是精簡的管理介面，只提供適合中小學簡單情境的一部分政策與 App，支援 Windows 與 iPadOS；完整的 Intune 管理中心支援更多平台與設定。在一邊修改的設定會反映在另一邊。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Intune 可以管理 Chromebook 嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不行。微軟官方列出的支援平台是 Windows、iOS、iPadOS、macOS、Android 與 Linux，沒有 ChromeOS。Chromebook 要用 Google 管理主控台管理，並搭配 Chrome Education Upgrade（CEU）授權。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Intune 要另外付費嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不一定。微軟官方文件列出三種取得方式：單獨購買、包含在 Enterprise Mobility + Security、或包含在 Microsoft 365 教育方案。學校要先查現有授權是否已涵蓋，價格請洽微軟授權商。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "學校用 Intune 管理 iPad，要先準備什麼？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "要搭配 Apple School Manager 做自動裝置註冊，並準備 Apple MDM 憑證、Volume Purchase Program 權杖與自動註冊權杖。官方註明這三項每年都要更新，建議在行事曆設提醒。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Intune 是什麼？學校 MDM 跟 Google 管理主控台比較",
+  "description": "Intune 是微軟的雲端裝置管理服務，學校用來集中管理 Windows 電腦與 iPad。整理 Intune 與 Intune for Education 的差別、能管哪些裝置、授權怎麼來、導入前要確認的事，以及 Chromebook 為什麼要用 Google 管理主控台。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-intune-for-education.png",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/intune-for-education"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/hardware">設備選型與採購</a> ／ Intune 是什麼</nav>
+    <h1>Intune 是什麼？跟 Google 管理主控台差在哪</h1>
+    <p>很多資訊組在問 Intune，多半是學校有 Windows 筆電或 iPad，想像 Chromebook 在 Google 管理主控台那樣集中管理。這篇依微軟官方文件，說明 Intune 是什麼、Intune for Education 差在哪，以及學校該選哪一邊。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校資訊組長、負責採購或管理載具的主任，以及正在評估 Windows 筆電、iPad 或 Chromebook 怎麼納管的承辦人。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-10-21">2026 年 10 月 21 日</time></p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Intune 是什麼？</strong>微軟的雲端裝置管理服務（MDM），學校用它集中管理電腦與平板、控制 App 和資料的存取方式。</li>
+        <li><strong>Intune for Education 是另一個產品嗎？</strong>不是。它是同一個 Intune 服務的精簡管理介面，只提供適合中小學簡單情境的一部分政策與 App；在一邊改的設定，另一邊也會反映。</li>
+        <li><strong>能管 Chromebook 嗎？</strong>不能。微軟官方列出的平台是 Windows、iOS、iPadOS、macOS、Android、Linux，沒有 ChromeOS。Chromebook 要用 Google 管理主控台，搭配 Chrome Education Upgrade（CEU）。</li>
+        <li><strong>學校該用哪個？</strong>以 Chromebook 和 Google 帳號為主，用 Google 管理主控台就夠；以 Windows 筆電、iPad 和 Microsoft 帳號為主，才需要 Intune。兩種載具都有，就是兩個管理後台並行。</li>
+        </ul>
+    </div>
+
+    <h2>Intune 是什麼？</h2>
+    <p><strong>Intune 是微軟的雲端裝置管理服務，白話說就是學校的「載具管理後台」。</strong>微軟官方文件的說法是：Intune 是一組服務，用來簡化大量裝置的管理。學校可以用它做三件事：管理師生用的裝置和 App、控制資料怎麼被存取與分享、檢查裝置是否符合資安要求。</p>
+    <p>在 Google 的世界裡，對應的是 Google 管理主控台。兩者做的是同一類事，差別在管的裝置和帳號體系不同。</p>
+    <p>MDM 是 Mobile Device Management 的縮寫，意思是行動裝置管理：管理員從雲端替裝置統一安裝 App、套用規則，必要時遠端重置。</p>
+
+    <h2>Intune 和 Intune for Education 差在哪？</h2>
+    <p><strong>兩者設定的是同一個 Intune 服務，差在管理介面：Intune for Education 是精簡版。</strong>微軟官方稱它是 Intune 的「精選檢視」，只支援適合中小學簡單情境的一部分政策與 App。</p>
+    <div class="spec-table-wrap">
+    <table class="spec-table">
+      <thead><tr><th>項目</th><th>Intune 管理中心</th><th>Intune for Education</th></tr></thead>
+      <tbody><tr><td>定位</td><td>支援整個裝置生命週期，可管理所有支援平台的所有設定</td><td>精選檢視，同樣涵蓋從註冊到汰除，提供大量註冊與簡化的部署流程</td></tr><tr><td>支援裝置</td><td>Windows、Windows 11 SE、iOS、iPadOS、macOS、Android、Linux</td><td>Windows、Windows 11 SE、iPadOS</td></tr><tr><td>政策與 App</td><td>完整</td><td>只有適合中小學簡單情境的一部分</td></tr><tr><td>兩邊的關係</td><td>一邊修改的設定，會反映在另一邊</td><td>同左</td></tr></tbody>
+    </table>
+    </div>
+    <p>要注意：微軟的概覽頁把 Intune for Education 的適用範圍寫成 Windows 與 iOS/iPadOS，設定教學頁寫的是 Windows、Windows 11 SE 與 iPadOS，兩頁寫法略有出入。實際以你登入後看到的管理介面為準。</p>
+
+    <h2>Intune 要另外買嗎？</h2>
+    <p><strong>不一定，要看學校現有的授權。</strong>微軟官方文件列出三種取得方式：單獨購買、包含在 Enterprise Mobility + Security 裡，或包含在 Microsoft 365 教育方案裡。所以學校如果已經訂了 Microsoft 365 教育方案，先查授權內容，再決定要不要另外加購。價格與方案內容請洽微軟授權商，本篇不列金額。</p>
+
+    <h2>學校導入前要先確認的四件事</h2>
+    <p>以下依微軟官方的學校部署教學整理：</p>
+    <ol class="feature-list">
+      <li><strong>授權與帳號</strong>：師生要有 Microsoft 帳號，且授權涵蓋 Intune。這一步沒確認，後面都做不了。</li>
+      <li><strong>網路</strong>：官方要求 Intune 需要的網路端點，不能經過 SSL 檢查或任何形式的過濾。學校防火牆如果有做 SSL 解密或內容過濾，要先把這些端點排除，否則裝置可能連不上。</li>
+      <li><strong>註冊限制</strong>：可以在註冊限制裡封鎖個人裝置，避免老師或學生的私人手機被納入管理。</li>
+      <li><strong>iPad 的憑證與權杖</strong>：iPad 要搭配 Apple School Manager 做自動裝置註冊。Apple MDM 憑證、Volume Purchase Program 權杖、自動註冊權杖，官方都註明每年要更新，建議直接在行事曆設提醒。</li>
+    </ol>
+    <p>Windows 這邊，官方範例還有兩個常見設定：用 Windows Autopilot 搭配「註冊狀態頁」，讓裝置在必要 App 裝好之前不能使用；另外因為學生帳號通常沒開多重要素驗證，官方範例是先在整個租戶停用 Windows Hello for Business，再只對老師開啟。</p>
+
+    <h2>Chromebook 為什麼不歸 Intune 管？</h2>
+    <p><strong>因為 Intune 官方支援的平台清單裡沒有 ChromeOS。</strong>Chromebook 要用 Google 管理主控台管理，並搭配 Chrome Education Upgrade（簡稱 CEU，Chromebook 的載具管理授權）才能集中套用政策。詳細見 <a href="/knowledge/chromebook">Chromebook 是什麼、學校怎麼選</a>。</p>
+
+    <h2>學校該選 Intune 還是 Google 管理主控台？</h2>
+    <ul class="feature-list">
+      <li><strong>學生載具以 Chromebook 為主、帳號是 Google</strong>：用 Google 管理主控台就夠，不需要 Intune。</li>
+      <li><strong>學生載具以 Windows 筆電或 iPad 為主、帳號是 Microsoft</strong>：用 Intune，學校資訊組通常會從 Intune for Education 開始，不夠用再轉到完整的管理中心。</li>
+      <li><strong>兩種載具都有</strong>：會變成兩個後台、兩套帳號並行。建議先決定學校的主要帳號體系，再決定每一類載具怎麼納管，避免同一位老師有兩組帳密。</li>
+    </ul>
+    <p>鴻綸科技是 Google for Education 夥伴，Chromebook、CEU 與 Google 管理主控台這一側我們可以協助評估；Intune 屬於微軟產品，授權與設定細節請以微軟官方文件與你的授權商為準。</p>
+
+    <div class="kb-sources" style="margin-top:32px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);font-size:0.9rem;">
+      <p style="margin:0 0 6px;"><strong>資料來源與查證</strong>（最後查證：2026 年 10 月 21 日）</p>
+      <p style="margin:0;color:var(--muted);">Microsoft Learn〈What is Intune for Education?〉（2025 年 2 月發布，2026 年 10 月 7 日更新）、〈Set up device management〉（2026 年 7 月 1 日更新）。授權、支援平台與功能以微軟官方最新公告為準。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Intune 是什麼？</summary>
+      <div class="faq-a">Intune 是微軟的雲端裝置管理服務（MDM）。學校可以用它集中管理師生的電腦與平板、控制 App 與資料的存取方式，並檢查裝置是否符合資安要求。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Intune for Education 和 Intune 有什麼不同？</summary>
+      <div class="faq-a">兩者設定的是同一個 Intune 服務。Intune for Education 是精簡的管理介面，只提供適合中小學簡單情境的一部分政策與 App，支援 Windows 與 iPadOS；完整的 Intune 管理中心支援更多平台與設定。在一邊修改的設定會反映在另一邊。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Intune 可以管理 Chromebook 嗎？</summary>
+      <div class="faq-a">不行。微軟官方列出的支援平台是 Windows、iOS、iPadOS、macOS、Android 與 Linux，沒有 ChromeOS。Chromebook 要用 Google 管理主控台管理，並搭配 Chrome Education Upgrade（CEU）授權。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Intune 要另外付費嗎？</summary>
+      <div class="faq-a">不一定。微軟官方文件列出三種取得方式：單獨購買、包含在 Enterprise Mobility + Security、或包含在 Microsoft 365 教育方案。學校要先查現有授權是否已涵蓋，價格請洽微軟授權商。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校用 Intune 管理 iPad，要先準備什麼？</summary>
+      <div class="faq-a">要搭配 Apple School Manager 做自動裝置註冊，並準備 Apple MDM 憑證、Volume Purchase Program 權杖與自動註冊權杖。官方註明這三項每年都要更新，建議在行事曆設提醒。</div>
+    </details>
+
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的行政或教師群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《Intune 是什麼》，分享給大家參考：https://www.hunglun.com/knowledge/intune-for-education" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/chromebook">
+        <div class="card-body"><h3>Chromebook 是什麼？跟一般筆電差在哪</h3><p>Chromebook 的優缺點、適合情境與 CEU 載具管理授權。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台校園設定指南</h3><p>組織單位、群組與 Chrome 政策怎麼規劃。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/procurement">
+        <div class="card-body"><h3>學校資訊設備採購指南</h3><p>載具選型與共同供應契約的採購流程。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/two-step-verification">
+        <div class="card-body"><h3>學校怎麼強制開啟兩步驟驗證</h3><p>排除學生單位並避免鎖死的設定順序。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校同時有 Chromebook 和其他載具，不知道怎麼管？</h2>
+      <p>我們可以協助評估 Chromebook 與 Google 管理主控台這一側的設定與授權，也能和學校既有的載具管理方式一起規劃。</p>
+      <a class="btn btn-primary" href="/contact?topic=workspace">詢問載具管理規劃</a>
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

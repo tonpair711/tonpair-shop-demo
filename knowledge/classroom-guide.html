@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Google Classroom 教學：建課程、出作業、批改發還到成績單｜鴻綸科技</title>
+<meta name="description" content="Google Classroom 完整操作教學，用 2026 年 8 月的最新介面實際截圖：建立課程、學生加入、發公告、出作業、批改發還、成績單到學期末封存，八個步驟一次走完。打了分數學生看不到？因為還沒按發還。也說明課程代碼（邀請碼）怎麼看，以及課程怎麼封存與刪除。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/classroom-guide">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Classroom 教學：建課程到成績單八步驟｜鴻綸科技">
+<meta property="og:description" content="用 2026 年最新介面實際截圖，從建立課程一路教到批改發還與學期末封存。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/classroom-guide">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-guide.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="750">
+<meta property="og:image:alt" content="Google Classroom 教學：建課程到成績單，八個步驟走完一學期｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Classroom 教學：建課程到成績單八步驟｜鴻綸科技">
+<meta name="twitter:description" content="用 2026 年最新介面實際截圖，從建立課程一路教到批改發還與學期末封存。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-guide.png?v=5">
+<meta name="twitter:image:alt" content="Google Classroom 教學：建課程到成績單，八個步驟走完一學期｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<style>
+/* Classroom 教學專用。只有這一頁用得到，放頁內避免為單頁升全站 CSS 版號（沿用既有先例）。 */
+.cg-fig { margin: 24px 0; }
+.cg-fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); display: block; background: #fff; }
+.cg-fig figcaption { font-size: .82rem; color: var(--muted-faint); margin-top: 8px; line-height: 1.7; }
+.cg-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; padding: 0; list-style: none; }
+.cg-toc a { display: inline-block; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: .86rem; color: var(--muted); }
+.cg-toc a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.cg-steps { margin: 12px 0 0; padding-left: 1.4em; line-height: 2; }
+.cg-steps li { margin-bottom: 4px; }
+:target { scroll-margin-top: 120px; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google Classroom", "item": "https://www.hunglun.com/knowledge/topic/classroom" },
+    { "@type": "ListItem", "position": 4, "name": "Classroom 操作教學", "item": "https://www.hunglun.com/knowledge/classroom-guide" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "如何用 Google Classroom 從建立課程做到學期末結算",
+  "description": "以 2026 年 8 月的最新介面為準，從建立課程、學生加入、出作業、批改發還，到成績單與學期末封存的完整流程。",
+  "image": "https://www.hunglun.com/assets/images/classroom-guide-home.webp",
+  "totalTime": "PT30M",
+  "step": [
+    { "@type": "HowToStep", "position": 1, "name": "建立課程", "text": "按右上角的「＋」選「建立課程」，填課程名稱後按建立。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step1" },
+    { "@type": "HowToStep", "position": 2, "name": "把學生加進課程", "text": "用課程代碼、邀請連結或輸入信箱三種方式之一，讓學生加入課程。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step2" },
+    { "@type": "HowToStep", "position": 3, "name": "在訊息串發布公告", "text": "在訊息串按「新公告」向全班宣布事項，並視需要調整學生的留言權限。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step3" },
+    { "@type": "HowToStep", "position": 4, "name": "出第一份作業", "text": "在課堂作業分頁按「建立」選「作業」，填標題與說明，附上檔案或連結後按「出作業」。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step4" },
+    { "@type": "HowToStep", "position": 5, "name": "設定截止日、分數與評分量表", "text": "在作業右欄設定截止日期與分數，需要的話加上評分量表。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step5" },
+    { "@type": "HowToStep", "position": 6, "name": "批改、寫評語、發還", "text": "在「學生的作業」點開學生的繳交內容，打分數、寫私人評語，最後按「發還」讓學生看到成績。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step6" },
+    { "@type": "HowToStep", "position": 7, "name": "看成績單、設定成績計算", "text": "在「成績」分頁檢視全班成績，並在課程設定裡決定總成績的計算方式。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step7" },
+    { "@type": "HowToStep", "position": 8, "name": "學期末封存或複製課程", "text": "學期結束在課程卡片的三點選單選「封存」收起課程；新學期用「複製」把課程結構帶到新的一班。", "url": "https://www.hunglun.com/knowledge/classroom-guide#step8" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-11-02",
+  "mainEntity": [
+    { "@type": "Question", "name": "為什麼我只有「加入課程」，沒有「建立課程」？", "acceptedAnswer": { "@type": "Answer", "text": "右上角「＋」按下去只出現「加入課程」，通常是帳號身分的問題。學校（Workspace for Education）帳號要由管理員在管理主控台把您歸入「老師」群組才能開課；一般個人 Gmail 第一次建課程時要先同意教師資格聲明。如果您確定自己是老師卻建不了課，先找學校的網域管理員。" } },
+    { "@type": "Question", "name": "課程代碼（邀請碼）在哪裡？學生要怎麼加入？", "acceptedAnswer": { "@type": "Answer", "text": "課程代碼在「訊息串」左側的「課程代碼」區塊，也可以在課程設定裡找到，旁邊有放大顯示的按鈕，方便上課時投影給全班抄。學生在自己的 Classroom 按右上「＋」→「加入課程」，輸入代碼即可。嫌抄代碼麻煩，也可以複製「邀請連結」貼到班級群組，學生點開按「加入課程」就完成。" } },
+    { "@type": "Question", "name": "我打了分數，學生為什麼看不到？", "acceptedAnswer": { "@type": "Answer", "text": "因為分數還在「草稿」狀態。Classroom 的設計是：老師打的分數與評語先存成草稿，要按下「發還」，學生才會收到通知並看到成績。這樣老師可以整批改完、確認沒改錯，再一次發還全班。批改列表上分數旁邊標著小小的「草稿」兩個字，就代表學生還看不到。" } },
+    { "@type": "Question", "name": "「標示為完成」和「繳交」差在哪？", "acceptedAnswer": { "@type": "Answer", "text": "同一顆按鈕，字會依作業內容變化。作業有要交的檔案時，學生附上檔案後按鈕是「繳交」；作業不需要交檔案（例如「回家讀課本第三章」）時，按鈕顯示「標示為完成」，讓學生回報做完了。對老師端來說兩者都會變成「已繳交」狀態。" } },
+    { "@type": "Question", "name": "作業可以只出給部分學生嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。出作業畫面右欄的「出作業給」預設是所有學生，點開可以逐一勾選要指派的學生，適合補救教學或分組任務。同一個畫面也能一次把作業發布到您教的多門課程。" } },
+    { "@type": "Question", "name": "成績可以匯出成 Excel 或試算表嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。打開任一份作業的「學生的作業」頁，右上角齒輪選單裡有「將所有成績複製到 Google 試算表」與下載 CSV 的選項，前者會把整門課的成績匯出成一份試算表，之後在試算表裡加權、排名都行。" } },
+    { "@type": "Question", "name": "學期結束後，課程要刪掉嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不要刪，用「封存」。封存後課程移到左側導覽的「封存的課程」，老師與學生都還看得到內容，但學生不能再繳交，課程也不會出現在日常清單裡。日後要查成績、要複製課程結構開新學期的課，都還找得回來。刪除是不可逆的，而且要先封存才能刪。" } },
+    { "@type": "Question", "name": "怎麼刪除 Classroom 課程？刪掉還能救回來嗎？", "acceptedAnswer": { "@type": "Answer", "text": "先封存，再刪除。在首頁左側導覽打開「封存的課程」，找到要刪的課程卡片，按右上角三點選單選「刪除」，再確認一次。三件事要先知道：一，沒封存的課程看不到刪除選項；二，只有建立課程的主要老師能刪，共同授課老師不能；三，刪除無法復原，課程貼文與留言都看不到了，不過老師與學生仍可開啟課程 Drive 資料夾裡的檔案。只是想收起課程，封存就夠了，之後隨時能還原。" } },
+    { "@type": "Question", "name": "舊課程的作業，新學期可以拿來再用嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以，有兩條路。要整門課重開：在課程卡片右上的三點選單選「複製」，Classroom 會複製課程結構與課堂作業（草稿狀態），不會把學生與成績帶過去。只要搬個別作業：在新課程的「課堂作業」→「建立」→「重複使用訊息」，挑舊課程裡的那一份即可。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google Classroom 教學：建課程、出作業、批改發還到成績單",
+  "description": "Google Classroom 完整操作教學，以 2026 年 8 月最新介面實際截圖，涵蓋建立課程、學生加入、出作業、批改發還、成績單與學期末封存八個步驟。",
+  "image": "https://www.hunglun.com/assets/images/classroom-guide-home.webp",
+  "datePublished": "2026-08-23",
+  "dateModified": "2026-11-02",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": { "@id": "https://www.hunglun.com/#organization" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": { "@type": "ImageObject", "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png" },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.hunglun.com/knowledge/classroom-guide" },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/classroom">Google Classroom</a> ／ Classroom 操作教學</nav>
+    <h1>Google Classroom 教學：建課程到成績單，八個步驟走完一學期</h1>
+    <p>每一步都附最新介面的實際截圖：建立課程、學生加入、出作業、批改發還、成績單、學期末封存。要找登入網址，請看<a href="/knowledge/classroom">Google Classroom 登入網址與首頁</a>。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>使用或準備導入 Google Classroom 的老師、教學組長與資訊組長。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-11-02">2026 年 11 月 2 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Classroom 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/classroom-basics">← 上一篇：Classroom 是什麼？新手入門</a>
+    <span class="series-index">系列第 2／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/classroom-features">下一篇：進階功能 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>老師要怎麼從頭用 Google Classroom？</strong>照一學期的順序走八步驟：建立課程、學生加入、發布公告、出作業、截止日與評分、批改與發還、成績單、學期末封存。</li>
+        <li><strong>怎麼建立課程？</strong>按右上角「＋」選「建立課程」；五個欄位只有課程名稱必填，其餘選填。</li>
+        <li><strong>課程名稱怎麼取？</strong>建議寫「年班＋科目」，例如「三年甲班 自然」。一屆開一門新課，不要一門課用好幾年，學生與成績會混在一起。</li>
+        <li><strong>學生怎麼加入課程？</strong>「加入課程」是學生用的選項，學生輸入課程代碼即可；老師開課要選「建立課程」。</li>
+      </ul>
+    </div>
+    <p class="kb-src" style="margin:-14px 0 24px;font-size:0.85rem;color:var(--muted-faint);">官方資料來源：<a href="https://support.google.com/edu/classroom/answer/6020279" target="_blank" rel="noopener">Google Classroom 說明中心：關於 Classroom</a></p>
+
+    <h2 class="section-title reveal">這一篇會帶您做完哪些事</h2>
+    <p>這是給老師的 Google Classroom 完整操作教學：第一次接課要開班的老師可以從頭照做，用過舊版、被 2026 年的新介面弄糊塗的老師也可以直接跳到卡住的那一步。文章裡的每一張圖都來自 <strong>2026 年 8 月教育版帳號的實際操作</strong>，不是舊版介面的老截圖。</p>
+    <p>整個流程照一學期的順序排：</p>
+    <ul class="cg-toc reveal" aria-label="本文目錄">
+      <li><a href="#step1">① 建立課程</a></li>
+      <li><a href="#step2">② 學生加入</a></li>
+      <li><a href="#step3">③ 發布公告</a></li>
+      <li><a href="#step4">④ 出作業</a></li>
+      <li><a href="#step5">⑤ 截止日與評分</a></li>
+      <li><a href="#step6">⑥ 批改與發還</a></li>
+      <li><a href="#step7">⑦ 成績單</a></li>
+      <li><a href="#step8">⑧ 學期末封存</a></li>
+    </ul>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-home.webp"
+           srcset="/assets/images/classroom-guide-home-480.webp 480w, /assets/images/classroom-guide-home-768.webp 768w, /assets/images/classroom-guide-home.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="750" loading="lazy" decoding="async"
+           alt="Google Classroom 新版首頁的教師檢視：左側導覽有首頁、日曆、資源、Gemini、教授的課程與封存的課程，主畫面有最近截止、課程深入分析與焦點功能三個區塊">
+      <figcaption>2026 年新版首頁的教師檢視。左側導覽是各門課程的入口，主畫面集中顯示待批改與教學提醒。</figcaption>
+    </figure>
+    <p>登入 <a href="https://classroom.google.com/" target="_blank" rel="noopener">classroom.google.com</a> 之後看到的就是上面這個首頁。2026 年 7 月起首頁改版成依身分顯示的儀表板，課程移到了左側導覽，如果您是被這個畫面嚇到的，先看<a href="/knowledge/classroom-homepage">首頁改版說明</a>那一篇，再回來從步驟①開始。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step1">步驟①：建立課程</h2>
+    <p>按右上角的「<strong>＋</strong>」，會出現兩個選項：「加入課程」是學生用的，老師開課選「<strong>建立課程</strong>」。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-newcourse.webp"
+           srcset="/assets/images/classroom-guide-newcourse-480.webp 480w, /assets/images/classroom-guide-newcourse-768.webp 768w, /assets/images/classroom-guide-newcourse.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="412" loading="lazy" decoding="async"
+           alt="Classroom 右上角加號展開的選單，有「加入課程」與「建立課程」兩個選項">
+      <figcaption>右上角「＋」展開後的選單：老師選「建立課程」，學生輸入課程代碼用的是「加入課程」。</figcaption>
+    </figure>
+    <p>接著填課程資料。五個欄位只有「課程名稱」必填，其餘選填：</p>
+    <ol class="cg-steps reveal">
+      <li><strong>課程名稱</strong>：建議寫「年班＋科目」，例如「三年甲班 自然」。一屆開一門新課，不要一門課用好幾年，學生與成績會混在一起。</li>
+      <li><strong>單元</strong>：這學期的主題或進度，例如「光與影」。</li>
+      <li><strong>年級、科目、教室</strong>：純備註性質，方便自己辨認。</li>
+    </ol>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-create.webp"
+           srcset="/assets/images/classroom-guide-create-480.webp 480w, /assets/images/classroom-guide-create-768.webp 768w, /assets/images/classroom-guide-create.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="571" loading="lazy" decoding="async"
+           alt="建立課程對話框，五個欄位由上而下是課程名稱（必填）、單元、年級、科目、教室，已示範填入三年甲班自然">
+      <figcaption>建立課程只有課程名稱必填。示範填法：課程名稱寫年班加科目，單元寫這學期的主題。</figcaption>
+    </figure>
+    <p>按「建立」之後，Classroom 會自動幫這門課建立一個<strong>雲端硬碟資料夾</strong>（之後學生交的檔案都收在裡面）和一個<strong>課程日曆</strong>，不用自己另外開。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step2">步驟②：把學生加進課程</h2>
+    <p>課程建好後先到「<strong>成員</strong>」分頁看一眼：上半是老師（可以再邀請共同授課老師），下半是學生。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-people.webp"
+           srcset="/assets/images/classroom-guide-people-480.webp 480w, /assets/images/classroom-guide-people-768.webp 768w, /assets/images/classroom-guide-people.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="702" loading="lazy" decoding="async"
+           alt="課程的成員分頁，上方是老師區塊，下方是學生區塊，右側各有邀請按鈕，學生區為空並顯示邀請學生連結">
+      <figcaption>成員分頁。右側的邀請圖示可以用信箱逐一邀請；多數情況用課程代碼或邀請連結更快。</figcaption>
+    </figure>
+    <p>讓學生進來有三種方式，實務上最快的是前兩種：</p>
+    <ol class="cg-steps reveal">
+      <li><strong>課程代碼（也有人叫邀請碼）</strong>：在「訊息串」左側或課程設定裡。上課時投影出來，學生在自己的 Classroom 按「＋」→「加入課程」輸入即可。</li>
+      <li><strong>邀請連結</strong>：課程設定裡有「複製邀請連結」，貼到班級的通訊群組，學生點開按「加入課程」就完成。</li>
+      <li><strong>輸入信箱逐一邀請</strong>：在成員頁按學生區的邀請圖示，輸入學生信箱。人少或補加轉學生時用。</li>
+    </ol>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-studentjoin.webp"
+           srcset="/assets/images/classroom-guide-studentjoin-480.webp 480w, /assets/images/classroom-guide-studentjoin-768.webp 768w, /assets/images/classroom-guide-studentjoin.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="648" loading="lazy" decoding="async"
+           alt="學生端的加入課程確認畫面，顯示「你將以學生的身分加入課程」與加入課程按鈕">
+      <figcaption>學生點開邀請連結（或輸入課程代碼）後看到的確認畫面，按「加入課程」即完成。</figcaption>
+    </figure>
+    <p>要注意的是帳號網域：學校課程預設只讓<strong>同網域的學校帳號</strong>加入，學生用自己的個人 Gmail 會進不來。這個限制由管理員在管理主控台設定，詳見<a href="/knowledge/google-admin">Google 管理主控台設定指南</a>。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step3">步驟③：在訊息串發布公告</h2>
+    <p>「<strong>訊息串</strong>」是這門課的布告欄。按「新公告」可以向全班宣布事項、附檔案或連結；出了作業，訊息串也會自動出現一則通知。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-stream.webp"
+           srcset="/assets/images/classroom-guide-stream-480.webp 480w, /assets/images/classroom-guide-stream-768.webp 768w, /assets/images/classroom-guide-stream.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="702" loading="lazy" decoding="async"
+           alt="課程的訊息串分頁，左側有快速連結、Meet 產生連結與課程代碼區塊，中間是新公告輸入區與訊息串設定">
+      <figcaption>訊息串是課程布告欄。左側由上而下：快速連結、Meet 視訊連結、課程代碼，投影給學生抄的就是這裡。</figcaption>
+    </figure>
+    <p>兩個開學前值得順手設定的地方：</p>
+    <ul class="feature-list reveal" style="margin-top:16px;">
+      <li><strong>學生留言權限</strong>：「訊息串設定」裡可以選學生能不能張貼與留言。低年級或秩序還沒建立前，常見做法是先設成「只有老師可以張貼」。</li>
+      <li><strong>Meet 連結</strong>：左側的 Meet 區塊按「產生連結」，這門課就有固定的視訊會議室，遠距或混成上課直接用。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step4">步驟④：出第一份作業</h2>
+    <p>到「<strong>課堂作業</strong>」分頁按「<strong>建立</strong>」，會看到這些選項：</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-createmenu.webp"
+           srcset="/assets/images/classroom-guide-createmenu-480.webp 480w, /assets/images/classroom-guide-createmenu-768.webp 768w, /assets/images/classroom-guide-createmenu.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="702" loading="lazy" decoding="async"
+           alt="課堂作業分頁按下建立後展開的選單：作業、測驗作業、問題、資料、重複使用訊息、Gemini Notebook、Gem、主題">
+      <figcaption>「建立」選單。上半是傳統的作業類型，下半的 Gemini Notebook 與 Gem 是 2026 年新增的 AI 選項。</figcaption>
+    </figure>
+    <ul class="feature-list reveal" style="margin-top:16px;">
+      <li><strong>作業</strong>：最常用的一種，可以附檔案、可以評分。這一篇就用它示範。</li>
+      <li><strong>測驗作業</strong>：自動附一份 Google 表單測驗，教育版還能開「鎖定模式」防止作答時切換分頁。</li>
+      <li><strong>問題</strong>：單題的簡答或選擇，適合課堂即時提問。</li>
+      <li><strong>資料</strong>：只發教材不收作業、不評分。</li>
+      <li><strong>重複使用訊息</strong>：把以前課程的作業或公告搬過來。</li>
+      <li><strong>Gemini Notebook、Gem</strong>：2026 年新增的 AI 選項，前者依課程教材生成互動式研讀指南，後者建立這門課專屬的自訂 AI 助理。屬於進階功能，第一次開課可以先跳過。</li>
+      <li><strong>主題</strong>：不是作業，是分類夾。作業多起來之後用主題把課堂作業頁分成單元。</li>
+    </ul>
+    <p>選「作業」之後進到編輯畫面：</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-assignment.webp"
+           srcset="/assets/images/classroom-guide-assignment-480.webp 480w, /assets/images/classroom-guide-assignment-768.webp 768w, /assets/images/classroom-guide-assignment.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="571" loading="lazy" decoding="async"
+           alt="作業編輯畫面：左側是標題與說明欄位、附加工具列（雲端硬碟、YouTube、建立、練習題、Read Along、上傳、連結），右欄是發布對象、截止日期、主題與成績設定">
+      <figcaption>作業編輯畫面。左邊寫內容、掛附件，右欄決定發給誰、何時截止、算幾分，最後按右上「出作業」。</figcaption>
+    </figure>
+    <ol class="cg-steps reveal">
+      <li>左邊填<strong>標題</strong>與<strong>說明</strong>。說明寫得越具體，學生問的就越少。</li>
+      <li>「附加」列可以掛雲端硬碟檔案、YouTube 影片、連結，或當場「建立」一份文件、簡報發給每位學生一人一份。</li>
+      <li>右欄由上而下是：<strong>發布給哪些課程與學生</strong>（可只指派給部分學生）、<strong>截止日期</strong>、<strong>主題</strong>、<strong>成績類別與分數</strong>。</li>
+      <li>都設好後按右上角「<strong>出作業</strong>」。旁邊的下拉箭頭還有「安排時間」（預約發布）與「儲存草稿」。</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step5">步驟⑤：截止日、分數與評分量表</h2>
+    <p>這三項都在出作業畫面的右欄，決定這份作業「什麼時候收、怎麼算分」：</p>
+    <ul class="feature-list reveal" style="margin-top:16px;">
+      <li><strong>截止日期</strong>：設了之後會自動進學生的「待辦事項」與課程日曆，Classroom 也會在快到期時提醒學生。這是它比紙本聯絡簿強的地方，不設就沒有這些提醒。</li>
+      <li><strong>分數</strong>：預設 100 分，可以改成其他滿分，或設成「不評分」當練習用。</li>
+      <li><strong>評分量表（rubric）</strong>：把「內容完整」「格式正確」這類規準逐項配分，批改時逐項點選，學生也事先看得到標準。2026 年 8 月起還可以<strong>讓 Gemini 依作業內容自動生成評分量表草稿</strong>再自己修改，第一次建 rubric 的門檻低了很多。</li>
+    </ul>
+    <p>Gemini 相關功能需要學校網域開啟 Gemini 服務才會出現，方案差異見 <a href="/knowledge/gemini">Gemini 教育版怎麼用</a>。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step6">步驟⑥：批改、寫評語、發還</h2>
+    <p>先看學生那邊會發生什麼事。學生點開作業，右上是「你的作業」卡片：按「新增或建立」附上要交的檔案，然後按「繳交」；如果這份作業不用交檔案，按鈕會顯示「<strong>標示為完成</strong>」。下方還有「私人留言」，學生可以只寫給老師看。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-studentwork.webp"
+           srcset="/assets/images/classroom-guide-studentwork-480.webp 480w, /assets/images/classroom-guide-studentwork-768.webp 768w, /assets/images/classroom-guide-studentwork.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="469" loading="lazy" decoding="async"
+           alt="學生端看到的作業頁面：右上是你的作業卡片，有新增或建立與標示為完成按鈕，下方有私人留言欄">
+      <figcaption>學生端的作業頁。有檔案要交就先「新增或建立」；這份作業不用交檔案，所以按鈕顯示「標示為完成」。</figcaption>
+    </figure>
+    <p>回到老師端。點開作業的「<strong>學生的作業</strong>」分頁，就是批改中心：上方統計「已繳交／已指派」的人數，左側名單列出每位學生的狀態與分數欄。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-grading.webp"
+           srcset="/assets/images/classroom-guide-grading-480.webp 480w, /assets/images/classroom-guide-grading-768.webp 768w, /assets/images/classroom-guide-grading.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="574" loading="lazy" decoding="async"
+           alt="老師端「學生的作業」批改頁：上方顯示 1 位已繳交、0 位已指派與接受繳交開關，左側是學生名單與分數欄">
+      <figcaption>「學生的作業」是批改中心：一眼看到誰交了誰沒交。「接受繳交」開關可以在結算後關閉收件。</figcaption>
+    </figure>
+    <p>批改的動作是：點學生名字看繳交內容 → 在分數欄輸入分數 → 需要的話在下方寫<strong>私人評語</strong>（只有這位學生看得到）。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-draftgrade.webp"
+           srcset="/assets/images/classroom-guide-draftgrade-480.webp 480w, /assets/images/classroom-guide-draftgrade-768.webp 768w, /assets/images/classroom-guide-draftgrade.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="926" loading="lazy" decoding="async"
+           alt="批改畫面：學生分數欄顯示 92 與草稿字樣，右上顯示 92/100 尚未發還，下方私人評語欄已輸入評語">
+      <figcaption>打了 92 分、寫好評語，注意左邊標著「草稿」、右上寫「尚未發還」，這時學生還看不到。要按「發還」才算完成批改。</figcaption>
+    </figure>
+    <p><strong>整個 Classroom 最容易卡住老師的一件事就在上圖</strong>：分數打完，學生名字旁邊標的是「<strong>草稿</strong>」，右上寫「<strong>尚未發還</strong>」。這時候學生還看不到成績。要勾選學生、按上方的「<strong>發還</strong>」並確認，學生才會收到通知、看到分數與評語。這個設計是讓老師可以整批改完、檢查過再一次公布，不會改到一半就被學生看到。</p>
+    <p>發還後學生的狀態變成「已評分」。學生若再修改重交，狀態會回到「已繳交」，老師重新批改再發還即可。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step7">步驟⑦：看成績單、設定成績計算</h2>
+    <p>課程的「<strong>成績</strong>」分頁是整門課的成績總表：橫向是每一份作業，縱向是每位學生，第一列是全班平均。分數可以直接在格子裡改，改完一樣要發還。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-gradebook.webp"
+           srcset="/assets/images/classroom-guide-gradebook-480.webp 480w, /assets/images/classroom-guide-gradebook-768.webp 768w, /assets/images/classroom-guide-gradebook.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="509" loading="lazy" decoding="async"
+           alt="成績分頁的成績單：橫向是作業（觀察日記，滿分 100），縱向是全班平均與學生列，兩者都顯示 92 分">
+      <figcaption>「成績」分頁的總表。第一列是全班平均，格子裡的分數可以直接修改，改完同樣要發還。</figcaption>
+    </figure>
+    <p>總成績怎麼算，在<strong>課程設定的「成績計算方式」</strong>裡決定：</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-settings.webp"
+           srcset="/assets/images/classroom-guide-settings-480.webp 480w, /assets/images/classroom-guide-settings-768.webp 768w, /assets/images/classroom-guide-settings.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="571" loading="lazy" decoding="async"
+           alt="課程設定裡的成績計算方式區塊：總成績計算方式下拉（目前為沒有總成績）、向學生顯示總成績開關、成績類別，以及學習目標的課程標準組合">
+      <figcaption>課程設定裡的「成績計算方式」。要用加權平均就先在這裡建立成績類別，再回到每份作業指定類別。</figcaption>
+    </figure>
+    <ul class="feature-list reveal" style="margin-top:16px;">
+      <li><strong>總成績計算方式</strong>：預設「沒有總成績」；可改成「總分」（全部作業加總）或「依類別加權」（先建立平時、段考等成績類別，各占一個百分比）。</li>
+      <li><strong>向學生顯示總成績</strong>：開了之後學生會在自己的頁面看到總成績，要不要開由您決定。</li>
+      <li><strong>匯出</strong>：任一份作業的「學生的作業」頁右上齒輪，可以「將所有成績複製到 Google 試算表」或下載 CSV，期末結算搬到校務系統就靠這裡。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal" id="step8">步驟⑧：學期末封存或複製課程</h2>
+    <p>學期結束<strong>不要刪課程，用「封存」</strong>。回到首頁的課程區，課程卡片右上的<strong>三點選單</strong>裡就有：</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-guide-archive.webp"
+           srcset="/assets/images/classroom-guide-archive-480.webp 480w, /assets/images/classroom-guide-archive-768.webp 768w, /assets/images/classroom-guide-archive.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="926" loading="lazy" decoding="async"
+           alt="首頁課程卡片右上三點選單展開後：移動、複製邀請連結、編輯、複製、封存">
+      <figcaption>課程卡片的三點選單。學期末選「封存」收起課程；新學年選「複製」把課程結構帶到新班級。</figcaption>
+    </figure>
+    <ul class="feature-list reveal" style="margin-top:16px;">
+      <li><strong>封存</strong>：課程移到左側導覽的「封存的課程」。師生都還看得到內容與成績，但學生不能再繳交。日後要查分數、要調資料都找得回來；想恢復就到封存區還原。</li>
+      <li><strong>複製</strong>：新學年開同一門課的捷徑，複製課程結構與課堂作業（以草稿保存），學生與成績不會帶過去，等於拿去年的課當範本開新班。</li>
+      <li><strong>複製邀請連結、編輯、移動</strong>：同一個選單裡的日常管理功能。</li>
+      <li><strong>刪除</strong>：要先封存，才能到「封存的課程」裡刪。<strong>刪除無法復原</strong>，課程貼文與留言就看不到了；只有建立課程的主要老師能刪，共同授課老師不行。真的要刪，先確認成績已匯出。</li>
+    </ul>
+    <p>照這個循環走：學年初「複製」去年的課 → 改一改出作業 → 學年末「封存」，一門課的資產就會一年一年累積下來。</p>
+
+    <nav class="series-pager" aria-label="Classroom 系列文章導覽（文末）">
+      <a class="btn btn-ghost series-prev" href="/knowledge/classroom-basics">← 上一篇：Classroom 是什麼？新手入門</a>
+      <span class="series-index">系列第 2／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+      <a class="btn btn-primary series-next" href="/knowledge/classroom-features">下一篇：進階功能 →</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">資料來源</h2>
+    <p>本文全部截圖取自 2026 年 8 月實際操作的 Google Workspace for Education 帳號（示範課程，無真實學生個資），介面文字以您帳號當下顯示為準。Gemini 評分量表生成、Gemini Notebook 與 Gem 等新功能的推出時程，依據 Google Workspace Updates 官方公告。功能是否出現在您的畫面，取決於學校網域與所屬機構單位（OU）的設定。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>為什麼我只有「加入課程」，沒有「建立課程」？</summary>
+      <div class="faq-a">右上角「＋」按下去只出現「加入課程」，通常是帳號身分的問題。學校（Workspace for Education）帳號要由管理員在管理主控台把您歸入「老師」群組才能開課；一般個人 Gmail 第一次建課程時要先同意教師資格聲明。如果您確定自己是老師卻建不了課，先找學校的網域管理員。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>課程代碼（邀請碼）在哪裡？學生要怎麼加入？</summary>
+      <div class="faq-a">課程代碼在「訊息串」左側的「課程代碼」區塊，也可以在課程設定裡找到，旁邊有放大顯示的按鈕，方便上課時投影給全班抄。學生在自己的 Classroom 按右上「＋」→「加入課程」，輸入代碼即可。嫌抄代碼麻煩，也可以複製「邀請連結」貼到班級群組，學生點開按「加入課程」就完成。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>我打了分數，學生為什麼看不到？</summary>
+      <div class="faq-a">因為分數還在「草稿」狀態。Classroom 的設計是：老師打的分數與評語先存成草稿，要按下「發還」，學生才會收到通知並看到成績。這樣老師可以整批改完、確認沒改錯，再一次發還全班。批改列表上分數旁邊標著小小的「草稿」兩個字，就代表學生還看不到。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>「標示為完成」和「繳交」差在哪？</summary>
+      <div class="faq-a">同一顆按鈕，字會依作業內容變化。作業有要交的檔案時，學生附上檔案後按鈕是「繳交」；作業不需要交檔案（例如「回家讀課本第三章」）時，按鈕顯示「標示為完成」，讓學生回報做完了。對老師端來說兩者都會變成「已繳交」狀態。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>作業可以只出給部分學生嗎？</summary>
+      <div class="faq-a">可以。出作業畫面右欄的「出作業給」預設是所有學生，點開可以逐一勾選要指派的學生，適合補救教學或分組任務。同一個畫面也能一次把作業發布到您教的多門課程。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>成績可以匯出成 Excel 或試算表嗎？</summary>
+      <div class="faq-a">可以。打開任一份作業的「學生的作業」頁，右上角齒輪選單裡有「將所有成績複製到 Google 試算表」與下載 CSV 的選項，前者會把整門課的成績匯出成一份試算表，之後在試算表裡加權、排名都行。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學期結束後，課程要刪掉嗎？</summary>
+      <div class="faq-a">不要刪，用「封存」。封存後課程移到左側導覽的「封存的課程」，老師與學生都還看得到內容，但學生不能再繳交，課程也不會出現在日常清單裡。日後要查成績、要複製課程結構開新學期的課，都還找得回來。刪除是不可逆的，而且要先封存才能刪。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>怎麼刪除 Classroom 課程？刪掉還能救回來嗎？</summary>
+      <div class="faq-a">先封存，再刪除。在首頁左側導覽打開「封存的課程」，找到要刪的課程卡片，按右上角三點選單選「刪除」，再確認一次。三件事要先知道：一，沒封存的課程看不到刪除選項；二，只有建立課程的主要老師能刪，共同授課老師不能；三，刪除無法復原，課程貼文與留言都看不到了，不過老師與學生仍可開啟課程 Drive 資料夾裡的檔案。只是想收起課程，封存就夠了，之後隨時能還原。（依 <a href="https://support.google.com/edu/classroom/answer/6149813" target="_blank" rel="noopener">Google 官方說明</a>）</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>舊課程的作業，新學期可以拿來再用嗎？</summary>
+      <div class="faq-a">可以，有兩條路。要整門課重開：在課程卡片右上的三點選單選「複製」，Classroom 會複製課程結構與課堂作業（草稿狀態），不會把學生與成績帶過去。只要搬個別作業：在新課程的「課堂作業」→「建立」→「重複使用訊息」，挑舊課程裡的那一份即可。</div>
+    </details>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">Classroom 與 Google 教育工具的其他說明。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/classroom">
+        <div class="card-body"><h3>Google Classroom 是什麼？</h3><p>版本差異、付費功能與導入前該確認的事，適合還在評估的學校。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/classroom-homepage">
+        <div class="card-body"><h3>Classroom 首頁改版說明</h3><p>2026 年 7 月的新首頁：課程去哪了、三種身分各看到什麼。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/gemini">
+        <div class="card-body"><h3>Gemini 教育版怎麼用</h3><p>Classroom 裡那些 Gemini 功能的開通方式與方案差異。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台設定指南</h3><p>老師群組、網域限制與 OU 設定，管理員該看的一篇。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/canva-classroom">
+        <div class="card-body"><h3>Canva 串 Google Classroom</h3><p>把 Canva 設計指派成作業、學生做完直接繳回 Classroom。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;text-align:center;">
+    <h2 class="section-title reveal">想讓全校老師都上手 Classroom？</h2>
+    <p class="section-sub reveal" style="margin-left:auto;margin-right:auto;">鴻綸科技的訓練中心有五位 Google 認證講師，可以依貴校老師的程度安排 Classroom 實作研習，從開課到成績結算，帶著做一遍。</p>
+    <a class="btn btn-primary reveal" href="/services/campus-training">看校園研習服務 →</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">想讓全校老師都用得起來？</h2>
+      <p>安排研習或導入前，先確認這幾件事：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計參加的教師人數與數位程度</li>
+        <li>學校目前的 Google Workspace 版本與帳號狀況</li>
+        <li>希望研習著重在哪裡（建課派作業、評量批改、或管理設定）</li>
+        <li>希望的場次時間與時數</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Classroom%20%E5%B0%8E%E5%85%A5%E8%88%87%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E5%8F%83%E5%8A%A0%E7%9A%84%E6%95%99%E5%B8%AB%E4%BA%BA%E6%95%B8%E8%88%87%E6%95%B8%E4%BD%8D%E7%A8%8B%E5%BA%A6%EF%BC%9A%0A%E5%AD%B8%E6%A0%A1%E7%9B%AE%E5%89%8D%E7%9A%84%20Google%20Workspace%20%E7%89%88%E6%9C%AC%E8%88%87%E5%B8%B3%E8%99%9F%E7%8B%80%E6%B3%81%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%A0%94%E7%BF%92%E8%91%97%E9%87%8D%E5%9C%A8%E5%93%AA%E8%A3%A1%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%A0%B4%E6%AC%A1%E6%99%82%E9%96%93%E8%88%87%E6%99%82%E6%95%B8%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AGoogle%20Classroom%20%E6%95%99%E5%AD%B8%EF%BC%9A%E5%BB%BA%E8%AA%B2%E7%A8%8B%E5%88%B0%E6%88%90%E7%B8%BE%E5%96%AE%EF%BC%8C%E5%85%AB%E5%80%8B%E6%AD%A5%E9%A9%9F%E8%B5%B0%E5%AE%8C%E4%B8%80%E5%AD%B8%E6%9C%9F%EF%BC%89">寄信詢問：Classroom 導入與教師研習</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

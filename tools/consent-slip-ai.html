@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>家長同意書回條怎麼統計？學生回條 AI 辨識系統｜鴻綸科技</title>
+<meta name="description" content="家長同意書、通知單回條一張張人工統計太花時間。學生回條 AI 辨識系統讓老師拍照上傳，自動判讀班級、座號、姓名與勾選結果，一鍵匯出 Excel，在瀏覽器處理、不留存影像，可免費使用。">
+<link rel="canonical" href="https://www.hunglun.com/tools/consent-slip-ai">
+<meta property="og:type" content="website">
+<meta property="og:title" content="學生回條 AI 辨識系統｜拍照上傳、自動統計、匯出 Excel">
+<meta property="og:description" content="家長同意書回條拍照上傳，自動判讀班級、座號、姓名與勾選結果，一鍵匯出 Excel。">
+<meta property="og:url" content="https://www.hunglun.com/tools/consent-slip-ai">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/tools-consent-slip-ai.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="家長同意書回條，拍照就能統計｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學生回條 AI 辨識系統｜拍照上傳、自動統計、匯出 Excel">
+<meta name="twitter:description" content="家長同意書回條拍照上傳，自動判讀班級、座號、姓名與勾選結果，一鍵匯出 Excel。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/tools-consent-slip-ai.png?v=5">
+<meta name="twitter:image:alt" content="家長同意書回條，拍照就能統計｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.hunglun.com/tools/consent-slip-ai#webpage",
+  "url": "https://www.hunglun.com/tools/consent-slip-ai",
+  "name": "家長同意書回條怎麼統計？學生回條 AI 辨識系統｜鴻綸科技",
+  "inLanguage": "zh-Hant-TW",
+  "dateModified": "2026-10-26",
+  "isPartOf": {
+    "@id": "https://www.hunglun.com/#website"
+  },
+  "about": {
+    "@id": "https://www.hunglun.com/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "學生回條 AI 辨識系統",
+  "url": "https://lunslip.pages.dev/",
+  "description": "AI 視覺辨識批次讀取家長同意書回條，自動判讀班級、座號、姓名與勾選結果，一鍵匯出 Excel。瀏覽器端處理，不留存影像。",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "All",
+  "inLanguage": "zh-Hant-TW",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "TWD"
+  },
+  "creator": {
+    "@id": "https://www.hunglun.com/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://www.hunglun.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "資源分享",
+      "item": "https://www.hunglun.com/tools"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "校園小工具",
+      "item": "https://www.hunglun.com/tools/campus"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "學生回條 AI 辨識系統",
+      "item": "https://www.hunglun.com/tools/consent-slip-ai"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "回條有手寫字，AI 讀得出來嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多數工整的勾選與手寫座號、姓名可以辨識，但手寫潦草或拍照模糊時可能讀錯，所以工具會讓老師在匯出前確認並修正結果。拍照時盡量讓回條平整、光線均勻。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "學生的個資會不會被存起來？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "工具在瀏覽器端處理，鴻綸科技沒有架設伺服器儲存或留存上傳的回條影像。回條本身含有學生姓名，使用時仍請依學校個資規定處理。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "一次可以處理多少張？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "工具以批次處理為目的，可以一次上傳多張回條。實際一次建議的張數會受裝置與網路影響，建議先用一個班的回條試一次。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "學校想全校統一使用，要怎麼辦？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "老師個人可以先免費使用。如果學校想統一導入、調整回條格式或有其他行政自動化需求，請聯絡鴻綸科技，我們可以一起評估。"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger active">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="麵包屑"><a href="/">首頁</a> ／ <a href="/tools">資源分享</a> ／ <a href="/tools/campus">校園小工具</a> ／ 學生回條 AI 辨識系統</nav>
+    <h1>家長同意書回條，拍照就能統計</h1>
+    <p>學生回條 AI 辨識系統：拍照上傳，自動判讀班級、座號、姓名與勾選結果，一鍵匯出 Excel。</p>
+    <div class="card-actions" style="justify-content:center;margin-top:18px;">
+      <a class="btn btn-primary" href="https://lunslip.pages.dev/" target="_blank" rel="noopener">免費前往體驗</a>
+      <a class="btn" href="#recommend">推薦給學校資訊組長</a>
+    </div>
+  </div>
+</div>
+
+<section class="section" style="padding-top:24px;">
+  <div class="wrap prose">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>它做什麼？</strong>把家長同意書、通知單的回條拍照上傳，AI 自動讀出班級、座號、姓名與勾選結果，整理成表格。</li>
+        <li><strong>結果怎麼用？</strong>一鍵匯出 Excel，可以直接拿去核對未繳回名單或統計同意與不同意人數。</li>
+        <li><strong>要付費嗎？</strong>老師個人可以免費使用；全校統一導入或客製調整請洽鴻綸科技。</li>
+        <li><strong>影像會被留下嗎？</strong>流程在瀏覽器端執行，鴻綸科技沒有架設伺服器儲存或留存上傳的回條影像。</li>
+      </ul>
+    </div>
+
+    <h2>適合用在哪些時候</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>校外教學與活動同意書</strong>：全班回條收回來，不用再一張張劃記，拍照後交給 AI 整理。</li>
+      <li><strong>家長意願調查</strong>：例如是否參加課後活動、是否同意拍攝，勾選結果自動歸類。</li>
+      <li><strong>繳交情況核對</strong>：匯出的 Excel 可以對照座號，快速看出誰還沒交。</li>
+    </ul>
+
+    <h2>怎麼用</h2>
+    <ol>
+      <li>打開工具網頁，不需要安裝軟體。</li>
+      <li>把整疊回條逐張拍照，或掃描後上傳。</li>
+      <li>確認 AI 讀出的班級、座號、姓名與勾選結果，有讀錯的可以修正。</li>
+      <li>按下匯出，取得 Excel 檔案。</li>
+    </ol>
+
+    <h2>資料怎麼處理</h2>
+    <p>工具在瀏覽器端處理，鴻綸科技沒有架設伺服器儲存或留存上傳的回條影像。回條上有學生姓名，使用前仍請依學校個資規定處理，詳見<a href="/knowledge/privacy">個資法與校安須知</a>。</p>
+
+    <h2 id="recommend">想讓全校一起用？把這封信轉給資訊組長</h2>
+    <p>工具本身可以自己免費使用。如果想讓學校把它列為常用工具、或需要導入協助，最快的方式是請資訊組長或教務處評估。下面這封信可以直接複製轉寄，內容請依實際情況增修。</p>
+    <div class="kit-box">
+      <textarea id="letterText" rows="9" aria-label="推薦信內容，可編輯"></textarea>
+      <div class="ct-actions" style="margin-top:12px;">
+        <button type="button" class="btn btn-primary" id="copyLetter">複製推薦信</button>
+        <p class="ct-status" id="copyStatus" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+    <p>如果您本人就是資訊組長、教務主任或採購承辦，想了解校級導入、教師研習或客製調整，歡迎直接<a href="/contact">聯絡鴻綸科技</a>，或打 06-6371192。</p>
+
+    <h2>常見問題</h2>
+    <details class="faq-item">
+      <summary>回條有手寫字，AI 讀得出來嗎？</summary>
+      <div class="faq-a">多數工整的勾選與手寫座號、姓名可以辨識，但手寫潦草或拍照模糊時可能讀錯，所以工具會讓老師在匯出前確認並修正結果。拍照時盡量讓回條平整、光線均勻。</div>
+    </details>
+    <details class="faq-item">
+      <summary>學生的個資會不會被存起來？</summary>
+      <div class="faq-a">工具在瀏覽器端處理，鴻綸科技沒有架設伺服器儲存或留存上傳的回條影像。回條本身含有學生姓名，使用時仍請依學校個資規定處理。</div>
+    </details>
+    <details class="faq-item">
+      <summary>一次可以處理多少張？</summary>
+      <div class="faq-a">工具以批次處理為目的，可以一次上傳多張回條。實際一次建議的張數會受裝置與網路影響，建議先用一個班的回條試一次。</div>
+    </details>
+    <details class="faq-item">
+      <summary>學校想全校統一使用，要怎麼辦？</summary>
+      <div class="faq-a">老師個人可以先免費使用。如果學校想統一導入、調整回條格式或有其他行政自動化需求，請聯絡鴻綸科技，我們可以一起評估。</div>
+    </details>
+
+    <h2>延伸閱讀</h2>
+    <ul>
+      <li><a href="/knowledge/ocr">AI OCR 文件辨識技術知識 →</a></li>
+      <li><a href="/knowledge/privacy">個資法與校安須知 →</a></li>
+      <li><a href="/services/campus-admin">校園行政自動化服務 →</a></li>
+    </ul>
+
+    <div class="svc-cta">
+      <h2 style="margin-top:0;">回條統計，今天就可以少花一個小時</h2>
+      <p>先用一個班的回條試試看，不用註冊、不用安裝。</p>
+      <a class="btn btn-primary" href="https://lunslip.pages.dev/" target="_blank" rel="noopener">免費前往體驗</a>
+      <a class="btn" href="/contact">學校導入洽詢</a>
+    </div>
+
+    <nav class="svc-pager" aria-label="其他校園小工具">
+      <a href="/tools/campus">← 全部校園小工具</a>
+      <a href="/tools/photo-word">校園照片 Word 填入工具 →</a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script>
+/* 推薦信內容放在這裡組字，不寫在 HTML 裡的長段落 */
+(function(){var ta=document.getElementById('letterText');if(ta)ta.value=["資訊組長您好：", "", "我最近發現一個適合老師統計家長同意書回條的免費工具，叫「學生回條 AI 辨識系統」。老師把回條拍照上傳，它會自動讀出班級、座號、姓名與勾選結果，一鍵匯出 Excel；處理在瀏覽器端進行，開發單位鴻綸科技沒有留存上傳的影像。", "", "體驗網址：https://lunslip.pages.dev/", "介紹頁：https://www.hunglun.com/tools/consent-slip-ai", "", "想請學校評估是否可以列為校內推薦工具，或請廠商說明校級導入方式。開發單位是鴻綸科技，電話 06-6371192。", "", "謝謝！"].join(String.fromCharCode(10));})();
+</script>
+<script>
+/* 複製推薦信：不用瀏覽器內建對話框，結果顯示在頁面上的狀態列 */
+(function () {
+  var btn = document.getElementById('copyLetter');
+  var ta = document.getElementById('letterText');
+  var st = document.getElementById('copyStatus');
+  if (!btn || !ta) return;
+  function done(ok) {
+    st.textContent = ok ? '已複製，可以直接貼到 LINE、Email 或校內信箱。' : '複製沒有成功，請手動選取上面的文字再複製。';
+    st.className = 'ct-status ' + (ok ? 'ok' : 'err');
+  }
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(ta.value).then(function () { done(true); }, function () { fallback(); });
+    } else { fallback(); }
+  });
+  function fallback() {
+    ta.focus(); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    done(ok);
+  }
+})();
+</script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

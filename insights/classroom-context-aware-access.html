@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<title>Classroom 新增情境感知存取控制：學校真的需要鎖 IP 嗎？｜鴻綸科技</title>
+<meta name="description" content="Google 8月26日公告，Classroom 新增情境感知存取（Context-Aware Access）控制，僅限 Education Plus，可依身分、地理位置、裝置安全狀態、IP 限制存取。這項資安功能該不該開，這週可以先做的檢查。">
+<link rel="canonical" href="https://www.hunglun.com/insights/classroom-context-aware-access">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Classroom 新增情境感知存取控制｜鴻綸科技">
+<meta property="og:description" content="8/26 公告，僅 Education Plus 可用。這是資安控制不是教學功能，直接鎖校園 IP 反而會鎖到自己。分層設定的邏輯與這週該做的檢查。">
+<meta property="og:url" content="https://www.hunglun.com/insights/classroom-context-aware-access">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/insights-classroom-context-aware-access.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Classroom 也能設定情境感知存取了，但多數學校不用急著鎖｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Classroom 新增情境感知存取控制｜鴻綸科技">
+<meta name="twitter:description" content="8/26 公告，僅 Education Plus 可用。這是資安控制不是教學功能，直接鎖校園 IP 反而會鎖到自己。分層設定的邏輯與這週該做的檢查。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/insights-classroom-context-aware-access.png?v=5">
+<meta name="twitter:image:alt" content="Classroom 也能設定情境感知存取了，但多數學校不用急著鎖｜鴻綸科技">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://www.hunglun.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "教育科技觀察",
+      "item": "https://www.hunglun.com/insights"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Classroom 情境感知存取",
+      "item": "https://www.hunglun.com/insights/classroom-context-aware-access"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": "Classroom 也能設定情境感知存取了，但多數學校不用急著鎖",
+  "description": "8/26 公告，僅 Education Plus 可用。這是資安控制不是教學功能，直接鎖校園 IP 反而會鎖到自己。分層設定的邏輯與這週該做的檢查。",
+  "inLanguage": "zh-Hant-TW",
+  "image": "https://www.hunglun.com/assets/og/insights-classroom-context-aware-access.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/insights/classroom-context-aware-access"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve"
+  },
+  "publisher": {
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "datePublished": "2026-09-01",
+  "dateModified": "2026-09-01",
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Google Classroom"
+    },
+    {
+      "@type": "Thing",
+      "name": "Context-Aware Access"
+    },
+    {
+      "@type": "Thing",
+      "name": "Google Workspace 管理主控台"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-01",
+  "mainEntity": [
+    { "@type": "Question", "name": "Classroom 的情境感知存取是什麼時候推出的？哪些版本才能用？", "acceptedAnswer": { "@type": "Answer", "text": "Google 於 2026 年 8 月 26 日在 Workspace Updates 公告這項功能，目前僅限 Education Plus 版本，免費的 Education Fundamentals 版沒有這個選項。" } },
+    { "@type": "Question", "name": "這個功能實際上是做什麼的？", "acceptedAnswer": { "@type": "Answer", "text": "管理員可以在管理主控台為 Classroom 設定情境感知存取政策，依使用者身分、地理位置、裝置安全狀態、IP 位址等條件限制誰能登入使用，本質是資安存取控制，不是新的教學功能。" } },
+    { "@type": "Question", "name": "學校應該直接把 Classroom 鎖在校園 IP 才能用嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不建議全校統一這樣設。Classroom 的日常使用本來就包含學生在家寫作業、停課時遠距上課，直接鎖校園 IP 會讓這些正常情境登不進去，變成資訊組長自己要處理的申訴。" } },
+    { "@type": "Question", "name": "資訊組長實際上可以怎麼設定比較合理？", "acceptedAnswer": { "@type": "Answer", "text": "依組織單位分層考慮，而不是全校套用同一條規則：學生端優先保留彈性，真的要收緊也從最寬鬆的條件開始；教職員與管理員帳號的風險與使用情境不同，可以個別考慮較嚴格的條件。實際要不要做、做到多嚴，取決於學校既有的資安政策與資訊組的量能。" } },
+    { "@type": "Question", "name": "這週資訊組長可以先做哪些事？", "acceptedAnswer": { "@type": "Answer", "text": "先確認學校的 Workspace for Education 版本是不是 Education Plus；確認目前是否已經對其他 Google 服務設定過情境感知存取政策（有的話邏輯可以沿用）；真的要開始設定，先在一個小範圍的測試 OU 試跑，避免一次套用到全校才發現條件設太嚴。" } }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/insights">教育科技觀察</a> ／ Classroom 情境感知存取</nav>
+    <h1>Classroom 也能設定情境感知存取了，但多數學校不用急著鎖</h1>
+    <p>8 月 26 日公告，僅 Education Plus 可用。這是一項資安存取控制功能，不是教學功能，重點不是「有沒有開」，而是「用哪種邏輯開」。</p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Classroom 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/insights/classroom-rubric-generation">← 上一篇：評分量表自動生成</a>
+    <span class="series-index">系列第 10／10 篇（完結）・<a href="/knowledge/classroom">看全部系列</a></span>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Classroom 的情境感知存取是什麼？</strong>Google 在 2026 年 8 月 26 日公告，Classroom 新增支援情境感知存取（CAA）政策。管理員可在管理主控台依使用者身分、地理位置、裝置安全狀態、IP 位址，限制誰能登入使用。</li>
+        <li><strong>免費版學校能用嗎？</strong>不能。公告寫明目前僅限付費版本，免費的 Education Fundamentals 沒有這個選項。</li>
+        <li><strong>要不要直接鎖校園 IP？</strong>不建議。學生在家寫作業是常態，停課或遠距教學時師生也都在校外，鎖校園 IP 會把正常使用全部擋掉。</li>
+        <li><strong>比較合理的做法是什麼？</strong>依組織單位（OU）分層，不要全校一條規則：學生優先保留彈性，管理員帳號通常最先考慮加嚴；真要設定，先在小範圍的測試 OU 試跑幾天，再考慮擴大。</li>
+      </ul>
+    </div>
+
+    <p style="color:var(--muted-faint);font-size:0.85rem;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-01">2026 年 9 月 1 日</time></p>
+
+    <h2>發生了什麼事</h2>
+    <p>Google 在 Workspace Updates <strong>2026 年 8 月 26 日公告</strong>，Classroom 新增支援情境感知存取（Context-Aware Access，簡稱 CAA）政策。管理員現在可以直接在管理主控台為 Classroom 設定存取條件，依<strong>使用者身分、地理位置、裝置安全狀態、IP 位址</strong>限制誰能登入使用。</p>
+    <p>公告明確寫著<strong>目前僅限付費版本</strong>，免費的 Education Fundamentals 版沒有這個選項。如果貴校用的是 Fundamentals，這篇文章先收藏起來，等升級再回來看就好。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-cwa-overview.webp"
+           srcset="/assets/images/classroom-cwa-overview-480.webp 480w, /assets/images/classroom-cwa-overview-768.webp 768w, /assets/images/classroom-cwa-overview.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="416" loading="lazy" decoding="async"
+           alt="管理主控台的情境感知存取權頁面，狀態顯示 ON for everyone，尚未建立任何存取層級">
+      <figcaption>管理主控台「安全性 → 存取權與資料控管 → 情境感知存取權」，這裡是設定入口，實際規則要另外建立「存取層級」再指派。</figcaption>
+    </figure>
+
+    <h2>先分清楚：這是資安功能，不是教學功能</h2>
+    <p>CAA 本身不是新概念，Google 早就用在 Gmail、Drive 這類 Workspace 核心服務上，這次只是把 Classroom 也納進同一套機制。它解決的問題是「哪些人在什麼條件下能進來」，跟 Classroom 裡的作業、成績、AI 功能完全是兩件事。</p>
+    <p>看到「新增存取控制」幾個字，資訊組長第一個直覺常常是比照公文系統的做法，直接鎖校園 IP。但這一步在 Classroom 上很危險。</p>
+
+    <h2>為什麼不建議直接鎖校園 IP</h2>
+    <p>Classroom 的日常使用情境跟公文系統完全不同：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>學生在家寫作業是常態，不是例外。</strong>大部分作業繳交、線上討論本來就發生在放學後，鎖校園 IP 等於把這些正常使用全部擋掉。</li>
+      <li><strong>停課或遠距教學時，校園 IP 反而是最不該鎖的條件。</strong>颱風假、流感停課這類情境，師生全部都在校外，這時候如果 CAA 設成只認校園網段，等於把 Classroom 整個鎖死在最需要它的時候。</li>
+      <li><strong>設定錯誤的代價是資訊組長自己要處理申訴。</strong>一鎖下去，接下來幾天處理不了的登入問題會全部回到資訊組。</li>
+    </ul>
+    <p>套用 CAA 之前，要先想清楚「這個條件在學生正常使用的情境下會不會誤擋」，而不是先想「怎麼鎖得越緊越好」。</p>
+
+    <h2>比較合理的邏輯：依組織單位分層，不要全校一條規則</h2>
+    <p>CAA 的政策可以套用在組織單位（OU）或群組層級，這代表<strong>不需要用同一條規則處理全校</strong>。可以考慮的分層方向：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>對象</th><th>思考方向</th></tr></thead>
+        <tbody>
+          <tr><td>學生 OU</td><td>優先保留彈性，畢竟在家使用是常態；真的要收緊，從最寬鬆的條件開始試</td></tr>
+          <tr><td>教職員 OU</td><td>使用情境相對固定，可以視學校既有的資安政策考慮較明確的條件</td></tr>
+          <tr><td>管理員帳號</td><td>權限最高、風險也最高，通常是最先被考慮加嚴格條件的對象</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>實際要不要做、做到多嚴，取決於貴校既有的資安規範與資訊組的人力，這裡給的是判斷的方向，不是「照抄就對」的設定值。每間學校的網路環境跟使用習慣不一樣，同一條規則套到別校可能完全不適用。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-cwa-createlevel.webp"
+           srcset="/assets/images/classroom-cwa-createlevel-480.webp 480w, /assets/images/classroom-cwa-createlevel-768.webp 768w, /assets/images/classroom-cwa-createlevel.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="291" loading="lazy" decoding="async"
+           alt="建立存取層級的情境條件設定畫面，BASIC 與進階兩種模式，可新增條件">
+      <figcaption>建立存取層級時可以新增「情境條件」，之後把層級指派給特定的組織單位或群組，就是「依組織單位分層」實際操作的地方。</figcaption>
+    </figure>
+
+    <h2>這週資訊組長可以先做的三件事</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>確認貴校的 Workspace for Education 版本。</strong>不是 Education Plus 的話，這功能目前用不到，不用花時間找。</li>
+      <li><strong>確認是否已經對其他服務設定過情境感知存取政策。</strong>如果 Gmail、Drive 早就有一套邏輯，Classroom 這次可以直接沿用，不用重新想一遍。</li>
+      <li><strong>真的要設定，先在小範圍的測試 OU 試跑。</strong>找一個非核心的組織單位先套用條件、觀察幾天，確認不會誤擋正常登入，再考慮擴大範圍，不要一次套用到全校才發現條件設太嚴。</li>
+    </ul>
+    <p>管理主控台裡 OU 與群組的結構怎麼規劃，整理在<a href="/knowledge/google-admin">Google 管理主控台校園設定指南</a>；Classroom 各版本的功能差異見<a href="/knowledge/classroom">Google Classroom 完全指南</a>。</p>
+
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:24px;">資料來源：<a href="https://workspaceupdates.googleblog.com/2026/08/google-classroom-now-supports-context-Aware-Access-controls.html" target="_blank" rel="noopener">Google Workspace Updates 官方公告</a>（2026 年 8 月 26 日）。實際可設定的條件與適用版本以貴校管理主控台當下顯示與 Google 官方最新公告為準。</p>
+
+    <nav class="series-pager" aria-label="Classroom 系列文章導覽（文末）">
+      <a class="btn btn-ghost series-prev" href="/insights/classroom-rubric-generation">← 上一篇：評分量表自動生成</a>
+      <span class="series-index">系列第 10／10 篇（完結）・<a href="/knowledge/classroom">看全部系列</a></span>
+    </nav>
+
+    <div class="svc-cta">
+      <h2 style="margin-top:0;">需要協助盤點網域現有的存取控制設定？</h2>
+      <p>我們是 Google for Education 專業發展夥伴，可以幫忙確認網域現況、規劃分年段／分角色的設定邏輯與後續研習。</p>
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn" href="/knowledge/google-admin">看管理主控台指南</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Classroom 的情境感知存取是什麼時候推出的？哪些版本才能用？</summary>
+      <div class="faq-a">Google 於 2026 年 8 月 26 日在 Workspace Updates 公告這項功能，目前僅限 Education Plus 版本，免費的 Education Fundamentals 版沒有這個選項。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>這個功能實際上是做什麼的？</summary>
+      <div class="faq-a">管理員可以在管理主控台為 Classroom 設定情境感知存取政策，依使用者身分、地理位置、裝置安全狀態、IP 位址等條件限制誰能登入使用，本質是資安存取控制，不是新的教學功能。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校應該直接把 Classroom 鎖在校園 IP 才能用嗎？</summary>
+      <div class="faq-a">不建議全校統一這樣設。Classroom 的日常使用本來就包含學生在家寫作業、停課時遠距上課，直接鎖校園 IP 會讓這些正常情境登不進去，變成資訊組長自己要處理的申訴。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>資訊組長實際上可以怎麼設定比較合理？</summary>
+      <div class="faq-a">依組織單位分層考慮，而不是全校套用同一條規則：學生端優先保留彈性，真的要收緊也從最寬鬆的條件開始；教職員與管理員帳號的風險與使用情境不同，可以個別考慮較嚴格的條件。實際要不要做、做到多嚴，取決於學校既有的資安政策與資訊組的量能。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>這週資訊組長可以先做哪些事？</summary>
+      <div class="faq-a">先確認學校的 Workspace for Education 版本是不是 Education Plus；確認目前是否已經對其他 Google 服務設定過情境感知存取政策（有的話邏輯可以沿用）；真的要開始設定，先在一個小範圍的測試 OU 試跑，避免一次套用到全校才發現條件設太嚴。</div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

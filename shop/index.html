@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>鴻綸科技教育商城｜Chromebook、CEU 授權、Google AI 校園研習</title>
+<meta name="description" content="鴻綸科技教育商城：Google for Education 認證夥伴，提供 Chromebook、ChromeOS 教育升級版 CEU 授權、Google AI 校園研習與數位學習軟體，支援學校公文採購與統編開立。">
+<meta property="og:title" content="鴻綸科技教育商城">
+<meta property="og:description" content="學校需要的設備、授權與研習，一個地方買齊。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<link rel="stylesheet" href="/shop/shop.css?v=9">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta active">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+<div id="shop">
+
+<header class="top">
+  <a class="brand" href="#" data-go="shop"><img src="images/logo.webp" alt="鴻綸科技" width="180" height="36"></a>
+  <label class="search"><span class="sr">搜尋商品</span><input id="q" type="search" placeholder="搜尋商品，例如 Chromebook、研習"></label>
+  <button class="acct-btn" id="acctBtn">登入／註冊</button>
+  <button class="cart-btn" id="openCart" aria-label="開啟購物車">購物車 <b id="cartCount">0</b></button>
+</header>
+<nav class="subnav" aria-label="主選單">
+  <a href="#" data-go="shop">全部商品</a><a href="#" data-go="p-about">關於鴻綸</a><a href="#" data-go="p-track">訂單查詢</a><a href="#" data-go="p-faq">常見問題</a><a href="#" data-go="p-shipping">配送與付款</a><a href="#" data-go="p-contact">聯絡我們</a>
+</nav>
+
+<div class="notice" id="notice" hidden></div>
+<main>
+  <!-- 商店頁 -->
+  <section id="view-shop">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Google for Education 認證夥伴</p>
+        <h1>學校需要的設備、授權與研習，一個地方買齊</h1>
+        <p>Chromebook、CEU 管理授權、Google AI 校園研習與數位學習軟體。學校專案輸入 <code>SCHOOL95</code> 享 95 折，滿 NT$30,000 免運。</p>
+        <a class="btn" href="#products">開始選購</a>
+      </div>
+      <img src="images/hero.jpg" alt="學生與老師在教室使用電腦學習" width="480" height="480">
+    </div>
+    <ul class="perks">
+      <li><b>滿三萬免運</b>未滿 NT$30,000 運費 NT$300</li>
+      <li><b>免費借用評估</b>學校可先借 Chromebook 試用</li>
+      <li><b>公文採購</b>支援報價單、請款單與統編</li>
+      <li><b>導入到培訓</b>設備、授權、研習一手包辦</li>
+    </ul>
+    <div class="toolbar" id="products">
+      <div class="tabs" id="tabs" role="tablist"></div>
+      <label class="sort"><span class="sr">排序</span>
+        <select id="sort"><option value="def">預設排序</option><option value="low">價格由低到高</option><option value="high">價格由高到低</option></select>
+      </label>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>找不到符合的商品，換個關鍵字試試。</p>
+
+    <section class="band" aria-labelledby="whyT">
+      <h2 id="whyT">為什麼學校選擇鴻綸科技</h2>
+      <ul class="why">
+        <li><b>2013</b><span>創立於台南新營，專注教育與企業 IT 系統整合</span></li>
+        <li><b>2017</b><span>起為 Google 官方授權在台教育合作發展夥伴</span></li>
+        <li><b>5 位</b><span>Google 認證講師與 2 位認證網域管理員</span></li>
+        <li><b>共同供應契約</b><span>台灣銀行共同供應契約供應商，教育部行動教育計畫指定廠商</span></li>
+      </ul>
+    </section>
+
+    <section class="band" aria-labelledby="stepT">
+      <h2 id="stepT">採購流程</h2>
+      <ol class="steps">
+        <li><b>1. 選購商品</b>加入購物車，需要報價單可於備註註明</li>
+        <li><b>2. 送出訂單</b>填寫單位資料，可選公文採購並填統一編號</li>
+        <li><b>3. 專人確認</b>我們與您確認品項、數量、交期與授權資訊</li>
+        <li><b>4. 出貨與開通</b>設備配送到校，授權開通，研習排定日期</li>
+      </ol>
+    </section>
+
+    <section class="band" aria-labelledby="certT">
+      <h2 id="certT">官方資歷與認證</h2>
+      <div class="certs">
+        <img src="images/badge-google-cloud-partner-education.webp" alt="Google Cloud Partner Education 夥伴標章" loading="lazy" width="240" height="169">
+        <img src="images/cert-chromeos-admin.webp" alt="ChromeOS 管理員認證" loading="lazy" width="240" height="174">
+        <img src="images/cert-k12-educator.webp" alt="Google K-12 教育者認證" loading="lazy" width="240" height="181">
+        <img src="images/cert-google-educator-level1.webp" alt="Google 認證教育者 Level 1" loading="lazy" width="240" height="184">
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div><h2>需要整批採購或專案報價？</h2><p>學校、機關與企業大量採購，歡迎來電或來信，我們提供報價單與導入規劃。</p></div>
+      <a class="btn light" href="#" data-go="p-contact">聯絡我們</a>
+    </section>
+  </section>
+
+  <!-- 內容頁（關於、常見問題、政策） -->
+  <section id="view-page" hidden>
+    <button class="link" data-go="shop">← 回商店</button>
+    <article class="page" id="pageBody"></article>
+  </section>
+
+  <!-- 會員中心 -->
+  <section id="view-member" hidden>
+    <button class="link" data-go="shop">← 回商店</button>
+    <div class="m-head"><div><h2 id="mcName"></h2><p class="muted" id="mcMail"></p></div><button class="btn ghost" id="logoutBtn" type="button">登出</button></div>
+    <div class="tabs" id="mcTabs" role="tablist"></div>
+    <div id="mcBody" class="mc-body"></div>
+  </section>
+
+  <!-- 結帳頁 -->
+  <section id="view-checkout" hidden>
+    <button class="link" data-go="shop">← 繼續購物</button>
+    <h2>結帳</h2>
+    <div class="co-wrap">
+      <form id="coForm" class="co-form" novalidate>
+        <p class="co-login" id="coLogin">已有會員？<button type="button" class="link" data-auth-open="login">登入</button>可自動帶入資料並保存訂單紀錄，也可以直接用訪客結帳。</p>
+        <fieldset>
+          <legend>收件資料</legend>
+          <label>單位名稱（學校或機關）<input name="org" required autocomplete="organization"></label>
+          <label>統一編號（選填）<input name="taxid" inputmode="numeric" maxlength="8"></label>
+          <label>聯絡人<input name="name" required autocomplete="name"></label>
+          <label>手機<input name="phone" required inputmode="tel" autocomplete="tel" placeholder="0912345678"></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>送貨地址<input name="addr" required autocomplete="street-address"></label>
+        </fieldset>
+        <fieldset>
+          <legend>付款方式</legend>
+          <label class="radio"><input type="radio" name="pay" value="公文採購（請款單）" checked> 公文採購（開立請款單）</label>
+          <label class="radio"><input type="radio" name="pay" value="ATM 轉帳"> ATM 轉帳（訂單確認後提供匯款帳號）</label>
+        </fieldset>
+        <label>備註（選填）<textarea name="note" rows="2"></textarea></label>
+        <p class="err" id="coErr" role="alert" hidden></p>
+        <button class="btn wide" type="submit">送出訂單</button>
+      </form>
+      <aside class="summary" id="coSummary"></aside>
+    </div>
+  </section>
+
+  <!-- 完成頁 -->
+  <section id="view-done" hidden>
+    <div class="done">
+      <h2>訂單已成立</h2>
+      <p>訂單編號 <b id="orderNo"></b></p>
+      <p id="doneInfo"></p>
+      <div class="bank" id="doneBank"></div>
+      <div class="summary" id="doneSummary"></div>
+      <p class="muted">如需修改訂單內容，請於上班時間來電 06-6371192 或來信 <!--email_off-->gfeh@hunglun.com<!--/email_off-->，並提供訂單編號。</p>
+      <button class="btn" data-go="shop">回到商店</button>
+    </div>
+  </section>
+</main>
+
+
+
+<!-- 商品彈窗 -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="x" data-close aria-label="關閉">×</button>
+    <img id="mImg" alt="" width="420" height="420">
+    <div class="m-info">
+      <p class="cat" id="mCat"></p>
+      <h3 id="mTitle"></h3>
+      <p class="price" id="mPrice"></p>
+      <p id="mDesc"></p>
+      <p class="muted" id="mSpec"></p>
+      <div class="qty-row">
+        <div class="qty"><button type="button" id="mMinus" aria-label="減少">−</button><span id="mQty">1</span><button type="button" id="mPlus" aria-label="增加">+</button></div>
+        <button class="btn" id="mAdd">加入購物車</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 購物車側欄 -->
+<div class="drawer-mask" id="mask" hidden></div>
+<aside class="drawer" id="drawer" aria-label="購物車" hidden>
+  <div class="d-head"><h3>購物車</h3><button class="x" data-close aria-label="關閉">×</button></div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot"></div>
+</aside>
+
+<!-- 登入註冊視窗 -->
+<div class="modal" id="auth" hidden>
+  <div class="modal-box auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="x" data-auth-close aria-label="關閉" type="button">×</button>
+    <h3 id="authTitle">會員登入</h3>
+    <div class="tabs" id="authTabs" role="tablist"></div>
+    <form id="authForm" class="co-form auth-form" novalidate></form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+<script src="/assets/main.js?v=33"></script>
+<script src="/shop/api.js?v=9"></script>
+<script src="/shop/pages.js?v=9"></script>
+<script src="/shop/member.js?v=9"></script>
+<script src="/shop/app.js?v=9"></script>
+<script src="/shop/bar.js?v=9" defer></script>
+</body>
+</html>

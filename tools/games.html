@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>學習專區｜免費主題探險網站、闖關遊戲與課堂即時測驗｜鴻綸科技</title>
+<meta name="description" content="給學生用的免費學習網站與遊戲：動物、植物、兩棲、故宮、海洋、昆蟲、古蹟、土石流、美食九個主題探險網站，九九乘法與注音英文字母的闖關遊戲，還有老師出題、學生線上作答的 Luno 綸諾互動式評量。老師可列印學習單、用搶答計分板。免註冊、免安裝。">
+<link rel="canonical" href="https://www.hunglun.com/tools/games">
+<meta property="og:type" content="website">
+<meta property="og:title" content="學習專區｜免費主題探險網站、闖關遊戲與課堂即時測驗｜鴻綸科技">
+<meta property="og:description" content="給學生用的免費學習網站與遊戲：動物、植物、兩棲、故宮、海洋、昆蟲、古蹟、土石流、美食九個主題探險網站，九九乘法與注音英文字母的闖關遊戲，還有老師出題、學生線上作答的 Luno 綸諾互動式評量。老師可列印學習單、用搶答計分板。免註冊、免安裝。">
+<meta property="og:url" content="https://www.hunglun.com/tools/games">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/tools-games.png?v=7">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學習專區｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學習專區｜免費主題探險網站、闖關遊戲與課堂即時測驗｜鴻綸科技">
+<meta name="twitter:description" content="給學生用的免費學習網站與遊戲：動物、植物、兩棲、故宮、海洋、昆蟲、古蹟、土石流、美食九個主題探險網站，九九乘法與注音英文字母的闖關遊戲，還有老師出題、學生線上作答的 Luno 綸諾互動式評量。老師可列印學習單、用搶答計分板。免註冊、免安裝。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/tools-games.png?v=7">
+<meta name="twitter:image:alt" content="學習專區｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<style>
+/* 研習專區清單：跟全站 kn-item 共用骨架，只在這裡加圖示底色徽章、需密碼小標籤、
+   懸停時的輕微上浮陰影。只有這一頁的 #training 用得到，不動全站 kn-item 樣式。 */
+#training .kn-item{grid-template-columns: 44px 1fr;transition: background .2s ease,padding-left .2s ease,box-shadow .25s ease,transform .25s ease}
+#training .kn-item:hover{box-shadow: 0 10px 28px -14px rgba(0,0,0,0.28);transform: translateY(-2px)}
+#training .kn-icon-wrap{display: flex;align-items: center;justify-content: center;width: 44px;height: 44px;border-radius: 999px;background: var(--glow);transition: background .25s ease,transform .25s ease}
+#training .kn-item:hover .kn-icon-wrap{background: var(--accent);transform: scale(1.06)}
+#training .kn-icon-wrap .kn-icon{width: 26px;height: 26px;color: var(--accent)}
+#training .kn-item:hover .kn-icon-wrap .kn-icon{color: #fff}
+#training .kn-meta{display: flex;align-items: center;gap: 8px;margin-bottom: 4px}
+#training .kn-meta time{font-family: var(--mono);font-size: 1.05rem;font-weight: 700;color: var(--text)}
+#training .kn-lock{display: inline-flex;align-items: center;gap: 4px;font-size: 0.75rem;font-weight: 600;letter-spacing: .03em;color: var(--accent);background: var(--glow);border-radius: 999px;padding: 2px 9px}
+@media (max-width: 560px){#training .kn-item{grid-template-columns: 36px 1fr}#training .kn-icon-wrap{width: 36px;height: 36px}#training .kn-icon-wrap .kn-icon{width: 21px;height: 21px}}
+
+/* 學習專區頁：卡片牆版型。只用 .lg-* 與 #learning-games 限定，不動全站 .card */
+.lg-hero{position:relative;overflow:hidden;background:radial-gradient(60% 90% at 12% 0%,color-mix(in srgb,#7b45d6 11%,transparent),transparent 70%),radial-gradient(55% 90% at 90% 10%,color-mix(in srgb,#2b7fb8 11%,transparent),transparent 70%),var(--bg)}
+.lg-hero .wrap{position:relative;z-index:1}
+.lg-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;margin:18px auto 0;padding:0;list-style:none}
+.lg-badges li{font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 14px;background:var(--bg)}
+.lg-deco{position:absolute;inset:0;pointer-events:none;z-index:0}
+.lg-deco img{position:absolute;width:68px;height:68px;border-radius:18px;box-shadow:0 10px 26px -10px rgba(0,0,0,.35);animation:lg-float 6s ease-in-out infinite}
+.lg-deco img:nth-child(1){left:7%;top:22%;--r:-8deg}
+.lg-deco img:nth-child(2){left:17%;top:58%;--r:6deg;animation-delay:-2s}
+.lg-deco img:nth-child(3){left:3%;top:64%;--r:-4deg;animation-delay:-4s;width:56px;height:56px}
+.lg-deco img:nth-child(4){right:7%;top:20%;--r:8deg;animation-delay:-1s}
+.lg-deco img:nth-child(5){right:17%;top:58%;--r:-6deg;animation-delay:-3s}
+.lg-deco img:nth-child(6){right:3%;top:62%;--r:4deg;animation-delay:-5s;width:56px;height:56px}
+/* 第 7、8 個（植物、土石流）：左右各一，放在標題外側上方，維持左右各 4 個對稱 */
+.lg-deco img:nth-child(7){left:25%;top:10%;--r:5deg;animation-delay:-1.5s;width:52px;height:52px}
+.lg-deco img:nth-child(8){right:25%;top:10%;--r:-5deg;animation-delay:-3.5s;width:52px;height:52px}
+@keyframes lg-float{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(var(--r))}}
+/* 1230 以下浮動圖示會壓到副標與分頁連結（2026-10-29 逐寬度量過），直接不顯示 */
+@media (max-width:1240px){.lg-deco{display:none}}
+.lg-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:26px}
+/* 分類分頁（樣式同教學專區 .kn-tabs）：沒有 JS 時是頁內連結，有 JS 時只顯示選到的那一類 */
+.lg-tabs-wrap{padding-top:0;padding-bottom:0}
+.lg-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.lg-tabs a{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;min-height:44px;padding:10px 18px;font-size:1rem;line-height:1.2;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;text-decoration:none;transition:color .2s,border-color .2s,background .2s}
+.lg-tabs a:hover{color:var(--text);border-color:var(--accent)}
+.lg-tabs a[aria-current="page"]{color:var(--accent);border-color:var(--accent);background:var(--card-hover);font-weight:600}
+.lg-tabs a span{font-size:.82rem;color:var(--muted-faint)}
+.lg-tabs a[aria-current="page"] span{color:var(--accent)}
+@media (max-width:640px){.lg-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px 4px}.lg-tabs::-webkit-scrollbar{display:none}}
+[data-cat][hidden]{display:none!important}
+.lg-block{margin:0 0 56px}
+.lg-h2{text-align:center;font-size:1.5rem;margin:0 0 6px}
+.lg-lead{text-align:center;color:var(--muted);margin:0 auto 26px;max-width:640px}
+.lg-pair{display:flex;justify-content:center;gap:56px 26px;flex-wrap:wrap}
+.lg-pair .lg-block{flex:0 1 calc((100% - 52px)/3);min-width:280px;margin-bottom:0}
+.lg-pair .lg-card{flex-basis:100%}
+.lg-card{--c:var(--accent);position:relative;flex:0 1 calc((100% - 52px)/3);min-width:280px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--bg);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.lg-card[hidden]{display:none}
+.lg-card:hover,.lg-card:focus-within{transform:translateY(-5px);border-color:color-mix(in srgb,var(--c) 55%,var(--line));box-shadow:0 18px 36px -18px color-mix(in srgb,var(--c) 55%,transparent)}
+.lg-shot{position:relative;display:block;aspect-ratio:8/5;overflow:hidden;background:color-mix(in srgb,var(--c) 12%,var(--bg))}
+.lg-shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.lg-card:hover .lg-shot img{transform:scale(1.05)}
+/* 底色比卡片主色深一階：白字對比要 4.5 以上（2026-10-29 axe 量到 4 張不足，80% 時最低 4.97） */
+.lg-kind{position:absolute;left:12px;top:12px;font-size:.74rem;font-weight:600;color:#fff;background:var(--c);background:color-mix(in srgb,var(--c) 80%,#000);border-radius:999px;padding:3px 11px;box-shadow:0 4px 10px -4px rgba(0,0,0,.4)}
+.lg-body{position:relative;display:flex;flex-direction:column;flex:1;padding:0 22px 22px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 9%,var(--bg)),var(--bg) 70%)}
+.lg-icon{width:56px;height:56px;border-radius:16px;margin-top:-28px;margin-bottom:10px;background:var(--bg);border:3px solid var(--bg);box-shadow:0 8px 18px -8px rgba(0,0,0,.4);object-fit:cover;position:relative}
+.lg-body h3{font-size:1.2rem;font-weight:500;margin-bottom:4px}
+.lg-body h3 a{color:var(--text)}
+.lg-body h3 a::after{content:"";position:absolute;inset:-400px -1px -1px -1px;z-index:2}
+.lg-body .tagline{color:var(--c);font-size:.84rem;font-weight:500;margin-bottom:10px}
+.lg-body p{color:var(--muted);font-size:.92rem;flex:1}
+.lg-levels{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;min-height:24px}
+.lg-levels span{font-size:.75rem;font-weight:500;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);border-radius:999px;padding:2px 10px}
+.lg-teacher{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px;padding:26px;border-radius:20px;background:color-mix(in srgb,var(--accent) 7%,var(--bg));border:1px solid var(--line)}
+.lg-teacher h2{grid-column:1/-1;font-size:1.15rem;font-weight:500;text-align:center}
+.lg-teacher h2 + p{grid-column:1/-1;text-align:center;color:var(--muted);font-size:.9rem;margin-top:-8px}
+.lg-teacher div{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.lg-teacher strong{display:block;font-weight:500;margin-bottom:4px}
+.lg-teacher span{color:var(--muted);font-size:.88rem}
+@media (max-width:1020px){.lg-teacher{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.lg-teacher{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.lg-deco img{animation:none;transform:rotate(var(--r))}.lg-card,.lg-shot img{transition:none}}
+.cta-center .section-title,.cta-center .section-sub{text-align:center;margin-inline:auto}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://www.hunglun.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "學習專區",
+      "item": "https://www.hunglun.com/tools/games"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "學習專區",
+  "numberOfItems": 11,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "WebApplication",
+        "name": "邊玩邊變強",
+        "url": "https://game.hunglun.com/",
+        "description": "國小九九乘法、加減法、注音符號與英文字母練習遊戲，答對題目才能出手攻擊，打贏升級、掉裝備，可登入帳號建立角色保存進度，也能直接遊戲不登入，另附六款練習小遊戲。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "WebApplication",
+        "name": "動物探險家",
+        "url": "https://zoo.hunglun.com/",
+        "description": "國小動物教學網站：動物小百科、分類闖關、誰住哪裡、猜猜我是誰、保育小教室，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "WebApplication",
+        "name": "故宮探險家",
+        "url": "https://museum.hunglun.com/",
+        "description": "國小到高中文物教學網站：文物小百科、典藏搜尋、猜朝代、朝代排排站、分類闖關、翻牌配對、小展覽與清代檔案史料探究，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "WebApplication",
+        "name": "海洋探險家",
+        "url": "https://ocean.hunglun.com/",
+        "description": "以展館與特展為主題的幼兒園到高中海洋生物教學網站：海洋小百科、逛海生館、特展教室、分類闖關、誰住哪片海、猜猜我是誰、翻牌配對、保育小尖兵，高中可用環境 DNA 與鯨豚海龜擱淺紀錄做探究，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "WebApplication",
+        "name": "昆蟲探險家",
+        "url": "https://insects.hunglun.com/",
+        "description": "國小到高中台灣昆蟲教學網站：昆蟲小百科、猜猜我是誰、分類闖關、是不是昆蟲、翻牌配對、變態排排站、幾月看得到，高中可用 14.8 萬筆標本紀錄做探究，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "WebApplication",
+        "name": "古蹟探險家",
+        "url": "https://heritage.hunglun.com/",
+        "description": "幼兒園到高中臺灣古蹟教學網站：古蹟圖鑑、地圖找家附近的古蹟、看建築認類型、時代排排看、猜猜我是誰、翻牌配對、探險護照，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "WebApplication",
+        "name": "土石流小偵探",
+        "url": "https://landslide.hunglun.com/",
+        "description": "國小土石流防災教學網站：看水保署溪邊鏡頭的即時畫面、臺灣地圖、認識土石流與前兆、查全臺 17 縣市的土石流潛勢溪流、防災闖關，老師可產生學習單並用上課模式與搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "WebApplication",
+        "name": "植物探險家",
+        "url": "https://plant.hunglun.com/",
+        "description": "國小植物教學網站：臺北市立動物園園區 100 種植物的小百科、用台北植物園十多年觀察紀錄看這個月開什麼花、開花植物蕨類裸子植物分類與植物用途遊戲、逛園區看植物、探險護照，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "WebApplication",
+        "name": "Luno 綸諾・互動式評量",
+        "url": "https://luno.hunglun.com/",
+        "description": "互動式評量：老師用 AI 依年級與科目出題，可下載 Word、PDF，也能發連結讓學生用手機或平板線上作答，系統自動評分，老師與家長即時看到作答進度；免安裝，打開網頁就能用。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "WebApplication",
+        "name": "兩棲探險家",
+        "url": "https://frog.hunglun.com/",
+        "description": "國小兩棲類教學網站：用經濟部水利署河川調查的紀錄認識臺灣溪流的 31 種兩棲類，有兩棲小百科、幾月遇得到、蛙蛙分類遊戲、溪流地圖與找我附近的調查樣點、探險護照，老師可產生學習單並用搶答計分板。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "WebApplication",
+        "name": "臺灣美食探險家",
+        "url": "https://food.hunglun.com/",
+        "description": "國小臺灣美食教學網站：用交通部觀光署餐飲開放資料的 4,562 間店，依縣市與類型找美食、美食地圖找附近的店、分類小達人與猜縣市美食遊戲、美食護照，老師可產生班級連結並用 QR 碼讓全班開始。",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "鴻綸科技 Hunglun Technology",
+          "url": "https://hunglun.com",
+          "@id": "https://www.hunglun.com/#organization"
+        }
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge">教學專區</a>
+      <a href="/tools/games" class="active">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head lg-hero">
+  <div class="lg-deco" aria-hidden="true"><img width="68" height="68" src="/assets/icon-proj-zoo.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-sea.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-9x9game.webp?v=2" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-museum.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-heritage.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-insect.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-plant.webp?v=1" alt="" decoding="async"><img width="68" height="68" src="/assets/icon-proj-landslide.webp?v=1" alt="" decoding="async"></div>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="麵包屑"><a href="/">首頁</a> ／ 學習專區</nav>
+    <h1>學習專區</h1>
+    <p><span class="nowrap">給學生用的免費學習網站與遊戲：</span><span class="nowrap">九個主題探險網站、闖關遊戲，</span><span class="nowrap">還有老師帶全班用的即時測驗。</span></p>
+    <ul class="lg-badges" aria-label="共通特色"><li>免註冊</li><li>免安裝</li><li>電腦與平板都能用</li></ul>
+  </div>
+</div>
+
+<div class="section lg-tabs-wrap">
+  <div class="wrap">
+<nav class="lg-tabs" id="lgTabs" aria-label="學習專區分類">
+  <a href="#all" data-cat="all" aria-current="page">全部 <span>11</span></a>
+  <a href="#explore" data-cat="explore">主題探險網站 <span>9</span></a>
+  <a href="#game" data-cat="game">闖關遊戲 <span>1</span></a>
+  <a href="#quiz" data-cat="quiz">課堂即時測驗 <span>1</span></a>
+</nav>
+  </div>
+</div>
+
+<section class="section alt" id="learning-games">
+  <div class="wrap">
+    <div class="lg-block" id="explore" data-cat="explore">
+      <h2 class="lg-h2 reveal">主題探險網站</h2>
+      <p class="lg-lead">用政府開放資料做的教學網站，分年級，有小百科、地圖、分類練習和學習單。</p>
+      <div class="lg-grid">
+      <article class="lg-card reveal" style="--c:#5b9b45" data-cat="生物與自然">
+        <a class="lg-shot" href="https://zoo.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-zoo.webp?v=1" alt="" fetchpriority="high" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-zoo.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://zoo.hunglun.com/" target="_blank" rel="noopener">動物探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">動物園 270 種動物・分類闖關與猜謎</div>
+          <p>動物小百科、分類闖關、誰住哪裡、猜猜我是誰、保育小教室。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#2f7d4f" data-cat="生物與自然">
+        <a class="lg-shot" href="https://plant.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-plant.webp?v=1" alt="" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-plant.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://plant.hunglun.com/" target="_blank" rel="noopener">植物探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">動物園 100 種植物・這個月開什麼花</div>
+          <p>植物小百科、這個月開什麼花、植物分類、逛園區看植物、探險護照。開花月份來自台北植物園十多年的觀察紀錄。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#22795a" data-cat="生物與自然">
+        <a class="lg-shot" href="https://frog.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-frog.webp?v=1" alt="" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-frog.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://frog.hunglun.com/" target="_blank" rel="noopener">兩棲探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">臺灣溪流的 31 種兩棲類・溪流地圖</div>
+          <p>兩棲小百科、幾月遇得到、蛙蛙分類、溪流地圖、探險護照。資料來自水利署河川調查的 6,681 筆紀錄。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#2b7fb8" data-cat="生物與自然">
+        <a class="lg-shot" href="https://ocean.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-ocean.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-sea.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://ocean.hunglun.com/" target="_blank" rel="noopener">海洋探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">跟著海生館認識約兩百種海洋生物</div>
+          <p>逛海生館、特展教室、分類闖關、誰住哪片海。幼兒園模式只看照片、會唸出名字，高中可用環境 DNA 做探究。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>幼兒園</span><span>國小</span><span>國中</span><span>高中</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#4d8f35" data-cat="生物與自然">
+        <a class="lg-shot" href="https://insects.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-insects.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-insect.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://insects.hunglun.com/" target="_blank" rel="noopener">昆蟲探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">認識台灣上千種昆蟲，還能查 14.8 萬筆標本</div>
+          <p>昆蟲小百科、是不是昆蟲、變態排排站、幾月看得到。用縣市地圖與年代長條探究標本紀錄。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span><span>國中</span><span>高中</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#2f7d7d" data-cat="歷史與文化">
+        <a class="lg-shot" href="https://museum.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-museum.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">歷史與文化</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-museum.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://museum.hunglun.com/" target="_blank" rel="noopener">故宮探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">故宮 10.9 萬件文物・猜朝代與時間軸</div>
+          <p>文物小百科、典藏搜尋、猜朝代、朝代排排站、翻牌配對。高中可用 39.6 萬件清代檔案做史料探究。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span><span>國中</span><span>高中</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#a5422a" data-cat="歷史與文化">
+        <a class="lg-shot" href="https://heritage.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-heritage.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">歷史與文化</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-heritage.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://heritage.hunglun.com/" target="_blank" rel="noopener">古蹟探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">認識臺灣 1,065 處古蹟・地圖找家附近的古蹟</div>
+          <p>古蹟圖鑑、地圖找附近的古蹟、看建築認類型、探險護照，還能挑兩處比一比。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>幼兒園</span><span>國小</span><span>國中</span><span>高中</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#b8653a" data-cat="生物與自然">
+        <a class="lg-shot" href="https://landslide.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-landslide.webp?v=2" alt="" loading="lazy" decoding="async"><span class="lg-kind">生物與自然</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-landslide.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://landslide.hunglun.com/" target="_blank" rel="noopener">土石流小偵探<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">看溪邊鏡頭即時畫面・查全臺潛勢溪流</div>
+          <p>看溪觀察站、臺灣地圖、認識溪流與前兆、我的鄉鎮、防災闖關。知識都來自水保署官方頁面。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      <article class="lg-card reveal" style="--c:#c2551f" data-cat="生活與文化">
+        <a class="lg-shot" href="https://food.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-food.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">生活與文化</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-food.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://food.hunglun.com/" target="_blank" rel="noopener">臺灣美食探險家<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">4,562 間餐飲店家・地圖找附近的美食</div>
+          <p>依縣市與類型找美食、美食地圖、分類小達人、猜縣市美食、美食護照。店家資料來自交通部觀光署餐飲開放資料。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      </div>
+    </div>
+    <div class="lg-pair">
+      <div class="lg-block" id="game" data-cat="game">
+      <h2 class="lg-h2 reveal">闖關遊戲</h2>
+      <p class="lg-lead">答對題目才能出手攻擊，邊玩邊練九九乘法、注音與英文字母。</p>
+      <div class="lg-grid">
+      <article class="lg-card reveal" style="--c:#7b45d6" data-cat="基本功練習">
+        <a class="lg-shot" href="https://game.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-game.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">基本功練習</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-9x9game.webp?v=2" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://game.hunglun.com/" target="_blank" rel="noopener">邊玩邊變強<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">答題觸發戰鬥・答對就出手打怪</div>
+          <p>九九乘法、加減法、注音符號與英文字母。答對題目才能出手攻擊，打贏升級、掉裝備。可登入保存進度，也能直接玩。</p>
+          <div class="lg-levels" aria-label="適用程度"><span>國小</span></div>
+        </div>
+      </article>
+      </div>
+    </div>
+      <div class="lg-block" id="quiz" data-cat="quiz">
+      <h2 class="lg-h2 reveal">課堂即時測驗</h2>
+      <p class="lg-lead">老師用 AI 出題，學生用手機線上作答，自動評分並即時看進度。</p>
+      <div class="lg-grid">
+      <article class="lg-card reveal" style="--c:#4f46e5" data-cat="課堂互動">
+        <a class="lg-shot" href="https://luno.hunglun.com/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img width="800" height="500" src="/assets/games/game-luno.webp?v=1" alt="" loading="lazy" decoding="async"><span class="lg-kind">課堂互動</span></a>
+        <div class="lg-body">
+          <img class="lg-icon" width="56" height="56" src="/assets/icon-proj-luno.webp?v=1" alt="" loading="lazy" decoding="async">
+          <h3><a href="https://luno.hunglun.com/" target="_blank" rel="noopener">Luno 綸諾・互動式評量<span class="visually-hidden">（開新分頁）</span></a></h3>
+          <div class="tagline">AI 出題・線上作答・自動評分・即時看進度</div>
+          <p>老師用 AI 依年級與科目出題，可下載 Word、PDF 列印，也能發連結讓學生用手機或平板線上作答。系統自動評分，老師與家長即時看到寫到哪、錯在哪。免安裝，打開網頁就能用。</p>
+          <div class="lg-levels" aria-label="適用對象"><span>老師出題・學生作答</span></div>
+        </div>
+      </article>
+      </div>
+    </div>
+    </div>
+    <div class="lg-teacher">
+      <h2>給教師與家長的功能</h2>
+      <p>九個主題探險網站都有老師專區，家長也能在家陪孩子玩；要全班一起作答，可以用 Luno 綸諾。</p>
+      <div><strong>可列印學習單</strong><span>一鍵產生學習單與答案頁，直接印出來上課。</span></div>
+      <div><strong>全班搶答計分板</strong><span>分組搶答、計分與倒數計時，課堂互動用。</span></div>
+      <div><strong>課程包與出題投影</strong><span>故宮、海洋、昆蟲提供課程包與投影出題；土石流小偵探有全螢幕上課模式與兩個課程包。</span></div>
+      <div><strong>親子在家玩</strong><span>免註冊、免安裝，電腦與平板打開就能玩。海洋探險家的幼兒園模式只看照片、會唸出名字。</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap cta-center" style="text-align:center;">
+    <h2 class="section-title reveal">想要一個屬於您的工具？</h2>
+    <p class="section-sub reveal">這些成果都從一句「有沒有辦法自動化」開始。</p>
+    <a class="btn btn-primary reveal" href="/contact">委託開發洽詢</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+
+<script>
+(function(){
+  var nav=document.getElementById('lgTabs');if(!nav)return;
+  var tabs=[].slice.call(nav.querySelectorAll('a')),blocks=[].slice.call(document.querySelectorAll('.lg-block[data-cat]'));
+  function show(cat,push){
+    if(!tabs.some(function(t){return t.dataset.cat===cat;}))cat='all';
+    blocks.forEach(function(b){b.hidden=cat!=='all'&&b.dataset.cat!==cat;});
+    tabs.forEach(function(t){if(t.dataset.cat===cat)t.setAttribute('aria-current','page');else t.removeAttribute('aria-current');});
+    if(push)history.replaceState(null,'',cat==='all'?location.pathname:'#'+cat);
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(e){e.preventDefault();show(t.dataset.cat,true);});});
+  show((location.hash||'#all').slice(1),false);
+  window.addEventListener('hashchange',function(){show((location.hash||'#all').slice(1),false);});
+})();
+</script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

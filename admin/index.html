@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>後台管理｜鴻綸科技教育商城</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="admin.css?v=1">
+</head>
+<body>
+<div id="login" class="login" hidden>
+  <form id="loginForm" class="login-box" novalidate>
+    <img src="/shop/images/logo.webp" alt="鴻綸科技" width="180" height="36">
+    <h1>後台管理</h1>
+    <label>帳號（Email）<input name="email" type="email" required autocomplete="username"></label>
+    <label>密碼<input name="password" type="password" required autocomplete="current-password"></label>
+    <p class="err" id="loginErr" role="alert" hidden></p>
+    <button class="btn" type="submit">登入</button>
+  </form>
+</div>
+
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <div class="side-brand"><img src="/shop/images/logo.webp" alt="鴻綸科技" width="150" height="30"><span>後台管理</span></div>
+    <nav id="nav"></nav>
+    <div class="side-foot"><a href="/shop/" target="_blank" rel="noopener">查看前台商城</a><button id="logout" type="button">登出</button></div>
+  </aside>
+  <main class="main">
+    <header class="bar"><h1 id="title"></h1><div class="bar-act" id="barAct"></div></header>
+    <section id="view"></section>
+  </main>
+</div>
+
+<div class="dlg-mask" id="dlg" hidden><div class="dlg" role="dialog" aria-modal="true" id="dlgBox"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="/shop/api.js?v=8"></script>
+<script src="admin.js?v=1"></script>
+</body>
+</html>

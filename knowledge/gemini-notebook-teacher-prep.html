@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>教師備課實戰：跨班級同步教材與課堂資料庫｜Gemini Notebook｜鴻綸科技</title>
+<meta name="description" content="Gemini Notebook 怎麼幫老師整理一整學期的教材成一個持續累積的知識庫、跨班級共用同一份筆記本、以及學生同步教材功能怎麼開通。Gemini Notebook 系列第 5 篇。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/gemini-notebook-teacher-prep">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教師備課實戰：跨班級同步教材｜鴻綸科技">
+<meta property="og:description" content="一整學期的教材怎麼整理成持續累積的知識庫、學生同步教材功能怎麼開通。Gemini Notebook 系列第 5 篇。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/gemini-notebook-teacher-prep">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-teacher-prep.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="教師備課實戰：跨班級同步教材與課堂資料庫｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="教師備課實戰：跨班級同步教材｜鴻綸科技">
+<meta name="twitter:description" content="一整學期的教材怎麼整理成持續累積的知識庫、學生同步教材功能怎麼開通。Gemini Notebook 系列第 5 篇。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-teacher-prep.png?v=5">
+<meta name="twitter:image:alt" content="教師備課實戰：跨班級同步教材與課堂資料庫｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Gemini 教育版與 Notebook", "item": "https://www.hunglun.com/knowledge/topic/gemini" },
+    { "@type": "ListItem", "position": 4, "name": "教師備課實戰：跨班級同步教材", "item": "https://www.hunglun.com/knowledge/gemini-notebook-teacher-prep" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-14",
+  "mainEntity": [
+    { "@type": "Question", "name": "一個科目要建一個筆記本，還是一個單元建一個？", "acceptedAnswer": { "@type": "Answer", "text": "沒有標準答案，看教材更新頻率決定。整學期內容相對穩定的科目，建一個科目筆記本、持續往裡面加新單元的來源比較方便，之後問答跟出題可以跨單元一起查。內容變動大、每個單元差異很大的科目，分開建筆記本比較好管理，避免來源太多、找起來反而慢。" } },
+    { "@type": "Question", "name": "同一個科目教好幾個班，可以共用同一個筆記本嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。筆記本是綁在建立者的帳號底下，不是綁在某個特定班級，同一份教材的筆記本可以在教好幾個班時重複拿來出題、生成摘要，不用每個班都重新建一個。真的需要跟其他同科老師共用，也可以把筆記本分享出去，但分享權限與資料存取範圍建議先確認過學校的資安規範再開放。" } },
+    { "@type": "Question", "name": "什麼是『學生同步教材』？跟老師自己上傳有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "這是管理員授權後才會開放的功能：老師上傳到指定位置的課堂教材，可以讓學生用自己的帳號同步進學生自己的 Gemini Notebook，學生就能拿這些教材自己生成學習指南、語音摘要或測驗卡複習，不需要老師另外幫每個學生產出一份。這跟老師自己用筆記本出題是兩件事，一個是老師端使用、一個是把權限開放給學生自主使用。" } },
+    { "@type": "Question", "name": "學生同步功能預設就是開啟的嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不是，需要學校管理員在後台先授權才會開放給學生使用。這屬於管理員設定的範圍，包含要開放給哪些年級或組織單位、資料存取的範圍怎麼規劃，詳細設定方式見這個系列後面管理員視角的文章。" } },
+    { "@type": "Question", "name": "跨學年持續累積的筆記本，資料會不會越來越亂？", "acceptedAnswer": { "@type": "Answer", "text": "如果沒有定期整理，確實容易發生。建議每學期結束前檢視一次筆記本裡的來源，把已經不會再用到的舊版講義移除或另外歸檔，只留下確定會持續沿用的教材，這樣筆記本累積下來才會維持在可控的範圍，出題與問答的品質也比較穩定。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "教師備課實戰：跨班級同步教材與課堂資料庫",
+  "description": "Gemini Notebook 怎麼幫老師整理一整學期的教材成一個持續累積的知識庫、跨班級共用同一份筆記本、以及學生同步教材功能怎麼開通。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-gemini-notebook-teacher-prep.png",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/gemini-notebook-teacher-prep"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/gemini">Gemini 教育版與 Notebook</a> ／ 教師備課實戰：跨班級同步教材</nav>
+    <h1>教師備課實戰：跨班級同步教材與課堂資料庫</h1>
+    <p>前四篇講的是單篇文件怎麼用，這篇要講整學期教材怎麼變成一個持續累積的知識庫。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-14">2026 年 9 月 14 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-quiz-cards">← 上一篇：測驗卡與練習卡怎麼用</a>
+    <span class="series-index">Gemini Notebook 系列第 5／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-student-study">下一篇：學生自主學習：打造專屬 AI 課業助手 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>一個科目要建一個筆記本還是一個單元建一個？</strong>沒有標準答案，看教材更新頻率決定。整學期內容相對穩定的科目，建一個科目筆記本、持續加入新單元的來源比較方便，問答和出題可以跨單元一起查。</li>
+        <li><strong>教好幾個班，要每班各建一個筆記本嗎？</strong>不用。筆記本綁在建立者的帳號底下，不是綁在某個班級，同一份教材教好幾個班都可以重複使用。</li>
+        <li><strong>什麼是「學生同步教材」？</strong>學校管理員授權後，老師上傳到指定位置的課堂教材可以同步進學生自己的 Gemini Notebook，學生就能自己生成學習指南、語音摘要或測驗卡。這個功能不是預設開啟。</li>
+        <li><strong>累積很久的筆記本會不會越來越亂？</strong>會，所以建議每學期結束前檢視一次，把不會再用的舊版講義移除或歸檔，只留下會持續沿用的教材。</li>
+      </ul>
+    </div>
+
+    <p>前四篇都是拿一份或幾份文件示範單次操作，這篇要講的是比較貼近真實教學現場的用法：一個科目教一整個學年，教材不是一次上傳完就結束，而是隨著進度持續累積，怎麼讓這個累積過程變成老師的資產，而不是每學期重新來過。</p>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">一個科目、一個持續累積的筆記本</h2>
+    <p>比起每個單元都開一個新筆記本，比較好用的做法是同一個科目建一個筆記本，隨著進度把每個單元的講義、投影片陸續加進去當來源。好處是問答跟出題可以跨單元一起查，例如學生問一個涉及前幾個單元觀念的問題，Gemini Notebook 能一次讀到整學期累積的內容來回答，而不是被切割在各自獨立的單元筆記本裡查不到彼此的關聯。內容變動很大、每個單元差異很大的科目則相反，分開建筆記本管理會比較清楚，來源太多找起來反而慢，這點沒有標準答案，看教材更新頻率決定。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/gemini-notebook-multisource.webp"
+           width="465" height="635" loading="lazy" decoding="async"
+           alt="同一個筆記本的來源清單裡有兩份來源：一份案例研究文件與一份教師教學補充教材，兩者都打勾選取">
+      <figcaption>同一個筆記本可以持續加入新來源，這裡示範把案例研究跟教學補充教材放在同一個筆記本裡一起查。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">同一份教材，教好幾個班要重建嗎？</h2>
+    <p>筆記本是綁在建立者帳號底下，不是綁在某個特定班級。同一份教材、同一份筆記本，教好幾個班的同一科都可以重複拿來出題、生成摘要，不需要每個班各開一個。真的需要跟其他同科老師共用備課資源，也可以把筆記本分享出去，但要注意分享出去代表對方也能看到筆記本裡的所有來源與問答紀錄，分享權限與資料存取範圍建議先確認過學校的資安規範，不要沒想清楚就整批開放。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">學生同步教材：把知識庫開放給學生自己用</h2>
+    <p>除了老師自己用筆記本備課、出題，Gemini Notebook 還有一個「學生同步教材」的機制：學校管理員授權後，老師上傳到指定位置的課堂教材，可以同步進學生自己的 Gemini Notebook 帳號，學生就能拿這些教材自己生成學習指南、語音摘要或練習卡來複習，不需要老師另外幫每個學生準備一份。這跟前面講的老師端用法是兩件事，一個是老師自己用來備課出題，一個是把整理好的資料庫開放給學生自主學習使用，兩者可以同時進行。</p>
+    <p>要留意的是這個功能<strong>不是預設開啟</strong>，需要學校管理員在後台先授權，包含開放給哪些年級或組織單位、資料存取範圍怎麼規劃，都屬於管理員設定的一部分，這個系列後面談管理員視角的文章會展開講。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">學期結束前，記得整理一次筆記本</h2>
+    <p>持續累積的筆記本如果放著不管，來源會越堆越多，其中不少是已經不會再用到的舊版講義或臨時補充資料。每學期結束前檢視一次，把確定不會再用的內容移除或另外歸檔，只留下會持續沿用的教材，筆記本才會維持在好管理的規模，出題跟問答的品質也比較穩定，不會被過時或不相關的來源干擾。跟備課相關的提示詞技巧見 <a href="/knowledge/gemini-teaching-prompts">老師怎麼用 Gemini 備課</a>，兩者可以搭配使用。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>一個科目要建一個筆記本，還是一個單元建一個？</summary>
+      <div class="faq-a">沒有標準答案，看教材更新頻率決定。整學期內容相對穩定的科目，建一個科目筆記本、持續往裡面加新單元的來源比較方便，之後問答跟出題可以跨單元一起查。內容變動大、每個單元差異很大的科目，分開建筆記本比較好管理，避免來源太多、找起來反而慢。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>同一個科目教好幾個班，可以共用同一個筆記本嗎？</summary>
+      <div class="faq-a">可以。筆記本是綁在建立者的帳號底下，不是綁在某個特定班級，同一份教材的筆記本可以在教好幾個班時重複拿來出題、生成摘要，不用每個班都重新建一個。真的需要跟其他同科老師共用，也可以把筆記本分享出去，但分享權限與資料存取範圍建議先確認過學校的資安規範再開放。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>什麼是『學生同步教材』？跟老師自己上傳有什麼不同？</summary>
+      <div class="faq-a">這是管理員授權後才會開放的功能：老師上傳到指定位置的課堂教材，可以讓學生用自己的帳號同步進學生自己的 Gemini Notebook，學生就能拿這些教材自己生成學習指南、語音摘要或測驗卡複習，不需要老師另外幫每個學生產出一份。這跟老師自己用筆記本出題是兩件事，一個是老師端使用、一個是把權限開放給學生自主使用。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學生同步功能預設就是開啟的嗎？</summary>
+      <div class="faq-a">不是，需要學校管理員在後台先授權才會開放給學生使用。這屬於管理員設定的範圍，包含要開放給哪些年級或組織單位、資料存取的範圍怎麼規劃，詳細設定方式見這個系列後面管理員視角的文章。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>跨學年持續累積的筆記本，資料會不會越來越亂？</summary>
+      <div class="faq-a">如果沒有定期整理，確實容易發生。建議每學期結束前檢視一次筆記本裡的來源，把已經不會再用到的舊版講義移除或另外歸檔，只留下確定會持續沿用的教材，這樣筆記本累積下來才會維持在可控的範圍，出題與問答的品質也比較穩定。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-quiz-cards">← 上一篇：測驗卡與練習卡怎麼用</a>
+      <span class="series-index">Gemini Notebook 系列第 5／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-student-study">下一篇：學生自主學習：打造專屬 AI 課業助手 →</a>
+    </nav>
+
+    <div class="kb-related" style="margin:24px 0;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);">
+      <p style="margin:0 0 6px;"><strong>相關閱讀</strong></p>
+      <ul style="margin:0;padding-left:1.2em;"><li><a href="/insights/gemini-notebook-expert-intelligence">Gemini Notebook 能讀買過的電子書：Expert Intelligence</a></li></ul>
+    </div>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/services/campus-training">看校園研習服務</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E6%95%99%E5%B8%AB%E5%82%99%E8%AA%B2%E5%AF%A6%E6%88%B0%EF%BC%9A%E8%B7%A8%E7%8F%AD%E7%B4%9A%E5%90%8C%E6%AD%A5%E6%95%99%E6%9D%90%E8%88%87%E8%AA%B2%E5%A0%82%E8%B3%87%E6%96%99%E5%BA%AB%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

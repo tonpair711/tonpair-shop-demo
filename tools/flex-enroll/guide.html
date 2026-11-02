@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flex 大量部署教學</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=43">
+<!-- Flex 大量部署（零接觸式）教學。控制台按鈕名稱照 2026-10-07 實際操作 gedu.demo.gfeh.org 的繁中介面截圖。
+     搭配同資料夾 index.html（大量部署系統）使用。 -->
+<style>
+  :root {
+    --bg: #f8fafc; --card: #fff; --line: #e2e8f0; --head: #f1f5f9; --ink: #1e293b; --soft: #475569; --faint: #64748b;
+    --blue: #2563eb; --blue-soft: #eff6ff; --green: #15803d; --green-soft: #dcfce7; --red: #b91c1c; --red-soft: #fee2e2;
+    --amber: #b45309; --amber-soft: #fef3c7;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; font-size: 15.5px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 18px; overflow: hidden; }
+  .stripe { height: 8px; background: linear-gradient(90deg, #4285F4 0 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75% 100%); }
+  .in { padding: 22px 24px; }
+  h1 { margin: 0; font-size: 26px; line-height: 1.4; }
+  h2 { margin: 0 0 10px; font-size: 20px; display: flex; gap: 10px; align-items: center; }
+  h2 .n { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 16px;
+          display: inline-flex; align-items: center; justify-content: center; }
+  h3 { margin: 18px 0 6px; font-size: 16.5px; }
+  p { margin: 6px 0; }
+  .lead { color: var(--soft); }
+  ol, ul { margin: 6px 0; padding-left: 24px; }
+  li { margin: 3px 0; }
+  code { font-family: var(--mono); background: var(--head); padding: 1px 6px; border-radius: 5px; font-size: 14px; word-break: break-all; }
+  .ui { background: var(--blue-soft); color: #1d4ed8; padding: 1px 7px; border-radius: 6px; font-weight: 600; white-space: nowrap; }
+  .tbl { overflow-x: auto; margin: 8px 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14.5px; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--head); color: var(--soft); }
+  .yes { color: var(--green); font-weight: 700; }
+  .no { color: var(--faint); }
+  .box { border-radius: 12px; padding: 12px 16px; margin: 10px 0; }
+  .tip { background: var(--blue-soft); }
+  .warn { background: var(--amber-soft); color: #78350f; }
+  .bad { background: var(--red-soft); color: #7f1d1d; }
+  .ok { background: var(--green-soft); color: #14532d; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0; }
+  .flow span { background: var(--head); border-radius: 10px; padding: 6px 12px; font-size: 14.5px; }
+  .flow i { font-style: normal; color: var(--faint); }
+  .toc a { color: var(--blue); text-decoration: none; }
+  .toc ol { columns: 2; column-gap: 28px; }
+  a { color: var(--blue); }
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; }
+  .btn { display: inline-block; background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; border-radius: 10px; padding: 9px 16px; }
+  @media (max-width: 640px) { .toc ol { columns: 1; } h1 { font-size: 22px; } .in { padding: 18px 16px; } }
+</style>
+</head>
+<body>
+<div class="wrap" role="main">
+
+  <div class="card"><div class="stripe"></div><div class="in">
+    <div class="top">
+      <div>
+        <h1>Flex 大量部署教學（零接觸式）</h1>
+        <p class="lead">Windows 電腦大量轉成 ChromeOS Flex，開機一連上網就自動註冊、扣 CEU、套政策，現場不用任何人按註冊。</p>
+      </div>
+      <a class="btn" href="./">開啟大量部署系統</a>
+    </div>
+    <div class="toc">
+      <ol>
+        <li><a href="#s1">先弄懂：Flex 的「零接觸」怎麼做到</a></li>
+        <li><a href="#s2">要準備什麼、不用準備什麼</a></li>
+        <li><a href="#s3">控制台：確認 CEU 夠不夠</a></li>
+        <li><a href="#s4">控制台：建組織單位</a></li>
+        <li><a href="#s5">控制台：產生註冊權杖</a></li>
+        <li><a href="#s6">控制台：先設好政策</a></li>
+        <li><a href="#s7">大量部署系統：填表、產生</a></li>
+        <li><a href="#s8">到現場：模擬、正式</a></li>
+        <li><a href="#s9">驗收：怎麼確認自動註冊成功</a></li>
+        <li><a href="#s10">很多學校時怎麼分</a></li>
+        <li><a href="#s11">出問題怎麼辦</a></li>
+      </ol>
+    </div>
+  </div></div>
+
+  <div class="card" id="s1"><div class="in">
+    <h2><span class="n">1</span>先弄懂：Flex 的「零接觸」怎麼做到</h2>
+    <p>零接觸的意思是：<b>事先把「這台屬於哪個學校」記好，現場不用設定，電腦連上網就自己註冊</b>。Chromebook 和 Flex 都做得到，差在「事先記在哪裡」。</p>
+    <div class="tbl" tabindex="0"><table>
+      <tr><th><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">項目</span></th><th>Chromebook 零接觸</th><th>Flex（這套做法）</th></tr>
+      <tr><td>「屬於誰」記在哪</td><td>Google 伺服器（用序號事先登記）</td><td>電腦自己身上（轉換時寫入註冊權杖）</td></tr>
+      <tr><td>怎麼記進去</td><td>零接觸工具送序號、型號給 Google</td><td>一鍵轉換檔帶著權杖執行</td></tr>
+      <tr><td>開機連網後</td><td>問 Google → 自動註冊</td><td>用權杖 → 自動註冊</td></tr>
+      <tr><td>CEU</td><td>註冊那刻扣 1 個</td><td>註冊那刻扣 1 個</td></tr>
+    </table></div>
+    <div class="box warn"><b>Flex 不能用零接觸工具</b>：Google 官方寫明零接觸註冊不相容 ChromeOS Flex。PC 的韌體不會去問 Google，序號登記了也沒用。</div>
+    <h3>CEU 和權杖不一樣</h3>
+    <ul>
+      <li><b>CEU</b>（控制台裡叫「ChromeOS 升級版」）：授權名額，像<b>座位</b>，一台佔一個</li>
+      <li><b>註冊權杖</b>：像學校的<b>報到密碼</b>，綁在一個組織單位上，整個單位的電腦<b>共用同一組</b></li>
+    </ul>
+    <div class="flow"><span>30 台用同一組權杖轉換</span><i>→</i><span>每台開機報到</span><i>→</i><span>Google 自動各分 1 個 CEU</span><i>→</i><span>30 個 CEU 用完</span></div>
+    <p>所以同一個單位、同一組網路的電腦，一鍵轉換檔<b>內容完全一樣</b>，不用每台準備不同的東西。CEU 不夠時，多出來的電腦會註冊失敗。</p>
+  </div></div>
+
+  <div class="card" id="s2"><div class="in">
+    <h2><span class="n">2</span>要準備什麼、不用準備什麼</h2>
+    <p>零接觸工具要填的欄位，Flex 大部分都不用：</p>
+    <div class="tbl" tabindex="0"><table>
+      <tr><th>欄位</th><th>Flex 要不要</th><th>說明</th></tr>
+      <tr><td>序號（SN）</td><td class="no">選填</td><td>方便之後在控制台對照是哪一台</td></tr>
+      <tr><td>硬體型號（Model）</td><td class="no">不用</td><td>電腦報到時自己回報；一鍵檔模擬時會自動比對 Google 認證清單</td></tr>
+      <tr><td>預先配置代碼</td><td class="no">不用</td><td>那是零接觸給廠商用的。Flex 要的是下面的「註冊權杖」，兩個不能混用</td></tr>
+      <tr><td>認證裝置 ID（ADID）</td><td class="no">不用</td><td>Chromebook 出廠燒在機器裡的身分，PC 沒有</td></tr>
+      <tr><td>客戶 ID／網域</td><td class="no">不用</td><td>權杖本身就代表哪個網域、哪個單位</td></tr>
+      <tr><td>Google Device ID</td><td class="no">不用</td><td>註冊完 Google 自動產生</td></tr>
+      <tr><td><b>註冊權杖</b></td><td class="yes">要</td><td>第 5 步產生，一個單位一組</td></tr>
+      <tr><td><b>電腦名稱</b></td><td class="yes">要</td><td>Windows 的電腦名稱（設定 → 系統 → 關於 → 裝置名稱），各台結果檔靠它對應</td></tr>
+      <tr><td><b>網路</b></td><td class="yes">要</td><td>網路線，或 Wi-Fi 名稱＋密碼（一般密碼型）。Flex 要全自動就得事先寫好網路</td></tr>
+    </table></div>
+    <div class="box tip">每台電腦還要符合：Windows 10／11、UEFI 開機、C 槽能縮出 5GB 以上、沒有還原卡，型號最好在 Google 認證清單上。一鍵檔模擬時會自動檢查。</div>
+  </div></div>
+
+  <div class="card" id="s3"><div class="in">
+    <h2><span class="n">3</span>控制台：確認 CEU 夠不夠</h2>
+    <p>用學校（客戶）的超級管理員登入 <code>admin.google.com</code>。</p>
+    <div class="box warn">先看首頁「網域」卡片的<b>主網域</b>是不是你要的那個。同一家單位可能有好幾個 Google 帳號，權杖建在哪個網域，電腦就註冊到哪個網域。</div>
+    <ol>
+      <li>左邊 <span class="ui">帳單</span> → <span class="ui">訂閱</span>：找 <b>ChromeOS 升級版</b>，「授權」欄是總共買了幾個（例如 30 位升級）</li>
+      <li>看用掉幾個：<span class="ui">裝置</span> → <span class="ui">Chrome</span> → <span class="ui">裝置</span>，左邊選最上層網域，數清單上幾台（每台佔 1 個）。右上角 <span class="ui">查看升級項目</span> 也看得到</li>
+    </ol>
+    <p>剩餘數量 ≥ 這次要轉的台數才往下。<span class="ui">帳單 → 授權設定</span>只管使用者授權，看不到 CEU。</p>
+  </div></div>
+
+  <div class="card" id="s4"><div class="in">
+    <h2><span class="n">4</span>控制台：建組織單位</h2>
+    <p>權杖綁在組織單位上，電腦註冊後會進這個單位、套這個單位的政策。</p>
+    <ol>
+      <li>左邊 <span class="ui">目錄</span> → <span class="ui">組織單位</span></li>
+      <li>滑鼠移到最上層網域那一列，按右邊的 <span class="ui">＋</span>（或上方 <span class="ui">建立組織單位</span>）</li>
+      <li>名稱例如 <code>Flex-三年甲班</code>，上層選要放的位置，按建立</li>
+    </ol>
+    <div class="box tip">第一次做建議先建一個測試單位（例如 <code>Flex測試</code>），一台通過再建正式單位。</div>
+  </div></div>
+
+  <div class="card" id="s5"><div class="in">
+    <h2><span class="n">5</span>控制台：產生註冊權杖</h2>
+    <ol>
+      <li><span class="ui">裝置</span> → <span class="ui">Chrome</span> → <span class="ui">裝置</span>，右上角按 <span class="ui">註冊裝置</span></li>
+      <li>步驟 1「您想註冊哪種裝置？」選右邊 <span class="ui">非 ChromeOS 裝置 (採用 ChromeOS Flex)</span> → <span class="ui">下一步</span></li>
+      <li>步驟 2「您想如何註冊？」選中間 <span class="ui">自動註冊 (USB 安裝程式)</span> → <span class="ui">開始</span></li>
+      <li>按 <span class="ui">建立 USB 安裝程式</span></li>
+      <li>「安裝封裝工具」那頁是 Linux 指令，<b>不用理它</b>，直接按 <span class="ui">下一步</span></li>
+      <li>「選取組織單位」選第 4 步建的單位，確認下方「已選取」對了 → <span class="ui">下一步</span></li>
+      <li>「選擇權杖」：保持 <span class="ui">新增權杖</span>，升級類型選 <span class="ui">ChromeOS Enterprise 升級版或 ChromeOS Education 升級版</span>（Kiosk 是資訊站用的，不要選），註解填用途（例如「三年甲班 Flex」）→ <span class="ui">設定</span></li>
+      <li>出現「已成功建立新權杖」，按權杖右邊的複製圖示</li>
+      <li>左上角 <span class="ui">X</span> 關掉。後面「建立映像檔、USB」是 Google 自己的 USB 做法，我們用一鍵轉換檔，不需要</li>
+    </ol>
+    <div class="box tip">畫面寫要準備 USB 隨身碟、Debian/Ubuntu，那是 Google USB 做法用的，我們<b>只拿權杖</b>。關掉精靈不會刪權杖，之後在 <span class="ui">裝置 → Chrome → 註冊憑證</span> 選單位就查得到、可以再複製。</div>
+    <div class="box bad"><b>權杖等於進入學校網域的通行證</b>：不要貼在公開地方、截圖要遮。外流就在同一頁按權杖下方的藍字按鈕停用，再產生新的。</div>
+  </div></div>
+
+  <div class="card" id="s6"><div class="in">
+    <h2><span class="n">6</span>控制台：先設好政策</h2>
+    <p>電腦註冊進單位就會自動套用，事先設好，轉完開機就是對的。選好單位後到 <span class="ui">裝置 → Chrome → 設定</span>：</p>
+    <div class="tbl" tabindex="0"><table>
+      <tr><th>分頁</th><th>設定</th><th>建議</th></tr>
+      <tr><td>裝置</td><td>時區</td><td>Asia/Taipei（沒設會顯示美國時間）</td></tr>
+      <tr><td>裝置</td><td>登入限制</td><td>只允許學校網域帳號</td></tr>
+      <tr><td>裝置</td><td>訪客模式</td><td>停用</td></tr>
+      <tr><td>使用者與瀏覽器</td><td>語言、允許的輸入法</td><td>繁體中文、加注音（沒設只有英文鍵盤）</td></tr>
+      <tr><td>應用程式和擴充功能</td><td>強制安裝</td><td>學校要用的 App</td></tr>
+    </table></div>
+    <div class="box warn"><b>Flex 不支援「強制重新註冊」</b>：有人把 Flex 恢復原廠（Powerwash），它就變回未受管，要到現場重新註冊。登入限制設好、學生不要給管理員權限。</div>
+  </div></div>
+
+  <div class="card" id="s7"><div class="in">
+    <h2><span class="n">7</span>大量部署系統：填表、產生</h2>
+    <p>開 <a href="./">Flex 大量部署系統</a>（跟零接觸工具一樣，一列一台、可以「填滿」）：</p>
+    <ol>
+      <li>按 <span class="ui">10</span> 或 <span class="ui">99</span> 新增列數，每列填一台的<b>電腦名稱</b>（Windows 的電腦名稱）。台數多可以用 <span class="ui">匯入 Excel</span> 整批貼</li>
+      <li>第一列貼上權杖，按權杖欄的 <span class="ui">填滿</span>，全部套用</li>
+      <li>第一列選網路（網路線或 Wi-Fi），用 Wi-Fi 再填名稱、密碼，各按一次 <span class="ui">填滿</span></li>
+      <li>按 <span class="ui">產生全部一鍵轉換檔</span>，下載 zip：一台一個資料夾，裡面三個檔（模擬、正式、清出C槽空間），外加 Flex清冊.xlsx</li>
+      <li>按 <span class="ui">匯出清冊</span> 存一份 Excel 備份（不含權杖和密碼）</li>
+    </ol>
+    <div class="box tip">權杖和 Wi-Fi 密碼只在你的瀏覽器裡處理，不會送到伺服器，重新整理要重填。產生出來的 bat 裡是明文，只交給操作的人。</div>
+  </div></div>
+
+  <div class="card" id="s8"><div class="in">
+    <h2><span class="n">8</span>到現場：模擬、正式</h2>
+    <ol>
+      <li>從 <a href="/tools/downloads/">ChromeOS Flex 下載</a>拿整包，解壓成 <code>flex</code> 資料夾</li>
+      <li>把那台電腦資料夾裡的三個 bat 放進 <code>flex</code> 資料夾</li>
+      <li>雙擊 <b>模擬</b> 那個，按「是」。跑完桌面出現 <code>Flex結果-電腦名稱-時間.zip</code>，畫面寫 5/5 通過才往下</li>
+      <li>空間不足就先雙擊 <b>清出C槽空間</b>（可能會重開一次），再模擬一次</li>
+      <li>雙擊 <b>正式</b> 那個，輸入 Y。電腦會自己重開機開始安裝，Windows 和資料會被清空</li>
+    </ol>
+    <div class="box warn"><b>每個新型號，先 1 台跑完正式、驗收過，再推其他台。</b>資料一定要先備份。</div>
+    <p>台數多不想一台台雙擊：已經有 Intune、或同一個網路、或裝了 Action1 的，可以用遠端派送，見 <a href="/tools/flex-deploy">Flex 遠端部署手冊</a>第三部。</p>
+  </div></div>
+
+  <div class="card" id="s9"><div class="in">
+    <h2><span class="n">9</span>驗收：怎麼確認自動註冊成功</h2>
+    <ol>
+      <li>電腦裝好、開機到歡迎畫面，網路線插著（或 Wi-Fi 在範圍內），<b>不用按任何東西</b></li>
+      <li>畫面出現「<b>由 學校網域 管理</b>」就是自動註冊成功</li>
+      <li>控制台 <span class="ui">裝置 → Chrome → 裝置</span>，選那個單位，看到這台（可用序號找），CEU 少 1 個</li>
+      <li>把各台的結果 zip 拖進大量部署系統，狀態自動更新；確認註冊的可以手動改成「已註冊完成」</li>
+    </ol>
+    <div class="box warn">截至 2026-10-07，「一鍵轉換檔帶權杖 → 開機自動註冊」這一段<b>還沒在實機驗證過</b>（轉換本身已在 ASUS SD310 實機成功）。第一台驗收時請特別確認這一步，有出入回報技術人員。</div>
+    <div class="box ok">登入後在網址列打 <code>chrome://policy</code>，看得到第 6 步設的政策，就代表政策也下來了。</div>
+  </div></div>
+
+  <div class="card" id="s10"><div class="in">
+    <h2><span class="n">10</span>很多學校時怎麼分</h2>
+    <div class="tbl" tabindex="0"><table>
+      <tr><th><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">項目</span></th><th>每校有自己的 Google 網域</th><th>全部在同一個網域（一校一個單位）</th></tr>
+      <tr><td>CEU</td><td>各校自己買，買在哪個網域只能用在那個網域</td><td>同一池共用</td></tr>
+      <tr><td>權杖</td><td>各校管理員各自產生</td><td>每校的單位各產生一組</td></tr>
+      <tr><td>做法</td><td colspan="2">一次做一間學校：填該校電腦、貼該校權杖按填滿、產生；清空後換下一校。也可以先在 Excel 把各校清冊整理好（權杖欄直接填好），一校匯入一次</td></tr>
+    </table></div>
+    <div class="box tip">開工前每校先收齊：台數、Windows 電腦名稱清單、權杖、網路（Wi-Fi 名稱密碼或網路線）、CEU 剩幾個。每校先 1 台跑模擬，通過再推全校。</div>
+  </div></div>
+
+  <div class="card" id="s11"><div class="in">
+    <h2><span class="n">11</span>出問題怎麼辦</h2>
+    <div class="tbl" tabindex="0"><table>
+      <tr><th>狀況</th><th>原因</th><th>怎麼做</th></tr>
+      <tr><td>開機沒有自動註冊，停在網路畫面</td><td>網路沒通，或 Wi-Fi 名稱密碼錯</td><td>插網路線；或在畫面上手動選 Wi-Fi，連上後照設計會繼續自動註冊（還沒實測）</td></tr>
+      <tr><td>註冊失敗，說授權不足</td><td>CEU 用完了</td><td>補買，或在控制台把不用的裝置「解除佈建」退回 CEU</td></tr>
+      <tr><td>註冊到別的網域</td><td>權杖拿錯網域</td><td>到該網域控制台解除佈建，Powerwash 後重新註冊</td></tr>
+      <tr><td>已經轉成 Flex 但沒帶權杖（未受管）</td><td>轉換時沒填權杖</td><td>到現場：登入畫面（沒人登入過）按 <code>Ctrl+Alt+E</code>，用管理員帳號註冊；有人登入過要先 Powerwash</td></tr>
+      <tr><td><code>Ctrl+Alt+Shift+R</code>（Powerwash）沒反應</td><td>沒登出；或裝置受管，使用者不能自己洗</td><td>先登出、在登入畫面按；受管的要先在控制台解除佈建</td></tr>
+      <tr><td>權杖外流</td><td></td><td>控制台 <span class="ui">裝置 → Chrome → 註冊憑證</span> 選單位，把舊權杖停用，產生新的、重新產生一鍵檔</td></tr>
+      <tr><td>模擬沒過</td><td>空間、UEFI、TPM、還原卡等</td><td>看說明欄的原因，照 <a href="/tools/flex-deploy">手冊</a>第四部處理</td></tr>
+    </table></div>
+    <div class="box tip"><b>測試機用完要退 CEU</b>：控制台對那台按「解除佈建」（不是「停用」，停用不會退授權）。</div>
+  </div></div>
+
+</div>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

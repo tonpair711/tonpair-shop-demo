@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<title>學校雲端硬碟空間不足怎麼辦：100TB共用池監控與清理策略｜鴻綸科技</title>
+<meta name="description" content="Google for Education 的儲存空間是全網域共用的一個池子，不是每人一份。這篇說明 100TB 共用池怎麼運作、快撞到配額時管理員在管理主控台能看到什麼、常見的空間佔用大戶，以及升級方案與清理兩條解法怎麼選。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/google-storage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學校雲端硬碟空間不足怎麼辦｜鴻綸科技">
+<meta property="og:description" content="100TB共用池怎麼運作、怎麼監控用量、常見佔用大戶，以及升級與清理兩條解法。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/google-storage">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-google-storage.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學校雲端硬碟空間不足怎麼辦｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學校雲端硬碟空間不足怎麼辦｜鴻綸科技">
+<meta name="twitter:description" content="100TB共用池怎麼運作、怎麼監控用量、常見佔用大戶，以及升級與清理兩條解法。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-google-storage.png?v=5">
+<meta name="twitter:image:alt" content="學校雲端硬碟空間不足怎麼辦｜鴻綸科技">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google 與 AI 導入", "item": "https://www.hunglun.com/knowledge/topic/google-ai" },
+    { "@type": "ListItem", "position": 4, "name": "學校雲端硬碟空間不足怎麼辦", "item": "https://www.hunglun.com/knowledge/google-storage" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-06",
+  "mainEntity": [
+    { "@type": "Question", "name": "Google for Education 的雲端硬碟空間是每個帳號一份，還是大家共用？", "acceptedAnswer": { "@type": "Answer", "text": "是全網域共用的一個池子，不是每人各自一份配額。Education Fundamentals、Teaching and Learning，基準都是整個網域共用 100TB，全校師生的 Drive、Gmail 附件、共用雲端硬碟、相簿檔案全部算在同一個池子裡，任何一個帳號囤了大量檔案，吃掉的是全校的額度。" } },
+    { "@type": "Question", "name": "哪些東西會計入這 100TB？哪些不會？", "acceptedAnswer": { "@type": "Answer", "text": "會計入的：Google 雲端硬碟裡的檔案（含共用雲端硬碟）、Gmail 信件與附件、Google 相簿裡的相片影片。要注意的是，2022年5月起，新建立或編輯過的 Google 文件、試算表、簡報、表單、繪圖檔案也開始計入容量，不再是「Google 原生格式不佔空間」的舊規則，這點很多學校還沒更新認知。" } },
+    { "@type": "Question", "name": "空間快用完的時候，Google 會怎麼處理？", "acceptedAnswer": { "@type": "Answer", "text": "超過額度後，官方機制是「超額 25% 或超額 14 天，以先到者為準」才會開始限制服務：使用者不能再上傳新檔案到雲端硬碟、不能在文件/試算表/簡報/繪圖裡建立新檔案、無法編輯或複製受影響的檔案、Google 表單無法再被提交、Meet 也無法錄製新會議。但帳號本身仍能登入、瀏覽與下載既有檔案、收發信件，不會整個帳號被鎖死。管理員在這之前應該先透過管理主控台的用量報表提早發現，不要等到卡在限制才處理。" } },
+    { "@type": "Question", "name": "校內哪些帳號最常是空間佔用大戶？", "acceptedAnswer": { "@type": "Answer", "text": "常見情況：畢業多年還沒停用的校友帳號、教學組長或資訊組長個人 Drive 裡累積多年的教材與影音檔案、活動直播錄影未即時清理、Google 相簿自動備份手機照片、共用雲端硬碟裡重複上傳的舊版檔案。這些帳號通常不是故意佔用，而是長期沒有人盤點造成的累積。" } },
+    { "@type": "Question", "name": "空間不夠了，是升級方案比較好，還是先清理？", "acceptedAnswer": { "@type": "Answer", "text": "兩條路可以同時做，但順序建議先盤點清理，因為多數學校撞到配額的原因是「該清的沒清」，不是真的需要的容量超過100TB。清理做完若仍不夠，再考慮升級：Teaching and Learning 與 Education Plus 這兩個版本，每個授權會額外附加固定容量的儲存空間，升級後的容量是用授權數換算，等於間接擴大共用池。要不要升級屬於採購決策，實際附加容量與費用請洽詢代理商核實最新方案。" } },
+    { "@type": "Question", "name": "管理員可以怎麼監控與盤點用量？", "acceptedAnswer": { "@type": "Answer", "text": "在 Google 管理主控台裡有專門的儲存空間報表，可以看到全網域整體用量趨勢、哪些服務（雲端硬碟／Gmail／相簿）佔比最高，也能依帳號排序找出用量異常的少數使用者，還能針對特定使用者或群組設定個人儲存空間上限，避免單一帳號無限制擴張。定期（例如每學期一次）跑一次這份報表，比等到收到配額警告才處理有效率得多。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學校雲端硬碟空間不足怎麼辦：100TB 共用池監控與清理策略",
+  "description": "Google for Education 儲存空間知識：全網域共用池怎麼運作、快滿的時候會發生什麼、常見佔用大戶、以及管理員監控用量與升級方案的判斷原則。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-09-06",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": { "@id": "https://www.hunglun.com/#organization" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": { "@type": "ImageObject", "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png" },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.hunglun.com/knowledge/google-storage" },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ 學校雲端硬碟空間不足怎麼辦</nav>
+    <h1>學校雲端硬碟空間不足怎麼辦</h1>
+    <p>100TB 共用池怎麼運作、快撞到配額時該先查什麼、清理與升級怎麼選。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校的 Google Workspace 管理員、資訊組長，以及負責校務系統與個資盤點的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-06">2026 年 9 月 6 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/account-lifecycle">下一篇：帳號生命週期管理 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學校雲端硬碟空間不足，該怎麼辦？</strong>基準是整個網域共用 100TB。多數學校撞到配額是因為該清的沒清，建議先盤點清理，清完仍不夠再評估升級。</li>
+        <li><strong>哪些東西會計入額度？</strong>雲端硬碟檔案、Gmail 信件與附件、Google 相簿，以及 2022 年 5 月後新建立或編輯過的原生格式文件。已停權帳號的資料也仍計入，刪除帳號才會釋放。</li>
+        <li><strong>額度用完會發生什麼事？</strong>超額 25%，或超額狀態持續 14 天（以先到為準）才會限制服務，例如無法上傳新檔案或建立新檔案。帳號仍能登入、瀏覽與下載既有檔案、正常收發信件。</li>
+        <li><strong>管理員怎麼監控用量？</strong>用管理主控台的儲存空間報表，可看整體成長趨勢、三種服務的佔比，並依帳號排序找出異常。建議每學期跑一次當作例行盤點。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal">先搞清楚一件事：這是「共用池」，不是每人一份</h2>
+    <p><strong>Google for Education 的儲存空間，不管是 Education Fundamentals 還是 Teaching and Learning，基準都是整個網域共用 100TB，不是「每個帳號各自 100GB」這種概念。</strong>全校師生的 Google 雲端硬碟、共用雲端硬碟、Gmail 附件、Google 相簿檔案，全部加總算在同一個池子裡。這代表任何一個帳號長期囤積大量檔案，吃掉的是全校共用的額度，不是他自己的。</p>
+    <p>很多學校收到儲存空間警告時，第一反應是「要不要買更多空間」，但常見的真正原因是<strong>沒有人盤點過用量，某幾個帳號累積了多年沒清的檔案</strong>。升級之前，先花時間查清楚額度都花在哪，往往比直接升級划算。</p>
+
+    <h2 class="section-title reveal">哪些東西會計入額度</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>雲端硬碟裡的一般檔案</strong>：PDF、圖片、影片、壓縮檔等上傳檔案，含個人雲端硬碟與共用雲端硬碟。</li>
+      <li><strong>Gmail 信件與附件</strong>：長年累積的信箱附件是容易被忽略的一塊。</li>
+      <li><strong>Google 相簿</strong>：手機自動備份相片影片，教師個人帳號常常在不知情下佔用大量空間。</li>
+      <li><strong>Google 文件／試算表／簡報／表單／繪圖檔案</strong>：注意，這點在 2022 年 5 月後改變過。只要是新建立或編輯過的原生格式檔案，同樣計入容量，不是舊觀念裡「Google 原生格式不佔空間」。</li>
+      <li><strong>已停權（Suspend）帳號的資料</strong>：停權不等於清空。停權帳號占用的空間仍計入共用池，要刪除帳號才會釋放。</li>
+    </ul>
+
+    <h2 class="section-title reveal">額度快用完時會發生什麼事</h2>
+    <p>官方機制是「超額 25%，或超額狀態持續 14 天，以先到的情況為準」才會開始限制服務。到那個門檻後：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li>使用者無法再上傳新檔案到雲端硬碟</li>
+      <li>無法在文件／試算表／簡報／繪圖建立新檔案</li>
+      <li>受影響的既有檔案無法編輯或複製</li>
+      <li>Google 表單無法再被填答者提交</li>
+      <li>Google Meet 無法錄製新會議</li>
+    </ul>
+    <p>但帳號仍然能<strong>登入、瀏覽與下載既有檔案、正常收發信件</strong>，不是整個帳號被鎖死。掌握這個門檻的意義是：管理員應該在超額之前、透過用量報表提早發現，而不是等到教師反映「檔案傳不上去」才知道出事。</p>
+
+    <h2 class="section-title reveal">管理員怎麼監控與盤點</h2>
+    <p>Google 管理主控台有專門的儲存空間報表，能看到：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li>全網域整體用量的成長趨勢</li>
+      <li>雲端硬碟／Gmail／相簿三種服務各自的佔比</li>
+      <li>依帳號排序，找出用量明顯異常的少數使用者</li>
+      <li>視需要對特定使用者或群組設定個人儲存<span class="nowrap">空間上限</span></li>
+    </ul>
+    <p>建議<strong>每學期跑一次這份報表</strong>當作例行盤點，而不是等收到系統警告才處理。常見的空間佔用大戶包括：畢業多年沒停用的校友帳號（見<a href="/knowledge/account-lifecycle">帳號生命週期管理</a>）、累積多年教材與活動影音的教師個人帳號、共用雲端硬碟裡重複上傳的舊版檔案。</p>
+
+    <h2 class="section-title reveal">清理，還是升級？</h2>
+    <p>兩條路不衝突，但建議<strong>先清理再評估升級</strong>，因為多數學校撞到配額的原因是「該清的沒清」，不是真的需要的容量已經超過 100TB：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>清理優先做</strong>：處理畢業校友帳號前先確認資料轉移或封存規則（可對照<a class="text-link" href="/knowledge/account-lifecycle">帳號生命週期管理</a>）、清掉共用雲端硬碟裡的重複檔案、關閉不需要的相簿自動備份。<strong>要注意「停權」不會釋放空間</strong>：停權（Suspend）的帳號其資料仍計入共用池，必須在資料轉出或保存期滿後<strong>刪除</strong>帳號，空間才會回收。畢業季常見的錯誤是整批停權就以為清完了，配額卻沒動。</li>
+      <li><strong>清完仍不夠，再看升級</strong>：Teaching and Learning 與 Education Plus 這兩個版本，每個授權會額外附加固定容量，等於用授權數換算擴大共用池上限。實際附加容量、費用與是否符合貴校現況，屬於採購與授權規劃的一部分，建議直接洽詢<a class="text-link" href="/services/google-workspace">Google Workspace for Education 授權導入</a>服務確認最新方案，不要照網路上的舊數字直接編列預算，官方政策調整過不只一次。</li>
+    </ul>
+    <p>需要協助盤點用量、規劃升級方案，或評估貴校現有授權版本是否符合需求，歡迎<a href="/contact">聯絡我們</a>。</p>
+
+    <p style="color:var(--muted-faint);font-size:0.85rem;margin-top:24px;">資料來源：<a href="https://support.google.com/a/answer/10403871" target="_blank" rel="noopener">Google Workspace Admin Help - Overview of Google Workspace for Education storage</a>、<a href="https://support.google.com/a/answer/12033430" target="_blank" rel="noopener">Set storage limits</a>。政策與容量數字以 Google 官方最新公告為準。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Google for Education 的雲端硬碟空間是每個帳號一份，還是大家共用？</summary>
+      <div class="faq-a">是全網域共用的一個池子，不是每人各自一份配額。Education Fundamentals、Teaching and Learning，基準都是整個網域共用 100TB，全校師生的 Drive、Gmail 附件、共用雲端硬碟、相簿檔案全部算在同一個池子裡，任何一個帳號囤了大量檔案，吃掉的是全校的額度。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>哪些東西會計入這 100TB？哪些不會？</summary>
+      <div class="faq-a">會計入的：Google 雲端硬碟裡的檔案（含共用雲端硬碟）、Gmail 信件與附件、Google 相簿裡的相片影片。要注意的是，2022年5月起，新建立或編輯過的 Google 文件、試算表、簡報、表單、繪圖檔案也開始計入容量，不再是「Google 原生格式不佔空間」的舊規則，這點很多學校還沒更新認知。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>空間快用完的時候，Google 會怎麼處理？</summary>
+      <div class="faq-a">超過額度後，官方機制是「超額 25% 或超額 14 天，以先到者為準」才會開始限制服務：使用者不能再上傳新檔案到雲端硬碟、不能在文件/試算表/簡報/繪圖裡建立新檔案、無法編輯或複製受影響的檔案、Google 表單無法再被提交、Meet 也無法錄製新會議。但帳號本身仍能登入、瀏覽與下載既有檔案、收發信件，不會整個帳號被鎖死。管理員在這之前應該先透過管理主控台的用量報表提早發現，不要等到卡在限制才處理。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>校內哪些帳號最常是空間佔用大戶？</summary>
+      <div class="faq-a">常見情況：畢業多年還沒停用的校友帳號、教學組長或資訊組長個人 Drive 裡累積多年的教材與影音檔案、活動直播錄影未即時清理、Google 相簿自動備份手機照片、共用雲端硬碟裡重複上傳的舊版檔案。這些帳號通常不是故意佔用，而是長期沒有人盤點造成的累積。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>空間不夠了，是升級方案比較好，還是先清理？</summary>
+      <div class="faq-a">兩條路可以同時做，但順序建議先盤點清理，因為多數學校撞到配額的原因是「該清的沒清」，不是真的需要的容量超過100TB。清理做完若仍不夠，再考慮升級：Teaching and Learning 與 Education Plus 這兩個版本，每個授權會額外附加固定容量的儲存空間，升級後的容量是用授權數換算，等於間接擴大共用池。要不要升級屬於採購決策，實際附加容量與費用請洽詢代理商核實最新方案。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>管理員可以怎麼監控與盤點用量？</summary>
+      <div class="faq-a">在 Google 管理主控台裡有專門的儲存空間報表，可以看到全網域整體用量趨勢、哪些服務（雲端硬碟／Gmail／相簿）佔比最高，也能依帳號排序找出用量異常的少數使用者，還能針對特定使用者或群組設定個人儲存空間上限，避免單一帳號無限制擴張。定期（例如每學期一次）跑一次這份報表，比等到收到配額警告才處理有效率得多。</div>
+    </details>
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的資訊組群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《學校雲端硬碟空間不足怎麼辦》，把 100TB 共用池怎麼運作、怎麼監控用量、清理跟升級怎麼選都寫清楚了，分享給大家參考：https://www.hunglun.com/knowledge/google-storage" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/account-lifecycle">下一篇：帳號生命週期管理 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">更多帳號管理與授權方案知識。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/account-lifecycle">
+        <div class="card-body"><h3>帳號生命週期管理</h3><p>新生批次建檔、畢業生帳號處理，年度時程表。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/workspace-editions">
+        <div class="card-body"><h3>Workspace 教育版版本比較</h3><p>四個方案怎麼選，含儲存空間差異。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台設定指南</h3><p>OU、群組、裝置盤點怎麼做。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">需要協助盤點用量或規劃升級？</h2>
+    <p class="section-sub reveal">告訴我們貴校現有版本與人數，我們幫忙判斷該清理還是該升級。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在規劃 Workspace 導入或調整？</h2>
+      <p>不論是新導入、版本變更還是管理設定調整，先備妥這幾項：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>教職員與學生帳號數</li>
+        <li>目前使用的版本（Fundamentals、Teaching and Learning、Education Plus）</li>
+        <li>這次想解決的主要問題（儲存空間、資安、帳號管理或其他）</li>
+        <li>是否需要管理員教育訓練</li>
+        <li>預計處理時間</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Google%20Workspace%20%E5%B0%8E%E5%85%A5%E8%88%87%E7%AE%A1%E7%90%86&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E6%95%99%E8%81%B7%E5%93%A1%E8%88%87%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E9%80%99%E6%AC%A1%E6%83%B3%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E5%95%8F%E9%A1%8C%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%93%A1%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E8%99%95%E7%90%86%E6%99%82%E9%96%93%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E5%AD%B8%E6%A0%A1%E9%9B%B2%E7%AB%AF%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E4%B8%8D%E8%B6%B3%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%89">寄信詢問：Google Workspace 導入與管理</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-workspace">看 Workspace 導入與培訓服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

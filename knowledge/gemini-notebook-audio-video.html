@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Gemini Notebook 講義變 Podcast：Audio Overview 用法｜鴻綸科技</title>
+<meta name="description" content="Gemini Notebook 的 Audio Overview（雙人對談語音摘要）與 Video Overview（AI 旁白影片摘要）怎麼生成、適合什麼教學場景、教育版額度差在哪。Gemini Notebook 系列第 2 篇。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/gemini-notebook-audio-video">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audio Overview 與 Video Overview 怎麼用｜鴻綸科技">
+<meta property="og:description" content="雙人對談語音摘要、AI 旁白影片摘要怎麼生成，適合什麼教學場景。Gemini Notebook 系列第 2 篇。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/gemini-notebook-audio-video">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-audio-video.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="講義一鍵變 Podcast：Audio Overview 與 Video Overview 怎麼用｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Audio Overview 與 Video Overview 怎麼用｜鴻綸科技">
+<meta name="twitter:description" content="雙人對談語音摘要、AI 旁白影片摘要怎麼生成，適合什麼教學場景。Gemini Notebook 系列第 2 篇。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-audio-video.png?v=5">
+<meta name="twitter:image:alt" content="講義一鍵變 Podcast：Audio Overview 與 Video Overview 怎麼用｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Gemini 教育版與 Notebook", "item": "https://www.hunglun.com/knowledge/topic/gemini" },
+    { "@type": "ListItem", "position": 4, "name": "Audio Overview 與 Video Overview 怎麼用", "item": "https://www.hunglun.com/knowledge/gemini-notebook-audio-video" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-14",
+  "mainEntity": [
+    { "@type": "Question", "name": "Audio Overview 是什麼？聽起來像什麼？", "acceptedAnswer": { "@type": "Answer", "text": "上傳來源後，在「工作室」分頁生成一段兩人對談形式的語音導讀，兩個虛擬主持人用口語化的方式討論文件內容、互相補充重點，聽起來像一集主題式 Podcast，而不是機械朗讀原文。" } },
+    { "@type": "Question", "name": "Video Overview 跟 Audio Overview 差在哪？", "acceptedAnswer": { "@type": "Answer", "text": "Audio Overview 是純語音的雙人對談，Video Overview 則會搭配旁白與畫面（例如重點文字、圖表、來源截圖），變成一支有講解、有視覺輔助的摘要影片，適合需要邊看邊聽、或要投影給全班看的場合。" } },
+    { "@type": "Question", "name": "這兩個功能適合用在教學的哪個環節？", "acceptedAnswer": { "@type": "Answer", "text": "課前預習最常用：把這堂課要讀的文章或講義丟進去，生成語音或影片摘要，讓學生通勤、搭車時就能先聽過重點，上課直接進入討論，不用花時間重講一次課文內容。也適合考前總複習，把整學期的筆記彙整成一段總覽。" } },
+    { "@type": "Question", "name": "教育版方案在這兩個功能上有什麼優勢？", "acceptedAnswer": { "@type": "Answer", "text": "Education Plus 與 Teaching and Learning 加購項目讓每個帳號能生成的 Audio Overview 與 Video Overview 次數比免費版高出不少，適合需要頻繁幫每個單元都做一份摘要的老師。實際額度以帳號當下顯示為準，Google 會隨方案調整。" } },
+    { "@type": "Question", "name": "生成的語音或影片摘要，內容有出處嗎？可以直接當上課教材嗎？", "acceptedAnswer": { "@type": "Answer", "text": "內容只根據你上傳的來源整理，不會憑空編造，但語音與影片摘要本身是口語化的重點整理，不會像文字問答那樣逐句標出處。當課前導聆或複習輔助很合適，正式教材建議先聽過一遍確認內容與這次教學目標吻合，再決定要不要直接播給學生看。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "講義一鍵變 Podcast：Audio Overview 與 Video Overview 怎麼用",
+  "description": "Gemini Notebook 的 Audio Overview（雙人對談語音摘要）與 Video Overview（AI 旁白影片摘要）怎麼生成、適合什麼教學場景、教育版額度差在哪。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-gemini-notebook-audio-video.png",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/gemini-notebook-audio-video"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/gemini">Gemini 教育版與 Notebook</a> ／ Audio Overview 與 Video Overview 怎麼用</nav>
+    <h1>講義一鍵變 Podcast：Audio Overview 與 Video Overview 怎麼用</h1>
+    <p>把一份枯燥的講義丟進去，出來的是兩個人邊聊邊講重點的對話，而不是機械朗讀。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-14">2026 年 9 月 14 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-intro">← 上一篇：Gemini Notebook 是什麼</a>
+    <span class="series-index">Gemini Notebook 系列第 2／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-mindmap">下一篇：心智圖與資訊圖表怎麼用 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Audio Overview 與 Video Overview 是什麼？</strong>上傳來源後，在「工作室」分頁生成：Audio Overview 是兩個虛擬主持人對談的語音摘要，Video Overview 則加上旁白搭配重點文字、圖表或來源截圖的摘要影片。</li>
+        <li><strong>兩者差在哪？</strong>Audio Overview 純聽覺，適合手邊不方便看螢幕的場合；Video Overview 多了畫面，適合投影給全班看。</li>
+        <li><strong>教學上最實用的用法是什麼？</strong>課前導聆與考前總複習。把下週的課文或整學期的筆記丟進去，生成摘要讓學生先聽過或串起全貌。</li>
+        <li><strong>免費版能用嗎？</strong>能，但次數有限；有 Education Plus 或 Teaching and Learning 加購項目的帳號，可生成次數比免費版高出不少，實際額度以帳號當下顯示為準。</li>
+      </ul>
+    </div>
+
+    <p>上一篇講了 Gemini Notebook 的基本邏輯：先上傳來源，它才根據來源回答。這篇要講「工作室」分頁裡最常被用到的兩個輸出格式，把文字內容轉成可以用聽的、用看的摘要，適合不想再逐字讀完一份長講義的場合。</p>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">Audio Overview：兩個虛擬主持人幫你聊重點</h2>
+    <p>上傳來源後，到「工作室」分頁點生成語音摘要，幾分鐘內會出來一段對話形式的音檔。內容不是機械朗讀原文，而是模擬兩個主持人一來一往討論這份文件在講什麼、哪裡是重點、彼此還會互相追問補充，聽起來像一集主題式 Podcast。這種形式對吸收長篇內容特別有幫助，因為對話式的講解比條列式重點更容易跟著聽下去，也比較不會分心。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/gemini-notebook-audio-player.webp"
+           srcset="/assets/images/gemini-notebook-audio-player-480.webp 480w, /assets/images/gemini-notebook-audio-player.webp 695w"
+           sizes="(max-width: 820px) 100vw, 640px"
+           width="695" height="850" loading="lazy" decoding="async"
+           alt="生成完成的語音摘要在工作室清單裡顯示為一個項目，下方有播放進度列、播放/暫停鍵與播放速度設定">
+      <figcaption>生成完的語音摘要會出現在工作室清單裡，點開就能直接播放，介面跟一般 Podcast App 差不多。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">Video Overview：加上畫面的摘要影片</h2>
+    <p>Video Overview 走的是同樣的邏輯，差別是多了視覺元素：旁白講解搭配重點文字、圖表或來源截圖，變成一支有畫面的摘要影片。純聽覺的 Audio Overview 適合通勤、做家事這類手邊沒辦法看螢幕的場合；Video Overview 則適合投影給全班看，或需要邊聽邊看圖表、數據的內容，兩者選哪個看使用情境，不是誰比較先進的問題。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/gemini-notebook-video-player.webp"
+           srcset="/assets/images/gemini-notebook-video-player-480.webp 480w, /assets/images/gemini-notebook-video-player.webp 710w"
+           sizes="(max-width: 820px) 100vw, 640px"
+           width="710" height="755" loading="lazy" decoding="async"
+           alt="生成完成的影片摘要「南投竹山地方創生的殘酷真相」，畫面顯示標題卡與旁白字幕">
+      <figcaption>生成完的影片摘要會直接在工作室分頁播放，標題與畫面都是 AI 依來源內容自動生成的，不是套用固定模板。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">教學上最實際的用法：課前預習跟考前總複習</h2>
+    <ul class="feature-list">
+      <li><strong>課前導聆</strong>：把下週要上的課文或講義丟進去，生成一段語音摘要，讓學生通勤、搭車時先聽過內容，上課就能直接進到討論跟提問，不用把時間都花在重講一次課文。</li>
+      <li><strong>考前總複習</strong>：把整學期的筆記、投影片彙整成一個筆記本，生成一段總覽式的語音或影片摘要，幫學生把分散好幾週的內容串起來看一次全貌。</li>
+      <li><strong>差異化學習</strong>：有些學生讀長篇文字容易分心，聽對話式摘要反而比較能吸收，這個功能等於多了一種呈現同樣內容的方式，不是取代課文，是多一個入口。</li>
+    </ul>
+    <p>備課本身怎麼用 Gemini 出教案、出題，見 <a href="/knowledge/gemini-teaching-prompts">老師怎麼用 Gemini 備課</a>；這裡講的是「教材已經有了，怎麼換個形式讓學生更容易吸收」。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">教育版方案的額度差在哪？</h2>
+    <p>免費版就能生成 Audio Overview 與 Video Overview，但次數有限。如果學校有 Education Plus 或 Teaching and Learning 加購項目，每個帳號能生成的次數會比免費版高出不少，適合需要頻繁幫每個單元都準備一份摘要的老師。實際額度以帳號當下顯示為準，Google 會隨方案調整，不建議照網路上的舊數字直接規劃使用頻率。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Audio Overview 是什麼？聽起來像什麼？</summary>
+      <div class="faq-a">上傳來源後，在「工作室」分頁生成一段兩人對談形式的語音導讀，兩個虛擬主持人用口語化的方式討論文件內容、互相補充重點，聽起來像一集主題式 Podcast，而不是機械朗讀原文。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Video Overview 跟 Audio Overview 差在哪？</summary>
+      <div class="faq-a">Audio Overview 是純語音的雙人對談，Video Overview 則會搭配旁白與畫面（例如重點文字、圖表、來源截圖），變成一支有講解、有視覺輔助的摘要影片，適合需要邊看邊聽、或要投影給全班看的場合。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>這兩個功能適合用在教學的哪個環節？</summary>
+      <div class="faq-a">課前預習最常用：把這堂課要讀的文章或講義丟進去，生成語音或影片摘要，讓學生通勤、搭車時就能先聽過重點，上課直接進入討論，不用花時間重講一次課文內容。也適合考前總複習，把整學期的筆記彙整成一段總覽。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>教育版方案在這兩個功能上有什麼優勢？</summary>
+      <div class="faq-a">Education Plus 與 Teaching and Learning 加購項目讓每個帳號能生成的 Audio Overview 與 Video Overview 次數比免費版高出不少，適合需要頻繁幫每個單元都做一份摘要的老師。實際額度以帳號當下顯示為準，Google 會隨方案調整。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>生成的語音或影片摘要，內容有出處嗎？可以直接當上課教材嗎？</summary>
+      <div class="faq-a">內容只根據你上傳的來源整理，不會憑空編造，但語音與影片摘要本身是口語化的重點整理，不會像文字問答那樣逐句標出處。當課前導聆或複習輔助很合適，正式教材建議先聽過一遍確認內容與這次教學目標吻合，再決定要不要直接播給學生看。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-intro">← 上一篇：Gemini Notebook 是什麼</a>
+      <span class="series-index">Gemini Notebook 系列第 2／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-mindmap">下一篇：心智圖與資訊圖表怎麼用 →</a>
+    </nav>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/knowledge/gemini">看 Gemini 方案懶人包</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E8%AC%9B%E7%BE%A9%E4%B8%80%E9%8D%B5%E8%AE%8A%20Podcast%EF%BC%9AAudio%20Overview%20%E8%88%87%20Video%20Overview%20%E6%80%8E%E9%BA%BC%E7%94%A8%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

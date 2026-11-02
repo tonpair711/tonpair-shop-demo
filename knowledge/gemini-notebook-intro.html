@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Gemini Notebook 是什麼？原 NotebookLM 教育版入門｜鴻綸科技</title>
+<meta name="description" content="Gemini Notebook（原 NotebookLM，2026 年 7 月更名）網址是 notebook.google.com。這篇說明它是什麼、跟一般 Gemini 聊天差在哪、免費版跟教育版怎麼選，從打開網址到建立第一個筆記本。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/gemini-notebook-intro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gemini Notebook（原 NotebookLM）是什麼？教育版開箱｜鴻綸科技">
+<meta property="og:description" content="跟一般 Gemini 聊天差在哪、免費版跟教育版怎麼選。Gemini Notebook 系列第 1 篇。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/gemini-notebook-intro">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-intro.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Gemini Notebook 是什麼？教育版開箱與建立第一個筆記本｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gemini Notebook（原 NotebookLM）是什麼？教育版開箱｜鴻綸科技">
+<meta name="twitter:description" content="跟一般 Gemini 聊天差在哪、免費版跟教育版怎麼選。Gemini Notebook 系列第 1 篇。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-intro.png?v=5">
+<meta name="twitter:image:alt" content="Gemini Notebook 是什麼？教育版開箱與建立第一個筆記本｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Gemini 教育版與 Notebook", "item": "https://www.hunglun.com/knowledge/topic/gemini" },
+    { "@type": "ListItem", "position": 4, "name": "Gemini Notebook 是什麼", "item": "https://www.hunglun.com/knowledge/gemini-notebook-intro" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-14",
+  "mainEntity": [
+    { "@type": "Question", "name": "Gemini Notebook 是什麼？跟 NotebookLM 是同一個東西嗎？", "acceptedAnswer": { "@type": "Answer", "text": "是同一個東西。Google 在 2026 年 7 月把 NotebookLM 改名為 Gemini Notebook，功能沒有變，只是名字跟品牌識別換掉。舊的 notebooklm.google.com 網址還是能用，會自動導向新網址，帳號裡原本建立的筆記本也都還在，不需要重新搬移。" } },
+    { "@type": "Question", "name": "Gemini Notebook 跟一般在 Gemini 網站打字聊天，差在哪裡？", "acceptedAnswer": { "@type": "Answer", "text": "差在回答的依據。一般 Gemini 聊天是憑訓練資料回答，範圍廣，但偶爾會講出聽起來合理、實際上不存在的內容。Gemini Notebook 反過來：只根據你自己上傳的文件回答，來源裡沒有的內容它會直接說找不到，不會硬編一個答案，而且每句回答都會標出處在原文哪一段，方便回頭核對。" } },
+    { "@type": "Question", "name": "免費就能用嗎？要另外申請教育版帳號嗎？", "acceptedAnswer": { "@type": "Answer", "text": "免費版任何有 Google 帳號的人都能用，不用額外申請。如果學校有 Education Plus 或 Teaching and Learning 加購項目，筆記本數量、每個筆記本能放的來源數、語音摘要與各類學習教材的產出額度都會比免費版高出不少，實際上限以帳號當下顯示為準。" } },
+    { "@type": "Question", "name": "第一次用要從哪裡開始？", "acceptedAnswer": { "@type": "Answer", "text": "瀏覽器打 notebook.google.com，用 Google 帳號登入，點「建立新的筆記本」就會進到工作畫面。畫面上方有來源、對話、工作室三個分頁，先到「來源」分頁上傳一份文件，切到「對話」分頁就能開始問問題，整個流程不需要額外設定。" } },
+    { "@type": "Question", "name": "這個系列適合誰看？跟系列外的『Gemini Notebook 怎麼用』那篇有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "這個系列是給想把 Gemini Notebook 用得更深的老師、行政人員與資訊組長，會分別講不同輸出格式、教學情境、方案額度與管理員設定。另一篇『Gemini Notebook 怎麼用：上傳教材做成有出處的問答』是 Gemini 系列裡的單篇入門文，兩篇內容互不衝突，先看哪篇都可以，這個系列會講得更完整。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gemini Notebook 是什麼？教育版開箱與建立第一個筆記本",
+  "description": "Gemini Notebook（原 NotebookLM，2026 年 7 月更名）是什麼、跟一般 Gemini 聊天差在哪、免費版跟教育版怎麼選，從打開網址到建立第一個筆記本。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-gemini-notebook-intro.png",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/gemini-notebook-intro"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/gemini">Gemini 教育版與 Notebook</a> ／ Gemini Notebook 是什麼</nav>
+    <h1>Gemini Notebook 是什麼？教育版開箱與建立第一個筆記本</h1>
+    <p>同樣打著 Gemini 招牌，這個工具的回答方式跟一般聊天完全不同：只根據你餵給它的文件講話。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-14">2026 年 9 月 14 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽">
+    <span class="series-index">Gemini Notebook 系列第 1／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-audio-video">下一篇：Audio Overview 與 Video Overview 怎麼用 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Gemini Notebook 是什麼？跟 NotebookLM 是同一個東西嗎？</strong>是同一個東西。Google 在 2026 年 7 月把 NotebookLM 改名為 Gemini Notebook，功能與操作方式都沒有變動。</li>
+        <li><strong>跟一般 Gemini 聊天差在哪？</strong>差在答案的依據。Gemini Notebook 只根據你上傳的文件回答並標出處；一般聊天憑訓練資料回答，偶爾會出現幻覺。</li>
+        <li><strong>免費就能用嗎？</strong>可以。只要有 Google 帳號就能用，不需要額外申請。學校若有 Education Plus 或 Teaching and Learning 加購項目，差別在額度。</li>
+        <li><strong>第一次要從哪裡開始？</strong>用瀏覽器打開 notebook.google.com 登入，點「建立新的筆記本」，先到「來源」分頁上傳文件，再切到「對話」提問。</li>
+      </ul>
+    </div>
+
+    <p>學校裡談到「Gemini」，多半是指打開網頁直接聊天、問問題、生成教案那個工具。Gemini Notebook 掛的也是 Gemini 招牌，但運作邏輯完全不一樣：它不是憑自己知道什麼來回答，而是先讓你上傳指定的文件，之後所有回答都只根據這些文件來講。這個系列會把它從基礎到進階、從單一功能到管理員設定都講一輪，這篇先講清楚它是什麼、跟一般 Gemini 差在哪、以及怎麼開第一個筆記本。</p>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">改名了，但東西沒變：NotebookLM 變成 Gemini Notebook</h2>
+    <p>2026 年 7 月，Google 把 NotebookLM 這個產品改名為 Gemini Notebook，功能與操作方式都沒有變動，只是名稱與品牌識別統一掛進 Gemini 家族。舊的 <code>notebooklm.google.com</code> 網址還是能打開，會自動導向新網址 <code>notebook.google.com</code>，帳號裡原本建立的筆記本也都保留著，不用重新搬移或匯出匯入。如果你之前用過 NotebookLM，這篇講的就是同一個工具，換個名字繼續用。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">跟一般 Gemini 聊天差在哪？在於「答案從哪裡來」</h2>
+    <p>一般在 Gemini 網站打字問問題，它是憑訓練資料回答，範圍很廣，什麼主題都能聊上幾句，但偶爾會講出聽起來很合理、實際上查無此事的內容，這就是俗稱的幻覺。Gemini Notebook 的設計反過來：<strong>只根據你自己上傳的來源回答</strong>，來源裡找不到的內容，它會直接說找不到，不會硬編一個答案出來，而且每一句回答旁邊都會標出處，點回去就能對照原文的哪一段。</p>
+    <p>這個差異對學校特別重要。段考題庫要依課綱出題、專題報告要引用真正讀過的文獻、行政公文要根據會議記錄整理，這類「答案一定要查得到根據」的場合，靠的就是這個「先給文件、才回答」的機制，而不是讓 AI 憑印象作答。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">免費版就能用，教育版差在額度</h2>
+    <p>只要有 Google 帳號，免費版任何人都能直接用，不需要額外申請或付費。差別在額度：如果學校有 Education Plus 或 Teaching and Learning 加購項目，能建立的筆記本數量、每個筆記本能放的來源數量、語音摘要與各類學習教材的產出次數，都會比免費版高出不少。實際上限以帳號當下顯示為準，Google 會隨方案調整，這裡不列死數字，免得幾個月後就過時。方案差異的完整比較整理在 <a href="/knowledge/gemini">Gemini 方案懶人包</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">開第一個筆記本：三個分頁決定整個工作流程</h2>
+    <p>瀏覽器打開 <code>notebook.google.com</code>，用 Google 帳號登入，點「建立新的筆記本」就會直接進到工作畫面。整個介面只有三個分頁，記住這三個分頁在做什麼，整套工具就會用了：</p>
+    <ul class="feature-list">
+      <li><strong>來源</strong>：上傳 PDF、Word 文件、純文字、網頁連結、YouTube 影片連結，或直接匯入 Google 文件與簡報。這裡放的東西，就是之後 AI 唯一會參考的內容。</li>
+      <li><strong>對話</strong>：針對已上傳的來源提問，回答會標出處。這是日常使用最主要的分頁。</li>
+      <li><strong>工作室</strong>：把來源內容轉成語音摘要、心智圖、測驗卡等不同格式的學習教材，後面幾篇會分別展開講。</li>
+    </ul>
+    <p>先到「來源」上傳至少一份文件，再切到「對話」提問，就是最基本的使用流程。實際操作畫面與逐步截圖見 <a href="/knowledge/gemini-notebook-howto">Gemini Notebook 怎麼用（基礎教學）</a>。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/gemini-notebook-intro-summary.webp"
+           srcset="/assets/images/gemini-notebook-intro-summary-480.webp 480w, /assets/images/gemini-notebook-intro-summary-768.webp 768w, /assets/images/gemini-notebook-intro-summary.webp 900w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="900" height="710" loading="lazy" decoding="async"
+           alt="上傳一份南投竹山地方創生案例研究文件後，Gemini Notebook 自動生成的摘要與三個延伸提問">
+      <figcaption>上傳來源後，Gemini Notebook 會自動生成摘要並列出幾個可以延伸提問的問題，點一下就能直接問。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">這個系列要講什麼</h2>
+    <p>接下來九篇會依序拆開講：不同輸出格式怎麼用（語音摘要、心智圖、測驗卡）、實際教學情境（老師備課、學生自主學習）、方案額度怎麼比較、管理員要在後台設定什麼、常見問題疑難排解，最後整理最新的產品異動。不需要照順序看，但第一次接觸建議從這篇開始，先搞清楚「它跟一般聊天差在哪」，後面幾篇會比較好懂。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Gemini Notebook 是什麼？跟 NotebookLM 是同一個東西嗎？</summary>
+      <div class="faq-a">是同一個東西。Google 在 2026 年 7 月把 NotebookLM 改名為 Gemini Notebook，功能沒有變，只是名字跟品牌識別換掉。舊的 notebooklm.google.com 網址還是能用，會自動導向新網址，帳號裡原本建立的筆記本也都還在，不需要重新搬移。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Gemini Notebook 跟一般在 Gemini 網站打字聊天，差在哪裡？</summary>
+      <div class="faq-a">差在回答的依據。一般 Gemini 聊天是憑訓練資料回答，範圍廣，但偶爾會講出聽起來合理、實際上不存在的內容。Gemini Notebook 反過來：只根據你自己上傳的文件回答，來源裡沒有的內容它會直接說找不到，不會硬編一個答案，而且每句回答都會標出處在原文哪一段，方便回頭核對。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>免費就能用嗎？要另外申請教育版帳號嗎？</summary>
+      <div class="faq-a">免費版任何有 Google 帳號的人都能用，不用額外申請。如果學校有 Education Plus 或 Teaching and Learning 加購項目，筆記本數量、每個筆記本能放的來源數、語音摘要與各類學習教材的產出額度都會比免費版高出不少，實際上限以帳號當下顯示為準。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>第一次用要從哪裡開始？</summary>
+      <div class="faq-a">瀏覽器打 notebook.google.com，用 Google 帳號登入，點「建立新的筆記本」就會進到工作畫面。畫面上方有來源、對話、工作室三個分頁，先到「來源」分頁上傳一份文件，切到「對話」分頁就能開始問問題，整個流程不需要額外設定。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>這個系列適合誰看？跟系列外的『Gemini Notebook 怎麼用』那篇有什麼不同？</summary>
+      <div class="faq-a">這個系列是給想把 Gemini Notebook 用得更深的老師、行政人員與資訊組長，會分別講不同輸出格式、教學情境、方案額度與管理員設定。另一篇『Gemini Notebook 怎麼用：上傳教材做成有出處的問答』是 Gemini 系列裡的單篇入門文，兩篇內容互不衝突，先看哪篇都可以，這個系列會講得更完整。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <span class="series-index">Gemini Notebook 系列第 1／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-audio-video">下一篇：Audio Overview 與 Video Overview 怎麼用 →</a>
+    </nav>
+
+    <div class="kb-related" style="margin:24px 0;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);">
+      <p style="margin:0 0 6px;"><strong>相關閱讀</strong></p>
+      <ul style="margin:0;padding-left:1.2em;"><li><a href="/insights/gemini-notebook-expert-intelligence">Gemini Notebook 能讀買過的電子書：Expert Intelligence</a></li></ul>
+    </div>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/knowledge/gemini">看 Gemini 方案懶人包</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AGemini%20Notebook%20%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E6%95%99%E8%82%B2%E7%89%88%E9%96%8B%E7%AE%B1%E8%88%87%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E5%80%8B%E7%AD%86%E8%A8%98%E6%9C%AC%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

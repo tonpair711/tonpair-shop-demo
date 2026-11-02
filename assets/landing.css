@@ -1,0 +1,145 @@
+body.landing{overflow-x: hidden}
+.l-hero{min-height: 100vh;display: flex;flex-direction: column;align-items: center;justify-content: center;text-align: center;padding: 24px;background: radial-gradient(circle at 50% 20%,var(--hero-glow-1),transparent 60%),radial-gradient(circle at 50% 80%,var(--hero-glow-2),transparent 60%),var(--bg)}
+.l-eyebrow{letter-spacing: 0.3em;font-size: 12px;color: var(--muted);margin-bottom: 20px;font-family: var(--mono)}
+.l-hero--tour .l-eyebrow{font-size: 20px}
+/* 手機一行放不下：拆成「鴻綸科技」與「GOOGLE FOR EDUCATION 認證夥伴」兩行，不讓英文詞組從中間折斷 */
+@media (max-width: 560px){.l-hero--tour .l-eyebrow{font-size: 15px;letter-spacing: 0.18em}.l-eyebrow-a{display: block;margin-bottom: 4px}.l-eyebrow-sep{display: none}}
+.l-gradient-text{font-size: clamp(1.9rem,4.6vw,3.2rem);font-weight: 300;line-height: 1.5;color: var(--text)}
+.l-hero-sub{margin-top: 20px;color: var(--muted);font-size: clamp(1rem,2vw,1.15rem);max-width: 640px;line-height: 1.8}
+.l-hero-cta{display: inline-block;margin-top: 28px;padding: 14px 28px;border-radius: 999px;background: linear-gradient(100deg,var(--accent),var(--accent-gold));color: #fff;font-weight: 700;font-size: 0.95rem;text-decoration: none;transition: transform 0.25s ease,box-shadow 0.25s ease}
+.l-hero-cta:hover{transform: translateY(-2px);box-shadow: 0 14px 30px -10px var(--glow);text-decoration: none}
+.l-scroll-hint{margin-top: 40px;color: var(--text);font-size: 1.05rem;font-weight: 600;animation: l-bob 1.8s ease-in-out infinite}
+@keyframes l-bob{0%,100%{transform: translateY(0);opacity: .5}
+50%{transform: translateY(8px);opacity: 1}
+}
+.l-app-screen.active{opacity: 1;transform: scale(1)}
+.svc-photo{display: block;width: 100%;aspect-ratio: 4/3;object-fit: cover;border-radius: 14px;margin-bottom: 6px}
+.l-service-card{padding: 16px 16px 20px}
+.l-service-card h3{margin-bottom: 0}
+.l-service-card h3{padding: 0 8px}
+.l-service-card p{padding: 0 8px}
+.l-dots{display: flex;gap: 10px;margin-top: 28px;justify-content: center}
+.l-dot{width: 8px;height: 8px;border-radius: 999px;background: var(--line);transition: background 0.3s ease,transform 0.3s ease}
+.l-dot.active{background: var(--accent);transform: scale(1.3)}
+.l-reveal.from-left{transform: translateX(-60px)}
+.l-reveal.from-left.in-view{transform: translateX(0)}
+.l-reveal.from-right{transform: translateX(60px)}
+.l-reveal.from-right.in-view{transform: translateX(0)}
+@media (max-width: 860px){.l-reveal.from-left,.l-reveal.from-right{transform: translateY(48px)}
+.l-reveal.from-left.in-view,.l-reveal.from-right.in-view{transform: translateY(0)}
+}
+.l-services{padding: 72px 6vw 32px;max-width: 1200px;margin: 0 auto;text-align: center}
+.l-services-grid{display: grid;grid-template-columns: repeat(auto-fit,minmax(260px,1fr));gap: 22px;margin-top: 32px}
+.l-service-card{background: var(--card);border: 1px solid var(--line);border-radius: 20px;padding: 32px 26px;text-align: left;transition: transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease;display: block;color: inherit;text-decoration: none}
+.l-service-card:hover h3{color: var(--accent)}
+.l-service-card:hover{transform: translateY(-6px);border-color: var(--accent);box-shadow: 0 20px 40px -18px var(--glow)}
+.l-service-card.primary{background: linear-gradient(160deg,var(--card-hover),var(--card))}
+.l-service-card h3{font-size: 1.2rem;margin-bottom: 10px}
+.l-service-card p{color: var(--muted);font-size: 0.92rem;line-height: 1.7}
+.l-tools-row{display: flex;gap: 16px;overflow-x: auto;padding: 10px 0 20px;scroll-snap-type: x mandatory;margin-top: 28px}
+.l-tool-chip{flex: 0 0 auto;scroll-snap-align: center;width: min(60vw,220px);background: var(--bg-soft);border: 1px solid var(--line);border-radius: 14px;padding: 18px;text-align: left;color: var(--text)}
+.l-tool-chip:hover{border-color: var(--accent);text-decoration: none}
+.l-tool-chip .l-tool-name{font-weight: 700;font-size: 0.95rem;margin-bottom: 6px;display: block}
+.l-tool-chip .l-tool-desc{font-size: 0.8rem;color: var(--muted)}
+.l-cta{text-align: center;padding: 64px 6vw 44px}
+.l-cta h2{font-size: clamp(1.8rem,4vw,2.6rem);font-weight: 700;line-height: 1.3;margin-bottom: 18px}
+.l-cta p{color: var(--muted)}
+.l-reveal{opacity: 0;transform: translateY(48px);transition: opacity 0.7s ease,transform 0.7s ease;transition-delay: calc(var(--delay,0) * 90ms)}
+.l-reveal.in-view{opacity: 1;transform: translateY(0)}
+.tour-zoom{position: relative}
+.tour-zoom-sticky{position: sticky;top: 0;height: 100vh;overflow: hidden;background: var(--bg)}
+.tour-zoom-panel{position: absolute;inset: 6vh 5vw;opacity: 0;border-radius: 22px;overflow: hidden;box-shadow: 0 30px 70px -25px rgba(0,0,0,0.35);will-change: transform,opacity}
+.tour-zoom-sticky>.tour-zoom-panel:first-child{opacity: 1}
+.tour-zoom-panel img{position: absolute;inset: 0;width: 100%;height: 100%;object-fit: cover}
+.tour-zoom-panel::after{content: '';position: absolute;inset: 0;background: linear-gradient(to top right,rgba(0,0,0,0.58) 0%,rgba(0,0,0,0.22) 40%,rgba(0,0,0,0) 66%);pointer-events: none}
+.tour-zoom-text{position: absolute;left: clamp(28px,5%,64px);bottom: clamp(28px,9%,72px);max-width: 440px;z-index: 2;color: #fff;will-change: transform,opacity}
+.tour-zoom-text .l-tag{color: #ffd68a;margin-bottom: 14px;display: inline-block}
+.tour-zoom-text h2{font-size: clamp(1.8rem,3.6vw,2.8rem);font-weight: 700;line-height: 1.25;color: #fff;margin-bottom: 12px;text-shadow: 0 2px 18px rgba(0,0,0,0.45)}
+.tour-zoom-text p{color: rgba(255,255,255,0.85);font-size: 1.02rem;line-height: 1.7;margin-bottom: 24px;text-shadow: 0 1px 10px rgba(0,0,0,0.4)}
+.tour-zoom-panel[data-light] ::selection{background: inherit}
+.tour-zoom-panel[data-light]::after{background: none}
+.tour-zoom-panel[data-light] .tour-zoom-text{color: var(--text)}
+.tour-zoom-panel[data-light] .tour-zoom-text h2{color: var(--text);text-shadow: none}
+.tour-zoom-panel[data-light] .tour-zoom-text p{color: var(--muted);text-shadow: none}
+.tour-zoom-panel[data-light] .tour-zoom-text .l-tag{color: var(--accent)}
+.tour-zoom-dots{position: absolute;right: calc(7vw - 30px);top: 50%;transform: translateY(-50%);display: flex;flex-direction: column;gap: 10px;z-index: 3}
+.tour-zoom-dots .l-dot{background: var(--line)}
+.tour-zoom-dots .l-dot.active{background: var(--accent)}
+@media (max-width: 600px){.l-services{padding: 48px 4vw 24px}
+.l-services-grid{grid-template-columns: 1fr 1fr;gap: 12px;margin-top: 22px}
+.l-service-card{padding: 14px 12px;border-radius: 14px}
+.l-service-card h3{font-size: 0.95rem;line-height: 1.35;margin-top: 10px !important}
+.l-service-card p{font-size: 0.82rem;line-height: 1.55}
+}
+@media (max-width: 860px){.tour-zoom-panel{inset: 9vh 3vw 6vh}
+.tour-zoom-text{left: 20px;right: 20px;bottom: 24px;max-width: none}
+.tour-zoom-dots{right: 6px}
+#tourZoom.tour-zoom{height: 300vh !important}
+}
+@media (prefers-reduced-motion: reduce){.tour-zoom{height: auto !important}
+.tour-zoom-sticky{position: static;height: auto}
+.tour-zoom-panel{position: relative;opacity: 1 !important;transform: none !important;height: 70vh;pointer-events: auto !important}
+}
+.l-svc-hint{color: var(--muted);font-size: 0.95rem;margin-top: 12px}
+.l-svc-cats{margin-top: 28px;display: grid;gap: 14px;text-align: left}
+.l-svc-cat{background: var(--card);border: 1px solid var(--line);border-radius: 18px;transition: border-color 0.3s ease,box-shadow 0.3s ease}
+.l-svc-cat[open]{border-color: var(--accent);box-shadow: 0 20px 40px -28px var(--glow)}
+.l-svc-cat > summary{cursor: pointer;padding: 20px 24px;list-style: none;display: grid;grid-template-columns: 1fr auto auto;gap: 4px 16px;align-items: center}
+.l-svc-cat > summary::-webkit-details-marker{display: none}
+.l-svc-cat > summary:hover .l-cat-t,.l-svc-cat[open] > summary .l-cat-t{color: var(--accent)}
+.l-svc-cat > summary:focus-visible{outline: 2px solid var(--accent);outline-offset: -4px;border-radius: 18px}
+.l-cat-t{grid-column: 1;grid-row: 1;font-size: 1.15rem;font-weight: 500;transition: color 0.3s ease}
+.l-cat-d{grid-column: 1;grid-row: 2;color: var(--muted);font-size: 0.88rem;word-break: keep-all}
+.l-cat-n{grid-column: 2;grid-row: 1 / span 2;justify-self: end;font-family: var(--mono);font-size: 0.75rem;color: var(--accent);border: 1px solid var(--line);border-radius: 999px;padding: 4px 11px;white-space: nowrap}
+.l-svc-cat > summary::after{content: "▾";grid-column: 3;grid-row: 1 / span 2;display: inline-block;color: var(--muted);font-size: 0.9rem;transition: transform 0.3s ease,color 0.3s ease}
+.l-svc-cat[open] > summary::after{transform: rotate(180deg);color: var(--accent)}
+.l-svc-cat .l-services-grid{margin: 4px 24px 24px}
+@media (max-width: 860px){.l-svc-cats{gap: 10px;margin-top: 22px}
+.l-svc-cat > summary{padding: 15px 16px;gap: 3px 10px}
+.l-cat-t{font-size: 1rem}
+.l-cat-d{font-size: 0.8rem}
+.l-cat-n{font-size: 0.7rem;padding: 3px 8px}
+.l-svc-cat .l-services-grid{margin: 2px 14px 16px}
+}
+@media (prefers-reduced-motion: reduce){.l-svc-cat > summary::after{transition: none}
+}
+.l-cat-n{font-size:.75rem}
+html.lenis,html.lenis body{height: auto}
+html.lenis{scroll-behavior: auto}
+.lenis.lenis-stopped{overflow: clip}
+.lenis.lenis-smooth iframe{pointer-events: none}
+.tour-zoom-panel .ai-note{position: absolute;left: 50%;bottom: 10px;transform: translateX(-50%);z-index: 2;font-size: 12px;line-height: 1.4;color: rgba(255,255,255,0.85);text-shadow: 0 1px 4px rgba(0,0,0,0.6);white-space: nowrap;pointer-events: none}
+@media (max-width: 860px){.tour-zoom-panel .ai-note{left: 20px;transform: none;bottom: 6px}
+.tour-zoom-text{bottom: 30px}
+}
+/* 直向螢幕（手機、平板直拿）：首屏不撐 44vh 再垂直置中，照片框上緣也縮小，避免小標上方與照片上方各空一大段 */
+@media (orientation: portrait){.l-hero.l-hero--tour{min-height: auto !important;padding: 48px 24px 32px}
+.tour-zoom-panel{inset: 3vh 3vw 6vh}
+}
+
+/* 首頁信任區與職務分流（2026-10-27）：資歷數字只用已證實事實，卡片依讀者職務分流 */
+.l-proof{max-width: 1080px;margin: 0 auto;padding: 8px 6vw 40px}
+.l-proof h2{font-size: clamp(1.3rem,3vw,1.8rem);font-weight: 700;line-height: 1.4;text-align: center;margin-bottom: 20px}
+.l-proof-facts{list-style: none;margin: 0 0 28px;padding: 0;display: grid;grid-template-columns: repeat(auto-fit,minmax(190px,1fr));gap: 12px}
+.l-proof-facts li{background: var(--bg-soft);border: 1px solid var(--line);border-radius: 12px;padding: 14px 16px;font-size: 0.9rem;line-height: 1.55;color: var(--text-body)}
+.l-proof-facts strong{display: block;font-size: 1.05rem;color: var(--text);margin-bottom: 2px}
+.l-proof-roles{display: grid;grid-template-columns: repeat(auto-fit,minmax(190px,1fr));gap: 14px}
+.l-role-card{display: block;background: var(--card);border: 1px solid var(--line);border-radius: 14px;padding: 18px;color: var(--text)}
+.l-role-card:hover{border-color: var(--accent);text-decoration: none}
+.l-role-card .l-role-who{display: block;font-weight: 700;font-size: 1rem;margin-bottom: 6px}
+.l-role-card .l-role-need{display: block;font-size: 0.88rem;color: var(--muted);line-height: 1.6;margin-bottom: 10px}
+.l-role-card .l-role-go{font-size: 0.88rem;color: var(--accent);font-weight: 700}
+.l-proof-cta{display: flex;flex-wrap: wrap;gap: 12px;justify-content: center;margin-top: 26px}
+.l-proof-cta .btn{min-height: 44px}
+/* 學習專區（首頁）：9 個網站圖示一排，窄螢幕自動換行 */
+.l-learn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 10px;margin-top:26px}
+.l-learn-tile{white-space:nowrap;display:flex;flex-direction:column;align-items:center;gap:8px;width:104px;padding:12px 4px;border-radius:16px;color:var(--text);text-decoration:none;font-size:.88rem;line-height:1.3;transition:background .2s,transform .2s}
+.l-learn-tile:hover{background:var(--card);transform:translateY(-3px)}
+.l-learn-tile img{width:64px;height:64px;border-radius:16px;box-shadow:0 8px 20px -10px rgba(0,0,0,.35)}
+.l-learn-more{margin-top:22px}
+@media (max-width:600px){.l-learn-row{gap:12px 4px}.l-learn-tile{width:100px;font-size:.82rem;white-space:nowrap}.l-learn-tile img{width:56px;height:56px}}
+/* 信任區塊文字裡的連結：只靠顏色分不出來（axe link-in-text-block），加底線 2026-10-29 */
+.l-proof li a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+/* 學習專區展示區：10 個圖示一排放不下會變 9＋1，桌機限寬排成 5＋5（2026-10-29 加兩棲探險家後）；手機維持 3 個一排 */
+@media (min-width:601px){.l-learn-row{max-width:600px;margin-left:auto;margin-right:auto;column-gap:6px}}
+@media (min-width:601px) and (max-width:640px){.l-learn-tile{width:100px}}

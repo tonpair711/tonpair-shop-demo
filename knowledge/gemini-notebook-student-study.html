@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>學生自主學習：打造專屬 AI 課業助手｜鴻綸科技</title>
+<meta name="description" content="學生怎麼用 Gemini Notebook 自主學習：老師同步教材後能做什麼、專題報告怎麼比對多份來源、AI 課業助手跟直接叫 AI 寫作業差在哪。Gemini Notebook 系列第 6 篇。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/gemini-notebook-student-study">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學生自主學習：打造專屬 AI 課業助手｜鴻綸科技">
+<meta property="og:description" content="老師同步教材後學生能做什麼、專題報告怎麼比對多份來源。Gemini Notebook 系列第 6 篇。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/gemini-notebook-student-study">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-student-study.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學生自主學習：打造專屬 AI 課業助手｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學生自主學習：打造專屬 AI 課業助手｜鴻綸科技">
+<meta name="twitter:description" content="老師同步教材後學生能做什麼、專題報告怎麼比對多份來源。Gemini Notebook 系列第 6 篇。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-notebook-student-study.png?v=5">
+<meta name="twitter:image:alt" content="學生自主學習：打造專屬 AI 課業助手｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Gemini 教育版與 Notebook", "item": "https://www.hunglun.com/knowledge/topic/gemini" },
+    { "@type": "ListItem", "position": 4, "name": "學生自主學習：Gemini Notebook 課業助手", "item": "https://www.hunglun.com/knowledge/gemini-notebook-student-study" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-14",
+  "mainEntity": [
+    { "@type": "Question", "name": "老師同步教材後，學生的 Gemini Notebook 裡會多出什麼？", "acceptedAnswer": { "@type": "Answer", "text": "管理員授權後，老師指定同步的課堂教材會出現在學生自己的 Gemini Notebook 來源清單裡，學生可以直接針對這些教材提問、生成學習指南、語音摘要或測驗卡，不用自己重新上傳一次。同步範圍由老師與管理員決定，不是學生自己能新增別人的資料。" } },
+    { "@type": "Question", "name": "學生自己開一個 Notebook 跟直接問一般 Gemini 聊天，差在哪？", "acceptedAnswer": { "@type": "Answer", "text": "一般 Gemini 聊天憑訓練資料回答，範圍廣但容易講出聽起來合理、實際不存在的內容。Gemini Notebook 只根據學生自己上傳或老師同步的來源回答，遇到來源裡沒有的內容會直接說找不到，每個答案也標出處，學生可以點回去對照課本或講義原文，這對準備考試或寫報告特別重要。" } },
+    { "@type": "Question", "name": "寫專題報告時，怎麼用它比對好幾份文獻？", "acceptedAnswer": { "@type": "Answer", "text": "把相關的文獻、資料全部上傳到同一個筆記本當來源，就可以直接問「這幾份資料對同一個議題的看法有什麼不同」，Gemini Notebook 會標出每個觀點分別來自哪一份來源，學生自己再判斷要怎麼寫進報告，不是直接把 AI 的整理貼上去交差。" } },
+    { "@type": "Question", "name": "用 Gemini Notebook 準備作業或報告，算不算讓 AI 代寫？", "acceptedAnswer": { "@type": "Answer", "text": "算不算違反學術誠信取決於學校規範，但機制上有明顯差異：Gemini Notebook 生成的內容都能點回原始來源查證，跟直接叫一般 AI 聊天憑空寫一篇文章交出去不是同一件事，前者比較接近「有依據的整理工具」。完整的規範怎麼訂、跟評量設計的角度，見 Gemini 資安與學生使用規範怎麼訂 與 AI 時代的評量設計。" } },
+    { "@type": "Question", "name": "低年級學生可以自己開 Gemini Notebook 嗎？", "acceptedAnswer": { "@type": "Answer", "text": "能不能用、能不能收到老師同步的教材，由學校在管理主控台依組織單位（OU）決定，不是學生自己能開關的設定。管理員視角的開通與權限設定見 管理員視角：Admin Console 權限設定與資料隱私。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學生自主學習：打造專屬 AI 課業助手",
+  "description": "學生怎麼用 Gemini Notebook 自主學習：老師同步教材後能做什麼、專題報告怎麼比對多份來源、AI 課業助手跟直接叫 AI 寫作業差在哪。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-gemini-notebook-student-study.png",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/gemini-notebook-student-study"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/gemini">Gemini 教育版與 Notebook</a> ／ 學生自主學習：Gemini Notebook 課業助手</nav>
+    <h1>學生自主學習：打造專屬 AI 課業助手</h1>
+    <p>前五篇都是老師跟管理員的角度，這篇換成學生自己怎麼用。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-14">2026 年 9 月 14 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-teacher-prep">← 上一篇：教師備課實戰</a>
+    <span class="series-index">Gemini Notebook 系列第 6／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-plans">下一篇：免費版與教育版額度差在哪 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學生用 Gemini Notebook 能做什麼？</strong>可以針對老師同步或自己上傳的來源提問，也能生成學習指南、語音摘要或測驗卡，適合準備考試、寫報告、整理專題文獻。</li>
+        <li><strong>跟一般 Gemini 聊天差在哪？</strong>Gemini Notebook 只根據學生上傳或老師同步的來源回答，每個重點都能點回原文查證；一般聊天憑訓練資料回答，容易出現幻覺。</li>
+        <li><strong>用它準備作業算不算讓 AI 代寫？</strong>是否違反學術誠信取決於學校規範。機制上，它生成的內容都能點回原始來源查證，和叫一般 AI 憑空寫文章交出去不是同一件事。</li>
+        <li><strong>低年級學生可以自己開嗎？</strong>能不能用，由學校在管理主控台依組織單位（OU）決定，不是學生自己能開關的設定。</li>
+      </ul>
+    </div>
+
+    <p>前面幾篇多半是老師跟管理員在用 Gemini Notebook，但這個工具對學生自己更有意義：準備考試、寫報告、整理專題文獻，都是「要對照原始資料」的場合，剛好對上 Gemini Notebook「只根據上傳來源回答、答案標出處」的設計，細節見 <a href="/knowledge/gemini-notebook-howto">Gemini Notebook 怎麼用（基礎教學）</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">老師同步教材後，學生端多了什麼</h2>
+    <p>管理員授權、老師指定同步的課堂教材，會直接出現在學生自己的 Gemini Notebook 來源清單裡，不用學生自己重新上傳。學生可以針對這些教材直接提問，或請它生成學習指南、語音摘要、測驗卡，當作複習工具用。這個同步範圍由老師與管理員決定，學生沒辦法自己加入別人的資料，也看不到不屬於自己班級的教材。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">跟一般問 Gemini 聊天有什麼不一樣？</h2>
+    <p>一般 Gemini 聊天憑訓練資料回答，範圍廣，但偶爾會講出聽起來合理、實際不存在的內容，也就是常說的「幻覺」。Gemini Notebook 反過來，<strong>只根據自己上傳或老師同步的來源回答，來源裡沒有的內容會直接說找不到</strong>，每句回答也標出處在原文哪一段。準備考試時拿課本、講義當來源提問，答錯了自己就能點回去對照原文，這一點對讀書特別實用。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/gemini-notebook-chat-citation.webp"
+           srcset="/assets/images/gemini-notebook-chat-citation-480.webp 480w, /assets/images/gemini-notebook-chat-citation-768.webp 768w, /assets/images/gemini-notebook-chat-citation.webp 900w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="900" height="730" loading="lazy" decoding="async"
+           alt="針對上傳的案例研究提問後，Gemini Notebook 回答的重點句子旁都標有小小的數字出處標記，下方還列出幾個延伸提問">
+      <figcaption>回答裡每個重點句子旁邊都有出處標記，點下去可以直接跳到原文對應段落，答錯了也查得到是哪裡錯。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">寫專題報告：多份文獻放在同一個筆記本比對</h2>
+    <p>做專題或報告常常要看好幾份資料，把這些文獻全部上傳到同一個筆記本當來源，就可以直接問「這幾份資料對同一個議題的看法有什麼不同」，Gemini Notebook 會標出每個觀點分別來自哪一份來源。學生還是要自己判斷要怎麼寫進報告，這一步不能省，工具只是幫忙把「哪份資料講了什麼」整理清楚，不是幫忙下結論。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">學術誠信：查得到出處的工具，不等於代寫</h2>
+    <p>用 Gemini Notebook 準備作業算不算違反學術誠信，沒有標準答案，取決於學校規範怎麼定。但機制上有明顯差異：它生成的內容都能點回原始來源查證，跟直接叫一般 AI 聊天憑空寫一篇文章交出去，不是同一件事。學校的使用規範怎麼訂、年齡分級怎麼分，整理在 <a href="/knowledge/gemini-student-safety">Gemini 資安與學生使用規範怎麼訂</a>；評量設計的角度見 <a href="/knowledge/ai-assessment-design">AI 時代的評量設計</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>老師同步教材後，學生的 Gemini Notebook 裡會多出什麼？</summary>
+      <div class="faq-a">管理員授權後，老師指定同步的課堂教材會出現在學生自己的 Gemini Notebook 來源清單裡，學生可以直接針對這些教材提問、生成學習指南、語音摘要或測驗卡，不用自己重新上傳一次。同步範圍由老師與管理員決定，不是學生自己能新增別人的資料。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學生自己開一個 Notebook 跟直接問一般 Gemini 聊天，差在哪？</summary>
+      <div class="faq-a">一般 Gemini 聊天憑訓練資料回答，範圍廣但容易講出聽起來合理、實際不存在的內容。Gemini Notebook 只根據學生自己上傳或老師同步的來源回答，遇到來源裡沒有的內容會直接說找不到，每個答案也標出處，學生可以點回去對照課本或講義原文，這對準備考試或寫報告特別重要。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>寫專題報告時，怎麼用它比對好幾份文獻？</summary>
+      <div class="faq-a">把相關的文獻、資料全部上傳到同一個筆記本當來源，就可以直接問「這幾份資料對同一個議題的看法有什麼不同」，Gemini Notebook 會標出每個觀點分別來自哪一份來源，學生自己再判斷要怎麼寫進報告，不是直接把 AI 的整理貼上去交差。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>用 Gemini Notebook 準備作業或報告，算不算讓 AI 代寫？</summary>
+      <div class="faq-a">算不算違反學術誠信取決於學校規範，但機制上有明顯差異：Gemini Notebook 生成的內容都能點回原始來源查證，跟直接叫一般 AI 聊天憑空寫一篇文章交出去不是同一件事，前者比較接近「有依據的整理工具」。完整的規範怎麼訂、跟評量設計的角度，見 <a href="/knowledge/gemini-student-safety">Gemini 資安與學生使用規範怎麼訂</a> 與 <a href="/knowledge/ai-assessment-design">AI 時代的評量設計</a>。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>低年級學生可以自己開 Gemini Notebook 嗎？</summary>
+      <div class="faq-a">能不能用、能不能收到老師同步的教材，由學校在管理主控台依組織單位（OU）決定，不是學生自己能開關的設定。管理員視角的開通與權限設定見 <a href="/knowledge/gemini-notebook-admin">管理員視角：Admin Console 權限設定與資料隱私</a>。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Gemini Notebook 系列文章導覽（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-ghost series-prev" href="/knowledge/gemini-notebook-teacher-prep">← 上一篇：教師備課實戰</a>
+      <span class="series-index">Gemini Notebook 系列第 6／10 篇・<a href="/knowledge/gemini-notebook-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-notebook-plans">下一篇：免費版與教育版額度差在哪 →</a>
+    </nav>
+
+    <div class="kb-related" style="margin:24px 0;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);">
+      <p style="margin:0 0 6px;"><strong>相關閱讀</strong></p>
+      <ul style="margin:0;padding-left:1.2em;"><li><a href="/insights/gemini-notebook-study-tools-update">Gemini Notebook 返校季更新：語音對話、錄音機等五項</a></li></ul>
+    </div>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/knowledge/gemini-notebook-howto">看 Gemini Notebook 基礎教學</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E5%AD%B8%E7%94%9F%E8%87%AA%E4%B8%BB%E5%AD%B8%E7%BF%92%EF%BC%9A%E6%89%93%E9%80%A0%E5%B0%88%E5%B1%AC%20AI%20%E8%AA%B2%E6%A5%AD%E5%8A%A9%E6%89%8B%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

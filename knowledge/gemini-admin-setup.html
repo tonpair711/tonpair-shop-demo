@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>管理員視角：Admin Console 怎麼開通與管控 Gemini｜鴻綸科技</title>
+<meta name="description" content="管理員怎麼在 Google 管理主控台開通 Gemini、對話記錄要保留多久、逐一應用程式的開關在哪裡。Gemini 生態系教學系列第 6 篇，附管理主控台實際截圖。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/gemini-admin-setup">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理員視角：Admin Console 怎麼開通與管控 Gemini｜鴻綸科技">
+<meta property="og:description" content="開通位置在哪、對話記錄怎麼設定、逐一應用程式的開關。Gemini 系列第 6 篇。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/gemini-admin-setup">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-admin-setup.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="544">
+<meta property="og:image:alt" content="管理員視角：Admin Console 怎麼開通與管控 Gemini｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="管理員視角：Admin Console 怎麼開通與管控 Gemini｜鴻綸科技">
+<meta name="twitter:description" content="開通位置在哪、對話記錄怎麼設定、逐一應用程式的開關。Gemini 系列第 6 篇。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-gemini-admin-setup.png?v=5">
+<meta name="twitter:image:alt" content="管理員視角：Admin Console 怎麼開通與管控 Gemini｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Gemini 教育版與 Notebook", "item": "https://www.hunglun.com/knowledge/topic/gemini" },
+    { "@type": "ListItem", "position": 4, "name": "Admin Console 怎麼管控 Gemini", "item": "https://www.hunglun.com/knowledge/gemini-admin-setup" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-13",
+  "mainEntity": [
+    { "@type": "Question", "name": "Gemini 服務要在管理主控台哪裡開？", "acceptedAnswer": { "@type": "Answer", "text": "「應用程式 › 其他 Google 服務」頁面，左側可以依機構單位或群組篩選，右側列出各服務的開啟狀態，找到「Gemini 應用程式」把它打開即可。這個頁面同時管著很多其他服務，不是 Gemini 專屬頁面。" } },
+    { "@type": "Question", "name": "Gemini 的對話記錄可以設定保留多久嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以，路徑在「生成式 AI › Gemini in Workspace › 對話記錄與刪除」，這裡有手動刪除與自動刪除兩項設定，可以依機構單位分開套用。開放給學生使用前，建議先決定好這項設定，之後再回頭改，說明成本會高很多。" } },
+    { "@type": "Question", "name": "Gemini 在 Classroom、Gmail、文件裡是分開開關的嗎？", "acceptedAnswer": { "@type": "Answer", "text": "是。方案裡有包含 Gemini，不代表使用者畫面上就看得到，每個應用程式（Classroom、Gmail、文件、簡報）各自有獨立的開關，管理員要逐一確認，不能只看「其他 Google 服務」那一頁的總開關就以為全部都開了。" } },
+    { "@type": "Question", "name": "組織單位（OU）架構跟 Gemini 開放範圍有什麼關係？", "acceptedAnswer": { "@type": "Answer", "text": "年齡或年級的差異化開放要靠 OU 切分。如果貴校目前所有帳號都在同一個 OU，等於只能全開或全關 Gemini，沒辦法只讓高年級用、低年級不用。想做到分層開放，要先規劃好 OU 架構。" } },
+    { "@type": "Question", "name": "管理員在開通 Gemini 前，該先確認哪些事？", "acceptedAnswer": { "@type": "Answer", "text": "建議依序確認：學校目前的 Workspace 版本（決定哪些 Gemini 功能能用）、OU 架構是否已規劃好差異化開放、對話記錄保留政策要設多久、以及要先公告給老師與家長的使用規範。這幾件事都屬於「開放之前先決定」的類型，事後補救的成本比較高。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "管理員視角：Admin Console 怎麼開通與管控 Gemini",
+  "description": "管理員怎麼在 Google 管理主控台開通 Gemini、對話記錄要保留多久、逐一應用程式的開關在哪裡。",
+  "image": "https://www.hunglun.com/assets/images/google-admin-services.webp",
+  "datePublished": "2026-09-13",
+  "dateModified": "2026-09-13",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/gemini-admin-setup"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/gemini">Gemini 教育版與 Notebook</a> ／ Admin Console 怎麼管控 Gemini</nav>
+    <h1>管理員視角：Admin Console 怎麼開通與管控 Gemini</h1>
+    <p>方案裡有包含 Gemini，不代表使用者畫面上就看得到，開關要一個一個找。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-13">2026 年 9 月 13 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Gemini 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/gemini-classroom-howto">← 上一篇：Classroom 裡的 Gemini 怎麼用</a>
+    <span class="series-index">Gemini 系列第 6／10 篇・<a href="/knowledge/gemini-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-vids-howto">下一篇：Google Vids 怎麼用 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <p>前五篇都是使用者角度：怎麼問、怎麼在應用程式裡叫出來。這篇換成管理員角度：老師跟學生要看得到 Gemini，管理員得先把開關打開，而且不是打開一個總開關就好，這篇整理實際的操作路徑。</p>
+
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Gemini 要在哪開？</strong>管理主控台「應用程式 › 其他 Google 服務」，找到「Gemini 應用程式」打開，這只是總開關。</li>
+        <li><strong>開了總開關就夠嗎？</strong>不夠，Classroom、Gmail、文件、簡報各有獨立開關，管理員要逐一確認。</li>
+        <li><strong>能只開給高年級嗎？</strong>要靠組織單位（OU）切分；所有帳號都在同一個 OU 就只能全開或全關。</li>
+        <li><strong>開放學生前先決定什麼？</strong>對話記錄保留天數，建議在學生開始使用前就設好，事後再改會麻煩很多。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal" style="margin-top:40px;">要去哪裡開通 Gemini？第一步：在「其他 Google 服務」</h2>
+    <p>管理主控台的「應用程式 › 其他 Google 服務」頁面，左側可以依機構單位或群組篩選，右側列出各服務的開啟狀態：</p>
+    <figure class="cg-fig reveal">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-services-m.webp" width="760" height="355">
+        <img class="lightbox" src="/assets/images/google-admin-services.webp" width="1200" height="544" alt="Google 管理主控台「應用程式 › 其他 Google 服務」頁面，左側可依機構單位或群組篩選，右側列出各服務的開啟狀態" loading="lazy" decoding="async" srcset="/assets/images/google-admin-services-480.webp 480w, /assets/images/google-admin-services-768.webp 768w, /assets/images/google-admin-services.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>「應用程式 › 其他 Google 服務」頁面，找到「Gemini 應用程式」把它打開。這頁同時管著很多其他服務，不是 Gemini 專屬頁面。</figcaption>
+    </figure>
+    <p>這一步只是<strong>總開關</strong>。Gemini 在 Classroom、Gmail、文件、簡報裡各自還有獨立的開關，方案有包含不代表使用者畫面上就會出現，管理員要逐一確認，設定方式與 OU、群組怎麼規劃整理在 <a href="/knowledge/google-admin">Google 管理主控台校園設定指南</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">第二步：決定對話記錄要保留多久</h2>
+    <p>路徑在「生成式 AI › Gemini in Workspace › 對話記錄與刪除」，這裡有手動刪除與自動刪除兩項設定，可以依機構單位分開套用：</p>
+    <figure class="cg-fig reveal">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-gemini-logs-m.webp" width="760" height="303">
+        <img class="lightbox" src="/assets/images/google-admin-gemini-logs.webp" width="1200" height="543" alt="Google 管理主控台「生成式 AI › Gemini in Workspace › 對話記錄與刪除」頁面，顯示手動刪除與自動刪除兩項設定及其套用的機構單位" loading="lazy" decoding="async" srcset="/assets/images/google-admin-gemini-logs-480.webp 480w, /assets/images/google-admin-gemini-logs-768.webp 768w, /assets/images/google-admin-gemini-logs.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>對話記錄與刪除設定頁面，可以依組織單位分開決定保留天數。</figcaption>
+    </figure>
+    <p>這項設定建議<strong>開放給學生使用前就先決定好</strong>，等學生已經開始用之後才回頭改，處理起來會麻煩很多。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">OU 架構決定能不能分年級開放</h2>
+    <p>年齡或年級的差異化開放要靠組織單位（OU）切分。如果貴校目前所有帳號都在同一個 OU，等於只能全開或全關 Gemini，沒辦法只讓高年級用、低年級不用。想做到分層開放，要先規劃好 OU 架構，這部分屬於帳號管理的基本功，不是 Gemini 專屬的設定，做法見 <a href="/knowledge/google-admin">Google 管理主控台校園設定指南</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">開通前的檢查清單</h2>
+    <ul class="feature-list">
+      <li><strong>版本確認</strong>：目前是 Fundamentals 還是 Plus，決定哪些 Gemini 功能能用，方案差異見 <a href="/knowledge/gemini">Gemini 方案懶人包</a>。</li>
+      <li><strong>OU 架構</strong>：是否已經能做到依年級或身分差異化開放。</li>
+      <li><strong>對話記錄政策</strong>：保留天數要設多久，開放前先決定。</li>
+      <li><strong>使用規範公告</strong>：開放之前先把規範寫清楚並公告給老師與家長，比事後補救容易得多。</li>
+    </ul>
+
+    <div class="svc-cta">
+      <h2 style="margin-top:0;">免費下載：Gemini 備課與校務提示詞 30 組</h2>
+      <p>備課、出題、班級經營、親師溝通與行政文書常用的提示詞，Word 與 PDF 版免費下載。</p>
+      <a class="btn btn-primary" href="/knowledge/gemini-prompt-kit#download">免費下載</a>
+    </div>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Gemini 服務要在管理主控台哪裡開？</summary>
+      <div class="faq-a">「應用程式 › 其他 Google 服務」頁面，左側可以依機構單位或群組篩選，右側列出各服務的開啟狀態，找到「Gemini 應用程式」把它打開即可。這個頁面同時管著很多其他服務，不是 Gemini 專屬頁面。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Gemini 的對話記錄可以設定保留多久嗎？</summary>
+      <div class="faq-a">可以，路徑在「生成式 AI › Gemini in Workspace › 對話記錄與刪除」，這裡有手動刪除與自動刪除兩項設定，可以依機構單位分開套用。開放給學生使用前，建議先決定好這項設定，之後再回頭改，說明成本會高很多。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Gemini 在 Classroom、Gmail、文件裡是分開開關的嗎？</summary>
+      <div class="faq-a">是。方案裡有包含 Gemini，不代表使用者畫面上就看得到，每個應用程式（Classroom、Gmail、文件、簡報）各自有獨立的開關，管理員要逐一確認，不能只看「其他 Google 服務」那一頁的總開關就以為全部都開了。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>組織單位（OU）架構跟 Gemini 開放範圍有什麼關係？</summary>
+      <div class="faq-a">年齡或年級的差異化開放要靠 OU 切分。如果貴校目前所有帳號都在同一個 OU，等於只能全開或全關 Gemini，沒辦法只讓高年級用、低年級不用。想做到分層開放，要先規劃好 OU 架構。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>管理員在開通 Gemini 前，該先確認哪些事？</summary>
+      <div class="faq-a">建議依序確認：學校目前的 Workspace 版本（決定哪些 Gemini 功能能用）、OU 架構是否已規劃好差異化開放、對話記錄保留政策要設多久、以及要先公告給老師與家長的使用規範。這幾件事都屬於「開放之前先決定」的類型，事後補救的成本比較高。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Gemini 系列文章導覽（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-ghost series-prev" href="/knowledge/gemini-classroom-howto">← 上一篇：Classroom 裡的 Gemini 怎麼用</a>
+      <span class="series-index">Gemini 系列第 6／10 篇・<a href="/knowledge/gemini-series">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/gemini-vids-howto">下一篇：Google Vids 怎麼用 →</a>
+    </nav>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/knowledge/google-admin">看管理主控台完整設定指南</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E7%AE%A1%E7%90%86%E5%93%A1%E8%A6%96%E8%A7%92%EF%BC%9AAdmin%20Console%20%E6%80%8E%E9%BA%BC%E9%96%8B%E9%80%9A%E8%88%87%E7%AE%A1%E6%8E%A7%20Gemini%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

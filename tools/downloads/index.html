@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChromeOS Flex 下載</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=43">
+<style>
+  :root {
+    /* 主站 hunglun.com 色票，跟 /tools/flex-deploy 一樣固定亮色 */
+    --ground: #FDFDFC; --surface: #FFFFFF; --sunk: #F7F7F5;
+    --ink: #1A1A1A; --ink-soft: #5C5C5C; --ink-faint: #70706C;
+    --line: rgba(0, 0, 0, .09); --accent: #1E3A5F; --accent-soft: #E8EDF3;
+    --danger: #A32017; --danger-soft: #FBE9E7;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font-family: var(--sans); line-height: 1.7; }
+  main { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; overflow-wrap: anywhere; }
+  .logo { display: inline-block; margin-bottom: 28px; }
+  .logo img { display: block; width: 180px; height: auto; aspect-ratio: 907 / 180; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  .sub { color: var(--ink-soft); margin: 0 0 26px; }
+  .dl { display: flex; align-items: center; gap: 14px; padding: 20px 22px; background: var(--accent); color: #fff;
+        border-radius: 14px; text-decoration: none; }
+  .dl:hover { filter: brightness(1.1); }
+  .dl .icon { font-size: 30px; line-height: 1; }
+  .dl b { display: block; font-size: 19px; }
+  .dl span { font-size: 14px; opacity: .85; }
+  ol { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; margin: 22px 0; padding: 18px 22px 18px 44px; }
+  ol li { margin: 6px 0; }
+  code { background: var(--sunk); padding: 1px 6px; border-radius: 5px; font-size: .95em; }
+  .warn { background: var(--danger-soft); color: var(--danger); border-radius: 12px; padding: 14px 18px; font-size: 15px; }
+  .more { margin-top: 26px; font-size: 14px; color: var(--ink-faint); }
+  .more a { color: var(--ink-soft); }
+  h2 { font-size: 20px; margin: 38px 0 10px; padding-top: 18px; border-top: 1px solid var(--line); }
+  h2 .no { display: inline-block; min-width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%;
+           background: var(--accent); color: #fff; font-size: 15px; margin-right: 8px; }
+  h3 { font-size: 16px; margin: 20px 0 6px; }
+  p { margin: 8px 0; }
+  ul { margin: 8px 0; padding-left: 22px; }
+  ul li { margin: 4px 0; }
+  pre { background: #1B2430; color: #E6EDF5; padding: 14px 16px; border-radius: 10px; overflow-x: auto; font-size: 14px; line-height: 1.6;
+        font-family: "Cascadia Mono", Consolas, ui-monospace, monospace; }
+  .tbl { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; background: var(--surface); }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--accent-soft); }
+  td:first-child { width: 32%; }
+  pre { max-width: 100%; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .toc { background: var(--sunk); border-radius: 12px; padding: 12px 18px; font-size: 15px; margin-top: 22px; }
+  .toc a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <a class="logo" href="https://www.hunglun.com/" aria-label="鴻綸科技官網">
+    <img src="/assets/hunglun-logo-company-light.webp?v=5" alt="鴻綸科技 Hunglun Technology">
+  </a>
+  <h1>ChromeOS Flex 下載</h1>
+  <p class="sub">Windows 電腦轉 ChromeOS Flex 的一鍵轉換整包。</p>
+
+  <a class="dl" href="/tools/downloads/flex-full.zip">
+    <span class="icon">&#x2B07;</span>
+    <div><b>下載一鍵轉換整包</b><span>flex-full.zip・約 1GB・含 Google 轉換程式，解壓後不用再上網下載</span></div>
+  </a>
+
+  <ol>
+    <li>下載完，在 zip 上按右鍵，選「全部解壓縮」</li>
+    <li>打開 <code>flex</code> 資料夾，先雙擊 <code>一鍵轉換Flex-模擬.bat</code>，按「是」，輸入 <code>Y</code></li>
+    <li>看到「官方檢查項目通過 5/5」才可以跑 <code>一鍵轉換Flex-正式.bat</code></li>
+  </ol>
+
+  <p class="warn">正式版會清掉這台電腦的 Windows 和所有資料，無法復原。解壓後的檔案要放在同一個資料夾。</p>
+
+  <p class="toc">這一包轉完是一般的 Flex，要自己登入。學校有 CEU、要轉完<b>自動註冊</b>的話，先到 <a href="/tools/flex-enroll/">Flex 大量部署系統</a> 產生每台填好權杖的 bat，放進這個資料夾取代舊的。</p>
+
+  <p class="toc">
+    <a href="#pick">1 挑電腦</a>・<a href="#wmi">2 修 WMI</a>・<a href="#sim">3 模擬</a>・<a href="#real">4 正式轉換</a>・<a href="#stuck">5 卡住怎麼辦</a>・<a href="#back">6 改回 Windows</a>
+  </p>
+
+  <h2 id="pick"><span class="no">1</span>挑電腦</h2>
+  <div class="tbl"><table>
+    <tr><th>項目</th><th>怎麼看</th><th>不符合</th></tr>
+    <tr><td>Windows 10 或 11，不是 S 模式</td><td>設定 → 系統 → 關於</td><td>換一台</td></tr>
+    <tr><td>開機模式 UEFI</td><td><code>Win+R</code> 輸入 <code>msinfo32</code>，「BIOS 模式」寫 UEFI</td><td>寫「傳統」：進 BIOS 改 UEFI，硬碟要用 <code>mbr2gpt</code> 轉換，或換一台</td></tr>
+    <tr><td>TPM</td><td><code>Win+R</code> 輸入 <code>tpm.msc</code>，寫「TPM 已可供使用」</td><td>寫「命名空間無效」：先看第 2 步；找不到 TPM：進 BIOS 找 PTT 或 TPM 打開</td></tr>
+    <tr><td>C 槽可用 12GB 以上</td><td>檔案總管看 C 槽</td><td>先清空間</td></tr>
+    <tr><td>沒有還原卡或還原軟體</td><td>開機畫面有還原卡選單；或裝了還原精靈、Deep Freeze</td><td>見下方</td></tr>
+    <tr><td>型號在 Google 認證清單上</td><td>機身貼紙型號，查 <a href="https://support.google.com/chromeosflex/answer/11513094" target="_blank" rel="noopener">官方清單</a></td><td>一鍵檔會自動上網比對並顯示結果，只提示不擋下。不在清單上也能測，但失敗不代表工具有問題</td></tr>
+  </table></div>
+  <h3>有還原卡的話</h3>
+  <p>轉換寫進硬碟的東西一重開就會被還原掉，一定要先移除：</p>
+  <ul>
+    <li>開機時按卡的熱鍵（常見 <code>Home</code> 或 <code>F10</code>）進管理畫面，輸入管理密碼（找學校資訊組）</li>
+    <li>選「移除」或「解除安裝」，<b>關機後才拔卡</b>。不要直接拔，硬碟可能開不了機</li>
+  </ul>
+  <p>另外：插上電源；要留的檔案先複製出來；轉換前在「設定 → 系統 → 關於」記下 Windows 版本，以後要改回來用得到。</p>
+
+  <h2 id="wmi"><span class="no">2</span>修 WMI（看到「命名空間無效」或「類別無效」才需要）</h2>
+  <p>WMI 是 Windows 內建的系統資訊資料庫，轉換程式靠它查硬碟和 TPM。學校電腦常因還原軟體壞掉，畫面會出現 <code>tpm.msc</code>「命名空間無效」，或一鍵檔停在「系統資訊資料庫（WMI）異常」。這不一定代表沒有 TPM。</p>
+  <ol>
+    <li>開始 → 輸入 <code>cmd</code> → 在「命令提示字元」按右鍵 →「以系統管理員身分執行」</li>
+    <li>一行一行輸入：
+<pre>winmgmt /verifyrepository
+mofcomp %windir%\System32\wbem\storagewmi.mof
+mofcomp %windir%\System32\wbem\Win32_Tpm.mof</pre></li>
+    <li>重新開機，開 <code>tpm.msc</code> 看有沒有恢復</li>
+    <li>還是不行：第 2 步第一行顯示「不一致」就輸入 <code>winmgmt /salvagerepository</code>，顯示「一致」就輸入 <code>winmgmt /resetrepository</code>，再重新開機</li>
+  </ol>
+  <p>這些指令只重建 Windows 的系統資訊，不會動到檔案。</p>
+
+  <h2 id="sim"><span class="no">3</span>先跑模擬（不會動硬碟）</h2>
+  <ol>
+    <li>雙擊 <code>一鍵轉換Flex-模擬.bat</code>，跳出視窗按「是」</li>
+    <li>看到<b>綠字</b>「這次只做模擬測試」，輸入 <code>Y</code> 按 Enter</li>
+    <li><code>[2/5]</code> 應該寫「使用同資料夾的 frd-latest.zip（不用上網下載）」</li>
+    <li>最後要看到 <b>「官方檢查項目通過 5/5」</b>、綠字「模擬測試完成」</li>
+    <li>拍下畫面。桌面的 <code>Flex結果-電腦名稱-時間.zip</code> 傳給技術人員</li>
+  </ol>
+  <p>沒有 5/5、或出現紅字 <code>[停止]</code>：拍下來，<b>不要跑正式版</b>。</p>
+
+  <h2 id="real"><span class="no">4</span>正式轉換（會清掉 Windows）</h2>
+  <ol>
+    <li>雙擊 <code>一鍵轉換Flex-正式.bat</code>，按「是」</li>
+    <li>確認是<b>紅字</b>「轉換完成後，這台電腦的 Windows 和裡面所有資料都會被清空」，輸入 <code>Y</code> 按 Enter。看到綠字「只做模擬」就是點錯檔，關掉重來</li>
+    <li>它會先自己再模擬一次，通過才正式轉換。看到「轉換已經開始：電腦會重新開機」，拍照</li>
+    <li><b>手機開始計時</b>。約 2 分鐘內電腦會自己重開機；沒有的話手動重開一次</li>
+    <li>重開機後是 ChromeOS Flex 安裝畫面，<b>不要按任何東西、不要斷電</b></li>
+    <li>停在 ChromeOS Flex 歡迎畫面就是成功，<b>記下總共花幾分鐘</b></li>
+    <li>歡迎畫面選語言、連 Wi-Fi、登入 Google 帳號</li>
+  </ol>
+  <h3>轉完驗收</h3>
+  <ul>
+    <li>鍵盤、滑鼠或觸控板、喇叭、鏡頭、Wi-Fi 或網路線</li>
+    <li>開 Chrome 瀏覽網頁</li>
+    <li>筆電另外試：闔上螢幕能睡眠和喚醒、充電與電量顯示</li>
+  </ul>
+
+  <h2 id="stuck"><span class="no">5</span>卡住怎麼辦</h2>
+  <div class="tbl"><table>
+    <tr><th>狀況</th><th>先做什麼</th></tr>
+    <tr><td>[停止] C 槽最多只能縮出 X GB</td><td>雙擊 <code>清出C槽空間.bat</code>，詳見下方「縮不出空間怎麼辦」</td></tr>
+    <tr><td>[停止] 系統資訊資料庫（WMI）異常</td><td>第 2 步修 WMI；有還原卡先移除</td></tr>
+    <tr><td>模擬沒有 5/5、卡在 TPM</td><td>進 BIOS（ASUS 常見 <code>F2</code> 或 <code>Del</code>）在 Advanced 或 Security 找 PTT、TPM、Trusted Computing 打開；找不到就換一台</td></tr>
+    <tr><td>[停止] 不是 UEFI／不是 GPT</td><td>第 1 步「開機模式」那列</td></tr>
+    <tr><td>[停止] 可用空間不足</td><td>清理檔案、清空資源回收筒後重跑</td></tr>
+    <tr><td>重開機後黑畫面或停在廠商標誌超過 20 分鐘</td><td>拍照記時間，進 BIOS 把 Secure Boot 關掉再開機</td></tr>
+    <tr><td>重開機又回到 Windows</td><td>安裝程式沒開起來，Windows 還在。拍照，看 <code>C:\deploy\agent.log</code> 最後幾行</td></tr>
+    <tr><td>安裝畫面出現錯誤訊息</td><td>拍下錯誤訊息全文</td></tr>
+  </table></div>
+    <h3>縮不出空間怎麼辦</h3>
+  <p>FRD 要從 C 槽尾端切出約 5.4GB 放安裝程式。C 槽可用空間再多，只要尾端卡著搬不動的檔案（分頁檔、休眠檔、還原點），能縮的就不夠。2026-10-07 學校的 ASUS SD310（120GB SSD）就是這樣：可用空間超過 12GB，卻只縮得出 2.1GB，一鍵檔停在「C 槽最多只能縮出…」。</p>
+  <p>最簡單：雙擊整包裡的<code>清出C槽空間.bat</code>，按「是」。它會先量能縮多少，不夠就自動關休眠、刪還原點、關分頁檔，重新開機一次；登入後自動接著整理空間再量，最後告訴你夠不夠，不夠時還會列出卡住的檔案。下面是它做的事，要手動做也可以：</p>
+  <ol>
+    <li>先看現在能縮多少：系統管理員 PowerShell 輸入 <code>$p=Get-Partition -DriveLetter C; $s=Get-PartitionSupportedSize -DriveLetter C; [math]::Round(($p.Size-$s.SizeMin)/1GB,1)</code>，顯示的數字要 <b>6 以上</b>（FRD 要約 5.4GB）</li>
+    <li>關休眠（系統管理員命令提示字元）：<code>powercfg /h off</code></li>
+    <li>刪還原點：<code>vssadmin delete shadows /for=C: /all /quiet</code></li>
+    <li>暫時不用分頁檔：設定 → 系統 → 關於 →「進階系統設定」→ 效能「設定」→「進階」→ 虛擬記憶體「變更」→ 取消「自動管理」→ 選 C 槽 →「沒有分頁檔」→「設定」→ 確定，重新開機</li>
+    <li>整理可用空間：<code>defrag C: /X</code>（舊硬碟要十幾分鐘）</li>
+    <li>再跑第 1 步的指令，到 6 以上就重跑模擬；還不夠就用「磁碟清理」清系統檔案後再重複第 5 步</li>
+  </ol>
+  <p>轉換後 Windows 會被清掉，分頁檔、休眠不用改回來；只做模擬不轉的話，記得把分頁檔改回「自動管理」。</p>
+  <p>以上都不是：把畫面照片和桌面的結果檔、<code>C:\deploy</code> 裡的記錄檔一起交給技術人員。</p>
+
+  <h2 id="back"><span class="no">6</span>轉完想改回 Windows</h2>
+  <p>可以，但原本的資料救不回來。</p>
+  <ol>
+    <li>另一台電腦用微軟的 Media Creation Tool 做 Windows 安裝隨身碟（8GB 以上，隨身碟會被清空）</li>
+    <li>插上這台，開機按開機選單鍵（ASUS 常見 <code>F8</code> 或 <code>Esc</code>）選隨身碟</li>
+    <li>安裝類型選「自訂」，把 Flex 的分割區全部刪掉，裝在空出來的空間，約 30～60 分鐘</li>
+    <li>Windows 10 以後出廠的電腦序號在主機板韌體裡，裝同一版本（家用版或專業版）連上網通常會自動啟用</li>
+  </ol>
+
+  <p class="more">完整操作說明：<a href="/tools/flex-deploy">Flex 遠端部署手冊</a></p>
+</main>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Classroom 常見卡關與版本功能比較｜鴻綸科技</title>
+<meta name="description" content="教師端最常見的三個 Classroom 卡關點（作業改不動、成績算法對不上、學生用個人帳號），以及哪些功能要付費版本才有。Classroom 系列文章第 4／10 篇。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/classroom-troubleshooting">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Classroom 常見卡關與版本功能比較｜鴻綸科技">
+<meta property="og:description" content="Classroom 系列第 4 篇：教師端三個常見卡關點，以及哪些功能要付費版本才有。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/classroom-troubleshooting">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-troubleshooting.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Classroom 常見卡關與版本功能比較｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Classroom 常見卡關與版本功能比較｜鴻綸科技">
+<meta name="twitter:description" content="Classroom 系列第 4 篇：教師端三個常見卡關點，以及哪些功能要付費版本才有。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-troubleshooting.png?v=5">
+<meta name="twitter:image:alt" content="Classroom 常見卡關與版本功能比較｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Classroom 常見卡關與版本功能比較",
+      "description": "教師端最常見的三個卡關點，以及哪些功能要付費版本才有。Classroom 系列文章第 4／10 篇。",
+      "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+      "datePublished": "2026-09-10",
+      "dateModified": "2026-09-10",
+      "author": { "@type": "Person", "name": "鴻綸科技 Steve", "jobTitle": "Google 認證講師", "worksFor": { "@id": "https://www.hunglun.com/#organization" } },
+      "publisher": { "@id": "https://www.hunglun.com/#organization" },
+      "mainEntityOfPage": "https://www.hunglun.com/knowledge/classroom-troubleshooting",
+      "inLanguage": "zh-Hant-TW",
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "為什麼學生繳交後我改不動作業內容？", "acceptedAnswer": { "@type": "Answer", "text": "學生繳交後編輯權會轉移給老師，要點「退回」才能讓學生再編輯。這不是壞掉，是 Classroom 的設計如此，用意是避免繳交後內容被偷改。" } },
+        { "@type": "Question", "name": "Classroom 的成績可以直接當學期成績嗎？", "acceptedAnswer": { "@type": "Answer", "text": "通常不建議直接採用。Classroom 的加權計算方式與各校成績處理規定常有落差，比較穩妥的作法是把 Classroom 當作學習歷程與平時成績的紀錄工具，最終成績仍以校務系統的規則為準。" } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+        { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+        { "@type": "ListItem", "position": 3, "name": "Google Classroom", "item": "https://www.hunglun.com/knowledge/topic/classroom" },
+        { "@type": "ListItem", "position": 4, "name": "Classroom 常見卡關與版本比較", "item": "https://www.hunglun.com/knowledge/classroom-troubleshooting" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/classroom">Google Classroom</a> ／ Classroom 常見卡關與版本比較</nav>
+    <h1>Classroom 常見卡關與版本功能比較</h1>
+    <p>Classroom 系列文章第 4／10 篇：每天會遇到的兩件事，常見卡關，以及哪些功能其實要付費版本才有。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>使用或準備導入 Google Classroom 的老師、教學組長與資訊組長。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-10">2026 年 9 月 10 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Classroom 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/classroom-features">← 上一篇：進階功能</a>
+    <span class="series-index">系列第 4／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/classroom-admin-setup">下一篇：管理員導入前該確認的五件事 →</a>
+  </nav>
+</div>
+
+<section class="section" style="padding-top:24px;">
+  <div class="wrap prose" style="max-width:820px;">
+    <p style="font-size:0.88rem;color:var(--muted-faint);padding-bottom:16px;border-bottom:1px solid var(--line);">📚 這是 <a href="/knowledge/classroom">Google Classroom 完全指南系列</a> <span class="nowrap">第 4／10 篇</span>。</p>
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Classroom 最常見的卡關是什麼？</strong>教師端最常見三個：作業繳交後改不動、成績算法與校內規定對不上、學生用個人帳號登入。</li>
+        <li><strong>為什麼學生繳交後我改不動作業？</strong>學生繳交後編輯權會轉移，要「退回」才能再編輯。這不是壞掉，是設計如此。</li>
+        <li><strong>Classroom 的成績可以直接當學期成績嗎？</strong>通常不建議。Classroom 的加權方式與各校規定常有落差，建議當作歷程紀錄，最終成績以校務系統為準。</li>
+        <li><strong>哪些功能要付費版本才有？</strong>基本教學功能所有版本都有。Chromebook 課堂管理工具需要 Education Plus 或 Teaching and Learning，且學生要使用受管理的 Chromebook。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal" style="margin-top:8px;">教師端最常見的三個卡關點</h2>
+    <ul class="feature-list">
+      <li><strong>作業繳交後改不動</strong>：學生繳交後編輯權會轉移，要退回才能再編輯。這不是壞掉，是設計如此。</li>
+    </ul>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-troubleshooting-return.webp"
+           srcset="/assets/images/classroom-troubleshooting-return-480.webp 480w, /assets/images/classroom-troubleshooting-return-768.webp 768w, /assets/images/classroom-troubleshooting-return.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="926" loading="lazy" decoding="async"
+           alt="批改畫面，紅框① 標出左上角「發還」按鈕，紅框② 標出右上角尚未發還的狀態文字">
+      <figcaption>① 老師打完分數，要按這顆「發還」，學生才看得到成績；退回讓學生能重新編輯內容，則是在學生個別的繳交畫面另外操作。② 按發還之前，畫面會先標「尚未發還」提醒老師這份還沒送出去。</figcaption>
+    </figure>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>成績算法跟校內規定對不上</strong>：Classroom 的加權方式與各校成績規定常有落差，建議把 Classroom 當作歷程紀錄，最終成績仍以校務系統為準。</li>
+      <li><strong>學生用個人帳號登入</strong>：用個人 Gmail 加入課程會導致名冊混亂、也不受學校政策保護。開學第一堂課先確認全班都用學校帳號，比事後清理省事得多。</li>
+    </ul>
+    <p>這些在教師研習裡佔的時間往往比功能教學還多。我們的<a href="/services/campus-training">校園研習服務</a>會把這類實際會遇到的狀況一併帶過。</p>
+
+    <h2 class="section-title reveal" style="margin-top:36px;">哪些功能要付費版本才有？</h2>
+    <p>卡關排除之後，下一個常見疑問是「這個功能我用得到嗎」。Classroom 本身在所有教育版都能用，差異出現在進階管理與教學工具。<strong>各項功能的版本歸屬 Google 會調整</strong>，下面是判斷原則，實際請以管理主控台當下顯示的可用狀態為準：</p>
+    <ul class="feature-list">
+      <li><strong>基本教學功能</strong>（課程、作業、評分、公告）：所有版本，含免費的 Fundamentals。</li>
+      <li><strong>Classroom 中的 Gemini</strong>：Fundamentals、Plus 都支援。</li>
+      <li><strong>Chromebook 課堂管理工具</strong>（如專注模式、鎖定畫面）：需要 Education Plus 或 Teaching and Learning，<strong>且學生要使用受管理的 Chromebook</strong>。這點常被忽略，買了授權但裝置沒納管一樣用不到。</li>
+      <li><strong>進階原創性報告、更完整的稽核與資料匯出</strong>：屬於付費版本範圍。</li>
+    </ul>
+    <p>版本之間的完整差異與 2025–2026 的授權變更（取消教職員免費授權、Plus 改單一授權類型），整理在 <a href="/knowledge/workspace-editions">Google Workspace 教育版版本比較與授權變更</a>。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>為什麼學生繳交後我改不動作業內容？</summary>
+      <div class="faq-a">學生繳交後編輯權會轉移給老師，要點「退回」才能讓學生再編輯。這不是壞掉，是 Classroom 的設計如此，用意是避免繳交後內容被偷改。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Classroom 的成績可以直接當學期成績嗎？</summary>
+      <div class="faq-a">通常不建議直接採用。Classroom 的加權計算方式與各校成績處理規定常有落差，比較穩妥的作法是把 Classroom 當作學習歷程與平時成績的紀錄工具，最終成績仍以校務系統的規則為準。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Classroom 系列文章導覽（文末）">
+      <a class="btn btn-ghost series-prev" href="/knowledge/classroom-features">← 上一篇：進階功能</a>
+      <span class="series-index">系列第 4／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+      <a class="btn btn-primary series-next" href="/knowledge/classroom-admin-setup">下一篇：管理員導入前該確認的五件事 →</a>
+    </nav>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/services/campus-training">看校園研習服務</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">想讓全校老師都用得起來？</h2>
+      <p>安排研習或導入前，先確認這幾件事：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計參加的教師人數與數位程度</li>
+        <li>學校目前的 Google Workspace 版本與帳號狀況</li>
+        <li>希望研習著重在哪裡（建課派作業、評量批改、或管理設定）</li>
+        <li>希望的場次時間與時數</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Classroom%20%E5%B0%8E%E5%85%A5%E8%88%87%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E5%8F%83%E5%8A%A0%E7%9A%84%E6%95%99%E5%B8%AB%E4%BA%BA%E6%95%B8%E8%88%87%E6%95%B8%E4%BD%8D%E7%A8%8B%E5%BA%A6%EF%BC%9A%0A%E5%AD%B8%E6%A0%A1%E7%9B%AE%E5%89%8D%E7%9A%84%20Google%20Workspace%20%E7%89%88%E6%9C%AC%E8%88%87%E5%B8%B3%E8%99%9F%E7%8B%80%E6%B3%81%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%A0%94%E7%BF%92%E8%91%97%E9%87%8D%E5%9C%A8%E5%93%AA%E8%A3%A1%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%A0%B4%E6%AC%A1%E6%99%82%E9%96%93%E8%88%87%E6%99%82%E6%95%B8%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AClassroom%20%E5%B8%B8%E8%A6%8B%E5%8D%A1%E9%97%9C%E8%88%87%E7%89%88%E6%9C%AC%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BC%83%EF%BC%89">寄信詢問：Classroom 導入與教師研習</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速諮詢">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

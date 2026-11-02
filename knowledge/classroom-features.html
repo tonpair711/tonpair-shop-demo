@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Classroom 進階功能：主題分類、重複貼文、差異化指派｜鴻綸科技</title>
+<meta name="description" content="老師實際帶班會用到、卻常被忽略的五個 Classroom 功能：用主題分類作業、重複使用貼文、班級留言與私人留言的差別、差異化指派特定學生、評分週期。Classroom 系列文章第 3／10 篇。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/classroom-features">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Classroom 進階功能：主題分類、重複貼文、差異化指派｜鴻綸科技">
+<meta property="og:description" content="Classroom 系列第 3 篇：主題分類、重複使用貼文、班級留言與私人留言、差異化指派、評分週期。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/classroom-features">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-features.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Classroom 進階功能：老師實際會用到的五個功能｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Classroom 進階功能：主題分類、重複貼文、差異化指派｜鴻綸科技">
+<meta name="twitter:description" content="Classroom 系列第 3 篇：主題分類、重複使用貼文、班級留言與私人留言、差異化指派、評分週期。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-features.png?v=5">
+<meta name="twitter:image:alt" content="Classroom 進階功能：老師實際會用到的五個功能｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Classroom 進階功能：老師實際會用到的五個功能",
+      "description": "用主題分類作業、重複使用貼文、班級留言與私人留言的差別、差異化指派特定學生、評分週期。Classroom 系列文章第 3／10 篇。",
+      "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+      "datePublished": "2026-09-10",
+      "dateModified": "2026-09-10",
+      "author": { "@type": "Person", "name": "鴻綸科技 Steve", "jobTitle": "Google 認證講師", "worksFor": { "@id": "https://www.hunglun.com/#organization" } },
+      "publisher": { "@id": "https://www.hunglun.com/#organization" },
+      "mainEntityOfPage": "https://www.hunglun.com/knowledge/classroom-features",
+      "inLanguage": "zh-Hant-TW",
+      "isAccessibleForFree": true
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+        { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+        { "@type": "ListItem", "position": 3, "name": "Google Classroom", "item": "https://www.hunglun.com/knowledge/topic/classroom" },
+        { "@type": "ListItem", "position": 4, "name": "Classroom 進階功能", "item": "https://www.hunglun.com/knowledge/classroom-features" }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-10",
+  "mainEntity": [
+    { "@type": "Question", "name": "作業一多找不到，Classroom 有分類功能嗎？", "acceptedAnswer": { "@type": "Answer", "text": "有，在「課堂作業」按「建立」旁邊的「主題」可以先建立「第一單元」「小考」「期中報告」這類分類，之後每份作業指定主題，學生端會依主題分組顯示，不用往上滑老半天找。" } },
+    { "@type": "Question", "name": "公告或作業想沿用到別班或下學期，要重打嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不用重打。到「課堂作業」按「建立」選「重複使用貼文」，挑選來源課程與貼文，內容、附件都會複製過來，再依新班級調整截止日期即可，附件會另外建立獨立副本，不會動到原班學生正在寫的那一份。" } },
+    { "@type": "Question", "name": "班級留言跟私人留言差在哪，什麼時候該用哪一種？", "acceptedAnswer": { "@type": "Answer", "text": "班級留言是公開討論串，全班都看得到，適合問答或同儕互評；私人留言只有該學生與老師看得到，適合個別提醒、批改回饋或比較敏感的溝通，公開留言功能也可以整體關閉或限制只有教師能貼文。" } },
+    { "@type": "Question", "name": "作業可以只指派給部分學生嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。出作業時右側「出作業給」預設是全班，點開可以改成勾選「特定學生」，適合補救教學、加深加廣、分組報告只指派給該組成員，不必為了幾個學生另外開一個假的「小組課程」。" } },
+    { "@type": "Question", "name": "怎麼避免整學期成績混在一起看？", "acceptedAnswer": { "@type": "Answer", "text": "在課程設定裡開啟「評分週期」，把學期切成期中、期末或多個階段，出作業時選好週期，每個階段的成績會獨立計算與檢視；沒開啟這個功能時，成績單預設是整學期所有作業的總覽。" } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/classroom">Google Classroom</a> ／ Classroom 進階功能</nav>
+    <h1>Classroom 進階功能：老師實際會用到的五個功能</h1>
+    <p>Classroom 系列文章第 3／10 篇：熟悉基本操作後，帶班一學期會用到、卻常被忽略的功能。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>使用或準備導入 Google Classroom 的老師、教學組長與資訊組長。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-10">2026 年 9 月 10 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Classroom 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/classroom-guide">← 上一篇：四步驟快速上手</a>
+    <span class="series-index">系列第 3／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/classroom-troubleshooting">下一篇：常見卡關與版本功能比較 →</a>
+  </nav>
+</div>
+
+<section class="section" style="padding-top:24px;">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Classroom 有哪些老師常用的進階功能？</strong>本篇介紹五個：用主題分類作業、重複使用貼文、班級留言與私人留言、差異化指派，以及評分週期。</li>
+        <li><strong>作業可以只指派給部分學生嗎？</strong>可以。出作業時把「出作業給」從全班改成勾選特定學生，適合補救教學、加深加廣或分組報告。</li>
+        <li><strong>公告或作業想沿用到別班，要重打嗎？</strong>不用。到「課堂作業」按「建立」選「重複使用貼文」，內容與附件都會複製過來，再調整截止日期即可。</li>
+        <li><strong>這些功能需要額外授權嗎？</strong>不需要。這些功能都內建在標準介面裡，只是入口不明顯，第一次用得靠人帶。</li>
+      </ul>
+    </div>
+    <p class="kb-src" style="margin:-14px 0 24px;font-size:0.85rem;color:var(--muted-faint);">官方資料來源：<a href="https://support.google.com/edu/classroom/answer/6020279" target="_blank" rel="noopener">Google Classroom 說明中心：關於 Classroom</a></p>
+
+    <p style="font-size:0.88rem;color:var(--muted-faint);padding-bottom:16px;border-bottom:1px solid var(--line);">📚 這是 <a href="/knowledge/classroom">Google Classroom 完全指南系列</a> <span class="nowrap">第 3／10 篇</span>。看過第 1 篇「是什麼」、第 2 篇「四步驟上手」之後，這篇是進一步熟悉之後才用得到的功能。</p>
+
+    <h2 class="section-title reveal" style="margin-top:8px;">作業一多找不到？用「主題」把作業分類</h2>
+    <p>作業一多，課堂作業分頁會變成一長串列表。在「課堂作業」按「建立」旁邊的「主題」，可以先建立「第一單元」「小考」「期中報告」這類分類，之後每份作業指定主題，學生端會依主題分組顯示，不用往上滑老半天找。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-features-topics.webp"
+           srcset="/assets/images/classroom-features-topics-480.webp 480w, /assets/images/classroom-features-topics-768.webp 768w, /assets/images/classroom-features-topics.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="701" loading="lazy" decoding="async"
+           alt="課堂作業分頁，紅框① 標出建立按鈕，紅框② 標出建好主題後出現的主題篩選器">
+      <figcaption>① 在「課堂作業」按「建立」開始建主題。② 建好之後這裡會多一個主題篩選器，作業依主題分組，學生端也是同樣的分組方式。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:36px;">重複使用貼文，不必每學期重寫一次</h2>
+    <p>公告或作業想沿用到別班或下學期，不必重打。到「課堂作業」按「建立」選「重複使用貼文」，挑選來源課程與貼文，內容、附件都會複製過來，再依新班級調整截止日期與細節即可。附件會另外建立獨立副本，不會動到原班學生正在寫的那一份。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-features-reusepost.webp"
+           srcset="/assets/images/classroom-features-reusepost-480.webp 480w, /assets/images/classroom-features-reusepost-768.webp 768w, /assets/images/classroom-features-reusepost.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="760" height="195" loading="lazy" decoding="async"
+           alt="「重複使用貼文」第一步：紅框標出要點選的來源課程列">
+      <figcaption>第一步先點紅框標出的來源課程列，下一步再挑要重複使用的那則貼文。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:36px;">班級留言與私人留言，用途不一樣</h2>
+    <p>作業下方的留言分兩種：<strong>班級留言</strong>是公開討論串，全班都看得到，適合問答或同儕互評；<strong>私人留言</strong>只有該學生與老師看得到，適合個別提醒、批改回饋或比較敏感的溝通。批改時常見的失誤是把該私訊的內容打在班級留言，公開留言功能也可以在課程設定裡整體關閉或限制只有教師能貼文。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-features-comments.webp"
+           srcset="/assets/images/classroom-features-comments-480.webp 480w, /assets/images/classroom-features-comments-768.webp 768w, /assets/images/classroom-features-comments.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="469" loading="lazy" decoding="async"
+           alt="學生端作業畫面，紅框① 標出課程留言區，紅框② 標出私人留言區">
+      <figcaption>① 課程留言：全班公開可見。② 私人留言：只有老師和該學生看得到。學生端看到的就是這兩個分開的區塊。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:36px;">差異化指派：作業不必發給全班</h2>
+    <p>出作業時，右側「出作業給」預設是全班，但可以點開改成勾選「特定學生」，適合補救教學、加深加廣、分組報告只指派給該組成員這類情境，不必為了幾個學生另外開一個假的「小組課程」。</p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-features-diffassign.webp"
+           srcset="/assets/images/classroom-features-diffassign-480.webp 480w, /assets/images/classroom-features-diffassign-768.webp 768w, /assets/images/classroom-features-diffassign.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="560" height="460" loading="lazy" decoding="async"
+           alt="出作業給對話框，紅框① 標出「所有學生」核取方塊，紅框② 標出個別學生核取方塊">
+      <figcaption>點「出作業給」欄位的「所有學生」展開這個清單。① 取消勾選「所有學生」。② 只勾選要指派的學生，其餘保持不勾選即可。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal" style="margin-top:36px;">評分週期，避免整學期成績混在一起看</h2>
+    <p>課程設定裡可以開啟「評分週期」，把學期切成期中、期末或多個階段，出作業時選好週期，每個階段的成績獨立計算與檢視，適合有分段評量、需要單獨看某次段考成績而非累加總分的學校。沒開啟這個功能時，成績單預設是整學期所有作業的總覽。<span style="font-size:0.85rem;color:var(--muted-faint);">（介面上的正式名稱是「評分週期」）</span></p>
+    <figure class="cg-fig reveal">
+      <img src="/assets/images/classroom-features-gradingperiods.webp"
+           srcset="/assets/images/classroom-features-gradingperiods-480.webp 480w, /assets/images/classroom-features-gradingperiods-768.webp 768w, /assets/images/classroom-features-gradingperiods.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="390" loading="lazy" decoding="async"
+           alt="課程設定裡的評分週期段落，紅框標出「新增評分週期」連結">
+      <figcaption>課程設定往下捲會看到紅框標出的「新增評分週期」，點下去就能新增，作業會依截止日自動歸入對應的週期。</figcaption>
+    </figure>
+
+    <p>這些功能都內建在標準介面裡，不需要額外授權，只是入口不明顯，第一次用得靠人帶。我們的<a href="/services/campus-training">校園研習服務</a>會依學校實際情境示範這幾個功能怎麼用。</p>
+
+    <h2 class="section-title reveal" style="margin-top:48px;">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>作業一多找不到，Classroom 有分類功能嗎？</summary>
+      <div class="faq-a">有，在「課堂作業」按「建立」旁邊的「主題」可以先建立「第一單元」「小考」「期中報告」這類分類，之後每份作業指定主題，學生端會依主題分組顯示，不用往上滑老半天找。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>公告或作業想沿用到別班或下學期，要重打嗎？</summary>
+      <div class="faq-a">不用重打。到「課堂作業」按「建立」選「重複使用貼文」，挑選來源課程與貼文，內容、附件都會複製過來，再依新班級調整截止日期即可，附件會另外建立獨立副本，不會動到原班學生正在寫的那一份。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>班級留言跟私人留言差在哪，什麼時候該用哪一種？</summary>
+      <div class="faq-a">班級留言是公開討論串，全班都看得到，適合問答或同儕互評；私人留言只有該學生與老師看得到，適合個別提醒、批改回饋或比較敏感的溝通，公開留言功能也可以整體關閉或限制只有教師能貼文。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>作業可以只指派給部分學生嗎？</summary>
+      <div class="faq-a">可以。出作業時右側「出作業給」預設是全班，點開可以改成勾選「特定學生」，適合補救教學、加深加廣、分組報告只指派給該組成員，不必為了幾個學生另外開一個假的「小組課程」。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>怎麼避免整學期成績混在一起看？</summary>
+      <div class="faq-a">在課程設定裡開啟「評分週期」，把學期切成期中、期末或多個階段，出作業時選好週期，每個階段的成績會獨立計算與檢視；沒開啟這個功能時，成績單預設是整學期所有作業的總覽。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Classroom 系列文章導覽（文末）">
+      <a class="btn btn-ghost series-prev" href="/knowledge/classroom-guide">← 上一篇：四步驟快速上手</a>
+      <span class="series-index">系列第 3／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+      <a class="btn btn-primary series-next" href="/knowledge/classroom-troubleshooting">下一篇：常見卡關與版本功能比較 →</a>
+    </nav>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">聯絡我們</a>
+      <a class="btn btn-ghost" href="/services/campus-training">看校園研習服務</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">想讓全校老師都用得起來？</h2>
+      <p>安排研習或導入前，先確認這幾件事：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計參加的教師人數與數位程度</li>
+        <li>學校目前的 Google Workspace 版本與帳號狀況</li>
+        <li>希望研習著重在哪裡（建課派作業、評量批改、或管理設定）</li>
+        <li>希望的場次時間與時數</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Classroom%20%E5%B0%8E%E5%85%A5%E8%88%87%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E5%8F%83%E5%8A%A0%E7%9A%84%E6%95%99%E5%B8%AB%E4%BA%BA%E6%95%B8%E8%88%87%E6%95%B8%E4%BD%8D%E7%A8%8B%E5%BA%A6%EF%BC%9A%0A%E5%AD%B8%E6%A0%A1%E7%9B%AE%E5%89%8D%E7%9A%84%20Google%20Workspace%20%E7%89%88%E6%9C%AC%E8%88%87%E5%B8%B3%E8%99%9F%E7%8B%80%E6%B3%81%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%A0%94%E7%BF%92%E8%91%97%E9%87%8D%E5%9C%A8%E5%93%AA%E8%A3%A1%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%A0%B4%E6%AC%A1%E6%99%82%E9%96%93%E8%88%87%E6%99%82%E6%95%B8%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AClassroom%20%E9%80%B2%E9%9A%8E%E5%8A%9F%E8%83%BD%EF%BC%9A%E8%80%81%E5%B8%AB%E5%AF%A6%E9%9A%9B%E6%9C%83%E7%94%A8%E5%88%B0%E7%9A%84%E4%BA%94%E5%80%8B%E5%8A%9F%E8%83%BD%EF%BC%89">寄信詢問：Classroom 導入與教師研習</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速諮詢">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

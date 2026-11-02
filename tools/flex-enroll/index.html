@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flex 大量部署系統</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/fonts.css?v=43">
+<!-- 版面比照 /tools/ceu（零接觸批次工具）：Google 四色條、試算表表格、深色執行記錄。
+     一列一台電腦；網頁不碰學校電腦，只負責產生每台的一鍵轉換檔、匯入各台傳回的結果檔追蹤狀態。
+     table.js＝表格與清冊、build.js＝產生 bat、results.js＝解析結果檔。 -->
+<style>
+  :root {
+    --bg: #f8fafc; --card: #fff; --line: #e2e8f0; --head: #f1f5f9; --ink: #1e293b; --soft: #475569; --faint: #64748b;
+    --blue: #2563eb; --green: #15803d; --green-soft: #dcfce7; --red: #b91c1c; --red-soft: #fee2e2; --amber: #b45309; --amber-soft: #fef3c7;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+    --mono: ui-monospace, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
+  .wrap { max-width: 1600px; margin: 0 auto; padding: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; margin-bottom: 18px; overflow: hidden; position: relative; }
+  .stripe { height: 8px; background: linear-gradient(90deg, #4285F4 0 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75% 100%); }
+  .head { padding: 22px 24px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; }
+  .head img { height: 44px; width: auto; aspect-ratio: 907 / 180; }
+  .head h1 { margin: 0; font-size: 26px; }
+  .tag { display: inline-block; background: #dbeafe; color: #1d4ed8; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 99px; margin-left: 8px; vertical-align: middle; }
+  .head p { margin: 6px 0 0; color: var(--faint); font-size: 14px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 14px 24px; border-top: 1px solid var(--line); background: #fbfcfe; }
+  .bar .sep { width: 1px; height: 28px; background: var(--line); margin: 0 4px; }
+  .bar label { font-size: 14px; color: var(--soft); }
+  button, .btn { font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 10px; padding: 9px 14px; border: 1px solid var(--line);
+                 background: #fff; color: var(--soft); cursor: pointer; }
+  button:hover { background: var(--head); }
+  button.primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+  button.primary:hover { filter: brightness(1.08); }
+  button.danger { color: var(--red); }
+  button:disabled { opacity: .5; cursor: default; }
+  select { font-family: inherit; font-size: 14px; padding: 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+  .tbl { overflow: auto; max-height: 62vh; }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1240px; }
+  th { background: var(--head); border-bottom: 2px solid var(--line); border-right: 1px solid var(--line); padding: 10px; text-align: left;
+       font-size: 13.5px; color: var(--soft); position: sticky; top: 0; z-index: 2; white-space: nowrap; }
+  th .req { color: var(--red); }
+  th button { padding: 2px 8px; font-size: 12px; border-radius: 6px; margin-left: 4px; }
+  td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; background: #fff; }
+  tr:hover td { background: #f8fafc; }
+  td input, td select { width: 100%; border: 2px solid transparent; border-radius: 0; background: transparent; padding: 9px 8px;
+                        font-family: var(--mono); font-size: 13.5px; outline: none; }
+  td input:focus, td select:focus { border-color: var(--blue); background: #fff; }
+  td.num { text-align: center; color: var(--faint); font-size: 13px; width: 44px; }
+  td.note { font-size: 12.5px; color: var(--soft); padding: 6px 8px; min-width: 260px; max-width: 360px; }
+  /* 說明最多三行，完整內容放在滑鼠提示 */
+  td.note div { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  th.w-name { min-width: 140px; } th.w-room { min-width: 100px; } th.w-model { min-width: 210px; } th.w-serial { min-width: 120px; }
+  th.w-token { min-width: 200px; } th.w-net { min-width: 120px; } th.w-ssid { min-width: 160px; } th.w-pass { min-width: 150px; }
+  th.w-status { min-width: 130px; }
+  td.del { width: 44px; text-align: center; }
+  td.del button { border: 0; background: none; color: var(--faint); padding: 6px; }
+  td.del button:hover { color: var(--red); }
+  .st-ok { color: var(--green) !important; background: var(--green-soft) !important; }
+  .st-bad { color: var(--red) !important; background: var(--red-soft) !important; }
+  .st-run { color: var(--amber) !important; background: var(--amber-soft) !important; }
+  .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 18px; }
+  .dash { padding: 18px 24px; }
+  .dash h2, .logcard h2 { font-size: 16px; margin: 0 0 12px; }
+  .counts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .counts div { border-radius: 12px; padding: 12px; text-align: center; background: var(--head); }
+  .counts b { display: block; font-size: 26px; }
+  .counts .ok { background: var(--green-soft); color: var(--green); }
+  .counts .bad { background: var(--red-soft); color: var(--red); }
+  .counts .wait { background: var(--amber-soft); color: var(--amber); }
+  .drop { margin-top: 14px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 16px; text-align: center; color: var(--faint); font-size: 14px; }
+  .drop.on { border-color: var(--blue); background: #eff6ff; color: var(--blue); }
+  .logcard { padding: 18px 24px; }
+  .log { background: #0f172a; color: #cbd5e1; font-family: var(--mono); font-size: 13px; border-radius: 12px; padding: 12px 14px; height: 220px; overflow: auto; white-space: pre-wrap; }
+  .log .ok { color: #4ade80; } .log .err { color: #f87171; } .log .warn { color: #fbbf24; }
+  .help { padding: 18px 24px; font-size: 14.5px; color: var(--soft); line-height: 1.8; }
+  .help ol { margin: 6px 0; padding-left: 22px; }
+  .help code { background: var(--head); padding: 1px 6px; border-radius: 5px; }
+  .warnline { color: var(--red); }
+  .modal { position: fixed; inset: 0; background: rgba(15, 23, 42, .55); display: none; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+  .modal.on { display: flex; }
+  .modal .box { background: #fff; border-radius: 18px; max-width: 380px; width: 100%; overflow: hidden; }
+  .modal .in { padding: 22px; text-align: center; }
+  .modal h3 { margin: 0 0 8px; } .modal p { margin: 0 0 18px; color: var(--soft); font-size: 14px; white-space: pre-line; }
+  .modal .row { display: flex; gap: 8px; } .modal .row button { flex: 1; padding: 11px; }
+  .modal button.go-danger { background: var(--red); border-color: var(--red); color: #fff; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .counts { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="wrap" role="main">
+  <div class="card">
+    <div class="stripe"></div>
+    <div class="head">
+      <div>
+        <h1>鴻綸科技 Flex 大量部署系統<span class="tag">權杖批次版</span></h1>
+        <p>一列一台電腦：填好設定後產生每台的一鍵轉換檔（轉完自動註冊、套用 CEU）；各台傳回的結果檔拖進來，自動更新狀態。</p>
+      </div>
+      <a href="https://www.hunglun.com/" aria-label="鴻綸科技官網"><img src="/assets/hunglun-logo-company-light.webp?v=5" alt="鴻綸科技 Hunglun Technology"></a>
+    </div>
+    <div class="bar">
+      <label>新增列數</label>
+      <button data-add="1">1</button><button data-add="10">10</button><button data-add="99">99</button>
+      <span class="sep"></span>
+      <button id="btnImport">匯入 Excel</button><input type="file" id="fileImport" accept=".xlsx,.xls" hidden>
+      <button id="btnExport">匯出清冊</button>
+      <span class="sep"></span>
+      <button class="danger" id="btnClear">清空</button>
+      <span class="sep"></span>
+      <button class="primary" id="btnBuild">產生全部一鍵轉換檔</button>
+    </div>
+    <div class="tbl" tabindex="0">
+      <table>
+        <thead><tr>
+          <th>#</th>
+          <th class="w-name">電腦名稱 <span class="req">*</span></th>
+          <th class="w-room">教室／位置</th>
+          <th class="w-model">型號</th>
+          <th class="w-serial">序號</th>
+          <th class="w-token">註冊權杖 <span class="req">*</span><button data-fill="token">填滿</button></th>
+          <th class="w-net">網路<button data-fill="net">填滿</button></th>
+          <th class="w-ssid">Wi-Fi 名稱<button data-fill="ssid">填滿</button></th>
+          <th class="w-pass">Wi-Fi 密碼<button data-fill="pass">填滿</button></th>
+          <th class="w-status">狀態</th>
+          <th>說明（結果檔自動填）</th>
+          <th><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">項目</span></th>
+        </tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card dash">
+      <h2>執行狀態儀表板</h2>
+      <div class="counts">
+        <div>總台數<b id="cTotal">0</b></div>
+        <div class="ok">成功<b id="cOk">0</b></div>
+        <div class="bad">失敗<b id="cBad">0</b></div>
+        <div class="wait">待處理<b id="cWait">0</b></div>
+      </div>
+      <div class="drop" id="drop">把各台傳回的 <b>Flex結果-電腦名稱-時間.zip</b> 拖到這裡（可一次多個），或<button id="btnResults">選擇檔案</button>
+        <input type="file" id="fileResults" accept=".zip" multiple hidden></div>
+    </div>
+    <div class="card logcard">
+      <h2>執行記錄</h2>
+      <div class="log" id="log"></div>
+    </div>
+  </div>
+
+  <div class="card help">
+    <b>怎麼用</b>
+    <ol>
+      <li>先在管理控制台：確認 CEU 授權夠、建好放 Flex 的機構單位並設時區 Asia/Taipei、產生綁該單位的註冊權杖（步驟見<a href="guide.html">教學</a>）</li>
+      <li>一台一列。<b>電腦名稱要填 Windows 的電腦名稱</b>（設定 → 系統 → 關於），結果檔靠它對應；也可以先「匯入 Excel」整批貼進來</li>
+      <li>按「產生全部一鍵轉換檔」，下載的 zip 裡一台一個資料夾。到那台時，把它資料夾裡的三個 bat 放進整包的 <code>flex</code> 資料夾（整包在 <a href="/tools/downloads/">ChromeOS Flex 下載</a>）</li>
+      <li>每台跑完模擬或正式，桌面的結果檔收回來拖進上面的框，狀態會自動更新</li>
+    </ol>
+    <span class="warnline">權杖與 Wi-Fi 密碼只在這個瀏覽器裡處理，不會送到伺服器，也不會存起來（重新整理要重填）；產出的 bat 裡是明文，只交給操作的人。</span>
+    第一次用先看：<a href="guide.html">Flex 大量部署教學（零接觸式）</a>（控制台怎麼拿權杖、多校怎麼分）｜完整說明：<a href="/tools/flex-deploy">Flex 遠端部署手冊</a>
+  </div>
+</div>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="box"><div class="stripe"></div><div class="in">
+    <h3 id="mTitle"></h3><p id="mText"></p>
+    <div class="row"><button id="mNo">取消</button><button class="go-danger" id="mYes">確定</button></div>
+  </div></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="table.js"></script>
+<script src="build.js"></script>
+<script src="results.js"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

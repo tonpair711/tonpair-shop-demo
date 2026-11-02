@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Google 管理主控台校園設定指南｜OU、群組、Chrome 政策｜鴻綸科技</title>
+<meta name="description" content="Google Workspace 管理主控台校園實作指南：機構單位與群組規劃、CSV 大量新增使用者、管理員角色指派、Chrome 三大類政策與後台搜尋關鍵字對照。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/google-admin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google 管理主控台校園設定指南｜鴻綸科技">
+<meta property="og:description" content="OU 與群組怎麼規劃、政策設定去哪找、裝置怎麼盤點，校園管理員實際會用到的後台操作路徑一次整理。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/google-admin">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-google-admin.png?v=5">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google 管理主控台校園設定指南｜鴻綸科技">
+<meta name="twitter:description" content="OU 與群組怎麼規劃、政策設定去哪找、裝置怎麼盤點，校園管理員實際會用到的後台操作路徑一次整理。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-google-admin.png?v=5">
+<meta name="twitter:image:alt" content="Google 管理主控台校園設定指南｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<style>
+/* 後台截圖：讓圖片突破正文欄寬，介面文字才看得清楚；點圖可全螢幕放大 */
+.prose-figure.fig-wide { width: min(1080px, calc(100vw - 48px)); margin-left: 50%; transform: translateX(-50%); }
+.prose-figure img.lightbox { cursor: zoom-in; }
+@media (max-width: 900px) { .prose-figure.fig-wide { width: 100%; margin-left: 0; transform: none; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google 與 AI 導入", "item": "https://www.hunglun.com/knowledge/topic/google-ai" },
+    { "@type": "ListItem", "position": 4, "name": "Google 管理主控台校園設定指南", "item": "https://www.hunglun.com/knowledge/google-admin" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-11",
+  "mainEntity": [
+    { "@type": "Question", "name": "Google 管理主控台是什麼？學校一定要用嗎？", "acceptedAnswer": { "@type": "Answer", "text": "Google 管理主控台（Admin Console，網址 admin.google.com）是 Google Workspace 網域的後台，用來管理全校的帳號、機構單位、群組、應用程式開關、Chromebook 裝置與各項政策。只要學校申請了 Google Workspace for Education 網域，就一定有這個後台；帳號的建立與刪除、學生能用哪些服務、Chromebook 能不能開無痕模式，全部都在這裡決定。" } },
+    { "@type": "Question", "name": "機構單位（OU）和群組有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "機構單位（OU）是「政策的容器」，一個使用者或一台裝置同一時間只能屬於一個 OU，設定會由上層 OU 往下沿用；群組是「人的集合」，一個人可以同時屬於多個群組，主要用於群發信件、共用權限與身分驗證。決定「這批人能不能用某個功能、Chromebook 有什麼限制」用 OU；決定「這批人一起收信、一起被授權某份文件」用群組。多數學校的正確作法是先把 OU 樹（老師／各年級學生／公用機）規劃好，群組再依處室與班級另外建。" } },
+    { "@type": "Question", "name": "要一次匯入全校幾百個帳號怎麼做？", "acceptedAnswer": { "@type": "Answer", "text": "在管理主控台的「目錄 › 使用者」選擇大量更新使用者，先下載 Google 提供的 CSV 範本，用 Google 試算表開啟後填入姓、名、電子郵件地址、密碼與機構單位路徑等必要欄位，再下載成 CSV 上傳回後台。重點是欄位標題列不要改、機構單位要填完整路徑，以及先用少量幾筆試上傳確認格式無誤，再匯入整批。" } },
+    { "@type": "Question", "name": "Chrome 的政策設定太多找不到，有沒有比較快的方法？", "acceptedAnswer": { "@type": "Answer", "text": "有。Chrome 政策分成「使用者和瀏覽器設定」「裝置設定」「受管理的訪客工作階段設定」三大類，每一類都有數百個項目，用捲動的找非常慢。正確做法是先確認要設定的是哪一類、左側選好要套用的機構單位，再用該頁面的搜尋欄輸入關鍵字，例如「無痕模式」「網址封鎖」「閒置設定」「自訂桌布」「自動更新設定」，就會直接篩出對應設定。" } },
+    { "@type": "Question", "name": "管理 Chromebook 一定要有 CEU 授權嗎？", "acceptedAnswer": { "@type": "Answer", "text": "是。帳號層級的設定（使用者、群組、應用程式開關）有 Google Workspace for Education 網域就能做，但要把 Chromebook 註冊進網域、集中推送政策與強制安裝擴充功能，每一台裝置都必須有 Chrome Education Upgrade（CEU）載具管理授權。CEU 綁在裝置上，效期最遠到該機型的 AUE 自動更新到期日。" } },
+    { "@type": "Question", "name": "Gemini 的對話記錄可以由學校統一管理嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以。在管理主控台的「生成式 AI › Gemini in Workspace › 對話記錄與刪除」，可以依機構單位設定是否允許使用者自行刪除自己的對話，以及已儲存的閒置對話要保留多久（含不自動刪除）。學校若對學生端有留存或清除的規範，這裡是唯一的設定位置，建議在開放 Gemini 給學生使用前就先決定。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google 管理主控台校園設定指南",
+  "description": "Google Workspace 管理主控台（Admin Console）的校園實作指南：OU 與群組規劃、使用者建立與大量匯入、管理員角色、Chrome 三大類政策與搜尋關鍵字、擴充功能與網路印表機、裝置搬移與盤點、Gemini 對話記錄保留、課程工具組部署。",
+  "image": [
+    "https://www.hunglun.com/assets/images/google-admin-policy-tabs.webp",
+    "https://www.hunglun.com/assets/images/google-admin-create-ou.webp",
+    "https://www.hunglun.com/assets/images/google-admin-devices.webp",
+    "https://www.hunglun.com/assets/images/google-admin-gemini-logs.webp"
+  ],
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/google-admin"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ Google 管理主控台校園設定指南</nav>
+    <h1>Google 管理主控台校園設定指南</h1>
+    <p>機構單位（OU）與群組怎麼分、帳號怎麼大量匯入、Chrome 的政策藏在哪一頁、裝置怎麼盤點，這是我們到校教育訓練時，管理員最常問的十五件事，依照後台實際的操作路徑整理成一篇。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校的 Google Workspace 管理員、資訊組長，以及負責校務系統與個資盤點的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-08-11">2026 年 8 月 11 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/insights/gemini-classroom-all-ages">下一篇：Classroom 的 Gemini 已對所有年齡開啟 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:820px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Google 管理主控台是什麼？</strong>網址是 admin.google.com，是 Google Workspace 網域的總後台。學校的帳號、班級分組、學生能用哪些服務、Chromebook 的設定，全都在這裡決定。</li>
+        <li><strong>校園設定的基本架構是什麼？</strong>分成四層：網域、機構單位（OU）、使用者、裝置。子 OU 預設沿用上層設定，一個人只能在一個 OU，裝置所在的 OU 與使用者所在的 OU 是兩回事。</li>
+        <li><strong>導入時的建議順序？</strong>先在紙上畫 OU 樹，再依序建立 OU、使用者、群組，設定應用程式開關與 Chrome 政策，註冊 Chromebook，最後用一台實機和一個學生帳號實際登入驗收。</li>
+        <li><strong>管理員角色要怎麼指派？</strong>超級管理員至少要有兩位，但不要全部都給超級管理員。只需要幫學生重設密碼的人，給「使用者管理」管理員或服務中心管理員就夠了。</li>
+      </ul>
+    </div>
+
+    <p>Google 管理主控台（Admin Console，<a href="https://admin.google.com" target="_blank" rel="noopener">admin.google.com</a>）是 Google Workspace 網域的總後台。學校的帳號、班級分組、學生能不能用哪些服務、Chromebook 能不能開無痕模式，全部都在這裡決定。</p>
+    <p>後台功能極多，第一次接手的資訊組長通常不是「不會設定」，而是<strong>不知道某個設定在哪一頁</strong>。這篇不重複官方說明文件的每個欄位，而是把校園實際會用到的十五個工作，依「先做什麼、路徑在哪、哪裡最容易踩雷」整理出來。</p>
+    <p class="note" style="background:rgba(127,127,127,.08);padding:14px 16px;border-radius:10px;">適用對象：學校的網域管理員、資訊組長、剛接手 Google Workspace for Education 的行政人員。文中路徑以中文介面為準，介面語言可在右上角帳號設定切換；Google 會不定期調整選單名稱，若找不到請以後台上方的搜尋列為準。</p>
+
+    <h2 id="concept">一、先搞懂四層架構：網域、機構單位、使用者、裝置</h2>
+    <p>我們在教育訓練時用<strong>飯店</strong>來解釋這套結構，管理員一次就記得住：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>飯店</th><th>管理主控台</th><th>意義</th></tr></thead>
+        <tbody>
+          <tr><td>整棟飯店</td><td>網域</td><td>學校的 Google Workspace 網域，最上層，所有設定的預設值從這裡開始往下沿用</td></tr>
+          <tr><td>樓層</td><td>機構單位（OU）</td><td>底下可以再切子 OU，例如「老師」「一年級」「電腦教室公用機」</td></tr>
+          <tr><td>客房</td><td>使用者帳號</td><td>一個人一間房，同一時間只能住在一個 OU 底下</td></tr>
+          <tr><td>房內設備</td><td><span class="nowrap">Chromebook 裝置</span></td><td>裝置本身也歸屬於某個 OU，且可以跟使用者所在的 OU 不同</td></tr>
+          <tr><td>飯店 VIP</td><td>群組</td><td>不分樓層，跨 OU 的一群人，用於群發信件與權限授予</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>三個一定要先建立的觀念：</p>
+    <ul class="feature-list">
+      <li><strong>設定會沿用</strong>：子 OU 預設繼承上層設定，只有在子 OU 明確覆寫時才會不同。所以「全校通用的設定放在網域層，例外才往下切 OU」，而不是每個 OU 都重設一次。</li>
+      <li><strong>一人只能在一個 OU</strong>：OU 是政策的容器，不是分類標籤。想要「這個老師同時屬於教務處和三年級」，那是群組的工作，不是 OU。</li>
+      <li><strong>使用者的 OU 和裝置的 OU 是兩回事</strong>：Chromebook 的「裝置設定」看的是裝置所在的 OU，「使用者和瀏覽器設定」看的是登入者所在的 OU。學生用老師的機器登入時會發生什麼事，答案就在這條規則裡。</li>
+    </ul>
+
+    <h2 id="flow">二、導入順序：先畫 OU 樹，再建人</h2>
+    <p>最常見的災難是先把幾百個帳號建好，再回頭想 OU 要怎麼分。建議的順序是：</p>
+    <ol class="feature-list">
+      <li>紙上先畫 OU 樹（老師／學生分年級／公用機／畢業生），確定政策差異落在哪一層</li>
+      <li>建立 OU</li>
+      <li>建立使用者（少量手動，全校用 CSV 大量匯入，匯入時直接指定 OU）</li>
+      <li>建立群組（處室、班級、專案）</li>
+      <li>設定應用程式開關與 Chrome 政策</li>
+      <li>註冊 Chromebook、分派到對應 OU</li>
+      <li>用一台實機、一個學生帳號實際登入驗收</li>
+    </ol>
+    <p>最後一步很多人省略。政策的沿用關係只有實際登入才看得出來，光看後台的開關是看不出問題的。</p>
+
+    <h2 id="admin-role">三、指派管理員角色</h2>
+    <p>路徑：<strong>帳戶 › 管理員角色</strong>。系統內建超級管理員、網路論壇管理員、「使用者管理」管理員、服務中心管理員、服務管理員等系統角色，也可以自行建立新角色。指派時選擇角色 → 指派使用者。</p>
+    <ul class="feature-list">
+      <li><strong>超級管理員至少要有兩位</strong>：唯一一位管理員離職、帳號被鎖或忘記密碼時，沒有人救得回來。</li>
+      <li><strong>不要全部給超級管理員</strong>：只需要幫學生重設密碼的人，給「使用者管理」管理員或服務中心管理員就夠了。權限給到剛好，是校園資安稽核最容易被抓的一項。</li>
+      <li>管理員角色現在也可以指派給安全性群組，人員異動時改群組成員即可，不必逐一調整。</li>
+    </ul>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-roles-m.webp" width="760" height="305">
+        <img class="lightbox" src="/assets/images/google-admin-roles.webp" width="1200" height="542" alt="Google 管理主控台「帳戶 › 管理員角色」頁面，列出超級管理員、網路論壇管理員、「使用者管理」管理員、服務中心管理員等系統角色" fetchpriority="high" decoding="async" srcset="/assets/images/google-admin-roles-480.webp 480w, /assets/images/google-admin-roles-768.webp 768w, /assets/images/google-admin-roles.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>帳戶 › 管理員角色。內建的系統角色可直接指派，也能自行建立權限更小的角色。（本文截圖點擊可全螢幕放大；手機版顯示的是畫面重點區域，示範網域與裝置序號已遮蔽）</figcaption>
+    </figure>
+
+    <h2 id="users">四、新增使用者（少量與大量）</h2>
+    <p>路徑：<strong>目錄 › 使用者</strong>。</p>
+    <h3>少量：直接新增</h3>
+    <p>填入使用者的「姓」與「名」、電子郵件地址，需要時展開進階選項調整所屬機構單位與密碼。已建立的帳號之後也可以隨時修改 OU 或重設密碼。</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-add-user-m.webp" width="760" height="280">
+        <img class="lightbox" src="/assets/images/google-admin-add-user.webp" width="1200" height="540" alt="Google 管理主控台新增使用者的表單，欄位包含名字、姓氏、主要電子郵件地址與網域下拉選單，下方是管理密碼與機構單位的展開連結" loading="lazy" decoding="async" srcset="/assets/images/google-admin-add-user-480.webp 480w, /assets/images/google-admin-add-user-768.webp 768w, /assets/images/google-admin-add-user.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>新增單一使用者的表單。最下方的「Manage user's password, organizational unit, and profile photo」展開後才能指定 OU 與密碼。</figcaption>
+    </figure>
+    <h3>大量：CSV 匯入</h3>
+    <ol class="feature-list">
+      <li>在使用者頁面選擇大量更新使用者，先<strong>下載 Google 提供的 CSV 範本</strong></li>
+      <li>把範本丟到 Google 雲端硬碟，用 Google 試算表開啟後填寫。實務上只需要填姓、名、電子郵件地址、密碼與機構單位路徑這幾個必要欄位，其餘留空即可</li>
+      <li>填完後<strong>另存下載成 CSV 檔</strong>（不要上傳試算表原檔）</li>
+      <li>回到後台上傳該 CSV，確認後執行上傳</li>
+    </ol>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-csv-template-m.webp" width="760" height="96">
+        <img class="lightbox" src="/assets/images/google-admin-csv-template.webp" width="1200" height="542" alt="Google 試算表開啟的 Google Workspace 大量匯入使用者 CSV 範本，第一列欄位標題依序為 First Name、Last Name、Email Address、Password、Password Hash Function、Org Unit Path 等" loading="lazy" decoding="async" srcset="/assets/images/google-admin-csv-template-480.webp 480w, /assets/images/google-admin-csv-template-768.webp 768w, /assets/images/google-admin-csv-template.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>CSV 範本用 Google 試算表開啟後的樣子。實務上只需填 A～D 欄與 Org Unit Path（F 欄），標題列一個字都不要改。</figcaption>
+    </figure>
+    <ul class="feature-list">
+      <li><strong>標題列一個字都不能改</strong>：欄位名稱是後台辨識欄位的依據，改成中文或調整順序就會失敗。</li>
+      <li><strong>機構單位要填完整路徑</strong>：例如 <code>/學生/一年級</code>，只填 OU 名稱通常會找不到。</li>
+      <li><strong>先試三筆再匯全校</strong>：格式有問題時，三筆的錯誤比三百筆好收拾。</li>
+    </ul>
+
+    <h2 id="ou">五、建立機構單位（OU）</h2>
+    <p>路徑：<strong>目錄 › 機構單位 › 建立機構單位</strong>。填入機構名稱，並選擇它要掛在哪一層底下；沒有特定歸屬就選網域本身（最上層），要當成某個 OU 的子單位就選該 OU。</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-create-ou-m.webp" width="760" height="704">
+        <img class="lightbox" src="/assets/images/google-admin-create-ou.webp" width="1200" height="540" alt="Google 管理主控台的建立機構單位對話框，包含機構單位名稱、說明與上層機構單位三個欄位" loading="lazy" decoding="async" srcset="/assets/images/google-admin-create-ou-480.webp 480w, /assets/images/google-admin-create-ou-768.webp 768w, /assets/images/google-admin-create-ou.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>建立機構單位的對話框。「Parent organizational unit」決定它掛在哪一層，也決定它會沿用誰的設定。</figcaption>
+    </figure>
+    <p>命名建議用自己看得懂、且排序後仍然合理的名稱。學校 OU 動輒二三十個，取名混亂時，日後套用政策很容易選錯目標。</p>
+
+    <h2 id="groups">六、建立群組</h2>
+    <p>路徑：<strong>目錄 › 群組 › 建立群組</strong>。填寫群組名稱與群組信箱後，會遇到幾個選項，這是新手最容易卡住的一段：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>選項</th><th>用途</th><th>注意</th></tr></thead>
+        <tbody>
+          <tr><td>群組信箱</td><td>群發郵件用，寄到這個地址等於寄給所有成員</td><td>群組要有收發信功能時才需要</td></tr>
+          <tr><td>安全性群組</td><td>用於身分驗證與權限控管</td><td><strong>勾選後無法取消</strong>，要當權限群組用才勾</td></tr>
+          <tr><td>外部身分識別對應</td><td>與外部身分識別系統同步</td><td>沒有串接第三方 SSO 就不用動</td></tr>
+          <tr><td>存取權類型</td><td>Google 提供數種預設模板，決定誰能檢視、發文、加入</td><td>可以先選模板再微調</td></tr>
+          <tr><td>允許網域外成員</td><td>決定校外人士能否加入</td><td>學生群組建議關閉</td></tr>
+          <tr><td>加入方式</td><td>自由加入、需申請核准、或僅限管理員新增</td><td>個別設定的優先權高於模板</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-group-labels-m.webp" width="760" height="311">
+        <img class="lightbox" src="/assets/images/google-admin-group-labels.webp" width="1200" height="542" alt="Google 管理主控台建立群組流程的群組標籤設定，可勾選 Mailing 郵件群組、Security 安全性群組與 Locked 鎖定群組三種標籤" loading="lazy" decoding="async" srcset="/assets/images/google-admin-group-labels-480.webp 480w, /assets/images/google-admin-group-labels-768.webp 768w, /assets/images/google-admin-group-labels.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>建立群組時的三個標籤。Security（安全性）勾了就無法取消，只有要拿來控管權限時才勾。</figcaption>
+    </figure>
+    <p>群組成員除了實際的人，也可以放<strong>另一個群組</strong>（把群組 A 加進群組 B 當成員），例如把各年級群組併進「全體學生」。這比逐一維護大群組省事得多，但層數不要疊太深，否則出問題時很難追。</p>
+
+    <h2 id="apps">七、Google 應用程式的開關</h2>
+    <p>兩個位置要分清楚：</p>
+    <ul class="feature-list">
+      <li><strong>應用程式 › Google Workspace</strong>：核心服務（Gmail、雲端硬碟、Classroom、Meet、日曆、Chat…）的服務狀態與各自的細部設定。</li>
+      <li><strong>應用程式 › 其他 Google 服務</strong>：非核心服務（AI Studio、Blogger、Chrome Canvas 等）的開關，可依 OU 或群組個別開啟。</li>
+      <li><strong>生成式 AI › Gemini 應用程式</strong>：Gemini 的服務狀態與使用者存取權限。</li>
+    </ul>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-services-m.webp" width="760" height="355">
+        <img class="lightbox" src="/assets/images/google-admin-services.webp" width="1200" height="544" alt="Google 管理主控台「應用程式 › 其他 Google 服務」頁面，左側可依機構單位或群組篩選，右側列出各服務的開啟狀態" loading="lazy" decoding="async" srcset="/assets/images/google-admin-services-480.webp 480w, /assets/images/google-admin-services-768.webp 768w, /assets/images/google-admin-services.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>應用程式 › 其他 Google 服務。左側選 OU 或群組，右側的服務狀態就會顯示「部分開啟」或「全部開啟」。</figcaption>
+    </figure>
+    <p>開關可以套用到「全帳戶」「特定群組」或「特定機構單位」。同一個服務對老師開、對學生關，就是在這裡依 OU 分別設定；狀態欄會顯示為「部分開啟」而非「全部開啟」。</p>
+
+    <h2 id="policies">八、政策設定：三大類與搜尋關鍵字對照</h2>
+    <p>路徑：<strong>裝置 › Chrome › 設定</strong>。這是全後台項目最多的一頁，分成三個分頁，先確認要設定的是哪一類：</p>
+    <ul class="feature-list">
+      <li><strong>使用者與瀏覽器設定</strong>：跟著<em>登入的帳號</em>走，換一台機器登入同樣生效</li>
+      <li><strong>裝置設定</strong>：跟著<em>那台機器</em>走，不論誰登入都一樣</li>
+      <li><strong>受管理的訪客工作階段設定</strong>：不需登入帳號就能使用的公用模式，適合圖書館、資訊站與臨時考場</li>
+    </ul>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-policy-tabs-m.webp" width="760" height="224">
+        <img class="lightbox" src="/assets/images/google-admin-policy-tabs.webp" width="1200" height="544" alt="Google 管理主控台「裝置 › Chrome › 設定」頁面，上方有使用者與瀏覽器設定、裝置設定、受管理的訪客工作階段設定三個分頁，左側是機構單位樹狀清單" loading="lazy" decoding="async" srcset="/assets/images/google-admin-policy-tabs-480.webp 480w, /assets/images/google-admin-policy-tabs-768.webp 768w, /assets/images/google-admin-policy-tabs.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>裝置 › Chrome › 設定。上方三個分頁就是三大類政策，左側先選好 OU 再用搜尋欄找設定。</figcaption>
+    </figure>
+    <p>設定項目有數百條，<strong>不要用捲的找</strong>。左側先選好要套用的 OU，再用頁面上的搜尋欄輸入關鍵字。以下是校園最常設定的項目與對應關鍵字：</p>
+
+    <h3>使用者與瀏覽器設定</h3>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>想做的事</th><th>搜尋關鍵字</th></tr></thead>
+        <tbody>
+          <tr><td>不允許使用無痕模式</td><td>無痕模式</td></tr>
+          <tr><td>無痕模式下的網址黑白名單</td><td>無痕模式網址限制</td></tr>
+          <tr><td>設定可瀏覽／封鎖的網站清單</td><td>網址封鎖</td></tr>
+          <tr><td>蓋上機蓋時執行的動作</td><td>閒置設定</td></tr>
+          <tr><td>是否允許登入其他 Google 帳號</td><td>登入次要帳戶</td></tr>
+          <tr><td>登入後的桌布圖片</td><td>自訂桌布</td></tr>
+          <tr><td>把下載位置指向雲端硬碟</td><td>下載位置</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>裝置設定</h3>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>想做的事</th><th>搜尋關鍵字</th></tr></thead>
+        <tbody>
+          <tr><td>登入時自動補上學校網域</td><td>自動完成網域</td></tr>
+          <tr><td>限制只有特定帳號能登入這台機器</td><td>登入限制</td></tr>
+          <tr><td>登入畫面要顯示什麼</td><td>登入畫面</td></tr>
+          <tr><td>限制裝置可使用的時段</td><td>裝置限制時間表、時區</td></tr>
+          <tr><td>登出後清除使用者資料（還原乾淨狀態）</td><td>使用者資料</td></tr>
+          <tr><td>停用訪客模式</td><td>訪客模式</td></tr>
+          <tr><td>控制系統自動更新</td><td>自動更新設定</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>受管理的訪客工作階段設定</h3>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>想做的事</th><th>搜尋關鍵字</th></tr></thead>
+        <tbody>
+          <tr><td>啟用此模式並命名工作階段</td><td>受管理的訪客工作階段</td></tr>
+          <tr><td>單次使用時間上限（到時自動登出）</td><td>使用者工作階段時間上限</td></tr>
+          <tr><td>關閉無痕模式</td><td>無痕模式</td></tr>
+          <tr><td>網址封鎖</td><td>網址封鎖</td></tr>
+          <tr><td>啟動時自動載入的頁面</td><td>啟動時載入的頁面</td></tr>
+          <tr><td>蓋上機蓋後執行的動作</td><td>閒置設定</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>受管理的訪客工作階段</strong>是很多學校漏掉的好東西：學生不必登入帳號就能用、時間到自動登出並清空，資訊站、借用機、活動臨時用機都適合。要注意它套用的是<em>裝置</em>所在的 OU。</p>
+    <p>所有政策變更都不是即時的，Chromebook 需要重新連線同步政策才會生效；驗收時請以實機重開機後的行為為準。</p>
+
+    <h2 id="extensions">九、擴充功能與應用程式強制安裝</h2>
+    <p>路徑：<strong>裝置 › Chrome › 應用程式和擴充功能</strong>，選擇要套用的 OU 與分頁（使用者和瀏覽器／資訊站／受管理的訪客工作階段），再用右下角的加號新增。</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-extensions-m.webp" width="760" height="304">
+        <img class="lightbox" src="/assets/images/google-admin-extensions.webp" width="1200" height="544" alt="Google 管理主控台「裝置 › Chrome › 應用程式和擴充功能」頁面，列出 Read Along、Kami、Adobe Acrobat 等應用程式與各自的強制安裝或允許安裝政策" loading="lazy" decoding="async" srcset="/assets/images/google-admin-extensions-480.webp 480w, /assets/images/google-admin-extensions-768.webp 768w, /assets/images/google-admin-extensions.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>應用程式和擴充功能。每一項都可以指定強制安裝、允許安裝或封鎖，右欄還能固定版本。</figcaption>
+    </figure>
+    <p>每個項目可以設定安裝政策：<strong>強制安裝</strong>（自動裝好、使用者不能移除）、<strong>允許安裝</strong>（可自行安裝）、封鎖，也可以固定版本避免自動更新破壞課堂流程。校園常見的強制安裝清單像是 Kami、Read Along、Adobe Acrobat 這類教學工具。</p>
+    <p><strong>強制安裝要克制</strong>：每一個擴充功能都會吃記憶體，低階機種裝了七八個之後，課堂上的卡頓多半就是這裡來的。</p>
+
+    <h2 id="network">十、Wi-Fi 網路設定</h2>
+    <p>路徑：<strong>裝置 › 網路</strong>。可以建立 Wi-Fi、乙太網路、VPN 設定與 SCEP 憑證設定檔，選擇要套用的 OU 後，Chromebook 就會自動帶入，學生不必手動輸入密碼。頁面最底下另有「一般設定（僅限 Chromebook）」，控制自動連線、封鎖特定 Wi-Fi、是否允許使用者自行新增網路等。</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-wifi-m.webp" width="760" height="260">
+        <img class="lightbox" src="/assets/images/google-admin-wifi.webp" width="1200" height="544" alt="Google 管理主控台「裝置 › 網路」頁面，顯示目前管理的 Wi-Fi 網路數量，以及乙太網路與 VPN 的建立入口" loading="lazy" decoding="async" srcset="/assets/images/google-admin-wifi-480.webp 480w, /assets/images/google-admin-wifi-768.webp 768w, /assets/images/google-admin-wifi.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>裝置 › 網路。設定好的 Wi-Fi 會依 OU 自動派送到 Chromebook，學生不必手動輸入密碼。</figcaption>
+    </figure>
+    <p>教網環境常見的作法是把校內 SSID 與教育網路各建一組，一起套用到學生 OU，讓載具在校內任何角落都能自動接上。</p>
+
+    <h2 id="printer">十一、印表機設定</h2>
+    <p>路徑：<strong>裝置 › Chrome › 印表機</strong>，新增印表機後選擇要套用的 OU。ChromeOS 對印表機的支援與一般 Windows 不同，設定前建議先確認機型相容性，Google 官方有兩份文件要看：</p>
+    <ul class="feature-list">
+      <li><a href="https://support.google.com/chromebook/answer/7225252?hl=zh-Hant" target="_blank" rel="noopener">Chromebook 列印設定說明</a></li>
+      <li><a href="https://support.google.com/chromebook/answer/12403345?hl=zh-Hant" target="_blank" rel="noopener">相容印表機清單</a></li>
+    </ul>
+
+    <h2 id="move-device">十二、把裝置搬到另一個機構單位</h2>
+    <p>路徑：<strong>裝置 › Chrome › 裝置</strong>，勾選要搬移的裝置後選擇移動，再指定目標 OU。</p>
+    <p>這是每年開學前一定會做的事：畢業班的機器要移到新的年級 OU，或是把一批機器改成公用機模式。<strong>裝置搬到新 OU 之後，套用的是新 OU 的裝置設定</strong>。如果搬完發現限制不見了，先檢查目標 OU 的政策，而不是懷疑裝置壞掉。</p>
+
+    <h2 id="inventory">十三、查看全網域的裝置指派狀況</h2>
+    <p>同樣在<strong>裝置 › Chrome › 裝置</strong>。清單會列出每台機器的序號、狀態（已佈建／已停權）、資產 ID、註冊時間與<strong>上次同步處理政策時間</strong>，可以用篩選器依狀態、OU 過濾，也能整批匯出。</p>
+    <p>這一頁其實是最好用的盤點工具：</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-devices-m.webp" width="760" height="245">
+        <img class="lightbox" src="/assets/images/google-admin-devices.webp" width="1200" height="545" alt="Google 管理主控台「裝置 › Chrome › 裝置」的裝置清單，欄位包含序號、狀態、資產 ID、註冊時間與上次同步處理政策時間" loading="lazy" decoding="async" srcset="/assets/images/google-admin-devices-480.webp 480w, /assets/images/google-admin-devices-768.webp 768w, /assets/images/google-admin-devices.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>裝置清單可依 OU 與狀態篩選並整批匯出。序號與資產 ID 已遮蔽。</figcaption>
+    </figure>
+    <ul class="feature-list">
+      <li><strong>資產 ID 欄位</strong>填學校的財產編號，日後對帳直接匯出，不必再另外維護一份 Excel。</li>
+      <li><strong>上次同步時間</strong>若停在幾個月前，代表那台機器很久沒開機或沒連上網，通常就是被鎖在櫃子裡、借出未還，或已經故障沒人報修的那幾台。</li>
+    </ul>
+
+    <h2 id="gemini-retention">十四、Gemini 對話記錄的保留與刪除</h2>
+    <p>路徑：<strong>生成式 AI › Gemini in Workspace › 對話記錄與刪除</strong>，選擇要套用的機構單位後有兩個開關：</p>
+    <ul class="feature-list">
+      <li><strong>手動刪除</strong>：是否允許使用者自行刪除自己與 Gemini 的對話。</li>
+      <li><strong>自動刪除</strong>：已儲存的閒置對話保留多久，也可以設定為不自動刪除。</li>
+    </ul>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-gemini-logs-m.webp" width="760" height="303">
+        <img class="lightbox" src="/assets/images/google-admin-gemini-logs.webp" width="1200" height="543" alt="Google 管理主控台「生成式 AI › Gemini in Workspace › 對話記錄與刪除」頁面，顯示手動刪除與自動刪除兩項設定及其套用的機構單位" loading="lazy" decoding="async" srcset="/assets/images/google-admin-gemini-logs-480.webp 480w, /assets/images/google-admin-gemini-logs-768.webp 768w, /assets/images/google-admin-gemini-logs.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>對話記錄與刪除。「手動刪除」決定使用者能不能自己刪，「自動刪除」決定閒置對話保留多久。</figcaption>
+    </figure>
+    <p>使用者自己這端，在 Gemini 或 <a href="/knowledge/gemini">Gemini Notebook</a> 的介面中也能逐筆刪除對話與筆記本。學校若對學生端有留存或清除規範，<strong>建議在開放給學生使用之前就先決定保留期</strong>，而不是等到有狀況才回頭調，已經被自動刪除的內容是救不回來的。相關的個資考量可參考<a href="/knowledge/privacy">個資法與校安須知</a>。</p>
+
+    <h2 id="class-tools">十五、部署課程工具組（Class Tools）</h2>
+    <p>課程工具組是 ChromeOS 內建的課堂管理功能，老師可以在課堂上檢視學生畫面、鎖定分頁、推送網址。它需要在<strong>裝置 › Chrome › 設定 › 使用者與瀏覽器設定</strong>中，選好 OU 後搜尋「課程工具組」來開啟。</p>
+    <figure class="prose-figure fig-wide">
+      <picture>
+        <source media="(max-width: 700px)" srcset="/assets/images/google-admin-class-tools-m.webp" width="760" height="616">
+        <img class="lightbox" src="/assets/images/google-admin-class-tools.webp" width="1200" height="542" alt="Google 管理主控台裡課程工具組（Class Tools）的設定畫面，包含即時字幕和語音轉錄、查看螢幕畫面、Google Classroom 整合功能等子設定" loading="lazy" decoding="async" srcset="/assets/images/google-admin-class-tools-480.webp 480w, /assets/images/google-admin-class-tools-768.webp 768w, /assets/images/google-admin-class-tools.webp 1200w" sizes="(max-width: 700px) 368px, 1090px">
+      </picture>
+      <figcaption>課程工具組的子設定。「查看螢幕畫面」在 ChromeOS M137 之後還需要一併啟用 Chrome 遠端桌面存取權。</figcaption>
+    </figure>
+    <p>關鍵是<strong>老師端與學生端要分開套用在不同 OU</strong>：老師 OU 開啟教師端功能，學生 OU 開啟受管理端。兩邊都設定好之後，沿用狀況才會顯示為「已在機構內採行」。若課堂上老師看不到學生畫面，九成是其中一端的 OU 沒設到、或是學生登入的帳號不在預期的 OU 底下。</p>
+
+    <h2 id="pitfalls">最常見的五個卡關</h2>
+    <ol class="feature-list">
+      <li><strong>設定了但沒生效</strong>：先確認套用的 OU 對不對，再確認裝置是否已重新同步政策，最後確認是「使用者設定」還是「裝置設定」搞混了。</li>
+      <li><strong>找不到某個設定</strong>：用搜尋欄找關鍵字，不要捲頁面。Google 也會調整選單位置，以搜尋結果為準。</li>
+      <li><strong>子 OU 改不動</strong>：該項目可能被上層 OU 鎖定，或子 OU 顯示為「沿用」狀態，需要先取消沿用才能覆寫。</li>
+      <li><strong>CSV 匯入失敗</strong>：九成是標題列被改過、機構單位路徑不完整，或是檔案被存成 Google 試算表而不是 CSV。</li>
+      <li><strong>Chromebook 政策完全沒作用</strong>：確認該裝置有 CEU 授權且已註冊進網域。沒有 CEU 的機器不會收到任何政策。</li>
+    </ol>
+
+    <p style="margin-top:24px;">鴻綸科技的訓練中心有 Google 認證講師與認證網域管理員，可以到校協助盤點現有 OU 結構、重新規劃政策，或是直接針對貴校管理員做一場實機教育訓練。需要的話歡迎<a href="/contact">與我們聯絡</a>。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap prose">
+    <h2 class="section-title reveal">常見問題</h2>
+      <details class="faq-item reveal">
+        <summary>Google 管理主控台是什麼？學校一定要用嗎？</summary>
+        <div class="faq-a">Google 管理主控台（Admin Console，網址 admin.google.com）是 Google Workspace 網域的後台，用來管理全校的帳號、機構單位、群組、應用程式開關、Chromebook 裝置與各項政策。只要學校申請了 Google Workspace for Education 網域，就一定有這個後台；帳號的建立與刪除、學生能用哪些服務、Chromebook 能不能開無痕模式，全部都在這裡決定。</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>機構單位（OU）和群組有什麼不同？</summary>
+        <div class="faq-a">機構單位（OU）是「政策的容器」，一個使用者或一台裝置同一時間只能屬於一個 OU，設定會由上層 OU 往下沿用；群組是「人的集合」，一個人可以同時屬於多個群組，主要用於群發信件、共用權限與身分驗證。決定「這批人能不能用某個功能、Chromebook 有什麼限制」用 OU；決定「這批人一起收信、一起被授權某份文件」用群組。多數學校的正確作法是先把 OU 樹（老師／各年級學生／公用機）規劃好，群組再依處室與班級另外建。</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>要一次匯入全校幾百個帳號怎麼做？</summary>
+        <div class="faq-a">在管理主控台的「目錄 › 使用者」選擇大量更新使用者，先下載 Google 提供的 CSV 範本，用 Google 試算表開啟後填入姓、名、電子郵件地址、密碼與機構單位路徑等必要欄位，再下載成 CSV 上傳回後台。重點是欄位標題列不要改、機構單位要填完整路徑，以及先用少量幾筆試上傳確認格式無誤，再匯入整批。</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Chrome 的政策設定太多找不到，有沒有比較快的方法？</summary>
+        <div class="faq-a">有。Chrome 政策分成「使用者和瀏覽器設定」「裝置設定」「受管理的訪客工作階段設定」三大類，每一類都有數百個項目，用捲動的找非常慢。正確做法是先確認要設定的是哪一類、左側選好要套用的機構單位，再用該頁面的搜尋欄輸入關鍵字，例如「無痕模式」「網址封鎖」「閒置設定」「自訂桌布」「自動更新設定」，就會直接篩出對應設定。</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>管理 Chromebook 一定要有 CEU 授權嗎？</summary>
+        <div class="faq-a">是。帳號層級的設定（使用者、群組、應用程式開關）有 Google Workspace for Education 網域就能做，但要把 Chromebook 註冊進網域、集中推送政策與強制安裝擴充功能，每一台裝置都必須有 Chrome Education Upgrade（CEU）載具管理授權。CEU 綁在裝置上，效期最遠到該機型的 AUE 自動更新到期日。</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary>Gemini 的對話記錄可以由學校統一管理嗎？</summary>
+        <div class="faq-a">可以。在管理主控台的「生成式 AI › Gemini in Workspace › 對話記錄與刪除」，可以依機構單位設定是否允許使用者自行刪除自己的對話，以及已儲存的閒置對話要保留多久（含不自動刪除）。學校若對學生端有留存或清除的規範，這裡是唯一的設定位置，建議在開放 Gemini 給學生使用前就先決定。</div>
+      </details>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/insights/gemini-classroom-all-ages">下一篇：Classroom 的 Gemini 已對所有年齡開啟 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">更多校園數位轉型相關知識。</p>
+    <div class="grid">
+      <a class="card reveal" href="/insights/gemini-classroom-all-ages">
+        <div class="card-body"><h3>Classroom 的 Gemini 已對所有年齡開啟</h3><p>8/10 生效、預設開啟，學校這週該檢查什麼。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/classroom">
+        <div class="card-body"><h3>Google Classroom 完全指南</h3><p>課程工具組開下去之後，老師端實際會看到什麼、卡在哪裡。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/meet">
+        <div class="card-body"><h3>Google Meet 在校園怎麼用</h3><p>依年齡開放功能、等候室、出席報告，跟 OU 架構怎麼搭配。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/chromebook">
+        <div class="card-body"><h3>Chromebook 選購指南</h3><p>機型怎麼挑、AUE 怎麼查、CEU 載具管理授權是什麼。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/workspace-editions">
+        <div class="card-body"><h3>Workspace 教育版版本比較</h3><p>四個方案差在哪、哪些功能要升級才有。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/account-lifecycle">
+        <div class="card-body"><h3>帳號生命週期管理</h3><p>新生批次建檔、畢業生停權與資料轉出，年度時程表。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/two-step-verification">
+        <div class="card-body"><h3>強制開啟兩步驟驗證</h3><p>只對教職員 OU 套用、排除學生，以及管理員防鎖死。</p></div>
+      </a>
+      <a class="card reveal" href="/services/campus-training">
+        <div class="card-body"><h3>Google AI 校園研習</h3><p>由認證講師到校授課，含管理主控台實機操作。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">後台接手了，但不知道從哪裡開始？</h2>
+    <p class="section-sub reveal">OU 規劃、政策盤點到管理員教育訓練，可以一起走過一輪。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在規劃 Workspace 導入或調整？</h2>
+      <p>不論是新導入、版本變更還是管理設定調整，先備妥這幾項：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>教職員與學生帳號數</li>
+        <li>目前使用的版本（Fundamentals、Teaching and Learning、Education Plus）</li>
+        <li>這次想解決的主要問題（儲存空間、資安、帳號管理或其他）</li>
+        <li>是否需要管理員教育訓練</li>
+        <li>預計處理時間</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Google%20Workspace%20%E5%B0%8E%E5%85%A5%E8%88%87%E7%AE%A1%E7%90%86&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E6%95%99%E8%81%B7%E5%93%A1%E8%88%87%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E9%80%99%E6%AC%A1%E6%83%B3%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E5%95%8F%E9%A1%8C%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%93%A1%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E8%99%95%E7%90%86%E6%99%82%E9%96%93%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AGoogle%20%E7%AE%A1%E7%90%86%E4%B8%BB%E6%8E%A7%E5%8F%B0%E6%A0%A1%E5%9C%92%E8%A8%AD%E5%AE%9A%E6%8C%87%E5%8D%97%EF%BC%89">寄信詢問：Google Workspace 導入與管理</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-workspace">看 Workspace 導入與培訓服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

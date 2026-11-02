@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<title>學校 Google 帳號管理 SOP：新生建檔、畢業轉出與停權｜鴻綸科技</title>
+<meta name="description" content="每年開學前批次建立新生帳號、畢業前處理離校學生帳號，是資訊組長最容易手忙腳亂的兩個時間點。命名規則怎麼一次訂對、畢業生帳號該停權還是刪除、資料要不要轉出，整理成一份可以重複照做的年度時程表。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/account-lifecycle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學校 Google 帳號生命週期管理：新生建檔、畢業生轉出｜鴻綸科技">
+<meta property="og:description" content="開學建檔、畢業轉出，資訊組長每年都要重來一次的兩件事，整理成可重複照做的年度時程表。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/account-lifecycle">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-account-lifecycle.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學校 Google 帳號管理 SOP：新生建檔、畢業轉出與停權｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學校 Google 帳號生命週期管理：新生建檔、畢業生轉出｜鴻綸科技">
+<meta name="twitter:description" content="開學建檔、畢業轉出，資訊組長每年都要重來一次的兩件事，整理成可重複照做的年度時程表。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-account-lifecycle.png?v=5">
+<meta name="twitter:image:alt" content="學校 Google 帳號管理 SOP：新生建檔、畢業轉出與停權｜鴻綸科技">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google 與 AI 導入", "item": "https://www.hunglun.com/knowledge/topic/google-ai" },
+    { "@type": "ListItem", "position": 4, "name": "帳號生命週期管理", "item": "https://www.hunglun.com/knowledge/account-lifecycle" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "畢業生的 Google 帳號應該停權還是直接刪除？", "acceptedAnswer": { "@type": "Answer", "text": "建議先停權（Suspend），不要直接刪除。停權後帳號登不進去、也不能收發信，但資料還在，之後要復原或轉出都來得及；一旦刪除，雲端硬碟裡沒有轉移或備份的檔案會直接消失，而且過了保留期就救不回來。等確認該屆學生的資料都已妥善轉出或依學校政策保存期限過了，再排定時間刪除。" } },
+    { "@type": "Question", "name": "學生畢業後，雲端硬碟裡的檔案怎麼處理？", "acceptedAnswer": { "@type": "Answer", "text": "3 個選項：一是管理員在「目錄 › 使用者 › 選使用者 › 將雲端硬碟檔案轉移給新擁有者」，把畢業生的雲端硬碟內容轉給導師或指定的保管帳號，適合需要留存班級共同作業成果的情況；二是讓學生自己在畢業前用 Takeout 下載封存，或用「轉移內容」（takeout.google.com/transfer）把個人擁有的檔案、Gmail 與相簿複製到個人帳號；三是依學校的資料保存政策，直接隨帳號一併封存或刪除。共用雲端硬碟裡的檔案屬學校所有、不會被轉走。三種做法要在停權前就決定，不要等刪除前一天才想。" } },
+    { "@type": "Question", "name": "帳號停權後，為什麼全校儲存空間沒有變少？", "acceptedAnswer": { "@type": "Answer", "text": "因為停權（Suspend）的帳號，其占用的儲存空間仍然計入全校共用的儲存空間池。停權只是讓帳號登不進去，資料還在、還占空間。要真正把空間釋放出來，必須在資料轉出或保存期滿後刪除帳號。所以如果目的是回收儲存空間，停權只是中繼站，不能停在停權階段。" } },
+    { "@type": "Question", "name": "新生帳號的命名規則，學號跟姓名拼音哪個好？", "acceptedAnswer": { "@type": "Answer", "text": "沒有標準答案，但要在第一屆建檔前就定案，因為改規則等於要求所有人重新記帳號、也牽動已分享的檔案權限。學號的優點是唯一、不會跟其他學生撞名，缺點是老師記不住學生是誰；姓名拼音的優點是好認、好記，缺點是撞名（尤其菜市場姓名）要另外處理後綴規則，且姓名有異動（例如法定改名）時比學號複雜。多數學校會用「學號」或「入學年度＋班級＋座號」這類不隨學生更動的識別碼，把姓名放在使用者個人資料的顯示名稱裡即可。" } },
+    { "@type": "Question", "name": "新生帳號應該提早多久建立？", "acceptedAnswer": { "@type": "Answer", "text": "建議在開學前至少 2 週完成建檔，並實際登入測試至少幾個帳號。原因是 CSV 批次上傳常見的欄位格式錯誤、機構單位路徑打錯，第一次上傳很少一次全對，抓格式問題與重新上傳都需要時間；另外新帳號要能收到 Classroom 邀請、能用 Gemini 等服務，也需要等 OU 的服務開關生效。留 2 週緩衝，開學第一天帳號才不會來不及用。" } },
+    { "@type": "Question", "name": "在校生的機構單位（OU）要不要每年重新調整？", "acceptedAnswer": { "@type": "Answer", "text": "要。多數學校用「年級」規劃 OU（例如 /學生/一年級、/學生/二年級），代表每年升級時，全校在校生的帳號都要整批搬移到下一個年級的 OU，這一步常被忽略，結果新學年度用的還是舊年級的服務開關與政策。建議把「開學前搬移在校生 OU」跟「新生建檔」排在同一份檢查清單裡，兩件事一起做，不要分開處理。" } },
+    { "@type": "Question", "name": "轉學生（轉入、轉出）帳號怎麼處理？", "acceptedAnswer": { "@type": "Answer", "text": "轉入學生視同新生建檔，差別只在建檔時間點不固定，需要有一套隨到隨辦的簡化流程（例如單筆新增而非等下一批 CSV）。轉出學生比照畢業生處理：先停權、確認資料轉出或保存需求後再決定刪除時間，差別是轉出通常沒有固定的學年度時間點，行政上更容易漏掉，建議在轉學公文核准後，把「停權該生 Google 帳號」列進承辦人的標準作業檢查項目。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學校 Google 帳號管理 SOP：新生建檔、畢業轉出與停權",
+  "description": "開學前的新生批次建檔、畢業前的離校學生帳號處理，整理成可重複照做的年度時程表：命名規則、OU 搬移、停權與資料轉出的順序。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-09-06",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": { "@id": "https://www.hunglun.com/#organization" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://www.hunglun.com/#organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": { "@type": "ImageObject", "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png" }
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.hunglun.com/knowledge/account-lifecycle" },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true,
+  "about": [
+    { "@type": "SoftwareApplication", "name": "Google Workspace for Education", "applicationCategory": "EducationalApplication" },
+    { "@type": "Thing", "name": "Google 管理主控台" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ 帳號生命週期管理</nav>
+    <h1>學校 Google 帳號管理 SOP：新生建檔、畢業轉出與停權</h1>
+    <p>開學前手忙腳亂建新生帳號、畢業前才想起要處理離校學生，這兩件事其實可以變成一份每年照做的檢查清單。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校的 Google Workspace 管理員、資訊組長，以及負責校務系統與個資盤點的行政人員。</p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/google-admin">下一篇：Google 管理主控台校園設定指南（OU、群組、Chrome 政策） →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學校 Google 帳號一年要處理哪些事？</strong>學生帳號從入學到畢業，至少會經過建立、升年級（OU 搬移）、畢業或轉出（停權）、資料處理完畢（刪除）4 個事件，要當成生命週期來管理。</li>
+        <li><strong>畢業生帳號該停權還是直接刪除？</strong>建議先停權，資料轉出完成且過了保存期限才刪除。停權可以復原，刪除不行。</li>
+        <li><strong>新生帳號要提早多久建立？</strong>建議開學前至少 2 週，並先試 3 筆再匯全校，因為 CSV 第一次上傳很少一次全對。</li>
+        <li><strong>帳號停權後，儲存空間會釋放嗎？</strong>不會。停權帳號占用的空間仍計入全校共用儲存空間，要刪除帳號才會釋放。</li>
+      </ul>
+    </div>
+
+    <p>每年七到九月，資訊組長的行事曆上一定有兩件事：<strong>新生帳號要在開學前生出來，畢業生帳號要在某個時間點收掉</strong>。批次新增使用者的操作步驟，<a href="/knowledge/google-admin#users">管理主控台校園設定指南</a>已經講過；本頁要談的是操作步驟以外、真正容易出錯的部分：<strong>什麼時候做、用什麼規則做、離校學生的資料誰負責、帳號什麼時候才可以真的刪掉</strong>。</p>
+
+    <h2>為什麼要當成「生命週期」管理，不是開一次帳號就結束？</h2>
+    <p>學生帳號從入學到畢業，中間至少會經過 4 個事件：<strong>建立、升年級（OU 搬移）、畢業或轉出（停權）、資料處理完畢（刪除）</strong>。多數學校只把心力放在「建立」這一步，升年級跟畢業處理常常是想到才做，結果就是：新學年度開始了，OU 裡還混著已經升上去的舊年級設定；畢業好幾年的帳號還掛在網域裡占用儲存空間；某個離職老師的帳號還能收發信。把這 4 個事件當成同一份時程表管理，才不會每年都在補救。</p>
+
+    <h2>新生入學：建檔前要先決定的 2 件事</h2>
+    <h3>命名規則，第一屆就要定案</h3>
+    <p>常見兩種做法：</p>
+    <ul class="feature-list">
+      <li><strong>學號（或入學年度＋班級＋座號）</strong>：唯一、不會撞名，缺點是老師不容易從帳號認出是哪個學生，得另外對照名冊。</li>
+      <li><strong>姓名拼音</strong>：好認好記，缺點是撞名（尤其菜市場姓名）需要額外的後綴規則，學生改名時也比較麻煩。</li>
+    </ul>
+    <p>多數學校會選<strong>不隨學生更動的識別碼</strong>（學號或入學年度＋座號），把真實姓名放進使用者個人資料的顯示名稱，兩邊各取所需。<strong>這個規則要在第一屆建檔前定案</strong>：帳號開下去之後才改，等於要求全校重新記帳號，也會打亂已經分享出去的檔案權限。</p>
+    <h3>機構單位（OU）要照「年級」規劃</h3>
+    <p>建議用 <code>/學生/一年級</code>、<code>/學生/二年級</code>……這樣依年級分層，之後 Gemini、Classroom 這類服務要不要開放給某個年段，直接在 OU 層級設定即可，不必逐一設定使用者。OU 的建立方式見<a href="/knowledge/google-admin#ou">管理主控台校園設定指南</a>。</p>
+
+    <h2>開學前 2 週：新生批次建檔的時程</h2>
+    <p>建議把時程抓在<strong>開學前至少 2 週</strong>，理由不是效率考量，是實務上真的會卡：</p>
+    <ul class="feature-list">
+      <li><strong>CSV 第一次上傳很少一次全對。</strong>機構單位路徑打錯、標題列被改過、電子郵件格式有誤，都要抓出來、修正、重新上傳，這個來回需要時間。</li>
+      <li><strong>服務開關要時間生效。</strong>新帳號建在某個 OU 之後，該 OU 開放的 Classroom、Gemini 等服務不一定馬上全部生效，提早測試才能在開學第一天前確認正常。</li>
+      <li><strong>先試 3 筆，別直接匯全校。</strong>格式有問題時，3 筆帳號的錯誤好收拾，300 筆的錯誤要花時間一筆一筆對。</li>
+    </ul>
+
+    <h2>在校生升年級：容易被忽略的 OU 搬移</h2>
+    <p>新學年度開始，全校在校生的帳號要整批從「二年級」OU 搬到「三年級」OU（依此類推）。<strong>這一步很容易被忽略</strong>，結果是新學年度用的還是舊年級的服務開關與政策，例如三年級學生還被套用二年級的 Gemini 開放範圍。批次搬移機構單位的做法，見<a href="/knowledge/google-admin#move-device">管理主控台校園設定指南</a>裡「把裝置搬到另一個機構單位」的同一套邏輯（使用者頁面可以勾選多筆帳號後，一次變更機構單位）。<strong>建議把「搬移在校生 OU」跟「新生建檔」排進同一份開學前檢查清單</strong>，兩件事一起做，不要分開處理，才不會漏掉其中一項。</p>
+
+    <h2>畢業生與轉出學生：停權、資料轉出、刪除，3 個階段分開做</h2>
+    <p>離校學生的帳號處理，建議拆成 3 個階段，中間留緩衝時間，不要「畢業當天就刪除」：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead><tr><th>階段</th><th>做什麼</th><th>為什麼分開</th></tr></thead>
+        <tbody>
+          <tr><td><strong>一、停權（Suspend）</strong></td><td>畢業典禮後或學期結束時，把該屆學生帳號整批停權。停權後帳號登不進去、不能收發信，但資料還在。</td><td>停權可以隨時復原，刪除不行。萬一有學生的成績單、作品集還沒下載完，停權階段還來得及補救。</td></tr>
+          <tr><td><strong>二、資料轉出</strong></td><td>依需求選：管理員在「目錄 › 使用者 › 選使用者 › 將雲端硬碟檔案轉移給新擁有者」把雲端硬碟內容轉給導師或保管帳號；或讓學生自己在畢業前把資料帶走（見下方說明）。</td><td>刪除帳號後，沒有轉移或備份的檔案不會留下副本。這一步一定要在刪除前完成，且最好在畢業前就提醒學生自己備份。</td></tr>
+          <tr><td><strong>三、刪除</strong></td><td>確認資料轉出完成、且過了學校規定的保存期限後，才排定時間刪除帳號，釋放網域的儲存空間額度。刪除後有一段還原期（依 Google 當期政策，約 20 天），逾期資料就救不回來。</td><td>刪除不可逆，晚一點做沒有壞處；資料保存期限請依貴校個資保存政策，並可參考<a href="/knowledge/privacy">個資法與校園資安須知</a>。</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>轉學生（轉入、轉出）比照同一套邏輯：<strong>轉入視同新生</strong>，差別只在建檔時間點不固定，需要一套隨到隨辦的簡化流程；<strong>轉出視同畢業</strong>，先停權再處理資料。轉出學生的帳號處理很容易被行政流程漏掉，建議在轉學公文核准的同時，就把「停權該生 Google 帳號」列進承辦人的標準作業檢查項目，不要等到有人發現帳號還能用才處理。</p>
+
+    <h3>讓畢業生自己把資料帶走：Takeout 與「轉移內容」</h3>
+    <p>要開放這個功能，管理員先到<strong>管理主控台 › 選單 › 資料 › 資料匯入及匯出 › Google Takeout</strong>（需要具備服務設定權限的管理員），對畢業生所在的機構單位勾選「允許使用者存取『轉移內容』」，並開啟雲端硬碟、Gmail、Google 相簿的存取。另外，「轉移內容」要能複製雲端硬碟檔案，<strong>學校的對外雲端硬碟分享必須是開啟的</strong>。</p>
+    <p>學生端有兩條路，用途不同：</p>
+    <ul class="feature-list" style="margin-top:12px;">
+      <li><strong>下載封存（takeout.google.com）</strong>：把資料打包成 zip 檔下載，適合要留一份離線備份。</li>
+      <li><strong>轉移內容（takeout.google.com/<wbr>transfer）</strong>：把「我的雲端硬碟」裡自己擁有的檔案、Gmail 信件、Google 相簿，<strong>複製</strong>到一個個人 Google 帳號，原本學校帳號裡的檔案不會被刪。適合直接搬到私人帳號繼續用。</li>
+    </ul>
+    <p><strong>兩種方式都只處理「個人擁有」的內容</strong>：放在共用雲端硬碟裡的檔案不會被轉走，因為那是學校（機構）擁有，不是學生。這些操作要在帳號還沒停權、還能登入時完成，所以「提醒學生自己備份」的公告要早於停權日發出。</p>
+
+    <h2>把 4 個時間點整理成一份年度檢查清單</h2>
+    <ul class="feature-list">
+      <li><strong>開學前 2 週：</strong>新生帳號 CSV 建檔、先試 3 筆再匯全校、在校生 OU 整批搬移到新年級。</li>
+      <li><strong>開學後一週：</strong>抽測各年級帳號能否正常登入、Classroom 與 Gemini 等服務是否依 OU 正確開放。</li>
+      <li><strong>畢業前一個月：</strong>公告資料轉出方式（Takeout 或申請轉移），提醒學生自行備份。</li>
+      <li><strong>畢業後：</strong>該屆帳號整批停權；確認資料轉出完成後，依保存政策排定刪除時間。</li>
+    </ul>
+    <p style="font-size:0.88rem;color:var(--muted-faint);">本頁整理的是實務操作順序與時程建議，資料保存期限請依貴校（或主管教育行政機關）的個資保存政策辦理；管理主控台的實際欄位名稱與位置以 Google 當期介面為準。</p>
+
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/google-admin">下一篇：Google 管理主控台校園設定指南（OU、群組、Chrome 政策） →</a>
+    </nav>
+
+    <h2>延伸閱讀</h2>
+    <ul>
+      <li><a href="/knowledge/google-admin">Google 管理主控台校園設定指南（OU、群組、Chrome 政策） →</a></li>
+      <li><a href="/knowledge/two-step-verification">學校怎麼強制開啟兩步驟驗證：排除學生 OU 與管理員救援 →</a></li>
+      <li><a href="/knowledge/education-apply">學校 Google 帳號怎麼申請？資格、流程與 Gemini 開通 →</a></li>
+      <li><a href="/knowledge/privacy">個資法與校園資安須知 →</a></li>
+      <li><a href="/knowledge/google-storage">學校雲端硬碟空間不足怎麼辦 →</a></li>
+      <li><a href="/services/google-workspace">Google Workspace 導入與教育訓練服務 →</a></li>
+    </ul>
+
+    <h2>常見問題</h2>
+    <details class="faq-item" open>
+      <summary>畢業生的 Google 帳號應該停權還是直接刪除？</summary>
+      <div class="faq-a">建議先停權（Suspend），不要直接刪除。停權後帳號登不進去、也不能收發信，但資料還在，之後要復原或轉出都來得及；一旦刪除，雲端硬碟裡沒有轉移或備份的檔案會直接消失，而且過了保留期就救不回來。等確認該屆學生的資料都已妥善轉出或依學校政策保存期限過了，再排定時間刪除。</div>
+    </details>
+    <details class="faq-item">
+      <summary>學生畢業後，雲端硬碟裡的檔案怎麼處理？</summary>
+      <div class="faq-a">3 個選項：一是管理員在「目錄 › 使用者 › 選使用者 › 將雲端硬碟檔案轉移給新擁有者」，把畢業生的雲端硬碟內容轉給導師或指定的保管帳號，適合需要留存班級共同作業成果的情況；二是讓學生自己在畢業前用 Takeout 下載封存，或用「轉移內容」（takeout.google.com/transfer）把個人擁有的檔案、Gmail 與相簿複製到個人帳號；三是依學校的資料保存政策，直接隨帳號一併封存或刪除。共用雲端硬碟裡的檔案屬學校所有、不會被轉走。三種做法要在停權前就決定，不要等刪除前一天才想。</div>
+    </details>
+    <details class="faq-item">
+      <summary>帳號停權後，為什麼全校儲存空間沒有變少？</summary>
+      <div class="faq-a">因為停權（Suspend）的帳號，其占用的儲存空間仍然計入全校共用的儲存空間池。停權只是讓帳號登不進去，資料還在、還占空間。要真正把空間釋放出來，必須在資料轉出或保存期滿後刪除帳號。所以如果目的是回收儲存空間，停權只是中繼站，不能停在停權階段。</div>
+    </details>
+    <details class="faq-item">
+      <summary>新生帳號的命名規則，學號跟姓名拼音哪個好？</summary>
+      <div class="faq-a">沒有標準答案，但要在第一屆建檔前就定案，因為改規則等於要求所有人重新記帳號、也牽動已分享的檔案權限。學號的優點是唯一、不會跟其他學生撞名，缺點是老師記不住學生是誰；姓名拼音的優點是好認、好記，缺點是撞名（尤其菜市場姓名）要另外處理後綴規則，且姓名有異動（例如法定改名）時比學號複雜。多數學校會用「學號」或「入學年度＋班級＋座號」這類不隨學生更動的識別碼，把姓名放在使用者個人資料的顯示名稱裡即可。</div>
+    </details>
+    <details class="faq-item">
+      <summary>新生帳號應該提早多久建立？</summary>
+      <div class="faq-a">建議在開學前至少 2 週完成建檔，並實際登入測試至少幾個帳號。原因是 CSV 批次上傳常見的欄位格式錯誤、機構單位路徑打錯，第一次上傳很少一次全對，抓格式問題與重新上傳都需要時間；另外新帳號要能收到 Classroom 邀請、能用 Gemini 等服務，也需要等 OU 的服務開關生效。留 2 週緩衝，開學第一天帳號才不會來不及用。</div>
+    </details>
+    <details class="faq-item">
+      <summary>在校生的機構單位（OU）要不要每年重新調整？</summary>
+      <div class="faq-a">要。多數學校用「年級」規劃 OU（例如 /學生/一年級、/學生/二年級），代表每年升級時，全校在校生的帳號都要整批搬移到下一個年級的 OU，這一步常被忽略，結果新學年度用的還是舊年級的服務開關與政策。建議把「開學前搬移在校生 OU」跟「新生建檔」排在同一份檢查清單裡，兩件事一起做，不要分開處理。</div>
+    </details>
+    <details class="faq-item">
+      <summary>轉學生（轉入、轉出）帳號怎麼處理？</summary>
+      <div class="faq-a">轉入學生視同新生建檔，差別只在建檔時間點不固定，需要有一套隨到隨辦的簡化流程（例如單筆新增而非等下一批 CSV）。轉出學生比照畢業生處理：先停權、確認資料轉出或保存需求後再決定刪除時間，差別是轉出通常沒有固定的學年度時間點，行政上更容易漏掉，建議在轉學公文核准後，把「停權該生 Google 帳號」列進承辦人的標準作業檢查項目。</div>
+    </details>
+
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-06">2026 年 9 月 6 日</time></p>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在規劃 Workspace 導入或調整？</h2>
+      <p>不論是新導入、版本變更還是管理設定調整，先備妥這幾項：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>教職員與學生帳號數</li>
+        <li>目前使用的版本（Fundamentals、Teaching and Learning、Education Plus）</li>
+        <li>這次想解決的主要問題（儲存空間、資安、帳號管理或其他）</li>
+        <li>是否需要管理員教育訓練</li>
+        <li>預計處理時間</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Google%20Workspace%20%E5%B0%8E%E5%85%A5%E8%88%87%E7%AE%A1%E7%90%86&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E6%95%99%E8%81%B7%E5%93%A1%E8%88%87%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E9%80%99%E6%AC%A1%E6%83%B3%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E5%95%8F%E9%A1%8C%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%93%A1%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E8%99%95%E7%90%86%E6%99%82%E9%96%93%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E5%AD%B8%E6%A0%A1%20Google%20%E5%B8%B3%E8%99%9F%E7%94%9F%E5%91%BD%E9%80%B1%E6%9C%9F%E7%AE%A1%E7%90%86%EF%BC%9A%E6%96%B0%E7%94%9F%E5%BB%BA%E6%AA%94%E3%80%81%E7%95%A2%E6%A5%AD%E7%94%9F%E8%BD%89%E5%87%BA%E8%88%87%E5%81%9C%E6%AC%8A%20SOP%EF%BC%89">寄信詢問：Google Workspace 導入與管理</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-workspace">看 Workspace 導入與培訓服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

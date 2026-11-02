@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<title>學校導入雲端服務的個資盤點清單怎麼做｜鴻綸科技</title>
+<meta name="description" content="學校每導入一套新的雲端服務或數位工具，就多一個學生個資可能外流的管道。這篇提供個資盤點的實務框架：哪些系統會存學生個資、盤點表該記錄哪些欄位、怎麼分辨風險高低，以及不確定法規細節時該找誰。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/data-inventory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學校導入雲端服務的個資盤點清單｜鴻綸科技">
+<meta property="og:description" content="哪些系統會存學生個資、盤點表怎麼設計、風險怎麼分級的實務框架。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/data-inventory">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-data-inventory.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學校導入雲端服務的個資盤點清單｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學校導入雲端服務的個資盤點清單｜鴻綸科技">
+<meta name="twitter:description" content="哪些系統會存學生個資、盤點表怎麼設計、風險怎麼分級的實務框架。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-data-inventory.png?v=5">
+<meta name="twitter:image:alt" content="學校導入雲端服務的個資盤點清單｜鴻綸科技">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "資安與個資法遵", "item": "https://www.hunglun.com/knowledge/topic/compliance" },
+    { "@type": "ListItem", "position": 4, "name": "學校導入雲端服務的個資盤點清單", "item": "https://www.hunglun.com/knowledge/data-inventory" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-31",
+  "mainEntity": [
+    { "@type": "Question", "name": "為什麼每次導入新的雲端服務都要重新盤點個資？", "acceptedAnswer": { "@type": "Answer", "text": "因為每一套新工具，都是一個新的資料出口。學校既有系統（校務系統、健康中心系統）通常有既定的管理規範，但老師自己申請的線上問卷、學習平台、報名系統，往往是各科老師各自決定要不要用，沒有人統一盤點過裡面存了哪些學生資料、存在哪個廠商的伺服器、留存多久。導入新服務時做一次盤點，能在問題發生前先看清楚風險在哪，而不是等到家長反映或資安事件發生後才回頭追查。" } },
+    { "@type": "Question", "name": "盤點時要看哪些系統？只看教學平台就夠了嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不夠。常被漏掉的是行政與活動類系統：報名系統、問卷調查工具、家長聯絡簿 App、校外教學保險名冊、獎助學金申請表、圖書借閱系統、營養午餐訂餐系統，這些同樣會存到學生姓名、班級座號，有些甚至涉及家長聯絡方式、家庭經濟狀況（如清寒證明）等更敏感的資料。建議盤點時以「有沒有蒐集到學生或家長資料」為判準，而不是只看「教學相關」的系統。" } },
+    { "@type": "Question", "name": "個資盤點表應該記錄哪些欄位？", "acceptedAnswer": { "@type": "Answer", "text": "建議至少包含：系統/工具名稱、負責承辦人（哪個處室或哪位老師）、蒐集的資料項目（姓名、班級座號、聯絡方式、成績、健康資訊等）、資料存放位置（校內伺服器、廠商雲端、Google 表單等）、資料保存期限、是否有第三方廠商可存取、是否曾對家長或學生說明蒐集目的。表格不用做得很複雜，用一份共用試算表逐項填寫即可，重點是有人固定維護、每學期更新一次。" } },
+    { "@type": "Question", "name": "怎麼判斷哪些系統風險比較高，該優先處理？", "acceptedAnswer": { "@type": "Answer", "text": "可以從 3 個角度快速篩：一是資料敏感度，健康資訊、家庭經濟狀況、身分證字號這類比純粹的姓名班級敏感得多；二是資料存放位置，個人老師申請的免費工具帳號，跟學校網域下正式簽約的教育版服務，資安責任歸屬完全不同；三是留存機制，不清楚資料何時刪除、或廠商條款寫明會用於其他用途的工具，風險高於用完即丟或有明確保存期限的工具。優先盤點與檢視前 2 類系統，通常比全面鋪開更有效率。" } },
+    { "@type": "Question", "name": "老師自己申請的免費線上工具，算不算學校要負責的範圍？", "acceptedAnswer": { "@type": "Answer", "text": "從風險管理的角度，只要蒐集到的是在學學生的資料，不論是校方正式採購的系統、還是老師個人為了教學方便申請的免費帳號，都應該納入盤點範圍。實務上常見的問題正是這 1 類「非正式導入」的工具最容易被忽略，也最容易在條款裡藏著資料會被用於廣告或第三方分析的授權，建議透過學校統一的教育版帳號（如 Google Workspace for Education）申請與管理教學工具，而不是放任老師各自用個人帳號註冊，這也是Workspace for Education對校園資安管理的實際幫助之一。" } },
+    { "@type": "Question", "name": "個資法規細節不確定的時候該怎麼辦？", "acceptedAnswer": { "@type": "Answer", "text": "個人資料保護法對教育機構的適用範圍、蒐集告知義務、當事人權利行使等具體規定，會隨主管機關的解釋函令與個案情況而有差異，這篇內容提供的是盤點作業的實務框架，不是法律諮詢。涉及具體法規適用、罰則風險或個資外洩事件處理，建議洽詢學校法律顧問，或參考個人資料保護委員會（若設立）與教育部的最新公告，不要僅憑網路文章自行判斷。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學校導入雲端服務的個資盤點清單怎麼做",
+  "description": "個資盤點實務框架：哪些系統會存學生個資、盤點表該記錄哪些欄位、風險怎麼分級，以及法規細節不確定時該找誰。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": { "@id": "https://www.hunglun.com/#organization" }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": { "@type": "ImageObject", "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png" },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.hunglun.com/knowledge/data-inventory" },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/compliance">資安與個資法遵</a> ／ 學校導入雲端服務的個資盤點清單</nav>
+    <h1>學校導入雲端服務的個資盤點清單</h1>
+    <p>每導入一套新工具，就多一個資料出口，先盤點，再簽約。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校的 Google Workspace 管理員、資訊組長，以及負責校務系統與個資盤點的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-08-31">2026 年 8 月 31 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/privacy">下一篇：個資法與校安須知 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學校為什麼要做個資盤點？</strong>每一套新導入的雲端工具，都是一個新的學生資料出口。盤點是在問題發生前先看清楚風險在哪。</li>
+        <li><strong>盤點只看教學平台就夠嗎？</strong>不夠。行政類、活動類、補助類系統也會存學生資料，判準是有沒有蒐集到學生或家長資料。</li>
+        <li><strong>盤點表該記錄哪些欄位？</strong>至少包含系統名稱、負責承辦人、蒐集的資料項目、資料存放位置、保存期限、第三方廠商是否可存取，以及是否向家長或學生說明蒐集目的。</li>
+        <li><strong>怎麼決定先處理哪些系統？</strong>從資料敏感度、資料存放位置、留存機制三個角度篩選優先要看的系統，比想著一次全部做完更容易真的執行。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal">為什麼要盤點</h2>
+    <p><strong>每一套新導入的雲端工具，都是一個新的學生資料出口。</strong>學校既有的校務系統、健康中心系統，通常有既定的管理規範與資安責任歸屬；但各科老師自己找的線上問卷、報名系統、學習平台，往往是各自決定要不要用，沒有人統一整理過「這些工具裡到底存了哪些學生資料、存在誰的伺服器、留存多久」。</p>
+    <p>盤點的目的不是為了增加行政負擔，而是在問題發生前先看清楚風險在哪，而不是等到家長反映、或資安事件發生後才回頭追查「當初是誰申請的這套系統」。</p>
+
+    <h2 class="section-title reveal">盤點範圍：不只是教學平台</h2>
+    <p>常被漏掉的是行政與活動類系統，這些同樣會存到學生資料，有些甚至更敏感：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>教學類</strong>：線上學習平台、作業繳交系統、測驗評量工具</li>
+      <li><strong>行政類</strong>：報名系統、問卷調查工具、家長聯絡簿 App</li>
+      <li><strong>活動類</strong>：校外教學保險名冊、社團招生表單、營養午餐訂餐系統</li>
+      <li><strong>補助類</strong>：獎助學金申請表、清寒證明相關資料，這類涉及家庭經濟狀況，敏感度通常高於一般<span class="nowrap">教學資料</span></li>
+    </ul>
+    <p>盤點時建議以「有沒有蒐集到學生或家長資料」為判準來檢視全校系統，而不是只看「跟教學直接相關」的工具。</p>
+
+    <h2 class="section-title reveal">盤點表該記錄哪些欄位</h2>
+    <p>不需要做得很複雜，一份共用試算表、每學期更新一次即可。建議至少包含：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>系統/工具名稱</strong></li>
+      <li><strong>負責承辦人</strong>：哪個處室或哪位老師在管理</li>
+      <li><strong>蒐集的資料項目</strong>：姓名、班級座號、聯絡方式、成績、健康資訊等</li>
+      <li><strong>資料存放位置</strong>：校內伺服器、廠商雲端、Google 表單等</li>
+      <li><strong>資料保存期限</strong></li>
+      <li><strong>是否有第三方廠商可存取</strong></li>
+      <li><strong>是否曾向家長或學生說明蒐集目的</strong></li>
+    </ul>
+
+    <h2 class="section-title reveal">怎麼分辨風險高低，決定優先順序</h2>
+    <p>學校系統通常多到不可能一次全面處理，可以從 3 個角度快速篩選出優先要看的：</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>資料敏感度</strong>：健康資訊、家庭經濟狀況、身分證字號，比純粹的姓名班級敏感得多，優先看這類系統。</li>
+      <li><strong>資料存放位置</strong>：個人老師申請的免費工具帳號，跟學校網域下正式簽約的教育版服務，資安責任歸屬完全不同。前者風險通常更高，因為條款是老師個人同意的，不是學校審核過的。</li>
+      <li><strong>留存機制</strong>：不清楚資料何時刪除、條款寫明會用於其他用途（如廣告分析）的工具，風險高於用完即丟或有明確保存期限的工具。</li>
+    </ul>
+    <p>優先盤點與檢視前 2 類系統，通常比想著要「全部一次做完」更有效率，也更容易真的執行下去。</p>
+
+    <h2 class="section-title reveal">老師自己申請的免費工具，怎麼管理</h2>
+    <p>實務上最容易被忽略的正是這 1 類「非正式導入」的工具，各科老師為了教學方便自行申請的免費帳號，條款裡常常藏著資料可能被用於廣告或第三方分析的授權，而學校完全不知道有這個系統存在。</p>
+    <p>比較穩妥的做法，是<strong>透過學校統一的教育版帳號申請與管理教學工具</strong>，而不是放任老師各自用個人帳號註冊。這也是為什麼教育版服務（例如<a href="/services/google-workspace">Google Workspace for Education</a>）在資安管理上有實際意義。網域帳號讓管理員能統一掌握有哪些應用程式被授權存取校內帳號資料，而不是完全失去可見度。</p>
+
+    <h2 class="section-title reveal">法規細節不確定時，該找誰</h2>
+    <p>個人資料保護法對教育機構的適用範圍、蒐集告知義務、當事人權利行使等具體規定，會隨主管機關解釋函令與個案情況而有差異。<strong>這篇提供的是盤點作業的實務框架，不是法律諮詢。</strong>涉及具體法規適用、罰則風險或個資外洩事件處理，建議洽詢學校法律顧問，或參考主管機關的最新公告，不要僅憑網路文章自行判斷。相關校安觀念可先參考<a href="/knowledge/privacy">個資法與校安須知</a>。</p>
+
+    <p>需要協助盤點校內數位工具、或評估導入教育版帳號集中管理，歡迎<a href="/contact">聯絡我們</a>。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>為什麼每次導入新的雲端服務都要重新盤點個資？</summary>
+      <div class="faq-a">因為每一套新工具，都是一個新的資料出口。學校既有系統（校務系統、健康中心系統）通常有既定的管理規範，但老師自己申請的線上問卷、學習平台、報名系統，往往是各科老師各自決定要不要用，沒有人統一盤點過裡面存了哪些學生資料、存在哪個廠商的伺服器、留存多久。導入新服務時做一次盤點，能在問題發生前先看清楚風險在哪，而不是等到家長反映或資安事件發生後才回頭追查。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>盤點時要看哪些系統？只看教學平台就夠了嗎？</summary>
+      <div class="faq-a">不夠。常被漏掉的是行政與活動類系統：報名系統、問卷調查工具、家長聯絡簿 App、校外教學保險名冊、獎助學金申請表、圖書借閱系統、營養午餐訂餐系統，這些同樣會存到學生姓名、班級座號，有些甚至涉及家長聯絡方式、家庭經濟狀況（如清寒證明）等更敏感的資料。建議盤點時以「有沒有蒐集到學生或家長資料」為判準，而不是只看「教學相關」的系統。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>個資盤點表應該記錄哪些欄位？</summary>
+      <div class="faq-a">建議至少包含：系統/工具名稱、負責承辦人（哪個處室或哪位老師）、蒐集的資料項目（姓名、班級座號、聯絡方式、成績、健康資訊等）、資料存放位置（校內伺服器、廠商雲端、Google 表單等）、資料保存期限、是否有第三方廠商可存取、是否曾對家長或學生說明蒐集目的。表格不用做得很複雜，用一份共用試算表逐項填寫即可，重點是有人固定維護、每學期更新一次。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>怎麼判斷哪些系統風險比較高，該優先處理？</summary>
+      <div class="faq-a">可以從 3 個角度快速篩：一是資料敏感度，健康資訊、家庭經濟狀況、身分證字號這類比純粹的姓名班級敏感得多；二是資料存放位置，個人老師申請的免費工具帳號，跟學校網域下正式簽約的教育版服務，資安責任歸屬完全不同；三是留存機制，不清楚資料何時刪除、或廠商條款寫明會用於其他用途的工具，風險高於用完即丟或有明確保存期限的工具。優先盤點與檢視前 2 類系統，通常比全面鋪開更有效率。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>老師自己申請的免費線上工具，算不算學校要負責的範圍？</summary>
+      <div class="faq-a">從風險管理的角度，只要蒐集到的是在學學生的資料，不論是校方正式採購的系統、還是老師個人為了教學方便申請的免費帳號，都應該納入盤點範圍。實務上常見的問題正是這 1 類「非正式導入」的工具最容易被忽略，也最容易在條款裡藏著資料會被用於廣告或第三方分析的授權，建議透過學校統一的教育版帳號（如 Google Workspace for Education）申請與管理教學工具，而不是放任老師各自用個人帳號註冊，這也是Workspace for Education對校園資安管理的實際幫助之一。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>個資法規細節不確定的時候該怎麼辦？</summary>
+      <div class="faq-a">個人資料保護法對教育機構的適用範圍、蒐集告知義務、當事人權利行使等具體規定，會隨主管機關的解釋函令與個案情況而有差異，這篇內容提供的是盤點作業的實務框架，不是法律諮詢。涉及具體法規適用、罰則風險或個資外洩事件處理，建議洽詢學校法律顧問，或參考個人資料保護委員會（若設立）與教育部的最新公告，不要僅憑網路文章自行判斷。</div>
+    </details>
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的行政群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《學校導入雲端服務的個資盤點清單》，把哪些系統該盤點、盤點表怎麼設計、風險怎麼分級都寫清楚了，分享給大家參考：https://www.hunglun.com/knowledge/data-inventory" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/privacy">下一篇：個資法與校安須知 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">更多校園資安與帳號管理知識。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/privacy">
+        <div class="card-body"><h3>個資法與校安須知</h3><p>校園個資風險、AI工具導入檢查重點。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/security-incident-response">
+        <div class="card-body"><h3>校園資安事件通報與處理流程</h3><p>發現後第一小時該做的五件事、誰要通報給誰。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/student-ai-policy">
+        <div class="card-body"><h3>學生使用 AI 的校內規範怎麼訂</h3><p>年齡分級、禁止事項、家長同意與教師監督範本框架。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台設定指南</h3><p>OU、群組、裝置盤點怎麼做。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">需要協助盤點校內數位工具？</h2>
+    <p class="section-sub reveal">告訴我們貴校目前有哪些系統，我們幫忙整理出盤點清單雛型。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在規劃 Workspace 導入或調整？</h2>
+      <p>不論是新導入、版本變更還是管理設定調整，先備妥這幾項：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>教職員與學生帳號數</li>
+        <li>目前使用的版本（Fundamentals、Teaching and Learning、Education Plus）</li>
+        <li>這次想解決的主要問題（儲存空間、資安、帳號管理或其他）</li>
+        <li>是否需要管理員教育訓練</li>
+        <li>預計處理時間</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Google%20Workspace%20%E5%B0%8E%E5%85%A5%E8%88%87%E7%AE%A1%E7%90%86&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E6%95%99%E8%81%B7%E5%93%A1%E8%88%87%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E9%80%99%E6%AC%A1%E6%83%B3%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E5%95%8F%E9%A1%8C%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%93%A1%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E8%99%95%E7%90%86%E6%99%82%E9%96%93%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E5%AD%B8%E6%A0%A1%E5%B0%8E%E5%85%A5%E9%9B%B2%E7%AB%AF%E6%9C%8D%E5%8B%99%E7%9A%84%E5%80%8B%E8%B3%87%E7%9B%A4%E9%BB%9E%E6%B8%85%E5%96%AE%EF%BC%89">寄信詢問：Google Workspace 導入與管理</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-workspace">看 Workspace 導入與培訓服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

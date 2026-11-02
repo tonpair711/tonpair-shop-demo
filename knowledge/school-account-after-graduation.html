@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>學校 Google 帳號畢業後還能用嗎？資料轉移與刪除｜鴻綸科技</title>
+<meta name="description" content="學校給的 Google 帳號畢業後能不能用，由學校決定，不是 Google 統一規定。整理停用與刪除的差別、用 takeout.google.com/transfer 轉出雲端硬碟與 Gmail 的步驟、哪些內容轉不走，以及帳號被刪了還救不救得回來。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/school-account-after-graduation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="學校 Google 帳號畢業後還能用嗎？資料轉移與刪除｜鴻綸科技">
+<meta property="og:description" content="畢業後學校 Google 帳號還能用嗎？資料怎麼轉到個人 Gmail、哪些轉不走，依 Google 官方說明整理。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/school-account-after-graduation">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-school-account-after-graduation.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="學校 Google 帳號畢業後還能用嗎？資料轉移與刪除｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="學校 Google 帳號畢業後還能用嗎？資料轉移與刪除｜鴻綸科技">
+<meta name="twitter:description" content="畢業後學校 Google 帳號還能用嗎？資料怎麼轉到個人 Gmail、哪些轉不走，依 Google 官方說明整理。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-school-account-after-graduation.png?v=5">
+<meta name="twitter:image:alt" content="學校 Google 帳號畢業後還能用嗎？資料轉移與刪除｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "首頁",
+      "item": "https://www.hunglun.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "教學專區",
+      "item": "https://www.hunglun.com/knowledge"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Google 與 AI 導入",
+      "item": "https://www.hunglun.com/knowledge/topic/google-ai"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "學校 Google 帳號畢業後",
+      "item": "https://www.hunglun.com/knowledge/school-account-after-graduation"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-10-21",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "學校的 Google 帳號畢業後還能用嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "要看學校。學校帳號屬於學校，畢業後保留、停用或刪除，由學校管理員決定，Google 沒有統一規定。請向導師或資訊組確認停用日期，並在這之前轉出資料。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "怎麼把學校帳號的資料轉到個人 Gmail？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "用學校帳號登入 takeout.google.com/transfer，選擇雲端硬碟、Gmail、Google 相簿，輸入接收的個人帳號後開始轉移。接收帳號要有足夠的儲存空間。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "轉移資料會把學校帳號裡的檔案刪掉嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不會。官方說明寫明轉移過程不會刪除任何文件、郵件或相片，是在新帳號建立副本。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "為什麼我看不到轉移資料的選項，或轉移失敗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "最常見的原因是學校管理員沒有開放轉移權限，或學校關閉了對網域外的共用，導致雲端硬碟檔案無法複製。另外，接收帳號空間不足也會失敗。請洽學校資訊組。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "學校帳號被刪除了還救得回來嗎？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "依 Google 當期政策，刪除後約 20 天內管理員可嘗試復原，逾期資料救不回來。發現帳號登不進去要立刻通知資訊組，復原由管理員操作，個人無法自行處理。"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "學校 Google 帳號畢業後還能用嗎？資料轉移與刪除",
+  "description": "學校給的 Google 帳號畢業後能不能用，由學校決定，不是 Google 統一規定。整理停用與刪除的差別、用 takeout.google.com/transfer 轉出雲端硬碟與 Gmail 的步驟、哪些內容轉不走，以及帳號被刪了還救不救得回來。",
+  "image": "https://www.hunglun.com/assets/og/knowledge-school-account-after-graduation.png",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/school-account-after-graduation"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ 學校 Google 帳號畢業後</nav>
+    <h1>學校 Google 帳號畢業後還能用嗎？資料轉移與刪除</h1>
+    <p>每年畢業季，家長與學生最常問：學校給的 Google 帳號，畢業後還能用嗎？答案是：能不能用由學校決定，不是 Google 統一規定。重點是在帳號被停用之前，把自己的檔案轉出來。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>即將畢業的學生、家長與導師，以及要回答這類問題的學校資訊組。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-10-21">2026 年 10 月 21 日</time></p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>畢業後還能用嗎？</strong>看學校。學校帳號屬於學校，畢業後要保留、停用或刪除，由學校管理員決定，各校不同。請直接問導師或資訊組停用日期。</li>
+        <li><strong>資料怎麼帶走？</strong>用學校帳號到 takeout.google.com/transfer，把雲端硬碟檔案、Gmail 郵件、Google 相簿複製到另一個 Google 帳號。官方說明這是複製，原帳號的資料不會被刪除。</li>
+        <li><strong>哪些轉不走？</strong>Gmail 的聯絡人、聊天與工作不能轉；雲端硬碟只能轉你自己擁有的檔案，別人分享給你的不算。</li>
+        <li><strong>看不到轉移選項怎麼辦？</strong>通常是學校管理員沒有開放轉移權限，或關閉了對網域外共用，請洽資訊組。</li>
+        <li><strong>帳號已經被刪除了？</strong>盡快通知資訊組。依 Google 當期政策，刪除後有一段約 20 天的還原期，逾期救不回來，復原要由管理員操作。</li>
+        </ul>
+    </div>
+
+    <h2>為什麼學校會停用或刪除畢業生的帳號？</h2>
+    <p><strong>因為學校帳號是學校的資產，不是學生個人的。</strong>管理員決定帳號畢業後怎麼處理。常見的原因之一是儲存空間：Google Workspace for Education 的雲端空間是全校共用一個額度，畢業生留下的檔案會一直佔用，所以不少學校會定期清理。完整原理見 <a href="/knowledge/google-storage">學校雲端硬碟空間不足怎麼辦</a>。</p>
+    <p>實際怎麼處理沒有標準答案，有的學校畢業就停用，有的保留一段時間，有的直接刪除。唯一可靠的做法是在畢業前直接問清楚日期。</p>
+
+    <h2>停用和刪除差在哪？</h2>
+    <p><strong>停用只是登不進去，資料還在；刪除才是資料真的被移除。</strong></p>
+    <div class="spec-table-wrap">
+    <table class="spec-table">
+      <thead><tr><th>狀態</th><th>學生看到的情況</th><th>能不能救回</th></tr></thead>
+      <tbody><tr><td>停用（暫停）</td><td>登入失敗，帳號與資料都還保留在學校網域</td><td>管理員可以重新啟用</td></tr><tr><td>刪除</td><td>帳號與雲端硬碟、Gmail 資料被移除</td><td>依 Google 當期政策，約 20 天內管理員可嘗試復原，逾期救不回來</td></tr></tbody>
+    </table>
+    </div>
+    <p>管理員端的完整處理流程見 <a href="/knowledge/account-lifecycle">學校 Google 帳號生命週期管理</a>。</p>
+
+    <h2>畢業前怎麼把資料轉出來？</h2>
+    <ol class="feature-list">
+      <li><strong>先問停用日期</strong>：向導師或資訊組確認帳號哪一天會被停用或刪除，轉移要在那之前完成。</li>
+      <li><strong>準備接收帳號</strong>：通常是個人 Gmail。官方說明目的地帳號要有足夠的儲存空間，空間不夠轉移就會失敗。</li>
+      <li><strong>用學校帳號開轉移頁</strong>：登入學校帳號，到 takeout.google.com/transfer，選擇要轉的項目（雲端硬碟、Gmail、Google 相簿），輸入接收帳號後開始。檔案多的話需要一段時間。</li>
+      <li><strong>到新帳號檢查</strong>：確認重要檔案和郵件都在。官方說明是建立副本，原帳號的資料不會被刪除，所以可以先檢查再放心。</li>
+      <li><strong>改外部服務的登入信箱</strong>：用學校帳號註冊過的網站、線上課程或雲端服務，登入信箱要改成個人信箱，不然帳號停用後就登不進去了。這是我們的建議，不是 Google 的功能。</li>
+    </ol>
+    <p>想另外存一份在電腦裡，也可以到 takeout.google.com 下載封存檔。</p>
+
+    <h2>哪些內容轉得走，哪些轉不走？</h2>
+    <div class="spec-table-wrap">
+    <table class="spec-table">
+      <thead><tr><th>項目</th><th>能不能轉</th><th>說明</th></tr></thead>
+      <tbody><tr><td>雲端硬碟</td><td>可以</td><td>只能轉你自己擁有的文件與資料夾</td></tr><tr><td>Gmail 郵件</td><td>可以</td><td>官方說明不含聯絡人、聊天與工作</td></tr><tr><td>Google 相簿</td><td>可以</td><td>你自己擁有的相片、影片與相簿</td></tr><tr><td>別人擁有、分享給你的檔案</td><td>不行</td><td>擁有者不是你，無法複製</td></tr><tr><td>Classroom 課程內容</td><td>官方未列入</td><td>官方說明沒有列出，重要的作業或成績請自行另存</td></tr></tbody>
+    </table>
+    </div>
+    <p>還有一個限制：官方說明寫明，如果學校關閉了對網域外的共用，雲端硬碟檔案就無法複製。遇到這種情況，請資訊組協助暫時調整。</p>
+
+    <h2>看不到轉移選項，是管理員要開</h2>
+    <p><strong>這個功能要由學校管理員在管理主控台的 Google Takeout 設定頁開啟。</strong>官方做法是在「額外轉移權限」區塊勾選允許，並分別為雲端硬碟、Gmail、Google 相簿啟用，也可以只套用在畢業生所在的組織單位。學生按了沒反應、顯示沒有權限，十之八九是這裡沒開。</p>
+    <p>給資訊組的提醒：與其畢業當天才被問，不如在畢業季前先開啟，並公告停用日期。</p>
+
+    <h2>帳號已經被刪除了，還救得回來嗎？</h2>
+    <p><strong>要看被刪除多久，而且只有學校管理員能處理。</strong>依 Google 當期政策，刪除後有一段約 20 天的還原期，逾期資料就救不回來。如果發現帳號登不進去，請立刻聯絡資訊組，不要等。復原天數以 Google 當期說明為準，我們沒有逐字重新查證這個天數。</p>
+
+    <div class="kb-sources" style="margin-top:32px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-soft);font-size:0.9rem;">
+      <p style="margin:0 0 6px;"><strong>資料來源與查證</strong>（最後查證：2026 年 10 月 21 日）</p>
+      <p style="margin:0;color:var(--muted);">Google Workspace 管理員說明〈讓準畢業生轉移資料〉（knowledge.workspace.google.com，頁面 2026 年 10 月 13 日更新）。復原期約 20 天為本站〈學校 Google 帳號生命週期管理〉整理，實際以 Google 當期說明為準。各校的停用與刪除時間由學校決定。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>學校的 Google 帳號畢業後還能用嗎？</summary>
+      <div class="faq-a">要看學校。學校帳號屬於學校，畢業後保留、停用或刪除，由學校管理員決定，Google 沒有統一規定。請向導師或資訊組確認停用日期，並在這之前轉出資料。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>怎麼把學校帳號的資料轉到個人 Gmail？</summary>
+      <div class="faq-a">用學校帳號登入 takeout.google.com/transfer，選擇雲端硬碟、Gmail、Google 相簿，輸入接收的個人帳號後開始轉移。接收帳號要有足夠的儲存空間。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>轉移資料會把學校帳號裡的檔案刪掉嗎？</summary>
+      <div class="faq-a">不會。官方說明寫明轉移過程不會刪除任何文件、郵件或相片，是在新帳號建立副本。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>為什麼我看不到轉移資料的選項，或轉移失敗？</summary>
+      <div class="faq-a">最常見的原因是學校管理員沒有開放轉移權限，或學校關閉了對網域外的共用，導致雲端硬碟檔案無法複製。另外，接收帳號空間不足也會失敗。請洽學校資訊組。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校帳號被刪除了還救得回來嗎？</summary>
+      <div class="faq-a">依 Google 當期政策，刪除後約 20 天內管理員可嘗試復原，逾期資料救不回來。發現帳號登不進去要立刻通知資訊組，復原由管理員操作，個人無法自行處理。</div>
+    </details>
+
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的行政或教師群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《學校 Google 帳號畢業後》，分享給大家參考：https://www.hunglun.com/knowledge/school-account-after-graduation" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/account-lifecycle">
+        <div class="card-body"><h3>學校 Google 帳號生命週期管理</h3><p>管理員視角：新生建檔、畢業生轉出與停權的年度流程。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-storage">
+        <div class="card-body"><h3>學校雲端硬碟空間不足怎麼辦</h3><p>全校共用空間的運作原理，以及為什麼學校要清理畢業帳號。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台校園設定指南</h3><p>組織單位、群組與政策設定的基本做法。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/data-inventory">
+        <div class="card-body"><h3>學校導入雲端服務的個資盤點清單</h3><p>帳號與資料要保留多久，先盤點再決定。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">想為貴校規劃畢業生帳號的處理流程？</h2>
+      <p>我們可以協助設定轉移權限、規劃停用與刪除的時程，並整理一份給家長與學生看的公告範本。</p>
+      <a class="btn btn-primary" href="/contact?topic=workspace">詢問帳號管理規劃</a>
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

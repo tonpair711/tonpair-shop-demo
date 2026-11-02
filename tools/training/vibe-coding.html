@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Vibe Coding 是什麼？用 12 道指令做出抽籤轉盤｜研習講義｜鴻綸科技</title>
+<meta name="description" content="Vibe Coding 是用說的把工具做出來，程式碼交給 AI。這是鴻綸科技線上研習的完整講義：12 道可直接複製的指令，在 Gemini Canvas 做出一顆貼上名單就分格、會自動清掉空白與重複的課堂抽籤轉盤。全程不寫程式，免費帳號做得完，成品可下載成一個離線也能開的檔案。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.hunglun.com/tools/training/vibe-coding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vibe Coding 是什麼？用 12 道指令做出抽籤轉盤｜研習講義｜鴻綸科技">
+<meta property="og:description" content="12 道可直接複製的指令，在 Gemini Canvas 做出一顆課堂抽籤轉盤。全程不寫程式，免費帳號做得完。">
+<meta property="og:url" content="https://www.hunglun.com/tools/training/vibe-coding">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/tools-training-vibe-coding.png?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vibe Coding 是什麼？用 12 道指令做出一顆課堂抽籤轉盤｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vibe Coding 是什麼？用 12 道指令做出抽籤轉盤｜研習講義｜鴻綸科技">
+<meta name="twitter:description" content="12 道可直接複製的指令，在 Gemini Canvas 做出一顆課堂抽籤轉盤。全程不寫程式，免費帳號做得完。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/tools-training-vibe-coding.png?v=2">
+<meta name="twitter:image:alt" content="Vibe Coding 是什麼？用 12 道指令做出一顆課堂抽籤轉盤｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<style>
+/* 研習講義專用：指令卡與課程資訊列。只有研習專區兩頁用得到，
+   放在頁內避免為了兩頁去升全站 CSS 版號。 */
+.pi { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 18px 18px 14px; margin: 22px 0; }
+.pi-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px; }
+.pi-no { font-size: .78rem; letter-spacing: .04em; color: var(--accent); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+.pi-where { font-size: .78rem; color: var(--muted-faint); }
+.pi h3 { font-size: 1.05rem; font-weight: 500; margin: 2px 0 10px; }
+.pi-cmd { white-space: pre-wrap; word-break: break-word; background: var(--bg-soft); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 14px 16px; font-family: inherit; font-size: .95rem; line-height: 1.85; color: var(--text-body); }
+.pi-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-top: 10px; }
+.pi-done { font-size: .9rem; color: var(--muted); margin: 0; }
+.pi-copy.fc-copy { position: static; flex: none; white-space: nowrap; }
+.pi-why { border-left: 3px solid var(--line); padding: 2px 0 2px 14px; margin: 18px 0; }
+.pi-why p { margin: 0 0 6px; }
+.course-meta { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; margin: 0 0 6px; font-size: .9rem; color: var(--muted); }
+.course-meta li { margin: 0; }
+.toc { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; background: var(--bg-soft); margin: 24px 0; }
+.toc ol { margin: 8px 0 0; padding-left: 20px; }
+.toc li { margin: 4px 0; }
+/* 圖解都用 HTML 畫，跟著全站深淺色變數走，不用另做兩套圖 */
+.vc-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 22px; }
+.vc-step { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 12px 12px 10px; }
+.vc-step b { display: block; font-size: .78rem; color: var(--accent); letter-spacing: .05em; margin-bottom: 4px; }
+.vc-step strong { display: block; font-size: .95rem; font-weight: 500; margin-bottom: 2px; }
+.vc-step span { font-size: .82rem; color: var(--muted); }
+@media (max-width: 700px) { .vc-flow { grid-template-columns: 1fr 1fr; } }
+.vc-wins { display: grid; grid-template-columns: 2fr 3fr; gap: 14px; margin: 18px 0 22px; }
+.vc-win { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-soft); padding: 12px; }
+.vc-win h4 { font-size: .9rem; font-weight: 600; margin: 0 0 8px; }
+.vc-bubble { border: 1px solid var(--line); background: var(--card); border-radius: 10px; padding: 7px 10px; font-size: .82rem; color: var(--text-body); margin-bottom: 6px; }
+.vc-bubble.me { border-left: 3px solid var(--accent); }
+.vc-split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 8px; }
+.vc-pane { border: 1px dashed var(--line); border-radius: 8px; padding: 8px; font-size: .8rem; color: var(--muted); min-height: 104px; }
+.vc-pane.hot { border: 2px solid var(--accent); color: var(--text-body); }
+@media (max-width: 700px) { .vc-wins { grid-template-columns: 1fr; } }
+.vc-clean { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; margin: 18px 0 22px; }
+.vc-list { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-soft); padding: 10px 14px; font-size: .85rem; line-height: 1.9; color: var(--text-body); }
+.vc-list em { font-style: normal; color: var(--muted-faint); font-size: .78rem; }
+.vc-list b { display: block; font-size: .78rem; font-weight: 500; color: var(--accent); margin-bottom: 4px; letter-spacing: .05em; }
+.vc-arrow { color: var(--accent); font-size: 1.4rem; }
+@media (max-width: 700px) { .vc-clean { grid-template-columns: 1fr; } .vc-arrow { transform: rotate(90deg); justify-self: center; } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Course",
+      "dateModified": "2026-08-17",
+      "name": "用最簡單的應用程式，了解 Vibe Coding 的邏輯",
+      "description": "線上研習完整講義。用 12 道可直接複製的指令，在 Gemini Canvas 做出一顆課堂抽籤轉盤：貼上名單就自動分格、會清掉空白行、重複姓名與多餘空格。全程不寫程式碼，重點在把需求講清楚的方法。",
+      "url": "https://www.hunglun.com/tools/training/vibe-coding",
+      "inLanguage": "zh-Hant-TW",
+      "isAccessibleForFree": true,
+      "educationalLevel": "教師與行政人員（不需程式基礎）",
+      "teaches": [
+        "Vibe Coding 的定義與適用範圍",
+        "用 AI 一題一題問出需求並整理成提示詞",
+        "在 Gemini Canvas 做出可預覽的工具",
+        "一句好指令的四個要素與三句護欄",
+        "名單清洗：空白行、重複姓名與多餘空格的處理"
+      ],
+      "provider": {
+        "@id": "https://www.hunglun.com/#organization"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "沈軒志 Steve",
+        "jobTitle": "Google for Education 認證講師",
+        "worksFor": { "@id": "https://www.hunglun.com/#organization" }
+      },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT3H",
+        "inLanguage": "zh-Hant-TW"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TWD",
+        "category": "Free",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "用 12 道指令在 Gemini Canvas 做出一顆課堂抽籤轉盤",
+      "description": "不寫任何程式碼，用 12 道中文指令做出可貼名單、會自動清理名單並隨機抽人的抽籤轉盤，成品可下載成單一 HTML 檔離線使用。",
+      "totalTime": "PT3H",
+      "inLanguage": "zh-Hant-TW",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "TWD",
+        "value": "0"
+      },
+      "tool": [
+        { "@type": "HowToTool", "name": "Chrome 瀏覽器" },
+        { "@type": "HowToTool", "name": "Google 帳號（個人或學校帳號皆可）" },
+        { "@type": "HowToTool", "name": "Gemini Canvas" }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "請 AI 先問您五個問題",
+          "text": "在第一個對話視窗告訴 AI 想做什麼，並要求它在動手之前先問五個問題、一次問一題、每題附數字選項。做完會看到 AI 丟第一個問題回來問您。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p01"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "請 AI 把談定的內容整理成一段提示詞",
+          "text": "五題答完後，請 AI 把談定的內容整理成一整段可以直接交付的提示詞，包含使用情境、要做的功能、這次刻意不做的事。做完會看到一整段可以複製的提示詞。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p02"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "開一塊可以預覽的畫布",
+          "text": "另開第二個對話視窗並選擇 Canvas，請它開啟一塊空白畫布並命名。做完會看到畫面分成左右兩半，右邊是一塊空白畫布。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p03"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "貼上提示詞，讓轉盤出現",
+          "text": "回到第一個視窗複製整段提示詞，貼到第二個視窗並請 AI 依提示詞先做出大致的樣子。做完會看到右邊的畫布長出一顆會轉的轉盤。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p04"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "定下底色與字體",
+          "text": "把色碼與字體直接寫出來：深藍黑底 #020617、柔和白文字 #F5F7FA、香檳金重點色 #F0D399、字體 Noto Sans TC。做完會看到空白頁變成深藍黑色的底。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p05"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "分成兩欄，加上標題列",
+          "text": "把版面分成左四成的名單設定區與右六成的轉盤顯示區，四周留白，最上方加一列標題。做完會看到畫面分成左右兩塊，上面有標題。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p06"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 7,
+          "name": "做一個貼名單的地方",
+          "text": "在左側加一個大的文字輸入框與一顆載入名單按鈕，輸入框一行一位、預設高度大一點。做完會看到左邊多一個大輸入框跟一顆按鈕。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p07"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 8,
+          "name": "加一顆按鈕，自己生一份測試名單",
+          "text": "加一顆產生測試名單按鈕，按下去填入 8 個常見中文姓名、一行一位，不使用真實學生資料。做完會看到輸入框自己填滿 8 個名字。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p08"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 9,
+          "name": "讓格子跟著名單長",
+          "text": "請轉盤的格數依名單人數自動產生，每格顯示一位姓名，名單改了立刻重畫。做完會看到改完名單，轉盤格數當場跟著變。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p09"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 10,
+          "name": "按一下就抽出一個人",
+          "text": "請開始抽籤按鈕從整理好的名單隨機選出一位、把那一格亮起來，並在下方用大字顯示姓名，這一步先不做旋轉動畫。做完會看到某一格亮起來，下面出現名字。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p10"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 11,
+          "name": "再加一顆按鈕，生一份亂名單",
+          "text": "加一顆產生亂名單按鈕，刻意夾三行空白、一個姓名重複兩次、兩個姓名後面各多一個空格，用來測試名單清洗。做完會看到輸入框變成一份看起來怪怪的名單。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p11"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 12,
+          "name": "名單貼進來就自動清乾淨",
+          "text": "請按下載入名單時自動忽略空白行、去掉姓名前後多餘空格、完全相同的姓名只保留第一個，並顯示原始 N 行、有效 M 人。做完會看到下方出現原始 12 行，有效 8 人。",
+          "url": "https://www.hunglun.com/tools/training/vibe-coding#p12"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vibe Coding 是什麼？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vibe Coding 是用說的把工具做出來：您負責把想做的事講清楚，程式碼交給 AI 寫，自己一行程式都不用寫。判斷做出來的東西對不對、規則該怎麼訂，仍然由您決定。這個詞由 Andrej Karpathy 於 2025 年 2 月提出，同年 3 月被韋氏字典收為新詞、11 月被柯林斯英語詞典選為年度代表字。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "完全不會寫程式，真的做得出來嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "做得出來。這份講義的 12 道指令全部是中文句子，整段複製貼上即可，過程不需要看懂任何一行程式碼。真正花時間的是把需求講清楚，這一段沒有人可以代替您，因為您比任何人都清楚那件事該怎麼做才對。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "要付費嗎？免費帳號夠用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "夠用。這堂研習全程用 Gemini 的免費額度就做得完，不需要另外購買授權，也不必安裝任何軟體。只需要 Chrome 瀏覽器與一個已登入的 Google 帳號，個人帳號或學校帳號都可以。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "一定要用 Gemini 嗎？換別的 AI 可以嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "方法本身不綁工具，換別的 AI 一樣成立，只是畫面與操作位置不一樣。這份講義用 Gemini Canvas，是因為它內建可預覽的開發環境，講完就看得到畫面，不必安裝任何軟體，對第一次接觸的人門檻最低。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "做出來的東西是我的嗎？關掉對話還在嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是您的。在 Gemini Canvas 按下載，會得到一個檔案，存在您自己的電腦裡。把它改名成「抽籤轉盤.html」，在檔案上點兩下就能打開，不用連網也能用，關掉對話也不會消失。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "改到一半整個亂掉了怎麼辦？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "跟 AI 說「請回到上一個能動的版本」。更好的做法是不要讓它亂掉：一次只加一件事，加完就試一次。一句話要求做完所有功能，壞掉的時候您會找不到是哪裡壞的。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "為什麼每一句指令的結尾都要加那三句話？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "因為 AI 收到指令後不是只改您提到的那一行，而是把整份重打一遍，沒提到的地方它會自己決定，舊功能因此可能不見。結尾固定加上「請只完成上述要求。」「不要動其他程式碼。」「保持原本功能正常。」，就是在畫出這三條界線。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以直接用學生的真實名單練習嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "練習階段不建議。這份講義刻意設計成由 AI 產生假名單，練習全程不會用到真實的學生資料。等工具做好、確認可用之後，再在自己的電腦上用真實名單操作，比較符合個資保護的基本原則。相關規範見個資法與校園資安須知。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "學校想辦這場研習，要怎麼安排？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "鴻綸科技是 Google for Education 專業發展夥伴，可依貴校教師的程度與時數規劃到校或線上研習，題目也能換成貴校實際的行政或教學需求。詳見Google AI 校園研習，或直接聯絡我們洽談。"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+        { "@type": "ListItem", "position": 2, "name": "資源分享", "item": "https://www.hunglun.com/tools" },
+        { "@type": "ListItem", "position": 3, "name": "研習專區", "item": "https://www.hunglun.com/tools/training" },
+        { "@type": "ListItem", "position": 4, "name": "Vibe Coding 研習講義", "item": "https://www.hunglun.com/tools/training/vibe-coding" }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger active">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/tools">資源分享</a> ／ <a href="/tools/training">研習專區</a> ／ Vibe Coding 研習講義</nav>
+    <h1>Vibe Coding 是什麼？用 12 道指令做出一顆課堂抽籤轉盤</h1>
+    <p>線上研習「用最簡單的應用程式，了解 Vibe Coding 的邏輯」的完整講義。指令全部公開，整段複製就能用。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">講師：沈軒志 Steve｜Google for Education 認證講師｜最後更新：<time datetime="2026-08-17">2026 年 8 月 17 日</time></p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:24px;">
+  <div class="wrap prose" style="max-width:920px;">
+
+    <ul class="course-meta">
+      <li><strong>對象</strong>：教師與行政人員，不需程式基礎</li>
+      <li><strong>時間</strong>：約 3 小時</li>
+      <li><strong>費用</strong>：免費，用免費帳號做得完</li>
+      <li><strong>工具</strong>：Chrome ＋ Google 帳號 ＋ Gemini Canvas</li>
+    </ul>
+
+    <p><strong>Vibe Coding 是用說的把工具做出來：您負責把想做的事講清楚，程式碼交給 AI，自己一行程式都不用寫。</strong>這一堂課從頭到尾只做一件事：把一句模糊的「我想要一個抽籤轉盤」，變成一顆真的能用、貼上名單就會分格、還會自己清掉重複與空白的轉盤。</p>
+    <p>做完之後，您手上會有三樣東西：一個離線點兩下就打得開的檔案、一整套跟 AI 講話的說法（換個題目照樣用）、以及一份自己講得出來的做法，講得出來，才算真的會了。</p>
+
+    <figure class="prose-figure" style="margin:26px 0;">
+      <img src="/assets/images/vibe-wheel-demo.webp" width="1200" height="784" alt="課堂抽籤大轉盤成品畫面：左邊名單設定區有八人名單與載入名單、產生測試名單、產生亂名單三顆按鈕並顯示原始 12 行有效 8 人，右邊轉盤分成八格，王心怡那一格亮起，下方大字顯示抽中的是王心怡" loading="eager" decoding="async" srcset="/assets/images/vibe-wheel-demo-480.webp 480w, /assets/images/vibe-wheel-demo-768.webp 768w, /assets/images/vibe-wheel-demo.webp 1200w" sizes="(max-width: 700px) 92vw, 856px" style="width:100%;height:auto;border-radius:6px;">
+      <figcaption style="font-size:.85rem;color:var(--muted);margin-top:10px;text-align:center;">做完的成品長這樣：左邊貼名單，右邊的轉盤跟著名單長格子，按一下抽出一位。</figcaption>
+    </figure>
+
+    <div class="toc">
+      <strong>這份講義的五段</strong>
+      <ol>
+        <li><a href="#what">Vibe Coding 是什麼</a>：這個詞從哪來、三個最常見的誤會</li>
+        <li><a href="#concept">先把觀念弄懂</a>：需求怎麼講清楚、AI 是怎麼聽您說話的</li>
+        <li><a href="#prepare">先把東西準備好</a>：四件事、兩個視窗、三句護欄</li>
+        <li><a href="#hands-on">十二道指令全文</a>：整段複製，一次加一件事</li>
+        <li><a href="#wrapup">把今天收起來</a>：存檔、換題目、回去第一週做的三件事</li>
+      </ol>
+    </div>
+
+    <h2 class="section-title reveal" id="what">Vibe Coding 是什麼？</h2>
+    <p><strong>Vibe Coding 是把「要做什麼」用日常語言講清楚，讓 AI 去寫程式碼的做法。</strong>提出這個詞的是 Andrej Karpathy，他當初那句話的意思是：完全交給感覺，不再去看程式碼本身。實際做起來是三件事：</p>
+    <ul class="feature-list">
+      <li><strong>不再逐行讀程式碼</strong>：改成看做出來的東西對不對。</li>
+      <li><strong>用講的說出要什麼</strong>：不對就再講一句，請 AI 改。</li>
+      <li><strong>由您負責判斷</strong>：這一段 AI 無法取代，永遠是您的。</li>
+    </ul>
+
+    <h3>這個詞，是這幾年才有的</h3>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">時間</th><th scope="col">發生了什麼事</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">2025 年 2 月</th><td>Andrej Karpathy 提出「Vibe Coding」這個說法</td></tr>
+          <tr><th scope="row">2025 年 3 月</th><td>韋氏字典（Merriam-Webster）把這個詞收進新詞</td></tr>
+          <tr><th scope="row">2025 年 11 月</th><td>柯林斯英語詞典選為年度代表字</td></tr>
+          <tr><th scope="row">現在</th><td>開發環境直接內建在 AI 裡，不必安裝任何軟體</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>差別在哪裡？以前是<strong>學會了才做得出來</strong>：先學語法、環境、工具，一個小工具要弄好幾週，出錯了還看不懂錯誤訊息，多數人學到一半就停了。現在是<strong>講清楚就做得出來</strong>：用中文把要做的事說出來，一個下午就有能用的東西，畫面不對就用講的請 AI 改。</p>
+
+    <h3>三個最常見的誤會</h3>
+    <ul class="feature-list">
+      <li><strong>以為隨便講講就會有東西</strong>：講不清楚規則，AI 也給不出對的結果。</li>
+      <li><strong>以為可以完全取代資訊團隊</strong>：大型系統還是需要規劃、資訊安全與長期維護，這不是一個下午做得完的事。</li>
+      <li><strong>以為程式碼不重要了</strong>：只是換 AI 來寫，最終程式好不好用，還是由您判斷。</li>
+    </ul>
+
+    <h3>學校為什麼要學這件事</h3>
+    <ul class="feature-list">
+      <li><strong>能預覽的開發環境已經內建了</strong>：講完就看得到畫面，不必安裝任何軟體。</li>
+      <li><strong>單位裡的雜事沒有人會幫您寫</strong>：為了一份只有貴單位用得到的小工具去委外，費時費力也不划算。</li>
+      <li><strong>最難的那一段本來就在您手上</strong>：您比任何人都清楚那件事該怎麼做才對。</li>
+    </ul>
+
+    <h2 class="section-title reveal" id="concept">先把觀念弄懂</h2>
+    <p>把「為什麼這樣講」弄懂，等一下的十二道指令才會是您自己的。今天的路只有四段：</p>
+    <div class="vc-flow" role="img" aria-label="四段流程：談需求、選開發環境、長出畫面、接上名單">
+      <div class="vc-step"><b>01 談需求</b><strong>AI 一題一題問您</strong><span>在視窗 1，完全不寫程式</span></div>
+      <div class="vc-step"><b>02 選開發環境</b><strong>另開視窗，選 Canvas</strong><span>做東西的地方在這裡</span></div>
+      <div class="vc-step"><b>03 長出畫面</b><strong>貼上提示詞，轉盤出現</strong><span>不對就用講的請 AI 改</span></div>
+      <div class="vc-step"><b>04 接上名單</b><strong>貼幾個人就有幾格</strong><span>換一班只要重貼名單</span></div>
+    </div>
+
+    <h3>一顆簡單的轉盤裡，藏著一整套軟體</h3>
+    <ul class="feature-list">
+      <li><strong>貼一份名單就開始</strong>：這叫「資料」。</li>
+      <li><strong>名單再亂也不會壞</strong>：這叫「擋錯誤」。</li>
+      <li><strong>按一下，挑出一個</strong>：這叫「規則」。</li>
+      <li><strong>換一份名單，整個換</strong>：這叫「畫面」。</li>
+    </ul>
+    <p>同一套邏輯換個場合就是另一個工具，中間那一欄是今天真的會做出來的東西：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">今天做得出來的功能</th><th scope="col">行政的工作</th><th scope="col">教學的現場</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">貼一份名單就開始</th><td>研習報名、問卷回收名冊</td><td>班級座號、分組名單</td></tr>
+          <tr><th scope="row">名單再亂也不會壞</th><td>各處室送來的格式都不一樣</td><td>轉學生、加退選後的名冊</td></tr>
+          <tr><th scope="row">按一下，挑出一個</th><td>財產盤點、公文會辦抽查</td><td>隨機點名、小考抽題</td></tr>
+          <tr><th scope="row">換一份名單，整個換</th><td>值班排序、評選委員抽籤</td><td>上台順序、口試排程</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>想不清楚的事，AI 幫不了您</h3>
+    <p>Vibe Coding 最花時間的從來不是「做」，是「講清楚要做什麼」。這件事 AI 幫不了您。但 AI 可以<strong>問</strong>您，把您沒想過的地方問出來。所以第一句話不是「幫我做」，是「先問我」：</p>
+    <ul class="feature-list">
+      <li><strong>您說想做什麼</strong>：一句話，還很模糊沒關係。</li>
+      <li><strong>AI 一題一題問您</strong>：問到您沒想過的地方。</li>
+      <li><strong>您用數字回答</strong>：答不出來就說「請你建議」。</li>
+      <li><strong>談定的變成提示詞</strong>：整段複製，交給第二個視窗。</li>
+    </ul>
+    <p>AI 會問您的，大概是這五種（順序每次不同）：誰會用、在什麼場合？名單從哪來、幾個人？抽過的還要再抽嗎？有空白、有重複怎麼辦？要看到什麼才算成功？</p>
+    <p>回答的訣竅只有三條：<strong>看得懂就直接選數字</strong>；<strong>看不懂就說「請你建議」</strong>，AI 會給一個常見做法，您點頭就好；<strong>想到別的就直接補一句</strong>，例如「名單我會從 Excel 貼進來」。</p>
+    <p>沒講清楚的需求，只是一個願望，這句話回辦公室看廠商交件也適用。</p>
+
+    <h3>一句好指令，有這四樣東西</h3>
+    <ul class="feature-list">
+      <li><strong>要加什麼東西</strong>：「加一個大的文字輸入框」。</li>
+      <li><strong>要長什麼樣子</strong>：「一行一位，高度大一點」。</li>
+      <li><strong>只做這一件事</strong>：「請只完成上述要求。」</li>
+      <li><strong>怎麼算做好了</strong>：「左邊會多一個輸入框」。</li>
+    </ul>
+
+    <h3>您按下送出之後，AI 做了這四件事</h3>
+    <ul class="feature-list">
+      <li><strong>讀您這一句</strong>：AI 只看得到您寫出來的字。</li>
+      <li><strong>整份重打一遍</strong>：不是只改您提到的那一行。</li>
+      <li><strong>沒提到的自己決定</strong>：AI 以為那部分您沒有意見。</li>
+      <li><strong>回一份新的給您</strong>：所以舊功能可能就不見了。</li>
+    </ul>
+    <p>這就是為什麼每一段指令的結尾都要加那三句護欄，也是為什麼<strong>一次只加一件事，加完就試一次</strong>。一次要求做完所有功能，壞了您會找不到是哪裡壞的。</p>
+    <p>另外一件要先知道的事：<strong>AI 每次回的都不太一樣，這是正常的。</strong>同一句話問兩次，說法與排版都可能不同。所以「做完會看到什麼」要自己先講出來：有這一句，做對做錯您自己看得出來；跟旁邊的人做出來不一樣也不用緊張，今天比的是能不能用，不是像不像。</p>
+
+    <h2 class="section-title reveal" id="prepare">先把東西準備好</h2>
+    <h3>先確認這四件事</h3>
+    <ul class="feature-list">
+      <li><strong>用 Chrome 瀏覽器</strong>：其他瀏覽器畫面會不一樣。</li>
+      <li><strong>Google 帳號已登入</strong>：個人或學校帳號都可以。</li>
+      <li><strong>指令從這一頁複製</strong>：整段選起來複製，不要自己一行一行打。</li>
+      <li><strong>不用準備任何名單</strong>：等一下讓 AI 幫您生一份假的。</li>
+    </ul>
+
+    <h3>全程只開兩個視窗，各做各的事</h3>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">比較</th><th scope="col">視窗 1：談需求</th><th scope="col">視窗 2：做畫面</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">怎麼開</th><td>一般對話，不開 Canvas</td><td>另開新對話，先選 Canvas</td></tr>
+          <tr><th scope="row">做什麼</th><td>AI 一題一題問，您用數字選</td><td>貼指令，看右邊的成果變化</td></tr>
+          <tr><th scope="row">結束時</th><td>請 AI 整理成一段提示詞</td><td>按下載，存成自己的檔案</td></tr>
+          <tr><th scope="row">注意</th><td>談完不要關，提示詞要回來複製</td><td><strong>指令一律貼左邊</strong>，右邊是看的</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="vc-wins" role="img" aria-label="兩個視窗的分工示意：視窗一談需求，視窗二做畫面，指令一律貼在視窗二的左半邊">
+      <div class="vc-win">
+        <h4>視窗 1：談需求（一般對話）</h4>
+        <div class="vc-bubble">AI：名單從哪來？大概幾個人？<br>1. 手動輸入　2. 從 Excel 貼　3. 請你建議</div>
+        <div class="vc-bubble me">您：2，從 Excel 貼進來，大約 30 人</div>
+        <div class="vc-bubble">AI：抽過的人還要再抽嗎？…</div>
+      </div>
+      <div class="vc-win">
+        <h4>視窗 2：做畫面（選了 Canvas）</h4>
+        <div class="vc-split">
+          <div class="vc-pane hot"><strong>左半：對話區</strong><br>所有指令一律貼這裡，貼完按送出</div>
+          <div class="vc-pane"><strong>右半：成果區</strong><br>轉盤長在這裡。這一塊是看的，不是打字的，貼錯邊畫面不會有反應</div>
+        </div>
+      </div>
+    </div>
+    <p>開視窗之前先做三件事：左上角點「開始新的對話」，不要接在舊對話後面；確認輸入框是空的，乾淨的視窗 AI 才只看今天講的話；第一句話就把語言講定：<strong>「以下全部用繁體中文（台灣）回答我，按鈕上的字也請用繁體中文」</strong>。</p>
+
+    <h3>什麼是 Gemini Canvas？</h3>
+    <p><strong>Canvas 是 Gemini 內建的「做東西的地方」，選了它右邊才會出現一塊可以預覽的畫面。</strong>一般聊天時 AI 只回文字，右邊什麼都沒有；在輸入框旁點「＋」選 Canvas 之後，畫面會分成左右兩半：<strong>左半是您說話的地方，右半是成果</strong>。所有指令一律貼左邊，貼錯邊畫面會完全沒有反應。</p>
+    <p>⚠️ Canvas 有年齡限制，<strong>建立 Canvas 內容需年滿 18 歲</strong>，所以這份講義適合教師與行政人員自己操作，不適合直接規劃成 K-12 學生的課堂活動。詳細說明見 <a href="/knowledge/ai-slides">用 AI 做簡報：Gemini Canvas 與 Google 簡報 AI 功能</a>。</p>
+
+    <h3>每一句指令的結尾，都是這三句</h3>
+    <ul class="feature-list">
+      <li><strong>請只完成上述要求。</strong>不要順手多做，也不要少做。</li>
+      <li><strong>不要動其他程式碼。</strong>沒提到的地方一個字都別改。</li>
+      <li><strong>保持原本功能正常。</strong>加了新的，舊的不能壞掉。</li>
+    </ul>
+
+    <h2 class="section-title reveal" id="hands-on">十二道指令全文</h2>
+    <p>從這裡開始一路動手。<strong>每一道都是整段複製、貼上、等畫面變了再貼下一段。</strong>指令旁邊的按鈕可以直接複製整段。</p>
+
+    <div class="pi" id="p01">
+      <div class="pi-head"><span class="pi-no">實作 01 ／ 12</span><span class="pi-where">貼在視窗 1・談需求</span></div>
+      <h3>請 AI 先問您五個問題</h3>
+      <pre class="pi-cmd">我想要做一個幸運轉盤，用在課堂上抽籤。
+開發環境是 Gemini Canvas。
+在你開始寫任何東西之前，請先問我 5 個問題，
+把我沒講清楚的地方問出來，特別是「什麼情況算例外」。
+一次問一題，等我回答完再問下一題。
+所有問題請附上數字選項，讓我用選的就好。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：AI 丟第一個問題回來問您</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 1 的指令" data-copy="我想要做一個幸運轉盤，用在課堂上抽籤。&#10;開發環境是 Gemini Canvas。&#10;在你開始寫任何東西之前，請先問我 5 個問題，&#10;把我沒講清楚的地方問出來，特別是「什麼情況算例外」。&#10;一次問一題，等我回答完再問下一題。&#10;所有問題請附上數字選項，讓我用選的就好。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p02">
+      <div class="pi-head"><span class="pi-no">實作 02 ／ 12</span><span class="pi-where">貼在視窗 1・談需求</span></div>
+      <h3>請 AI 整理成一段提示詞</h3>
+      <pre class="pi-cmd">很好。請把剛才談定的內容，整理成一段可以直接交給你做的提示詞，
+包含：什麼情況下用、要做哪些功能、這次刻意不做什麼。
+寫成一整段，不要有程式碼，
+我要整段複製到另一個視窗去用。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：一整段可以直接複製起來的提示詞</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 2 的指令" data-copy="很好。請把剛才談定的內容，整理成一段可以直接交給你做的提示詞，&#10;包含：什麼情況下用、要做哪些功能、這次刻意不做什麼。&#10;寫成一整段，不要有程式碼，&#10;我要整段複製到另一個視窗去用。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi-why">
+      <p><strong>這兩句為什麼要這樣講</strong></p>
+      <p>「在你開始寫任何東西之前」，不加這句，AI 會直接動手，您就沒機會補充了。</p>
+      <p>「一次問一題」＋數字選項，一次丟五題人會亂，回一個數字最省力。</p>
+      <p>實作 2 產出的提示詞請另外存進記事本，換題目的時候，那一段就是您自己的範本。</p>
+    </div>
+
+    <p><strong>接下來換第二個視窗。</strong>左上角點「開始新的對話」開第二個視窗（談需求那一串不要關掉），在輸入框旁點「＋」選 Canvas，確認兩個視窗都還開著：一個談需求，一個做畫面。</p>
+
+    <div class="pi" id="p03">
+      <div class="pi-head"><span class="pi-no">實作 03 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>開一塊可以預覽的畫布</h3>
+      <pre class="pi-cmd">請幫我開啟一個可預覽的空白 Gemini Canvas，
+命名為「課堂抽籤大轉盤」。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：畫面變成左右兩半，右邊是一塊空白畫布</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 3 的指令" data-copy="請幫我開啟一個可預覽的空白 Gemini Canvas，&#10;命名為「課堂抽籤大轉盤」。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p04">
+      <div class="pi-head"><span class="pi-no">實作 04 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>貼上提示詞，轉盤就出現了</h3>
+      <pre class="pi-cmd">（回到第一個視窗，把剛才那一整段提示詞複製起來，貼在這裡）
+請依照上面這段提示詞，把畫面做出來。
+先做出大致的樣子就好，細節等一下再調。
+請只完成上述要求。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：右邊的畫布長出一顆會轉的轉盤</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 4 的指令" data-copy="（回到第一個視窗，把剛才那一整段提示詞複製起來，貼在這裡）&#10;請依照上面這段提示詞，把畫面做出來。&#10;先做出大致的樣子就好，細節等一下再調。&#10;請只完成上述要求。">複製指令</button>
+      </div>
+    </div>
+
+    <p>轉盤出現了。從頭到尾您只做了一件事：<strong>把想清楚的話講出來</strong>。程式碼是 AI 寫的，決定它長什麼樣的是您。</p>
+
+    <div class="pi" id="p05">
+      <div class="pi-head"><span class="pi-no">實作 05 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>定下底色與字體</h3>
+      <pre class="pi-cmd">整個頁面請用深藍黑底 #020617、文字用柔和白 #F5F7FA，
+重點色用香檳金 #F0D399，
+字體用 Noto Sans TC。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：空白頁變成深藍黑色的底</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 5 的指令" data-copy="整個頁面請用深藍黑底 #020617、文字用柔和白 #F5F7FA，&#10;重點色用香檳金 #F0D399，&#10;字體用 Noto Sans TC。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p06">
+      <div class="pi-head"><span class="pi-no">實作 06 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>分成兩欄，加上標題列</h3>
+      <pre class="pi-cmd">請把版面分成左右兩欄：
+左邊四成寬是「名單設定區」，右邊六成寬是「轉盤顯示區」，
+中間跟四周都要留白，文字不要貼齊螢幕邊緣。
+最上方加一列標題，寫「課堂抽籤大轉盤」。
+各區塊請加上圓角與一條很細的暗藍色邊框。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：畫面分成左右兩塊，上面有標題</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 6 的指令" data-copy="請把版面分成左右兩欄：&#10;左邊四成寬是「名單設定區」，右邊六成寬是「轉盤顯示區」，&#10;中間跟四周都要留白，文字不要貼齊螢幕邊緣。&#10;最上方加一列標題，寫「課堂抽籤大轉盤」。&#10;各區塊請加上圓角與一條很細的暗藍色邊框。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi-why">
+      <p><strong>這兩句為什麼要寫得這麼細</strong></p>
+      <p>色碼與字體都寫出來，只說「好看一點」，AI 每次給的都不一樣。</p>
+      <p>左右各佔幾成寬也講明，「分成兩欄」不夠，寬度不講 AI 就自己決定。</p>
+      <p>留白要自己講，不講的話，做出來的東西會擠在一起。</p>
+    </div>
+
+    <div class="pi" id="p07">
+      <div class="pi-head"><span class="pi-no">實作 07 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>做一個貼名單的地方</h3>
+      <pre class="pi-cmd">請在左側「名單設定區」加一個大的文字輸入框，
+以及一顆「載入名單」按鈕。
+輸入框請一行一位，預設高度大一點，方便貼整份名單。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：左邊多一個大輸入框跟一顆按鈕</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 7 的指令" data-copy="請在左側「名單設定區」加一個大的文字輸入框，&#10;以及一顆「載入名單」按鈕。&#10;輸入框請一行一位，預設高度大一點，方便貼整份名單。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p08">
+      <div class="pi-head"><span class="pi-no">實作 08 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>加一顆按鈕，自己生一份名單</h3>
+      <pre class="pi-cmd">請在「名單設定區」加一顆「產生測試名單」按鈕。
+按下去就在名單輸入框填入 8 個常見的中文姓名，一行一位，
+例如：陳小明、林雅婷、黃俊傑，不要用真實的學生資料。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：輸入框自己填滿 8 個名字</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 8 的指令" data-copy="請在「名單設定區」加一顆「產生測試名單」按鈕。&#10;按下去就在名單輸入框填入 8 個常見的中文姓名，一行一位，&#10;例如：陳小明、林雅婷、黃俊傑，不要用真實的學生資料。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi-why">
+      <p><strong>這兩句為什麼要這樣講</strong></p>
+      <p>「一行一位」要講出來，不講的話，用逗號還是空格分隔就由 AI 自己決定。</p>
+      <p>按鈕的字定了就別改，「載入名單」這四個字，後面每一句指令都靠它來指。</p>
+      <p>先做生名單的按鈕，不必自己打名單，也不會用到真的學生資料。</p>
+    </div>
+
+    <div class="pi" id="p09">
+      <div class="pi-head"><span class="pi-no">實作 09 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>讓格子跟著名單長</h3>
+      <pre class="pi-cmd">請讓轉盤的格子數量，依照名單人數自動產生：
+貼 8 個人就分 8 格，貼 20 個人就分 20 格，
+每一格中間顯示那一位的姓名。
+名單改了，轉盤要立刻跟著重畫。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：改完名單，轉盤格數當場跟著變</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 9 的指令" data-copy="請讓轉盤的格子數量，依照名單人數自動產生：&#10;貼 8 個人就分 8 格，貼 20 個人就分 20 格，&#10;每一格中間顯示那一位的姓名。&#10;名單改了，轉盤要立刻跟著重畫。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p10">
+      <div class="pi-head"><span class="pi-no">實作 10 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>按一下就抽出一個人</h3>
+      <pre class="pi-cmd">請讓「開始抽籤」按鈕按下之後，
+從整理好的名單裡隨機選出一位，把那一格亮起來，
+並在轉盤下方用大字顯示中選的姓名。
+這一步先不要做旋轉動畫。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：某一格亮起來，下面出現名字</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 10 的指令" data-copy="請讓「開始抽籤」按鈕按下之後，&#10;從整理好的名單裡隨機選出一位，把那一格亮起來，&#10;並在轉盤下方用大字顯示中選的姓名。&#10;這一步先不要做旋轉動畫。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi-why">
+      <p><strong>這兩句為什麼要這樣講</strong></p>
+      <p>寫死六格，換一班就要重做，讓名單決定格數，換班只要重貼名單。</p>
+      <p>「改了要立刻重畫」要講，少了這句，改完名單畫面不會動。</p>
+      <p>先不做旋轉動畫，先確定抽得出人，一次只加一件事。</p>
+    </div>
+
+    <h3>什麼是「名單清洗」？</h3>
+    <p><strong>名單清洗是把貼進來的名單自動整理乾淨。</strong>下面這三種東西您在畫面上看不到，卻會讓轉盤抽錯人：名單中間多按了幾次 Enter，會多出看不見的空格子；同一個人被報名兩次，他被抽中的機會就加倍；名字後面多一個空格，電腦會當成兩個人。<strong>一個看不見的空格，就多出一個人</strong>，從 Excel 貼過來的名單幾乎都有這種東西。</p>
+    <div class="vc-clean" role="img" aria-label="名單清洗前後對照：貼進來的名單夾著空白行、重複姓名與尾端空格，清完只留八個有效名字">
+      <div class="vc-list"><b>貼進來的（12 行）</b>陳小明<br><em>（多按出來的空白行）</em><br>林雅婷<br>林雅婷 <em>← 同一人報了兩次</em><br>黃俊傑 <em>← 名字尾端多一個空格</em><br>張淑芬…</div>
+      <div class="vc-arrow" aria-hidden="true">→</div>
+      <div class="vc-list"><b>清完的（8 人）</b>陳小明<br>林雅婷<br>黃俊傑<br>張淑芬…<br><em>原始 12 行，有效 8 人</em></div>
+    </div>
+
+    <div class="pi" id="p11">
+      <div class="pi-head"><span class="pi-no">實作 11 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>再加一顆按鈕，生一份亂名單</h3>
+      <pre class="pi-cmd">請在「產生測試名單」旁邊再加一顆「產生亂名單」按鈕。
+按下去填入同樣那 8 個人，但是中間夾三行空白、
+其中一個名字重複出現兩次、
+另外兩個名字的後面各多一個空格。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：輸入框變成一份看起來怪怪的名單</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 11 的指令" data-copy="請在「產生測試名單」旁邊再加一顆「產生亂名單」按鈕。&#10;按下去填入同樣那 8 個人，但是中間夾三行空白、&#10;其中一個名字重複出現兩次、&#10;另外兩個名字的後面各多一個空格。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <div class="pi" id="p12">
+      <div class="pi-head"><span class="pi-no">實作 12 ／ 12</span><span class="pi-where">貼在視窗 2・做畫面</span></div>
+      <h3>名單貼進來就自動清乾淨</h3>
+      <pre class="pi-cmd">請在按下「載入名單」時，自動整理貼進來的名單：
+自動忽略空白行、自動去掉名字前後多餘的空格、
+一模一樣的名字只保留第一個。
+整理完請在輸入框下方顯示「原始 N 行，有效 M 人」。
+請只完成上述要求。
+不要動其他程式碼。
+保持原本功能正常。</pre>
+      <div class="pi-bar">
+        <p class="pi-done"><strong>做完會看到</strong>：下方出現「原始 12 行，有效 8 人」</p>
+        <button type="button" class="fc-copy pi-copy" data-label="複製指令" aria-label="複製實作 12 的指令" data-copy="請在按下「載入名單」時，自動整理貼進來的名單：&#10;自動忽略空白行、自動去掉名字前後多餘的空格、&#10;一模一樣的名字只保留第一個。&#10;整理完請在輸入框下方顯示「原始 N 行，有效 M 人」。&#10;請只完成上述要求。&#10;不要動其他程式碼。&#10;保持原本功能正常。">複製指令</button>
+      </div>
+    </div>
+
+    <p>清完之後，把剛才那三種狀況再測一次：中間插三行空白，有效人數與格數都不變；同一個名字貼兩次，只算一個，轉盤上不會出現兩格同名；名字後面多空格，會被當成同一個人，不會多一格。</p>
+
+    <h2 class="section-title reveal" id="wrapup">把今天收起來</h2>
+    <h3>下課前一定要做的三件事</h3>
+    <ul class="feature-list">
+      <li><strong>在 Gemini Canvas 按下載</strong>：存下來的檔案改名成「抽籤轉盤.html」。</li>
+      <li><strong>在檔案上點兩下打開</strong>：不用連網也能玩，才算真的存好了。</li>
+      <li><strong>把實作 2 的提示詞也存著</strong>：換一個題目的時候還會用到。</li>
+    </ul>
+    <p>您沒有寫任何程式，但東西是您做出來的，您做的是最難的那部分：決定它該長什麼樣、該照什麼規則做事。</p>
+
+    <h3>今天的三句話，換題目照樣用</h3>
+    <ul class="feature-list">
+      <li><strong>「先問我五個問題」</strong>：任何題目開場都用。</li>
+      <li><strong>「一次只加一件事」</strong>：加完就試一次。</li>
+      <li><strong>「其他的不要動」</strong>：每一句結尾都加。</li>
+    </ul>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">校內的事情</th><th scope="col">第一句話怎麼講</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">研習簽到卡</th><td>我想做簽到卡，請先問我五題</td></tr>
+          <tr><th scope="row">名冊整理工具</th><td>我想做名單整理器，請先問我五題</td></tr>
+          <tr><th scope="row">口試計時器</th><td>我想做計時器，請先問我五題</td></tr>
+          <tr><th scope="row">值日生排班表</th><td>我想做排班表，請先問我五題</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>同一招「整理名單」，處室裡到處用得到：各處室送來的報名表格式不一樣、重複報名一堆，貼進來就吐出乾淨的一份，兩小時的手工變成貼上就好；分組與座位表也是同一套清洗，換一句話、換一個班級只要重貼名單。</p>
+
+    <h3>回去的第一週，做這三件事</h3>
+    <ul class="feature-list">
+      <li><strong>今天晚上就打開一次</strong>：點兩下那個檔案，確認它真的還在。</li>
+      <li><strong>換一份真的名單試</strong>：用您自己處室的名單，不要再用一到八號。</li>
+      <li><strong>給一位同事看</strong>：講得出來，才是真的會了。</li>
+    </ul>
+    <p>第一週沒有打開過的東西，第二週就不會再打開了。想不清楚的事，AI 幫不了您；想得清楚的事，程式碼再也擋不住您。</p>
+
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Vibe Coding 是什麼？</summary>
+      <div class="faq-a">Vibe Coding 是用說的把工具做出來：您負責把想做的事講清楚，程式碼交給 AI 寫，自己一行程式都不用寫。判斷做出來的東西對不對、規則該怎麼訂，仍然由您決定。這個詞由 Andrej Karpathy 於 2025 年 2 月提出，同年 3 月被韋氏字典收為新詞、11 月被柯林斯英語詞典選為年度代表字。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>完全不會寫程式，真的做得出來嗎？</summary>
+      <div class="faq-a">做得出來。這份講義的 12 道指令全部是中文句子，整段複製貼上即可，過程不需要看懂任何一行程式碼。真正花時間的是把需求講清楚，這一段沒有人可以代替您，因為您比任何人都清楚那件事該怎麼做才對。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>要付費嗎？免費帳號夠用嗎？</summary>
+      <div class="faq-a">夠用。這堂研習全程用 Gemini 的免費額度就做得完，不需要另外購買授權，也不必安裝任何軟體。只需要 Chrome 瀏覽器與一個已登入的 Google 帳號，個人帳號或學校帳號都可以。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>一定要用 Gemini 嗎？換別的 AI 可以嗎？</summary>
+      <div class="faq-a">方法本身不綁工具，換別的 AI 一樣成立，只是畫面與操作位置不一樣。這份講義用 Gemini Canvas，是因為它內建可預覽的開發環境，講完就看得到畫面，不必安裝任何軟體，對第一次接觸的人門檻最低。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>做出來的東西是我的嗎？關掉對話還在嗎？</summary>
+      <div class="faq-a">是您的。在 Gemini Canvas 按下載，會得到一個檔案，存在您自己的電腦裡。把它改名成「抽籤轉盤.html」，在檔案上點兩下就能打開，不用連網也能用，關掉對話也不會消失。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>改到一半整個亂掉了怎麼辦？</summary>
+      <div class="faq-a">跟 AI 說「請回到上一個能動的版本」。更好的做法是不要讓它亂掉：一次只加一件事，加完就試一次。一句話要求做完所有功能，壞掉的時候您會找不到是哪裡壞的。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>為什麼每一句指令的結尾都要加那三句話？</summary>
+      <div class="faq-a">因為 AI 收到指令後不是只改您提到的那一行，而是把整份重打一遍，沒提到的地方它會自己決定，舊功能因此可能不見。結尾固定加上「請只完成上述要求。」「不要動其他程式碼。」「保持原本功能正常。」，就是在畫出這三條界線。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>可以直接用學生的真實名單練習嗎？</summary>
+      <div class="faq-a">練習階段不建議。這份講義刻意設計成由 AI 產生假名單，練習全程不會用到真實的學生資料。等工具做好、確認可用之後，再在自己的電腦上用真實名單操作，比較符合個資保護的基本原則。相關規範見<a href="/knowledge/privacy">個資法與校園資安須知</a>。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校想辦這場研習，要怎麼安排？</summary>
+      <div class="faq-a">鴻綸科技是 Google for Education 專業發展夥伴，可依貴校教師的程度與時數規劃到校或線上研習，題目也能換成貴校實際的行政或教學需求。詳見<a href="/services/campus-training">Google AI 校園研習</a>，或直接<a href="/contact">聯絡我們</a>洽談。</div>
+    </details>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <ul class="feature-list">
+      <li><a href="/knowledge/ai-slides">用 AI 做簡報：Gemini Canvas 與 Google 簡報 AI 功能</a>：Canvas 的年齡、授權與語言三道門檻。</li>
+      <li><a href="/knowledge/gemini">Gemini 教育版怎麼用</a>：學校要開放給老師與學生之前，管理員該確認的四件事。</li>
+      <li><a href="/knowledge/ai">AI 入門百科</a>：生成式 AI、大型語言模型與 AI 幻覺的基本觀念。</li>
+      <li><a href="/knowledge/ai-teaching">AI 融入教學實務指南</a>：備課、課堂與行政文書三種用法，以及不該交給 AI 的三類事。</li>
+      <li><a href="/services/ai-development">AI 應用與客製工具開發</a>：需求超出一個下午做得完的範圍時，可以交給我們。</li>
+    </ul>
+
+    <h2 class="section-title reveal">參考來源</h2>
+    <ul class="feature-list">
+      <li><a href="https://www.merriam-webster.com/slang/vibe-coding" target="_blank" rel="noopener">Merriam-Webster：vibe coding</a>（詞源與 2025 年 2 月的提出時間）</li>
+      <li><a href="https://www.collinsdictionary.com/woty" target="_blank" rel="noopener">Collins Dictionary：Word of the Year</a>（2025 年年度代表字）</li>
+      <li><a href="https://support.google.com/gemini/answer/16047321?hl=zh-Hant" target="_blank" rel="noopener">Gemini 說明中心：使用 Canvas 建立文件、應用程式與投影片</a>（含建立內容需年滿 18 歲的規定）</li>
+    </ul>
+    <p>⚠️ AI 工具的畫面與功能位置變動很快。這份講義寫於 2026 年 8 月，若您看到的畫面與描述不同，指令的寫法仍然成立，找不到按鈕時直接問 AI「Canvas 在哪裡」通常最快。</p>
+
+    <div class="svc-cta">
+      <a class="btn btn-primary" href="/contact">邀請到校研習</a>
+      <a class="btn btn-ghost" href="/tools/training">回研習專區</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact?topic=training#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

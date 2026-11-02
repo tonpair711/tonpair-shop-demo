@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>校園資安事件通報與處理流程：發現後第一步該找誰｜鴻綸科技</title>
+<meta name="description" content="資安事件與個資外洩事件是兩條不同的通報路徑，很多學校搞混。這篇整理發現後第一小時該做的 5 件事、誰要通報給誰、應變小組怎麼組，以及常見誤區。具體通報時限與適用法規請以主管機關最新公告與學校法律顧問意見為準。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/security-incident-response">
+<meta property="og:type" content="article">
+<meta property="og:title" content="校園資安事件通報與處理流程｜鴻綸科技">
+<meta property="og:description" content="資安事件與個資外洩事件是兩條不同的通報路徑。發現後第一小時該做的 5 件事、誰要通報給誰、應變小組怎麼組。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/security-incident-response">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-security-incident-response.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="校園資安事件通報與處理流程：發現後第一步該找誰｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="校園資安事件通報與處理流程｜鴻綸科技">
+<meta name="twitter:description" content="資安事件與個資外洩事件是兩條不同的通報路徑。發現後第一小時該做的 5 件事、誰要通報給誰、應變小組怎麼組。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-security-incident-response.png?v=5">
+<meta name="twitter:image:alt" content="校園資安事件通報與處理流程：發現後第一步該找誰｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "資安與個資法遵", "item": "https://www.hunglun.com/knowledge/topic/compliance" },
+    { "@type": "ListItem", "position": 4, "name": "校園資安事件通報與處理流程", "item": "https://www.hunglun.com/knowledge/security-incident-response" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-09-03",
+  "mainEntity": [
+    { "@type": "Question", "name": "資安事件跟個資外洩事件有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "資安事件指的是系統或網路本身受影響，例如勒索軟體、帳號被盜、網站遭竄改、系統癱瘓；個資外洩事件指的是學生、教職員或家長的個人資料被竊取、外洩、竄改或滅失，不管起因是不是駭客攻擊。兩者常常同時發生（例如勒索軟體攻擊順便偷走個資），這時候兩條通報路徑都要走，不是擇一處理，也不是「沒有個資外流就不算事件」。" } },
+    { "@type": "Question", "name": "發現疑似資安事件的第一小時該做什麼？", "acceptedAnswer": { "@type": "Answer", "text": "5 件事：一、先隔離受影響的系統或帳號止血（斷網、停權），不是先追究是誰的責任；二、保留證據，不要急著關機或重新安裝，這會把調查需要的線索一起清掉，第一時間該做的是隔離而非清除；三、通知校內權責人（資訊組長、校長），不要一個人扛著先私下處理；四、事實還沒查清楚前，對外（含家長群組、社群發文）先不要自行說明，統一由指定窗口發言；五、從發現的當下開始記錄時間軸，什麼時候發現、做了什麼處置、通知了誰，事後檢討與正式通報都需要這份紀錄。" } },
+    { "@type": "Question", "name": "通報要通報給誰？多久之內要通報？", "acceptedAnswer": { "@type": "Answer", "text": "校內流程一般是發現人回報資訊組或資安權責人，再由校長做行政決策；對外則依事件性質分別走資安事件的通報應變體系與個資外洩事件的通報機制，兩者是不同的管道。具體通報對象、表單與時限，會依學校是公立或私立、資安責任等級與當下適用的法規版本而不同，這類規定也常修正。這篇不列出具體時限數字，正式通報前務必跟學校資訊室、主管教育機關窗口或法律顧問確認當下最新規定。" } },
+    { "@type": "Question", "name": "應變小組平常就要準備嗎？小學校也需要嗎？", "acceptedAnswer": { "@type": "Answer", "text": "需要，而且通報義務看的是事件性質與機關屬性，不是學校規模。平時該準備的是一份聯絡清單（資訊、行政、法律顧問、必要時的資安服務廠商）與角色分工（技術止血、對外發言窗口、記錄時間軸、對主管機關聯繫），事情發生才現找人只會拖慢應變速度。建議至少每學年跑過一次情境演練，紙上流程跟真正演練過一次落差很大。" } },
+    { "@type": "Question", "name": "已經把系統關機、重新安裝了，這樣算處理好了嗎？", "acceptedAnswer": { "@type": "Answer", "text": "止血止對了，但關機重灌等於同時把調查需要的證據一起清掉，之後要判斷事件範圍、影響對象、通報內容時會缺乏依據。正確順序是先隔離（斷網、停權、封鎖可疑帳號）保留現場，再由具備鑑識能力的人員（校內資訊人員或委外資安廠商）判斷後續處置，不要把「讓系統看起來恢復正常」當成處理完畢。" } },
+    { "@type": "Question", "name": "法規細節不確定的時候該怎麼辦？", "acceptedAnswer": { "@type": "Answer", "text": "資通安全相關法規與個人資料保護法本身都在持續修正中，通報範圍、時限與適用對象會隨版本與個案情況而有差異。這篇提供的是發現事件後的實務處理框架，不是法律諮詢。正式通報前，建議洽詢學校法律顧問，或直接向主管教育機關的資安／個資窗口確認當下規定，不要僅憑網路文章自行判斷通報與否或如何通報。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "校園資安事件通報與處理流程：發現後第一步該找誰",
+  "description": "資安事件與個資外洩事件是兩條不同的通報路徑，很多學校搞混。這篇整理發現後第一小時該做的 5 件事、誰要通報給誰、應變小組怎麼組，以及常見誤區。具體通報時限與適用法規請以主管機關最新公告與學校法律顧問意見為準。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-09-03",
+  "dateModified": "2026-09-03",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/security-incident-response"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/compliance">資安與個資法遵</a> ／ 校園資安事件通報與處理流程</nav>
+    <h1>校園資安事件通報與處理流程：發現後第一步該找誰</h1>
+    <p>資安事件跟個資外洩事件是兩條不同的通報路徑，很多學校搞混。這篇整理發現後第一小時該做的事、誰要通報給誰，以及常見誤區。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>學校的 Google Workspace 管理員、資訊組長，以及負責校務系統與個資盤點的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-09-03">2026 年 9 月 3 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/data-inventory">下一篇：學校導入雲端服務的個資盤點清單 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>學校發現資安事件，第一步該做什麼？</strong>先止血再追責：立即隔離受影響的系統或帳號，保留證據、不要急著關機重灌，並通知校內權責人，同時從發現當下開始記錄時間軸。</li>
+        <li><strong>資安事件和個資外洩事件一樣嗎？</strong>不一樣，是兩條不同的通報路徑。資安事件影響系統能不能正常運作，個資外洩影響資料本身；兩者常同時發生，這時兩條路徑都要走。</li>
+        <li><strong>沒有個資外流就不用通報嗎？</strong>不是。網站被竄改或系統癱瘓，本身可能已達通報門檻，跟有沒有個資外洩是兩件事。</li>
+        <li><strong>通報對象與時限是什麼？</strong>這篇刻意不列數字，因為公私立學校適用規範不同、資安責任等級也會影響時限，法規又持續修正。正式通報前要以主管教育機關與學校資安權責單位的最新規定為準。</li>
+      </ul>
+    </div>
+
+    <p><strong>這篇提供的是發現事件後的實務處理框架，不是法律諮詢。</strong>資通安全相關法規與個人資料保護法本身都在持續修正中，通報範圍、對象與時限依學校公私立別、事件性質與當下適用的法規版本而不同。正式通報前，請以主管教育機關最新公告與學校法律顧問意見為準，不要僅憑這篇文章自行判斷。個資盤點的前置作業可先參考<a href="/knowledge/data-inventory">學校導入雲端服務的個資盤點清單</a>。</p>
+
+    <h2>一、先分清楚：這是兩條不同的路</h2>
+    <p>很多學校把「資安事件」跟「個資外洩事件」當成同一件事處理，但它們是兩條不同的通報路徑：</p>
+    <ul class="feature-list">
+      <li><strong>資安事件</strong>：系統或網路本身受影響，例如勒索軟體、帳號被盜、網站遭竄改、系統癱瘓。影響的是「能不能正常運作」。</li>
+      <li><strong>個資外洩事件</strong>：學生、教職員或家長的個人資料被竊取、外洩、竄改或滅失，不管起因是不是駭客攻擊。影響的是「資料本身」。</li>
+    </ul>
+    <p>兩者常常同時發生，例如勒索軟體攻擊順便偷走個資，這種情況下<strong>兩條通報路徑都要走，不是擇一處理</strong>。反過來，「這次沒有個資外流」也不代表資安事件本身不用通報，網站被竄改或系統癱瘓可能已經達到通報門檻，跟有沒有個資外洩是兩件事。</p>
+
+    <h2>二、發現後的第一小時：5 件事</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>先止血再追責。</strong>立即隔離受影響的系統或帳號（斷網、停權、封鎖可疑登入），不是先追查是誰的疏失，追責是之後的事。</li>
+      <li><strong>保留證據，不要急著關機重灌。</strong>關機或重新安裝會把攻擊者留下的線索一起清掉，之後的鑑識與正式通報都需要這些紀錄。第一時間該做的是隔離，不是清除。</li>
+      <li><strong>通知校內權責人。</strong>資訊組長、校長，必要時教育局窗口，不要一個人扛著先私下處理，拖延只會讓應變視窗變窄。</li>
+      <li><strong>對外先不要自行說明。</strong>事實還沒查清楚前，任何對外說法（含家長群組、社群發文）都可能講錯，先統一由指定窗口發言，講錯之後要更正的成本比晚一點說明高很多。</li>
+      <li><strong>從發現當下就開始記錄時間軸。</strong>什麼時候發現、做了什麼處置、通知了誰。事後檢討與正式通報都需要這份紀錄，事後憑記憶補寫容易漏掉關鍵細節。</li>
+    </ul>
+
+    <h2>三、誰要通報給誰</h2>
+    <p>校內流程一般是：<strong>發現人 → 資訊組／資安權責人 → 校長（行政決策）</strong>。對外則依事件性質分別走不同管道：資安事件另有專屬的通報應變體系，個資外洩事件另有教育主管機關的通報機制，兩者是不同的窗口與表單。</p>
+    <p><strong>具體通報對象、表單與時限，這篇刻意不列出數字。</strong>公立學校與私立學校適用的規範不同，資安責任等級也會影響時限要求，加上相關法規本身持續在修正，寫死的數字很可能過期或不適用貴校情況。正式通報前，務必跟學校資訊室、主管教育機關窗口或法律顧問確認當下最新規定，這是唯一不會出錯的做法。</p>
+
+    <h2>四、應變小組怎麼組</h2>
+    <ul class="feature-list">
+      <li><strong>平時就要有聯絡清單。</strong>資訊人員、行政決策者、法律顧問、必要時的委外資安廠商，事情發生才現找人只會拖慢應變速度。</li>
+      <li><strong>角色分工要先講清楚。</strong>誰負責技術止血、誰是對外發言窗口、誰記錄時間軸、誰對主管機關聯繫，4 個角色可以由不同人擔任，但每個角色都要有人。</li>
+      <li><strong>至少每學年演練一次。</strong>紙上流程跟真正跑過一次情境演練，落差很大，演練會暴露聯絡清單過期、權責不清楚這些平常看不出來的問題。</li>
+    </ul>
+
+    <h2>五、常見誤區</h2>
+    <ul class="feature-list">
+      <li><strong>以為沒有個資外流就不用通報。</strong>資安事件本身（網站被竄改、系統癱瘓）可能已經達到通報門檻，跟有沒有個資外洩是兩件事，不能只看有沒有資料外流就決定要不要通報。</li>
+      <li><strong>急著清除證據反而讓調查更難。</strong>先隔離不等於要重灌，把「系統看起來恢復正常」跟「事件已經妥善處理」搞混，事後補查時往往已經缺乏關鍵紀錄。</li>
+      <li><strong>覺得小校用不到這套流程。</strong>通報義務看的是事件性質與機關屬性，不是學校規模，師生人數少不代表可以不用準備。</li>
+      <li><strong>自行對外說明搶第一時間。</strong>事實沒查清楚就急著對外交代，一旦內容有誤，之後要更正的成本比晚一點統一說明高得多。</li>
+    </ul>
+
+    <h2>這週可以先做的 3 件事</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>確認學校是否已有應變小組與聯絡清單。</strong>沒有的話先建一份，列出資訊、行政、法律顧問的聯絡方式。</li>
+      <li><strong>找到貴校適用的通報管道與表單，放在容易找到的地方。</strong>不要等事情發生才現查，資訊組長離職或請假時也要有人知道在哪裡。</li>
+      <li><strong>跟資訊組討論一次「如果今天真的發生，我們的第一步是什麼」。</strong>跑一次紙上情境演練，會比空談流程更快發現漏洞。</li>
+    </ul>
+    <p>若想針對全校資安應變流程做系統性盤點，或安排一場情境演練，可參考<a href="/services/campus-admin">校園行政數位化服務</a>，內容會依學校現況調整。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>資安事件跟個資外洩事件有什麼不同？</summary>
+      <div class="faq-a">資安事件指的是系統或網路本身受影響，例如勒索軟體、帳號被盜、網站遭竄改、系統癱瘓；個資外洩事件指的是學生、教職員或家長的個人資料被竊取、外洩、竄改或滅失，不管起因是不是駭客攻擊。兩者常常同時發生（例如勒索軟體攻擊順便偷走個資），這時候兩條通報路徑都要走，不是擇一處理，也不是「沒有個資外流就不算事件」。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>發現疑似資安事件的第一小時該做什麼？</summary>
+      <div class="faq-a">5 件事：一、先隔離受影響的系統或帳號止血（斷網、停權），不是先追究是誰的責任；二、保留證據，不要急著關機或重新安裝，這會把調查需要的線索一起清掉，第一時間該做的是隔離而非清除；三、通知校內權責人（資訊組長、校長），不要一個人扛著先私下處理；四、事實還沒查清楚前，對外（含家長群組、社群發文）先不要自行說明，統一由指定窗口發言；五、從發現的當下開始記錄時間軸，什麼時候發現、做了什麼處置、通知了誰，事後檢討與正式通報都需要這份紀錄。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>通報要通報給誰？多久之內要通報？</summary>
+      <div class="faq-a">校內流程一般是發現人回報資訊組或資安權責人，再由校長做行政決策；對外則依事件性質分別走資安事件的通報應變體系與個資外洩事件的通報機制，兩者是不同的管道。具體通報對象、表單與時限，會依學校是公立或私立、資安責任等級與當下適用的法規版本而不同，這類規定也常修正。這篇不列出具體時限數字，正式通報前務必跟學校資訊室、主管教育機關窗口或法律顧問確認當下最新規定。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>應變小組平常就要準備嗎？小學校也需要嗎？</summary>
+      <div class="faq-a">需要，而且通報義務看的是事件性質與機關屬性，不是學校規模。平時該準備的是一份聯絡清單（資訊、行政、法律顧問、必要時的資安服務廠商）與角色分工（技術止血、對外發言窗口、記錄時間軸、對主管機關聯繫），事情發生才現找人只會拖慢應變速度。建議至少每學年跑過一次情境演練，紙上流程跟真正演練過一次落差很大。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>已經把系統關機、重新安裝了，這樣算處理好了嗎？</summary>
+      <div class="faq-a">止血止對了，但關機重灌等於同時把調查需要的證據一起清掉，之後要判斷事件範圍、影響對象、通報內容時會缺乏依據。正確順序是先隔離（斷網、停權、封鎖可疑帳號）保留現場，再由具備鑑識能力的人員（校內資訊人員或委外資安廠商）判斷後續處置，不要把「讓系統看起來恢復正常」當成處理完畢。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>法規細節不確定的時候該怎麼辦？</summary>
+      <div class="faq-a">資通安全相關法規與個人資料保護法本身都在持續修正中，通報範圍、時限與適用對象會隨版本與個案情況而有差異。這篇提供的是發現事件後的實務處理框架，不是法律諮詢。正式通報前，建議洽詢學校法律顧問，或直接向主管教育機關的資安／個資窗口確認當下規定，不要僅憑網路文章自行判斷通報與否或如何通報。</div>
+    </details>
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的行政或資訊群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《校園資安事件通報與處理流程》，發現後第一小時該做的 5 件事、誰要通報給誰都寫清楚了，分享給大家參考：https://www.hunglun.com/knowledge/security-incident-response" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/data-inventory">下一篇：學校導入雲端服務的個資盤點清單 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">個資盤點、學生 AI 規範與校園法遵。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/data-inventory">
+        <div class="card-body"><h3>學校導入雲端服務的個資盤點清單</h3><p>哪些系統會存學生個資、盤點表怎麼設計、風險怎麼分級。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/student-ai-policy">
+        <div class="card-body"><h3>學生使用 AI 的校內規範怎麼訂</h3><p>年齡分級、禁止事項、學術誠信揭露機制範本框架。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/privacy">
+        <div class="card-body"><h3>個資法與校園資安須知</h3><p>校園場景下的個資保護基本觀念。</p></div>
+      </a>
+      <a class="card reveal" href="/services/campus-admin">
+        <div class="card-body"><h3>校園行政數位化服務</h3><p>依學校現況調整的行政流程與應變規劃協助。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">想幫學校盤點資安應變流程？</h2>
+    <p class="section-sub reveal">告訴我們學校現況，內容會配合實際情況調整，不是套用通用範本。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在規劃 Workspace 導入或調整？</h2>
+      <p>不論是新導入、版本變更還是管理設定調整，先備妥這幾項：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>教職員與學生帳號數</li>
+        <li>目前使用的版本（Fundamentals、Teaching and Learning、Education Plus）</li>
+        <li>這次想解決的主要問題（儲存空間、資安、帳號管理或其他）</li>
+        <li>是否需要管理員教育訓練</li>
+        <li>預計處理時間</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Google%20Workspace%20%E5%B0%8E%E5%85%A5%E8%88%87%E7%AE%A1%E7%90%86&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E6%95%99%E8%81%B7%E5%93%A1%E8%88%87%E5%AD%B8%E7%94%9F%E5%B8%B3%E8%99%9F%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E9%80%99%E6%AC%A1%E6%83%B3%E8%A7%A3%E6%B1%BA%E7%9A%84%E4%B8%BB%E8%A6%81%E5%95%8F%E9%A1%8C%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E7%AE%A1%E7%90%86%E5%93%A1%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E8%99%95%E7%90%86%E6%99%82%E9%96%93%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9A%E6%A0%A1%E5%9C%92%E8%B3%87%E5%AE%89%E4%BA%8B%E4%BB%B6%E9%80%9A%E5%A0%B1%E8%88%87%E8%99%95%E7%90%86%E6%B5%81%E7%A8%8B%EF%BC%9A%E7%99%BC%E7%8F%BE%E5%BE%8C%E7%AC%AC%E4%B8%80%E6%AD%A5%E8%A9%B2%E6%89%BE%E8%AA%B0%EF%BC%89">寄信詢問：Google Workspace 導入與管理</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-workspace">看 Workspace 導入與培訓服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>Google Classroom 首頁改版：課程去哪了？三種身分各看到什麼｜鴻綸科技</title>
+<meta name="description" content="Classroom 首頁 2026 年 7 月 27 日起改版，課程卡片牆變成依身分顯示的儀表板。課程沒有不見，是移到左側導覽。這篇說明老師、學生、管理員各自看到什麼、身分怎麼切換、能不能關掉或切回舊版。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/classroom-homepage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Classroom 首頁改版：課程去哪了？｜鴻綸科技">
+<meta property="og:description" content="Classroom 新版首頁完整說明：課程移到哪、三種身分各看到什麼、能不能切回舊版。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/classroom-homepage">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-homepage.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Google Classroom 首頁改版了：課程去哪了？｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Google Classroom 首頁改版：課程去哪了？｜鴻綸科技">
+<meta name="twitter:description" content="Classroom 新版首頁完整說明：課程移到哪、三種身分各看到什麼、能不能切回舊版。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-classroom-homepage.png?v=5">
+<meta name="twitter:image:alt" content="Google Classroom 首頁改版了：課程去哪了？｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<style>
+/* Classroom 新版首頁專用圖解。只有這一頁用得到，放頁內避免為單頁升全站 CSS 版號。
+   全部用 HTML+CSS 畫，跟著全站深淺色變數走，不必做兩套圖。 */
+.ch-vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: stretch; margin: 20px 0 24px; }
+.ch-box { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-soft); padding: 12px 14px; }
+.ch-box b { display: block; font-size: .78rem; font-weight: 500; letter-spacing: .05em; color: var(--accent); margin-bottom: 8px; }
+.ch-arrow { color: var(--accent); font-size: 1.4rem; align-self: center; }
+.ch-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.ch-tile { border: 1px solid var(--line); border-radius: 8px; background: var(--card); padding: 14px 8px; font-size: .78rem; color: var(--muted); text-align: center; }
+.ch-row { border: 1px solid var(--line); border-radius: 8px; background: var(--card); padding: 8px 10px; font-size: .8rem; color: var(--text-body); margin-bottom: 6px; }
+.ch-row em { font-style: normal; display: block; font-size: 0.75rem; color: var(--muted-faint); margin-top: 2px; }
+@media (max-width: 700px) { .ch-vs { grid-template-columns: 1fr; } .ch-arrow { transform: rotate(90deg); justify-self: center; } }
+
+.ch-roles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0 24px; }
+.ch-role { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); padding: 14px; }
+.ch-role h3 { font-size: .95rem; font-weight: 600; margin: 0 0 4px; }
+.ch-role > span { display: block; font-size: .78rem; color: var(--muted-faint); margin-bottom: 10px; }
+.ch-role ul { list-style: none; padding: 0; margin: 0; }
+.ch-role li { font-size: .84rem; color: var(--text-body); line-height: 1.6; padding: 6px 0 6px 14px; border-top: 1px solid var(--line); position: relative; }
+.ch-role li:first-child { border-top: 0; }
+.ch-role li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: .8rem; }
+@media (max-width: 860px) { .ch-roles { grid-template-columns: 1fr; } }
+
+.ch-nav { display: grid; grid-template-columns: 220px 1fr; gap: 14px; margin: 20px 0 24px; align-items: start; }
+.ch-side { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-soft); padding: 10px; }
+.ch-side ul { list-style: none; padding: 0; margin: 0; }
+.ch-side li { font-size: .85rem; color: var(--text-body); padding: 7px 10px; border-radius: 999px; }
+.ch-side li.on { background: var(--glow); color: var(--accent); font-weight: 500; }
+.ch-side li.sub { padding-left: 26px; font-size: .8rem; color: var(--muted); }
+.ch-side li.head { font-size: .76rem; color: var(--muted-faint); letter-spacing: .05em; padding-bottom: 2px; margin-top: 8px; }
+.ch-note { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; }
+.ch-note p { margin: 0 0 8px; }
+.ch-note p:last-child { margin-bottom: 0; }
+@media (max-width: 700px) { .ch-nav { grid-template-columns: 1fr; } }
+
+.ch-fig { margin: 24px 0; }
+.ch-fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); display: block; }
+.ch-fig figcaption { font-size: .82rem; color: var(--muted-faint); margin-top: 8px; line-height: 1.7; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google Classroom", "item": "https://www.hunglun.com/knowledge/topic/classroom" },
+    { "@type": "ListItem", "position": 4, "name": "Classroom 首頁改版說明", "item": "https://www.hunglun.com/knowledge/classroom-homepage" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-21",
+  "mainEntity": [
+    { "@type": "Question", "name": "Google Classroom 什麼時候改版的？", "acceptedAnswer": { "@type": "Answer", "text": "Google 於 2026 年 7 月 27 日起全面推出新版 Classroom 首頁，快速發布（Rapid Release）與排程發布（Scheduled Release）網域同時開始，一般在 1 至 3 天內就會看到。這是首頁本身的改版，課程內頁、作業與評分的操作方式沒有改變。" } },
+    { "@type": "Question", "name": "我的課程不見了，跑去哪裡？", "acceptedAnswer": { "@type": "Answer", "text": "課程沒有消失，是位置換了。舊版首頁是一整面課程卡片牆，新版把課程移到左側導覽：老師在「教授的課程」底下會看到自己開的每一門課，學生在「已註冊」底下看到自己修的課，更早以前結束的課仍在「封存的課程」裡。左側導覽收起來時會變成左上角的三條線選單，點開就看得到。" } },
+    { "@type": "Question", "name": "頂端那兩顆按鈕是什麼？", "acceptedAnswer": { "@type": "Answer", "text": "那是身分切換。新版首頁依使用者的身分顯示不同內容，一個人同時具備多重身分時（例如既是老師、又去修一門教師研習課，或者本身也是管理員），頂端就會出現對應的按鈕，例如「教授的課程」「已註冊」「管理員」。點一下就換成那個身分的檢視，重新整理後會記得上次看的是哪一個。只有單一身分的使用者不會看到切換按鈕。" } },
+    { "@type": "Question", "name": "老師的新首頁上有什麼？", "acceptedAnswer": { "@type": "Answer", "text": "以實際畫面來看有四塊：「最近截止」列出過去 7 天內需要批改的作業，沒有待批改時會顯示「沒有待批改的近期作業」；「課程深入分析」在學生的學習與成績出現新趨勢時提醒；「焦點功能」是 Google 推薦的教學工具卡片，目前以 Classroom 內建 Gemini、建立 Gem、Gemini Notebook 研讀指南為主；最下面是「確認學生的理解程度並追蹤進度」。每一塊右上角都有收合按鈕。" } },
+    { "@type": "Question", "name": "學生看到的跟老師一樣嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不一樣。學生看到的是「已註冊」檢視，重點是快到期的作業與跨課程的截止日整理，讓學生在一個畫面上看到所有課的待辦，不必一門一門課點進去看。老師那些批改佇列與教學洞察的區塊，學生看不到。" } },
+    { "@type": "Question", "name": "管理員的首頁多了什麼？", "acceptedAnswer": { "@type": "Answer", "text": "管理員檢視最上面是「學校數據分析」，以最近 30 天為區間顯示已繳交的作業數量、平均成績與活躍學生三項指標，並與前 30 天比較增減。往下是「給予老師適切支援」的焦點功能、「教師和學生支援」（查看課程、探索 Classroom 分析、分享課程範本和教材）、「控管管理控制台活動」（查看 Workspace 授權、啟用第三方外掛程式、查看使用情形報表），以及「與教師分享這些工具」。左側導覽也多了「管理員工具」，底下有學校數據分析與尋找課程。" } },
+    { "@type": "Question", "name": "可以關掉新版首頁、切回舊版嗎？", "acceptedAnswer": { "@type": "Answer", "text": "不行。Google 官方公告明確寫「新版 Classroom 首頁沒有管理員控制項」，也就是管理主控台裡沒有開關可以關閉或延後，使用者端也沒有切回舊版的選項。學校能做的是提前讓老師知道畫面會變、東西搬到哪裡，而不是等開學第一天才處理一輪詢問。" } },
+    { "@type": "Question", "name": "為什麼我的畫面沒有那些 Gemini 卡片？", "acceptedAnswer": { "@type": "Answer", "text": "首頁上的 Gemini 相關卡片，只有在該使用者所屬的機構單位（OU）已經開啟 Gemini 相關服務時才會出現。同一所學校裡，不同 OU 的開啟狀態可能不同，所以老師之間看到的卡片會不一樣。要調整由管理員在管理主控台依 OU 設定。" } },
+    { "@type": "Question", "name": "哪些帳號會看到新版首頁？", "acceptedAnswer": { "@type": "Answer", "text": "適用對象包含所有 Google Workspace 客戶（含各版本 Workspace for Education）、Workspace Individual 訂閱者，以及使用一般個人 Google 帳號的使用者。也就是說不論學校用的是免費的 Education Fundamentals 或付費版本，都會換成新版首頁。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google Classroom 首頁改版：課程去哪了？三種身分各看到什麼",
+  "description": "Classroom 首頁自 2026 年 7 月 27 日起改版成依身分顯示的儀表板。課程移到左側導覽，老師、學生、管理員各看到不同區塊，且沒有管理員開關可以關閉或切回舊版。",
+  "image": "https://www.hunglun.com/assets/images/classroom-homepage-admin.webp",
+  "datePublished": "2026-08-21",
+  "dateModified": "2026-08-21",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/classroom-homepage"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/classroom">Google Classroom</a> ／ Classroom 首頁改版說明</nav>
+    <h1>Google Classroom 首頁改版了：課程去哪了？</h1>
+    <p>一張圖看懂新版首頁，以及老師、學生、管理員各自看到什麼。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>使用或準備導入 Google Classroom 的老師、教學組長與資訊組長。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-08-21">2026 年 8 月 21 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:820px;">
+  <nav class="series-pager" aria-label="Classroom 系列文章導覽">
+    <a class="btn btn-ghost series-prev" href="/knowledge/classroom-updates">← 上一篇：最新產品異動判讀</a>
+    <span class="series-index">系列第 7／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+    <a class="btn btn-primary series-next" href="/knowledge/canva-classroom">下一篇：Canva for Education 串接 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>Classroom 首頁改版後課程去哪了？</strong>課程沒有不見，移到左側導覽：老師的課在「教授的課程」底下，學生的課在「已註冊」底下，更早結束的課在「封存的課程」。</li>
+        <li><strong>什麼時候改版？</strong>Google 從 2026 年 7 月 27 日起全面換上新版首頁，課程內頁、出作業與評分的操作都沒有變。</li>
+        <li><strong>可以關掉或切回舊版嗎？</strong>不行。官方公告寫明新版首頁沒有管理員控制項，管理主控台沒有開關，使用者端也沒有回到舊版的選項。</li>
+        <li><strong>老師、學生、管理員各看到什麼？</strong>首頁依身分顯示不同內容；多重身分的人頂端會出現切換按鈕。</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title reveal">一句話：課程卡片牆變成依身分顯示的儀表板</h2>
+    <p><strong>Google 從 2026 年 7 月 27 日起全面換上新版 Classroom 首頁</strong>。改的是首頁這一頁，原本一進去是一整面課程卡片，現在會依照您是老師、學生還是管理員，直接顯示對應的待辦與數據。<strong>課程沒有不見，是移到左側導覽了。</strong></p>
+    <p>課程內頁、出作業、評分、與家長通知這些操作都沒有變。會讓人愣住的只有第一個畫面。</p>
+
+    <div class="ch-vs reveal">
+      <div class="ch-box">
+        <b>改版前</b>
+        <div class="ch-tiles">
+          <div class="ch-tile">課程卡片</div>
+          <div class="ch-tile">課程卡片</div>
+          <div class="ch-tile">課程卡片</div>
+          <div class="ch-tile">課程卡片</div>
+        </div>
+      </div>
+      <div class="ch-arrow" aria-hidden="true">→</div>
+      <div class="ch-box">
+        <b>改版後</b>
+        <div class="ch-row">最近截止<em>過去 7 天要批改的作業</em></div>
+        <div class="ch-row">課程深入分析<em>學習與成績的新趨勢</em></div>
+        <div class="ch-row">焦點功能<em>Google 推薦的教學工具</em></div>
+        <div class="ch-row" style="border-style:dashed;">課程 → 移到左側導覽</div>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">課程移到左側導覽了</h2>
+    <p>這是最多人問的一題。左側導覽現在是找課程的唯一入口，老師的課在「教授的課程」底下，學生的課在「已註冊」底下，早期結束的課仍在「封存的課程」裡。畫面窄的時候導覽會收起來，點左上角的三條線就會展開。</p>
+
+    <div class="ch-nav reveal">
+      <div class="ch-side">
+        <ul>
+          <li class="on">首頁</li>
+          <li>日曆</li>
+          <li>資源</li>
+          <li>Gemini</li>
+          <li class="head">管理員工具</li>
+          <li class="sub">學校數據分析</li>
+          <li class="sub">尋找課程</li>
+          <li class="head">教授的課程</li>
+          <li class="sub">待批閱</li>
+          <li class="sub">您的每一門課</li>
+          <li>封存的課程</li>
+          <li>設定</li>
+        </ul>
+      </div>
+      <div class="ch-note">
+        <p><strong>「管理員工具」只有管理員看得到</strong>，一般老師的導覽不會有這一段。</p>
+        <p><strong>「Gemini」是新的獨立入口</strong>，把 Classroom 內建的 AI 工具集中在一個地方，之前散落在各處。</p>
+        <p><strong>「待批閱」把所有課的待批作業放在一起</strong>，不必一門一門課點進去找。</p>
+        <p>找不到某一門課時，先看「封存的課程」，它不會出現在上面的清單裡。</p>
+      </div>
+    </div>
+
+    <h2 class="section-title reveal">頂端的身分切換</h2>
+    <p>新版首頁依身分給不同內容。<strong>一個人同時有多重身分時，頂端會出現切換按鈕</strong>，例如自己開課、同時又去修一門教師研習的老師，會看到「教授的課程」與「已註冊」兩顆；本身是管理員的人還會多一顆「管理員」。點一下就換成那個身分的畫面，<strong>重新整理後會記得上次看的是哪一個</strong>。</p>
+    <p>只有單一身分的使用者（多數學生與多數老師）不會看到切換按鈕，直接就是自己那一套。</p>
+
+    <h2 class="section-title reveal">三種身分各看到什麼</h2>
+    <div class="ch-roles reveal">
+      <div class="ch-role">
+        <h3>老師</h3>
+        <span>「教授的課程」檢視</span>
+        <ul>
+          <li>最近截止：過去 7 天內要<span class="nowrap">批改的作業</span></li>
+          <li>課程深入分析：學習與成績的新趨勢提醒</li>
+          <li>焦點功能：推薦的教學與 AI 工具</li>
+          <li>確認學生的理解程度並追蹤進度</li>
+        </ul>
+      </div>
+      <div class="ch-role">
+        <h3>學生</h3>
+        <span>「已註冊」檢視</span>
+        <ul>
+          <li>快到期的作業，跨課程<span class="nowrap">整理在一起</span></li>
+          <li>不必一門一門課點進去找待辦</li>
+          <li>看不到老師的批改佇列與<span class="nowrap">教學洞察</span></li>
+        </ul>
+      </div>
+      <div class="ch-role">
+        <h3>管理員</h3>
+        <span>「管理員」檢視</span>
+        <ul>
+          <li>學校數據分析：作業繳交、平均成績、活躍學生</li>
+          <li>教師和學生支援：查看課程、Classroom 分析、課程範本</li>
+          <li>控管管理控制台活動：授權、外掛程式、使用<span class="nowrap">情形報表</span></li>
+          <li>與教師分享這些工具</li>
+        </ul>
+      </div>
+    </div>
+
+    <figure class="ch-fig reveal">
+      <img src="/assets/images/classroom-guide-home.webp"
+           srcset="/assets/images/classroom-guide-home-480.webp 480w, /assets/images/classroom-guide-home-768.webp 768w, /assets/images/classroom-guide-home.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="750" loading="lazy" decoding="async"
+           alt="Google Classroom 新版首頁的教師檢視：最近截止、課程深入分析、焦點功能三個區塊">
+      <figcaption>老師檢視的實際畫面。集中顯示最近截止的批改、課程深入分析與焦點功能，左側導覽是各門課程的入口。</figcaption>
+    </figure>
+
+    <figure class="ch-fig reveal">
+      <img src="/assets/images/classroom-homepage-student.webp"
+           srcset="/assets/images/classroom-homepage-student-480.webp 480w, /assets/images/classroom-homepage-student-768.webp 768w, /assets/images/classroom-homepage-student.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="570" loading="lazy" decoding="async"
+           alt="Google Classroom 新版首頁的學生檢視：即將到期、課程學習工具、課程卡片牆三個區塊">
+      <figcaption>學生檢視的實際畫面。頂端顯示所有課程合併在一起的即將到期作業，下面是課程卡片牆，看不到老師才有的批改佇列與教學洞察。</figcaption>
+    </figure>
+
+    <figure class="ch-fig reveal">
+      <img src="/assets/images/classroom-homepage-admin.webp"
+           srcset="/assets/images/classroom-homepage-admin-480.webp 480w, /assets/images/classroom-homepage-admin-768.webp 768w, /assets/images/classroom-homepage-admin.webp 1200w"
+           sizes="(max-width: 820px) 100vw, 780px"
+           width="1200" height="1029" loading="lazy" decoding="async"
+           alt="Google Classroom 新版首頁的管理員檢視：頂端有「管理員」與「教授的課程」兩顆身分切換按鈕，主畫面依序是學校數據分析三張指標卡、給予老師適切支援的焦點功能、教師和學生支援、控管管理控制台活動，左側導覽有首頁、日曆、資源、Gemini、管理員工具、教授的課程、封存的課程與設定。">
+      <figcaption>管理員檢視的實際畫面（機構名稱已遮蔽）。最上面是最近 30 天的學校數據分析，三張卡分別是已繳交的作業數量、平均成績與活躍學生，並與前 30 天比較增減。每個區塊右上角的符號可以把整塊收合起來。</figcaption>
+    </figure>
+
+    <h2 class="section-title reveal">學校數據分析要怎麼看</h2>
+    <p>管理員檢視最上面那一排是<strong>整個網域的統計，不是單一課程</strong>，區間固定是最近 30 天，並與前 30 天比較。剛開學或剛導入的學校，這三個數字常常是「–」或 0%，那不是壞掉，是還沒有累積到資料。</p>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>已繳交的作業數量</strong>：看的是實際使用強度，比帳號開了幾個更貼近現況。</li>
+      <li><strong>平均成績</strong>：只反映有登記成績的作業，老師若用紙本批改再登記，這個數字會偏低。</li>
+      <li><strong>活躍學生</strong>：以百分比呈現，旁邊會標與前 30 天相比的增減，寒暑假期間往下掉是正常的。</li>
+    </ul>
+    <p>這三個數字適合當作「有沒有真的用起來」的粗略指標，<strong>不適合拿來評比老師</strong>。課程性質不同，數字本來就會差很多。</p>
+
+    <h2 class="section-title reveal">關不掉，也切不回舊版</h2>
+    <p>Google 官方公告寫得很直接：<strong>新版 Classroom 首頁沒有管理員控制項</strong>。管理主控台裡沒有開關可以關閉或延後，使用者端也沒有「回到舊版」的選項。</p>
+    <p>唯一與管理設定有關的是 Gemini：首頁上那些 Gemini 卡片，只有在該使用者所屬的機構單位（OU）已開啟相關服務時才會出現。同一所學校裡不同 OU 的設定可能不同，所以老師之間看到的卡片會不一樣。這部分的設定方式見<a href="/knowledge/google-admin">Google 管理主控台設定指南</a>。</p>
+
+    <h2 class="section-title reveal">學校可以先做的三件事</h2>
+    <ul class="feature-list" style="margin-top:16px;">
+      <li><strong>先發一則公告說「課程在左側導覽」</strong>。實際會被問到的幾乎都是這一題，講清楚這一句就能擋掉大半詢問。</li>
+      <li><strong>提醒老師「待批閱」是新的集中入口</strong>。這一項對兼多門課的老師省時間最明顯，值得單獨講。</li>
+      <li><strong>管理員先自己看過一次數據分析</strong>。開學後被問到數字代表什麼時，才不會現場才第一次看到那個畫面。</li>
+    </ul>
+    <p>如果貴校需要一場針對新版介面的教師研習，鴻綸科技的訓練中心有五位 Google 認證講師，可以依現場程度與時數安排，詳見<a href="/services/campus-training">校園教師研習</a>。</p>
+
+    <h2 class="section-title reveal">資料來源</h2>
+    <p>本文的推出日期、適用對象、各身分檢視內容與「沒有管理員控制項」等說明，依據 Google Workspace 官方公告〈Redesigned Google Classroom homepage with tailored views based on user's role〉（2026 年 7 月），以及 Google 說明中心〈Navigate your Classroom Homepage〉。畫面說明取自 2026 年 8 月實際操作的教育網域帳號，介面文字以您帳號當下顯示為準。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>Google Classroom 什麼時候改版的？</summary>
+      <div class="faq-a">Google 於 2026 年 7 月 27 日起全面推出新版 Classroom 首頁，快速發布（Rapid Release）與排程發布（Scheduled Release）網域同時開始，一般在 1 至 3 天內就會看到。這是首頁本身的改版，課程內頁、作業與評分的操作方式沒有改變。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>我的課程不見了，跑去哪裡？</summary>
+      <div class="faq-a">課程沒有消失，是位置換了。舊版首頁是一整面課程卡片牆，新版把課程移到左側導覽：老師在「教授的課程」底下會看到自己開的每一門課，學生在「已註冊」底下看到自己修的課，更早以前結束的課仍在「封存的課程」裡。左側導覽收起來時會變成左上角的三條線選單，點開就看得到。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>頂端那兩顆按鈕是什麼？</summary>
+      <div class="faq-a">那是身分切換。新版首頁依使用者的身分顯示不同內容，一個人同時具備多重身分時（例如既是老師、又去修一門教師研習課，或者本身也是管理員），頂端就會出現對應的按鈕，例如「教授的課程」「已註冊」「管理員」。點一下就換成那個身分的檢視，重新整理後會記得上次看的是哪一個。只有單一身分的使用者不會看到切換按鈕。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>老師的新首頁上有什麼？</summary>
+      <div class="faq-a">以實際畫面來看有四塊：「最近截止」列出過去 7 天內需要批改的作業，沒有待批改時會顯示「沒有待批改的近期作業」；「課程深入分析」在學生的學習與成績出現新趨勢時提醒；「焦點功能」是 Google 推薦的教學工具卡片，目前以 Classroom 內建 Gemini、建立 Gem、Gemini Notebook 研讀指南為主；最下面是「確認學生的理解程度並追蹤進度」。每一塊右上角都有收合按鈕。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學生看到的跟老師一樣嗎？</summary>
+      <div class="faq-a">不一樣。學生看到的是「已註冊」檢視，重點是快到期的作業與跨課程的截止日整理，讓學生在一個畫面上看到所有課的待辦，不必一門一門課點進去看。老師那些批改佇列與教學洞察的區塊，學生看不到。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>管理員的首頁多了什麼？</summary>
+      <div class="faq-a">管理員檢視最上面是「學校數據分析」，以最近 30 天為區間顯示已繳交的作業數量、平均成績與活躍學生三項指標，並與前 30 天比較增減。往下是「給予老師適切支援」的焦點功能、「教師和學生支援」（查看課程、探索 Classroom 分析、分享課程範本和教材）、「控管管理控制台活動」（查看 Workspace 授權、啟用第三方外掛程式、查看使用情形報表），以及「與教師分享這些工具」。左側導覽也多了「管理員工具」，底下有學校數據分析與尋找課程。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>可以關掉新版首頁、切回舊版嗎？</summary>
+      <div class="faq-a">不行。Google 官方公告明確寫「新版 Classroom 首頁沒有管理員控制項」，也就是管理主控台裡沒有開關可以關閉或延後，使用者端也沒有切回舊版的選項。學校能做的是提前讓老師知道畫面會變、東西搬到哪裡，而不是等開學第一天才處理一輪詢問。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>為什麼我的畫面沒有那些 Gemini 卡片？</summary>
+      <div class="faq-a">首頁上的 Gemini 相關卡片，只有在該使用者所屬的機構單位（OU）已經開啟 Gemini 相關服務時才會出現。同一所學校裡，不同 OU 的開啟狀態可能不同，所以老師之間看到的卡片會不一樣。要調整由管理員在管理主控台依 OU 設定。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>哪些帳號會看到新版首頁？</summary>
+      <div class="faq-a">適用對象包含所有 Google Workspace 客戶（含各版本 Workspace for Education）、Workspace Individual 訂閱者，以及使用一般個人 Google 帳號的使用者。也就是說不論學校用的是免費的 Education Fundamentals 或付費版本，都會換成新版首頁。</div>
+    </details>
+
+    <nav class="series-pager" aria-label="Classroom 系列文章導覽（文末）">
+      <a class="btn btn-ghost series-prev" href="/knowledge/classroom-updates">← 上一篇：最新產品異動判讀</a>
+      <span class="series-index">系列第 7／10 篇・<a href="/knowledge/classroom">看全部系列</a></span>
+      <a class="btn btn-primary series-next" href="/knowledge/canva-classroom">下一篇：Canva for Education 串接 →</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">Classroom 與 Google 教育工具的其他說明。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/classroom-guide">
+        <div class="card-body"><h3>Google Classroom 操作教學</h3><p>建課程、出作業、批改發還到成績單，八個步驟附最新介面截圖。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/gemini">
+        <div class="card-body"><h3>Gemini 教育版怎麼用</h3><p>學校導入、申請開通、學生與老師實際能做什麼。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/google-admin">
+        <div class="card-body"><h3>Google 管理主控台設定指南</h3><p>機構單位、服務開關與校園常見設定情境。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">需要一場新版介面的教師研習？</h2>
+    <p class="section-sub reveal">告訴我們貴校老師的程度與可用時數，我們安排內容。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">想讓全校老師都用得起來？</h2>
+      <p>安排研習或導入前，先確認這幾件事：</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計參加的教師人數與數位程度</li>
+        <li>學校目前的 Google Workspace 版本與帳號狀況</li>
+        <li>希望研習著重在哪裡（建課派作業、評量批改、或管理設定）</li>
+        <li>希望的場次時間與時數</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%20Classroom%20%E5%B0%8E%E5%85%A5%E8%88%87%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E5%8F%83%E5%8A%A0%E7%9A%84%E6%95%99%E5%B8%AB%E4%BA%BA%E6%95%B8%E8%88%87%E6%95%B8%E4%BD%8D%E7%A8%8B%E5%BA%A6%EF%BC%9A%0A%E5%AD%B8%E6%A0%A1%E7%9B%AE%E5%89%8D%E7%9A%84%20Google%20Workspace%20%E7%89%88%E6%9C%AC%E8%88%87%E5%B8%B3%E8%99%9F%E7%8B%80%E6%B3%81%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%A0%94%E7%BF%92%E8%91%97%E9%87%8D%E5%9C%A8%E5%93%AA%E8%A3%A1%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E7%9A%84%E5%A0%B4%E6%AC%A1%E6%99%82%E9%96%93%E8%88%87%E6%99%82%E6%95%B8%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AGoogle%20Classroom%20%E9%A6%96%E9%A0%81%E6%94%B9%E7%89%88%E4%BA%86%EF%BC%9A%E8%AA%B2%E7%A8%8B%E5%8E%BB%E5%93%AA%E4%BA%86%EF%BC%9F%EF%BC%89">寄信詢問：Classroom 導入與教師研習</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>

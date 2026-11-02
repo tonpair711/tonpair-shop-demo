@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head><script>try{if(!sessionStorage.getItem("plseen")){sessionStorage.setItem("plseen","1");document.documentElement.classList.add("pl-on")}}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('hunglun-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<title>AI 融入教學實務指南｜備課、評量與課堂規範｜鴻綸科技</title>
+<meta name="description" content="寫給教師的 AI 教學實務指南：哪些備課與評量工作最適合交給 AI、哪些絕對不該交、學生使用 AI 的規範怎麼訂（3 個層級）、課堂實施會遇到的帳號與政策問題，以及教師自我檢核清單。鴻綸科技依校園研習現場經驗整理。">
+<link rel="canonical" href="https://www.hunglun.com/knowledge/ai-teaching">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 融入教學實務指南｜鴻綸科技">
+<meta property="og:description" content="教師端備課、評量與行政的 AI 應用，以及學生使用規範的訂定方式。">
+<meta property="og:url" content="https://www.hunglun.com/knowledge/ai-teaching">
+<meta property="og:image" content="https://www.hunglun.com/assets/og/knowledge-ai-teaching.png?v=5">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI 融入教學實務指南｜鴻綸科技">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 融入教學實務指南｜鴻綸科技">
+<meta name="twitter:description" content="教師端備課、評量與行政的 AI 應用，以及學生使用規範的訂定方式。">
+<meta name="twitter:image" content="https://www.hunglun.com/assets/og/knowledge-ai-teaching.png?v=5">
+<meta name="twitter:image:alt" content="AI 融入教學實務指南｜鴻綸科技">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<link rel="preconnect" href="https://huglun2026-visits.hunglun2026.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="https://huglun2026-visits.hunglun2026.workers.dev">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hunglun-notosanstc-core.woff2?v=86" crossorigin>
+<link rel="stylesheet" href="/assets/style.css?v=118">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://www.hunglun.com/" },
+    { "@type": "ListItem", "position": 2, "name": "教學專區", "item": "https://www.hunglun.com/knowledge" },
+    { "@type": "ListItem", "position": 3, "name": "Google 與 AI 導入", "item": "https://www.hunglun.com/knowledge/topic/google-ai" },
+    { "@type": "ListItem", "position": 4, "name": "AI 融入教學實務指南", "item": "https://www.hunglun.com/knowledge/ai-teaching" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "dateModified": "2026-08-04",
+  "mainEntity": [
+    { "@type": "Question", "name": "老師剛開始用 AI，從哪 1 項工作切入最有感？", "acceptedAnswer": { "@type": "Answer", "text": "建議從「差異化教材」開始。同一份課文或講義，請 AI 產出 3 種難度的版本、或改寫成不同閱讀程度的敘述，這是老師平常想做但沒時間做的事，效益立刻看得到，而且就算產出結果不完美，老師本來就會再修改，風險很低。相對地，不建議一開始就拿 AI 來寫成績評語或處理學生資料，那類工作牽涉個資與教育專業判斷，應該等使用習慣與規範都建立之後再談。" } },
+    { "@type": "Question", "name": "哪些教學工作不應該交給 AI？", "acceptedAnswer": { "@type": "Answer", "text": "3 類要特別謹慎：一是成績評定與學生輔導決策，這涉及教育專業判斷與對個別學生的長期理解，AI 沒有這些脈絡；二是任何需要輸入學生姓名、學號、家庭狀況、成績等個人資料的操作，除非確認該工具的資料處理政策符合學校規範，否則不應輸入；三是需要正確性擔保的事實內容，例如考題的標準答案、法規依據、歷史年代，AI 可能產生看似合理但錯誤的內容（AI 幻覺），最後一關的查核責任仍在老師身上。" } },
+    { "@type": "Question", "name": "學生用 AI 寫作業，該禁止還是開放？", "acceptedAnswer": { "@type": "Answer", "text": "與其全面禁止或全面開放，比較可行的是依作業目標分成 3 個層級並事先講清楚：第一級「不得使用」，用於要評量學生自身基礎能力的作業，例如課堂限時寫作、計算練習；第二級「可使用但須標註」，學生要說明用 AI 做了什麼、自己修改了什麼，適用於資料蒐集、初稿發想；第三級「鼓勵使用」，把 AI 當成工具的專題製作，重點評量在提問品質、判讀與整合能力。關鍵是每份作業出題時就標明屬於哪一級，而不是事後才爭論。" } },
+    { "@type": "Question", "name": "怎麼判斷學生的作業是不是 AI 寫的？", "acceptedAnswer": { "@type": "Answer", "text": "目前沒有可靠的偵測工具，市面上的 AI 偵測器誤判率高，把它當成處分依據風險很大。尤其對非母語寫作者與寫作風格較制式的學生特別不利。比較務實的作法是改變評量設計而非加強偵測：增加課堂即席的口頭說明、要求提交過程稿與修改紀錄、把題目連結到課堂特有的討論或在地情境，這些都是 AI 難以代勞的。當評量本身能反映真實理解，是否使用 AI 就不再是主要問題。" } },
+    { "@type": "Question", "name": "學校要讓學生使用 AI，帳號和政策上要注意什麼？", "acceptedAnswer": { "@type": "Answer", "text": "重點有三：一是年齡與帳號資格，各家 AI 服務對未成年使用者的規定不同，且會隨政策調整，導入前應確認當下的最新條款；二是使用學校網域帳號而非學生個人帳號，教育版或企業版通常在資料處理上有較明確的保障，也方便統一管理；三是明確告知學生哪些資訊不可輸入（真實姓名、地址、他人個資、未公開的校內資料）。這些應該在使用前以書面形式讓師生與家長知悉，而不是出事後才補。" } },
+    { "@type": "Question", "name": "AI 會不會讓學生失去思考能力？", "acceptedAnswer": { "@type": "Answer", "text": "這取決於作業怎麼設計。如果題目本身是「找出答案並寫下來」，AI 確實會取代掉思考的過程；但如果題目要求學生比較 2 個 AI 產出的答案哪個更合理並說明理由、或要求學生指出 AI 回答中的錯誤，思考反而被放到更高的層次。實務上有效的方向是把評量重點從「產出結果」移到「提問品質、判讀依據與修改決策」，這也正是學生未來實際會用到的能力。" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI 融入教學實務指南",
+  "description": "寫給教師的 AI 教學實務指南：哪些備課與評量工作最適合交給 AI、哪些絕對不該交、學生使用 AI 的規範怎麼訂（3 個層級）、課堂實施會遇到的帳號與政策問題，以及教師自我檢核清單。鴻綸科技依校園研習現場經驗整理。",
+  "image": "https://www.hunglun.com/assets/hunglun-logo-dark.png",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-04",
+  "author": {
+    "@type": "Person",
+    "name": "鴻綸科技 Steve",
+    "jobTitle": "Google 認證講師",
+    "worksFor": {
+      "@id": "https://www.hunglun.com/#organization"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "鴻綸科技股份有限公司",
+    "url": "https://www.hunglun.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.hunglun.com/assets/hunglun-logo-dark.png"
+    },
+    "@id": "https://www.hunglun.com/#organization"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.hunglun.com/knowledge/ai-teaching"
+  },
+  "inLanguage": "zh-Hant-TW",
+  "isAccessibleForFree": true
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/"><span class="brand-logo" role="img" aria-label="鴻綸科技 Hunglun Technology"></span></a>
+    <div class="header-visit-counter" title="累計瀏覽人次">👀 <span id="visitCount">--</span></div>
+    <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="主選單">
+      <a href="/about">關於我們</a>
+      <a href="/google">Google 解決方案</a>
+      <a href="/services">教育方案</a>
+      <a href="/enterprise">企業方案</a>
+      <a href="/software">數位學習軟體導入</a>
+      <a href="/knowledge" class="active">教學專區</a>
+      <a href="/tools/games">學習專區</a>
+      <a href="/tools" class="mobile-tools-link">資源分享</a>
+      <a href="/contact" class="mobile-contact-link">聯絡我們</a>
+    </nav>
+      <div class="nav-tools">
+        <a href="/tools" class="nav-tools-trigger">資源分享</a>
+      </div>
+      <a href="/contact" class="nav-contact-cta">聯絡我們</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">🌙</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<div class="page-head">
+  <div class="wrap">
+    <nav class="section-sub reveal" style="margin:0 0 10px;text-align:center;" aria-label="麵包屑"><a href="/knowledge">教學專區</a> ／ <a href="/knowledge/topic/google-ai">Google 與 AI 導入</a> ／ AI 融入教學實務指南</nav>
+    <h1>AI 融入教學實務指南</h1>
+    <p>備課、評量、行政，以及學生使用規範該怎麼訂。</p>
+    <p class="kb-audience" style="margin-top:14px;font-size:0.9rem;color:var(--muted);"><strong>這篇適合：</strong>國中小、高中職與大專的資訊組長、教學組長，以及正在評估 Google AI 導入校園的行政人員。</p>
+    <p style="color:var(--muted-faint);font-size:0.8rem;margin-top:8px;">作者：鴻綸科技 Steve｜最後更新：<time datetime="2026-08-04">2026 年 8 月 4 日</time></p>
+  </div>
+</div>
+
+<div class="wrap" style="max-width:920px;">
+  <nav class="series-pager" aria-label="繼續閱讀">
+    <a class="btn btn-primary series-next" href="/knowledge/ai-assessment-design">下一篇：AI 時代的評量設計 →</a>
+  </nav>
+</div>
+
+<section class="section">
+  <div class="wrap prose" style="max-width:780px;">
+    <div class="kb-quick" data-quick-answer>
+      <h2>重點先看</h2>
+      <ul>
+        <li><strong>AI 融入教學該怎麼開始？</strong>先把教師備課、學生課堂使用、行政文書分開看。建議先讓老師自己用順手，再訂學生使用規範。</li>
+        <li><strong>學生使用 AI 要怎麼規範？</strong>依作業要評量什麼分三級：不得使用、可用但須標註、鼓勵使用，並在出題時就標明。</li>
+        <li><strong>可以用 AI 偵測工具抓學生作弊嗎？</strong>目前沒有可靠的偵測工具，誤判率高，拿來當處分依據風險很大。更務實的做法是調整評量設計，例如口頭說明、提交過程稿。</li>
+        <li><strong>哪些事不該交給 AI？</strong>成績評定與輔導決策、涉及學生個資的操作，以及需要正確性擔保的事實（標準答案、法規依據、歷史年代與數據）。</li>
+      </ul>
+    </div>
+
+    <p>談「AI 融入教學」最常見的問題，是把 3 種完全不同的事混在一起講：老師自己拿 AI 備課、學生在課堂上使用 AI、以及用 AI 處理行政文書。這 3 件事的風險、規範與效益都不一樣，混著談就很難有結論。</p>
+    <p>這篇把它們拆開，並且聚焦在「下週就能用」的層次，不談模型原理。如果需要先理解 AI 的基本概念，可先看<a href="/knowledge/ai">AI 入門百科</a>；如果是要比較各版本方案的差異，請看<a href="/knowledge/gemini">Gemini 方案比較</a>。</p>
+
+    <h2>一、3 種用法要分開看</h2>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col"><span class="visually-hidden">比較項目</span></th><th scope="col">教師備課</th><th scope="col">學生課堂使用</th><th scope="col">行政文書</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">主要風險</th>
+            <td>內容正確性</td>
+            <td>個資、學習依賴</td>
+            <td>個資、公文正確性</td>
+          </tr>
+          <tr>
+            <th scope="row">誰負最後責任</th>
+            <td>老師本人查核</td>
+            <td>需事先訂使用規範</td>
+            <td>承辦人與核稿層級</td>
+          </tr>
+          <tr>
+            <th scope="row">導入難度</th>
+            <td>低，可個別開始</td>
+            <td>高，需全校共識</td>
+            <td>中，需配合既有流程</td>
+          </tr>
+          <tr>
+            <th scope="row">建議順序</th>
+            <td>先從這裡開始</td>
+            <td>規範訂好再開放</td>
+            <td>可同步進行</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>建議的推動順序是：先讓老師自己用順手，再談學生使用。老師沒有實際用過，就很難訂出合理的學生規範，也很難判斷學生交上來的東西是怎麼產生的。</p>
+
+    <h2>二、教師端最快有感的 4 件事</h2>
+    <ul class="feature-list">
+      <li><strong>差異化教材</strong>：同一份課文請 AI 產出不同閱讀難度的版本，或把抽象概念改寫成貼近學生生活的例子。這是老師想做但通常沒時間做的事，而且產出後本來就會再修改，容錯高。</li>
+      <li><strong>評量題目初稿</strong>：請 AI 依據指定的學習目標與難度產出題目，老師再篩選修改。注意標準答案一定要自己核對，這是最容易出錯的地方。</li>
+      <li><strong>回饋語草稿</strong>：針對常見的錯誤類型先產出幾種回饋寫法，老師再依學生個別狀況調整。要留意的是回饋內容仍須基於老師對該生的實際觀察，不能整段套用。</li>
+      <li><strong>行政文書</strong>：計畫書、通知單、成果報告的初稿與格式整理。這類文件結構固定、內容不涉及個別學生資料，是行政減負最快的切入點。</li>
+    </ul>
+
+    <h2>三、不該交給 AI 的 3 類事</h2>
+    <ul class="feature-list">
+      <li><strong>成績評定與輔導決策</strong>：這需要對個別學生的長期理解與教育專業判斷，AI 沒有這些脈絡，也無法承擔責任。</li>
+      <li><strong>涉及學生個資的操作</strong>：姓名、學號、家庭狀況、成績等資料，除非確認該工具的資料處理政策符合學校規範，否則不應輸入。相關考量可參考<a href="/knowledge/privacy">個資法與校園資安須知</a>。</li>
+      <li><strong>需要正確性擔保的事實</strong>：標準答案、法規依據、歷史年代與數據。AI 可能產生看似合理但錯誤的內容，最後一關的查核責任仍在老師身上。</li>
+    </ul>
+
+    <h2>四、學生使用規範：分三級，事先講清楚</h2>
+    <p>全面禁止不切實際，全面開放又會架空部分評量。比較可行的是依「這份作業要評量什麼」分級，並在出題時就標明：</p>
+    <div class="spec-table-wrap">
+      <table class="spec-table">
+        <thead>
+          <tr><th scope="col">層級</th><th scope="col">適用作業</th><th scope="col">學生要做什麼</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">不得使用</th>
+            <td>評量基礎能力，如限時寫作、計算練習</td>
+            <td>完全自力完成</td>
+          </tr>
+          <tr>
+            <th scope="row">可用但須標註</th>
+            <td>資料蒐集、初稿發想</td>
+            <td>說明用 AI 做了什麼、自己改了什麼</td>
+          </tr>
+          <tr>
+            <th scope="row">鼓勵使用</th>
+            <td>專題製作、跨領域探究</td>
+            <td>呈現提問過程與判讀依據</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>關鍵在於每份作業出題時就標明屬於哪一級，而不是事後才爭論。這也讓學生清楚知道「什麼時候該靠自己」有明確理由，而不是單純的禁令。</p>
+
+    <h2>五、與其偵測，不如改變評量設計</h2>
+    <p>目前沒有可靠的 AI 偵測工具，市面上的偵測器誤判率高，拿來當處分依據風險很大。對非母語寫作者與寫作風格較制式的學生尤其不利。</p>
+    <p>更務實的方向是讓評量本身能反映真實理解：增加課堂即席的口頭說明、要求提交過程稿與修改紀錄、把題目連結到課堂特有的討論或在地情境。當評量設計對了，是否使用 AI 就不再是主要問題。四種題型的具體改法與可直接套用的題目範例，整理在<a href="/knowledge/ai-assessment-design">AI 時代的評量設計</a>。</p>
+
+    <h2>六、實施前的檢核清單</h2>
+    <ul class="feature-list">
+      <li>使用的是學校網域帳號還是學生個人帳號？教育版或企業版在資料處理上通常有較明確的保障。</li>
+      <li>各家服務對未成年使用者的規定不同且會調整，導入前是否確認過當下的最新條款？</li>
+      <li>是否明確告知學生哪些資訊不可輸入（真實姓名、地址、他人個資、未公開的校內資料）？</li>
+      <li>使用規範是否以書面讓師生與家長知悉，而不是出事後才補？</li>
+      <li>老師自己是否先實際用過一輪，足以判斷學生產出的內容？</li>
+    </ul>
+    <p>若學校希望以研習形式一次帶起教師群的使用習慣，可參考<a href="/services/campus-training">校園研習服務</a>，課程模組可依實際課程需求組合。</p>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="max-width:780px;">
+    <h2 class="section-title reveal">常見問題</h2>
+    <details class="faq-item reveal" open>
+      <summary>老師剛開始用 AI，從哪 1 項工作切入最有感？</summary>
+      <div class="faq-a">建議從「差異化教材」開始。同一份課文或講義，請 AI 產出 3 種難度的版本、或改寫成不同閱讀程度的敘述，這是老師平常想做但沒時間做的事，效益立刻看得到，而且就算產出結果不完美，老師本來就會再修改，風險很低。相對地，不建議一開始就拿 AI 來寫成績評語或處理學生資料，那類工作牽涉個資與教育專業判斷，應該等使用習慣與規範都建立之後再談。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>哪些教學工作不應該交給 AI？</summary>
+      <div class="faq-a">3 類要特別謹慎：一是成績評定與學生輔導決策，這涉及教育專業判斷與對個別學生的長期理解，AI 沒有這些脈絡；二是任何需要輸入學生姓名、學號、家庭狀況、成績等個人資料的操作，除非確認該工具的資料處理政策符合學校規範，否則不應輸入；三是需要正確性擔保的事實內容，例如考題的標準答案、法規依據、歷史年代，AI 可能產生看似合理但錯誤的內容（AI 幻覺），最後一關的查核責任仍在老師身上。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學生用 AI 寫作業，該禁止還是開放？</summary>
+      <div class="faq-a">與其全面禁止或全面開放，比較可行的是依作業目標分成 3 個層級並事先講清楚：第一級「不得使用」，用於要評量學生自身基礎能力的作業，例如課堂限時寫作、計算練習；第二級「可使用但須標註」，學生要說明用 AI 做了什麼、自己修改了什麼，適用於資料蒐集、初稿發想；第三級「鼓勵使用」，把 AI 當成工具的專題製作，重點評量在提問品質、判讀與整合能力。關鍵是每份作業出題時就標明屬於哪一級，而不是事後才爭論。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>怎麼判斷學生的作業是不是 AI 寫的？</summary>
+      <div class="faq-a">目前沒有可靠的偵測工具，市面上的 AI 偵測器誤判率高，把它當成處分依據風險很大。尤其對非母語寫作者與寫作風格較制式的學生特別不利。比較務實的作法是改變評量設計而非加強偵測：增加課堂即席的口頭說明、要求提交過程稿與修改紀錄、把題目連結到課堂特有的討論或在地情境，這些都是 AI 難以代勞的。當評量本身能反映真實理解，是否使用 AI 就不再是主要問題。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>學校要讓學生使用 AI，帳號和政策上要注意什麼？</summary>
+      <div class="faq-a">重點有三：一是年齡與帳號資格，各家 AI 服務對未成年使用者的規定不同，且會隨政策調整，導入前應確認當下的最新條款；二是使用學校網域帳號而非學生個人帳號，教育版或企業版通常在資料處理上有較明確的保障，也方便統一管理；三是明確告知學生哪些資訊不可輸入（真實姓名、地址、他人個資、未公開的校內資料）。這些應該在使用前以書面形式讓師生與家長知悉，而不是出事後才補。</div>
+    </details>
+    <details class="faq-item reveal">
+      <summary>AI 會不會讓學生失去思考能力？</summary>
+      <div class="faq-a">這取決於作業怎麼設計。如果題目本身是「找出答案並寫下來」，AI 確實會取代掉思考的過程；但如果題目要求學生比較 2 個 AI 產出的答案哪個更合理並說明理由、或要求學生指出 AI 回答中的錯誤，思考反而被放到更高的層次。實務上有效的方向是把評量重點從「產出結果」移到「提問品質、判讀依據與修改決策」，這也正是學生未來實際會用到的能力。</div>
+    </details>
+    <div class="share-box">
+      <p class="share-box-lead">💡 這篇對同事也有幫助嗎？</p>
+      <p class="share-box-text">歡迎複製下面這段文字，分享到貴校的教師群組：</p>
+      <button type="button" class="fc-copy" data-copy="夥伴們！鴻綸科技整理了一篇《AI 課堂使用怎麼定規則》，把哪些工作能用 AI、學生作業怎麼分級都寫清楚了，分享給大家參考：https://www.hunglun.com/knowledge/ai-teaching" data-label="複製分享文字">複製分享文字</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <nav class="series-pager" aria-label="繼續閱讀（文末）" style="margin:0 0 32px;padding-top:0;border-top:none;">
+      <a class="btn btn-primary series-next" href="/knowledge/ai-assessment-design">下一篇：AI 時代的評量設計 →</a>
+    </nav>
+
+    <h2 class="section-title reveal">延伸閱讀</h2>
+    <p class="section-sub reveal">AI 概念、方案選擇與研習規劃。</p>
+    <div class="grid">
+      <a class="card reveal" href="/knowledge/ai-assessment-design">
+        <div class="card-body"><h3>AI 時代的評量設計</h3><p>不靠偵測器，靠題目本身：四種題型的具體改法與可套用範例。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/admin-automation">
+        <div class="card-body"><h3>學校行政可以自動化的十件事</h3><p>會議紀錄、活動通知、資料核對，AI 幫得上忙的地方。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/ai-copyright">
+        <div class="card-body"><h3>AI 生成教材的著作權界線</h3><p>生成的教材算誰的著作、對外散布有沒有侵權風險。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/ai">
+        <div class="card-body"><h3>AI 入門百科</h3><p>什麼是 AI、生成式 AI、大型語言模型與 AI 幻覺。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/gemini">
+        <div class="card-body"><h3>Gemini 方案比較</h3><p>個人版、教育版與企業版的差異與資料處理政策。</p></div>
+      </a>
+      <a class="card reveal" href="/services/campus-training">
+        <div class="card-body"><h3>校園研習服務</h3><p>依實際課程需求組合的教師研習模組。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/training-planning">
+        <div class="card-body"><h3>校內研習怎麼規劃才有效</h3><p>時數怎麼抓、要不要分場、講師怎麼挑、研習後怎麼追蹤。</p></div>
+      </a>
+      <a class="card reveal" href="/knowledge/student-ai-policy">
+        <div class="card-body"><h3>學生使用 AI 的校內規範怎麼訂</h3><p>年齡分級、禁止事項、學術誠信揭露機制範本框架。</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">想為校內教師辦一場 AI 研習？</h2>
+    <p class="section-sub reveal">告訴我們對象與時數，內容會配合實際的課調整。</p>
+    <a class="btn btn-primary reveal" href="/contact">聯絡我們</a>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="wrap" style="max-width:820px;">
+    <div class="svc-cta" data-hl-kb-cta>
+      <h2 style="margin-top:0;">學校正在評估 AI 導入？</h2>
+      <p>導入前先把下面幾項整理出來，後面的方案評估與報價會快很多。</p>
+      <ul class="feature-list" style="margin:16px 0;">
+        <li>預計使用人數（教師、學生分開算）</li>
+        <li>目前使用的 Google Workspace for Education 版本</li>
+        <li>希望先從哪一群人開始用（例如行政、種子教師、特定年級）</li>
+        <li>是否需要搭配教師研習</li>
+        <li>預計導入時間與經費來源</li>
+      </ul>
+      <p style="font-size:0.9rem;color:var(--muted);">整理好直接寄給我們，鴻綸科技是 Google for Education Professional Development Partner，會依貴校現況回覆建議方案。</p>
+      <!--email_off--><a class="btn btn-primary" href="mailto:gfeh@hunglun.com?subject=%E8%A9%A2%E5%95%8F%E6%A0%A1%E5%9C%92%20AI%20%E5%B0%8E%E5%85%A5%E6%96%B9%E6%A1%88&body=%EF%BC%88%E4%BB%A5%E4%B8%8B%E8%B3%87%E6%96%99%E5%8F%AF%E4%BE%9D%E5%AF%A6%E9%9A%9B%E6%83%85%E6%B3%81%E5%A2%9E%E6%B8%9B%EF%BC%8C%E5%A1%AB%E5%BE%97%E8%B6%8A%E6%B8%85%E6%A5%9A%E6%88%91%E5%80%91%E5%9B%9E%E8%A6%86%E5%BE%97%E8%B6%8A%E7%B2%BE%E6%BA%96%EF%BC%89%0A%0A%E9%A0%90%E8%A8%88%E4%BD%BF%E7%94%A8%E4%BA%BA%E6%95%B8%EF%BC%9A%0A%E7%9B%AE%E5%89%8D%E4%BD%BF%E7%94%A8%E7%9A%84%20Google%20Workspace%20for%20Education%20%E7%89%88%E6%9C%AC%EF%BC%9A%0A%E5%B8%8C%E6%9C%9B%E5%85%88%E5%BE%9E%E5%93%AA%E4%B8%80%E7%BE%A4%E4%BA%BA%E9%96%8B%E5%A7%8B%E7%94%A8%EF%BC%9A%0A%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%90%AD%E9%85%8D%E6%95%99%E5%B8%AB%E7%A0%94%E7%BF%92%EF%BC%9A%0A%E9%A0%90%E8%A8%88%E5%B0%8E%E5%85%A5%E6%99%82%E9%96%93%E8%88%87%E7%B6%93%E8%B2%BB%E4%BE%86%E6%BA%90%EF%BC%9A%0A%0A%E5%AD%B8%E6%A0%A1%EF%BC%8F%E5%96%AE%E4%BD%8D%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E4%BA%BA%E8%88%87%E8%81%B7%E7%A8%B1%EF%BC%9A%0A%E8%81%AF%E7%B5%A1%E9%9B%BB%E8%A9%B1%EF%BC%9A%0A%0A%EF%BC%88%E4%BE%86%E8%87%AA%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E5%AE%98%E7%B6%B2%E6%96%87%E7%AB%A0%EF%BC%9AAI%20%E8%9E%8D%E5%85%A5%E6%95%99%E5%AD%B8%E5%AF%A6%E5%8B%99%E6%8C%87%E5%8D%97%EF%BC%89">寄信詢問：校園 AI 導入方案</a><!--/email_off-->
+      <a class="btn" href="tel:+88666371192">來電 06-6371192</a>
+      <a class="btn" href="/services/campus-training">看校園研習方案 →</a>
+      <a class="btn" href="/services/google-ai-pro">看 Google AI Pro 授權導入服務 →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <span class="footer-logo-img" role="img" aria-label="鴻綸科技"></span>
+        <p>鴻綸科技股份有限公司<br>台南市新營區綠川路10號<br>週一至週五 08:30–17:30</p>
+      </div>
+      <div>
+        <h2>網站導覽</h2>
+        <ul class="footer-nav">
+          <li><a href="/about">關於我們</a></li>
+          <li><a href="/google">Google 解決方案</a></li>
+          <li><a href="/services">服務項目</a></li>
+          <li><a href="/services#cases">成功案例</a></li>
+          <li><a href="/software">數位學習軟體導入</a></li>
+          <li><a href="/knowledge">教學專區</a></li>
+          <li><a href="/tools/games">學習專區</a></li>
+          <li><a href="/insights">教育科技觀察</a></li>
+          <li><a href="/tools">資源分享</a></li>
+          <li><a href="/faq">常見問題</a></li>
+          <li><a href="/privacy">隱私權政策</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>聯絡方式</h2>
+        <ul class="footer-contact">
+          <li><a href="tel:+88666371192"><span class="fc-key">電話</span><span class="fc-val">06-6371192<em>週一至週五 08:30–17:30</em></span></a></li>
+          <!--email_off--><li class="fc-has-copy"><a href="mailto:gfeh@hunglun.com"><span class="fc-key">信箱</span><span class="fc-val">gfeh@hunglun.com<em>傳真 06-6371112</em></span></a><button type="button" class="fc-copy" data-copy="gfeh@hunglun.com" data-label="複製信箱" aria-label="複製信箱地址 gfeh@hunglun.com">複製信箱</button></li><!--/email_off-->
+          <li class="fc-has-copy"><a href="https://lin.ee/zo6euCb" target="_blank" rel="noopener"><span class="fc-key">LINE</span><span class="fc-val">@gdm6961p<em>電腦版請在 LINE 搜尋 ID 加入</em></span></a><button type="button" class="fc-copy" data-copy="@gdm6961p" data-label="複製 ID" aria-label="複製 ID，LINE 官方帳號 @gdm6961p">複製 ID</button></li>
+          <li><a href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener"><span class="fc-key">粉絲頁</span><span class="fc-val">Facebook<em>鴻綸科技</em></span></a></li>
+          <li><a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" target="_blank" rel="noopener"><span class="fc-key">地址</span><span class="fc-val">台南市新營區綠川路10號<em>開啟 Google 地圖</em></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 鴻綸科技股份有限公司 Hunglun Technology Co., Ltd. All rights reserved. <span class="site-version">v1.33.6</span></div>  </div>
+</footer>
+<div class="contact-fab" role="complementary" aria-label="快速聯絡">
+  <span class="fab-label">線上諮詢</span>
+  <a class="fab-fb" href="https://www.facebook.com/hungluntechnology" target="_blank" rel="noopener" aria-label="鴻綸科技 Facebook 粉絲頁" title="Facebook 粉絲頁"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg></a>
+  <a class="fab-line" href="https://lin.ee/zo6euCb" target="_blank" rel="noopener" aria-label="鴻綸科技 LINE 官方帳號 @gdm6961p" title="LINE 官方帳號（電腦版請搜尋 ID：@gdm6961p）"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+  <a href="https://www.google.com.tw/maps/place/%E9%B4%BB%E7%B6%B8%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/@23.3093251,120.3220502,17z/data=!4m5!3m4!1s0x346e85e863de224f:0x93c5d03a04347242!8m2!3d23.310542!4d120.323917?hl=zh-TW" class="fab-map" target="_blank" rel="noopener" aria-label="鴻綸科技 Google Map 地圖位置" title="Google Map 地圖"><img width="160" height="160" src="/assets/icon-gmap-colorful.webp" alt="" loading="lazy" decoding="async"></a>
+  <a class="fab-form" href="/contact?topic=training#contactForm" aria-label="填寫線上詢問表單" title="填寫線上詢問表單"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></a>
+  <a class="fab-mail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=gfeh@hunglun.com" target="_blank" rel="noopener" aria-label="寄信給 gfeh@hunglun.com（開啟 Gmail）" title="寄信給 gfeh@hunglun.com"><img width="88" height="66" src="/assets/icon-gmail.svg" alt="" loading="lazy" decoding="async"></a>
+</div>
+
+
+<script src="/assets/main.js?v=33"></script>
+<script src="/assets/wordwrap.js?v=2"></script>
+<script src="/shop/bar.js?v=9" defer></script></body>
+</html>
